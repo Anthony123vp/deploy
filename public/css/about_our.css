@@ -1,0 +1,239 @@
+
+.wrapper {
+  padding: 60px;
+  width: 100%;
+  left: 0%;
+  position: relative;
+}
+.wrapper i {
+  top: 50%;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  font-size: 1.25rem;
+  position: absolute;
+  text-align: center;
+  line-height: 50px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.23);
+  transform: translateY(-50%);
+  transition: transform 0.1s linear;
+}
+.wrapper i:active{
+  transform: translateY(-50%) scale(0.85);
+}
+.wrapper i:first-child{
+  left: 0px;
+}
+.wrapper i:last-child{
+  right: 0px;
+}
+.wrapper .carousel{
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% / 3) - 12px);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 16px;
+  border-radius: 8px;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+.carousel.no-transition {
+  scroll-behavior: auto;
+}
+.carousel.dragging {
+  scroll-snap-type: none;
+  scroll-behavior: auto;
+}
+.carousel.dragging .card {
+  cursor: grab;
+  user-select: none;
+}
+.carousel :where(.card, .img) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.carousel .card {
+  scroll-snap-align: start;
+  height: 500px;
+  list-style: none;
+  background: #fff;
+  cursor: pointer;
+  padding-bottom: 15px;
+  flex-direction: column;
+  border-radius: 8px;
+}
+.carousel .card .img {
+  background: #8B53FF;
+  height: 148px;
+  width: 148px;
+  border-radius: 50%;
+}
+
+.carousel .card h2 {
+  font-weight: 500;
+  font-size: 1.56rem;
+  margin: 30px 0 5px;
+}
+.carousel .card span {
+  color: #6A6D78;
+  font-size: 1.31rem;
+}
+
+@media screen and (max-width: 900px) {
+  .wrapper .carousel {
+    grid-auto-columns: calc((100% / 2) - 9px);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .wrapper .carousel {
+    grid-auto-columns: 100%;
+  }
+}
+
+
+.text{
+  width: 100%;
+  max-height: 400px;
+  
+}
+
+.text h1{
+  text-align: center;
+  margin: 25px 0 20px 0;
+}
+.raya{
+  
+  width: 20%;
+  height: 2px;
+  margin: 0 auto;
+  background-color: orange;
+}
+
+.text p {
+  font-size: 20px;
+  text-align: center;
+  margin: 30px;
+}
+
+.contend{
+  display: flex;
+  height: auto;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+  margin: 100px 0 0 0;
+}
+.contend img{
+  width: 90%;
+  margin: 20px;
+}
+
+.contend div{
+  border-radius: 10px;
+  box-shadow: 0 0 20px 0px black;
+  
+  
+}
+.contend div:hover{
+  transition: transform 1s ease;
+  transform:  scale(1.1);
+}
+.contend div:not(:hover){
+  transition: transform 1s ease;
+}
+.contend h2,p{
+  text-align: center;
+  
+}
+.bn{
+  width: 90%;
+  height: 62%;
+}
+.img5{
+  width: 90%;
+  height: 62%;
+}
+.mainCarrosel{
+  display: flex;
+  background-color:#EEEEEE;
+  margin: 100px 0 0 0;
+  align-items: center;
+  height: 800px;
+}
+.textCarrosel{
+  position: relative;
+  display: inline-block;
+  height: 800px;
+  width: 30%;
+  text-align: center;
+}
+.textCarrosel h1{
+  padding-top: 50px;
+  font-size: 50px;
+}
+.textCarrosel p{
+  text-align: start;
+  padding: 50px;
+}
+.textCarrosel h2{
+  font-size: 40px;
+  padding: 0 20px;
+}
+@media (max-width:955px){
+  .textCarrosel p{
+      text-align: start;
+      padding: 20px 20px 0 20px;
+      height: auto;
+  }
+  .textCarrosel h2{
+      font-size: 40px;
+      padding: 0 5px;
+  }
+}
+@media (max-width:1315px){
+  .textCarrosel p{
+      text-align: start;
+      padding: 20px 20px 0 20px;
+      height: auto;
+  }
+  .textCarrosel h2{
+      font-size: 40px;
+      padding: 0 5px;
+  }
+}
+@media (max-width: 680px){
+  .textCarrosel p{
+      display: none;
+  }  
+  .textCarrosel h2{
+      display: none;
+  } 
+  .mainCarrosel{
+      position: relative;
+  }
+  .textCarrosel{
+      position: absolute;
+      display: inline-block;
+      height: 100px;
+      width: 100%;
+      text-align: center;
+      padding: 20px;
+      bottom: 95%;
+  }
+}
+
+@media (max-width:480px){
+  .ContOne , .ContTwo, .ContTree{
+      width: 80%;
+       }
+}

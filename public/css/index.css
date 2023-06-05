@@ -1,0 +1,746 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Poppins:wght@200;300&display=swap');
+
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    color: black;
+    /*border: 2px solid wheat;*/
+    /*Poner esto me podria ayudar a ver que elemtno genera un scroll horizontal */
+
+}
+
+body {
+    height: 100vh;
+}
+
+
+/*SECTION ONE*/
+.CarouselImagenes {
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f7f7f7;
+}
+
+.slider {
+    width: 100%;
+    height: 700px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.slides {
+    width: 500%;
+    height: 700px;
+    display: flex;
+}
+
+.slides input {
+    display: none;
+}
+
+.slide {
+    width: 20%;
+    transition: 2s;
+    display: flex;
+    justify-content: space-between;
+}
+
+.slide .body {
+    margin-top: 50px;
+    padding: 100px;
+}
+
+.slide .body h1 {
+    line-height: 4rem;
+    font-family: "Montserrat", sans-serif;
+}
+
+.slide .body .Definition {
+    padding: 20px 0px;
+    width: 300px;
+    text-align: left;
+    font-weight: 400;
+    font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #9b9b9b;
+
+}
+
+.slide .body a {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50px;
+    letter-spacing: 1px;
+    width: 240px;
+    font-size: 20px;
+    height: 70px;
+    color: black;
+    font-weight: 500;
+    background-color: #AEF4CE;
+}
+
+.slide .body .p {
+    padding: 0px !important;
+}
+
+.slide .body hr {
+    border-top: 5px solid #99f6c3;
+    width: 18rem;
+    display: flex;
+    opacity: 0.9;
+}
+
+.slide .body a:hover {
+    background-color: rgb(171, 171, 171);
+    transition: 1s all;
+}
+
+.slide .body-img img {
+    transform: scale(0.8);
+}
+
+
+.navigation-manual {
+    position: absolute;
+    right: 10px;
+    top: 320px;
+    width: 10px;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.manual-btn {
+    border: 2px solid #99f6c3;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.manual-btn:not(:last-child) {
+    margin-bottom: 30px;
+}
+
+.manual-btn:hover {
+    background-color: #99f6c3;
+}
+
+#radio1:checked~.first {
+    margin-left: 0;
+}
+
+#radio2:checked~.first {
+    margin-left: -20%;
+}
+
+#radio3:checked~.first {
+    margin-left: -40%;
+}
+
+#radio4:checked~.first {
+    margin-left: -60%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*WHY CHOOSE US*/
+
+
+.ChooseUs {
+    display: flex;
+    width: 100%;
+    padding: 100px 0px;
+    margin-bottom: 100px;
+    justify-content: space-evenly;
+
+}
+
+.imagenes {
+    position: relative;
+
+}
+
+.father {
+    z-index: 1;
+    width: 405px;
+    object-fit: cover;
+    padding: 0px 30px;
+    padding-top: 10px;
+    background-color: #e8e7e7;
+}
+
+.son {
+    z-index: -1;
+    position: absolute;
+    left: -83px;
+    width: 405px;
+    height: 400px;
+    object-fit: cover;
+    bottom: -75px;
+}
+
+
+.infochosse {
+    width: 400px;
+}
+
+.infochosse h1 {
+    font-weight: 300;
+    font-family: "Montserrat", sans-serif;
+
+}
+
+.infochosse .title {
+    display: flex;
+    align-items: center;
+}
+
+.infochosse hr {
+    border-top: 5px solid #99f6c3;
+    width: 8rem;
+    margin-right: 15px;
+    align-items: center;
+    justify-content: center;
+    display: inline-flex;
+    opacity: 0.9;
+}
+
+.infochosse p {
+    font-weight: 400;
+    color: black;
+    font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.infochosse span {
+    font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #9b9b9b;
+    font-weight: 400;
+}
+
+.boton {
+    color: black;
+    display: flex;
+    justify-content: center;
+    width: 140px;
+    height: 50px;
+    align-items: center;
+    border-radius: 40px;
+    border: 3px solid #AEF4CE;
+    text-decoration: none;
+    letter-spacing: 1px;
+    margin-top: 5em;
+}
+
+.boton:hover {
+    background-color: #AEF4CE;
+    transition: 1s all;
+    border: 3px solid#52ba81;
+}
+
+
+
+
+/*section three*/
+.grid {
+    display: grid;
+    grid-template-columns: 60% 40%;
+}
+
+
+.SectionThree .caja1 .icon-container {
+    width: 90px;
+    height: 90px;
+    background-color: #AEF4CE;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.SectionThree .caja1 .caja-lecture .icon-container i {
+    font-size: 60px;
+}
+
+.SectionThree .caja1 .caja-lecture {
+    background-color: #f3f3f3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.SectionThree .caja1 .caja-lecture .description p {
+    padding: 0px 20px;
+}
+
+#first-lecture {
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+
+}
+
+#last-lecture {
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+
+}
+
+
+.SectionThree .caja1 {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+}
+
+.SectionThree .caja2 img {
+    object-fit: cover;
+}
+
+
+
+
+
+
+
+/*section four*/
+.SectionFour {
+    width: 100%;
+}
+
+.SectionFour .four-info {
+    text-align: center;
+    margin-top: 140px;
+    padding: 0px 180px;
+}
+
+.SectionFour .four-info hr {
+    border-top: 5px solid #99f6c3;
+    width: 8rem;
+    align-items: center;
+    justify-content: center;
+    display: inline-flex;
+    opacity: 0.9;
+}
+
+.SectionFour .four-info p {
+    color: #9b9b9b;
+}
+
+.SectionFour .experts {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    margin: 0 auto;
+
+}
+
+.SectionFour .experts hr {
+    background-color: black;
+    height: 4px;
+    margin: auto;
+}
+
+
+.SectionFour .experts .experts-personality {
+    max-width: 370px;
+    padding: 25px;
+    border-radius: 15px;
+    border: 3px solid #f4f4f4;
+    transition: all .3s;
+}
+
+.SectionFour .experts .experts-personality:hover {
+    transition: 1s all;
+    transform: scale(1.1);
+    box-shadow: 0px -3px 16px 21px #AEF4CE;
+    -webkit-caja-sombra: 0px -3px 16px 21px rgba(118, 216, 198, 0.45);
+    -moz-box-shadow: 0px -3px 16px 21px #AEF4CE;
+}
+
+
+#main-experts {
+    margin: 0 40px;
+}
+
+.SectionFour .experts .experts-personality img {
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+
+.SectionFour .experts .experts-personality .info {
+    text-align: center;
+    transition: all .3s;
+}
+
+.SectionFour .experts .experts-personality:hover {
+    box-shadow: 0 0 22px rgba(0, 0, 0, 0.1);
+}
+
+.SectionFour .boton {
+    margin: auto;
+    width: 220px;
+    margin-bottom: 60px;
+}
+
+
+/*TESTIMONIOS*/
+/* Google Fonts - Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+.testimonios {
+    font-family: "Poppins", sans-serif;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("../Imagenes/fondo.jpg");
+    background-repeat: no-repeat;
+    background-color: #ffffff;
+    margin: 50px 0px;
+}
+
+.testimonial {
+    position: relative;
+    max-width: 900px;
+    width: 100%;
+    padding: 50px 0;
+    overflow: hidden;
+}
+
+.testimonial .image {
+    height: 170px;
+    width: 170px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.testimonial .slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    row-gap: 30px;
+    height: 100%;
+    width: 100%;
+}
+
+.testimonial .slide p {
+    text-align: center;
+    padding: 0 160px;
+    font-size: 17px;
+    font-weight: 400;
+    color: #333;
+}
+
+.testimonial .slide .quote-icon {
+    font-size: 30px;
+    color: #AEF4CE;
+}
+
+.testimonial .slide .details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.testimonial .details .name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+}
+
+.testimonial .details .job {
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+}
+
+/* swiper button css */
+.testimonial .nav-btn {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    transform: translateY(30px);
+    background-color: rgba(0, 0, 0, 0.1);
+    transition: 0.2s;
+}
+
+.testimonial .nav-btn:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.testimonial .nav-btn::after,
+.testimonial .nav-btn::before {
+    font-size: 10px;
+    color: #fff;
+}
+
+.swiper-pagination-bullet {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.testimonial .swiper-pagination-bullet-active {
+    background-color: #AEF4CE !important;
+}
+
+@media screen and (max-width: 768px) {
+    .slide p {
+        padding: 0 20px;
+    }
+
+    .nav-btn {
+        display: none;
+    }
+}
+
+
+
+
+
+
+/*TELEFONO*/
+@media (max-width: 430px) {
+    .ChooseUs {
+        padding: 20px 0px;
+    }
+
+    .ChooseUs .imagenes {
+        display: none;
+    }
+
+    .infochosse {
+        padding: 0px 60px;
+    }
+
+
+    .grid {
+        display: grid;
+        grid-template-columns: 100%;
+    }
+
+
+
+
+
+    .SectionThree .caja1 .caja-lecture {
+        background-color: #f3f3f3;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    #first-lecture {
+        border: none;
+
+    }
+
+    #last-lecture {
+        border: none;
+    }
+
+
+    .SectionThree .caja1 {
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+    }
+
+    .SectionThree .caja2 {
+        display: none;
+    }
+
+
+
+
+}
+
+/*responsive TABLET*/
+
+
+@media (max-width: 992px) {
+
+
+    #logoHeader {
+        display: none;
+    }
+
+    .container-fluid {
+        display: grid !important;
+        grid-template-columns: 25% 75%;
+        flex-direction: row-reverse;
+    }
+
+    .navbar-brand {
+        display: grid;
+    }
+
+    #imgMovile {
+        margin: auto;
+    }
+
+    #img-logo {
+        display: none;
+    }
+
+    .header-static {
+        display: none;
+    }
+
+    .show li {
+        padding: 4px;
+        width: 200px;
+    }
+
+    .ChooseUs {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .ChooseUs .infochosse {
+        margin-top: 7rem;
+    }
+
+
+
+    .CarouselImagenes .slide .body-img {
+        display: none;
+    }
+
+    .CarouselImagenes .slide {
+        width: 20%;
+        transition: 2s;
+        display: flex;
+        justify-content: center;
+    }
+
+    .CarouselImagenes .slide .body {
+        margin-top: 50px;
+        padding: 100px;
+    }
+
+
+
+    .SectionThree .grid {
+        display: grid;
+        grid-template-columns: 92%;
+        justify-content: center;
+    }
+
+    .SectionThree .grid .caja2 img {
+        display: none;
+    }
+
+    .SectionThree .caja-lecture {
+        padding: 50px;
+        border-radius: 20px;
+    }
+
+    .SectionThree .caja-lecture:hover {
+        transform: scale(1.1);
+        transition: all 1s;
+        box-shadow: -8px -1px 98px 3px rgba(123, 118, 118, 0.73);
+        -webkit-box-shadow: -8px -1px 98px 3px rgba(123, 118, 118, 0.73);
+        -moz-box-shadow: -8px -1px 98px 3px rgba(123, 118, 118, 0.73);
+    }
+
+    .SectionThree .caja1 {
+        gap: 10px;
+
+    }
+
+    #first-lecture {
+        border: none;
+
+    }
+
+    #last-lecture {
+        border: none;
+    }
+
+
+
+
+    .SectionFour {
+        width: 100%;
+        margin: auto;
+    }
+
+    .SectionFour .experts {
+        display: flex;
+        width: 100%;
+        flex-flow: column wrap;
+        justify-content: center;
+        align-items: center;
+
+
+    }
+
+
+
+
+    .SectionFour .experts .experts-personality {
+        max-width: 370px;
+        border: 3px solid #f4f4f4;
+        transition: all .3s;
+        margin: 20px auto;
+
+    }
+
+    .SectionFour .four-info {
+        text-align: center;
+        margin-top: 140px auto;
+        padding: 0px 50px;
+    }
+
+    .SectionFour .four-info p {
+        text-align: justify;
+    }
+
+    #main-experts {
+        margin: 0px;
+    }
+
+    .SectionFour .experts .experts-personality .img {
+        object-fit: cover;
+    }
+
+    .SectionFour .experts .experts-personality .info {
+        text-align: center;
+        transition: all .3s;
+    }
+
+}

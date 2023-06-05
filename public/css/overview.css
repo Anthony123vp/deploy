@@ -1,0 +1,358 @@
+
+ @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+.Title {
+    height: 300px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.Title .Title-Home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 78%;
+    background-color: #AEF4CE;
+}
+
+.Title .Title-Home p {
+
+    font-family: "Poppins", sans-serif;
+    font-size: 40px;
+
+}
+
+.Title .Footer-Home {
+    font-family: "Poppins", sans-serif;
+    height: 22%;
+    background-color: #d0d0d0;
+    text-align: center;
+    display: flex;
+    padding-left: 10rem;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 18px;
+}
+
+
+
+
+
+
+.Home {
+    font-family: "Poppins", sans-serif;
+    margin-top: 80px;
+    height: 550px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Home .information {
+    padding: 7%;
+    width: 50%;
+    line-height: 30px;
+
+
+}
+
+.Home .information hr {
+    border-top: 5px solid #99f6c3;
+    width: 5rem;
+    margin-left: 10%;
+    display: flex;
+    opacity: 0.9;
+
+}
+
+.Home .information p {
+    font-size: 16px;
+}
+
+.Home .information span {
+    color: #9b9b9b;
+}
+
+.Home .imagen {
+    width: 50%;
+}
+
+.Home .imagen img {
+    width: 90%;
+    border-radius: 40px;
+}
+
+.Home .imagen img:hover {
+    transition: 1s all;
+    transform: scale(1.01);
+    box-shadow: 0px -3px 16px 21px #AEF4CE;
+    -webkit-caja-sombra: 0px -3px 16px 21px rgba(118, 216, 198, 0.45);
+    -moz-box-shadow: 0px -3px 16px 21px #AEF4CE;
+
+}
+
+.Home .information .horarios {
+    margin-top: 5rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*section four*/
+.Team {
+    width: 100%;
+}
+
+.Team .four-info {
+    text-align: center;
+    margin-top: 140px;
+    padding: 0px 180px;
+}
+
+.Team .four-info hr {
+    border-top: 5px solid #99f6c3;
+    width: 8rem;
+    align-items: center;
+    justify-content: center;
+    display: inline-flex;
+    opacity: 0.9;
+}
+
+.Team .four-info p {
+    color: #9b9b9b;
+}
+
+.Team .experts {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    margin: 0 auto;
+
+}
+
+.Team .experts hr {
+    background-color: black;
+    height: 4px;
+    margin: auto;
+}
+
+.Team .experts .experts-personality {
+    max-width: 370px;
+    padding: 25px;
+    border-radius: 15px;
+    border: 3px solid #f4f4f4;
+    transition: all .3s;
+}
+
+.Team .experts .experts-personality:hover {
+    transition: 1s all;
+    transform: scale(1.1);
+    box-shadow: 0px -3px 16px 21px #AEF4CE;
+    -webkit-caja-sombra: 0px -3px 16px 21px rgba(118, 216, 198, 0.45);
+    -moz-box-shadow: 0px -3px 16px 21px #AEF4CE;
+}
+
+#main-experts {
+    margin: 0 40px;
+}
+
+.Team .experts .experts-personality img {
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.Team .experts .experts-personality .info {
+    text-align: center;
+    transition: all .3s;
+}
+
+.Team .experts .experts-personality:hover {
+    box-shadow: 0 0 22px rgba(0, 0, 0, 0.1);
+}
+
+.Team .boton {
+    margin: auto;
+    width: 220px;
+    margin-bottom: 60px;
+}
+
+.boton {
+    color: black;
+    display: flex;
+    justify-content: center;
+    width: 140px;
+    height: 50px;
+    align-items: center;
+    border-radius: 40px;
+    border: 3px solid #AEF4CE;
+    text-decoration: none;
+    letter-spacing: 1px;
+    margin-top: 5em;
+}
+
+.boton:hover {
+    background-color: #AEF4CE;
+    transition: 1s all;
+    border: 3px solid#52ba81;
+}
+
+
+/*TELEFONO*/
+@media (max-width: 430px) {
+
+    .Title{display: none;}
+    .Home{
+        width: 100%;
+        padding-top: 10rem;
+    }
+    .Home .imagen img{
+        display: none;
+    }
+    .Home .imagen{display: none;}
+    
+    .Home .information{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0px!important;
+    }
+    .Home .information .body{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .Home .information .horarios{
+        width: 100%;
+        display: flex;
+        padding: 60px;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+
+  
+
+    .Team{
+        width: 100%;
+        margin-top: 200px;
+    }
+
+    .Team .experts {
+        display: flex;
+        width: 100%;
+        flex-flow: column wrap;
+        justify-content: center;
+        align-items: center;
+
+
+    }
+
+}
+
+/*responsive TABLET*/
+
+
+@media (max-width: 992px) {
+
+    .Home{
+        margin: 0px 0px;
+        margin-top: 20rem;
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+    }
+    .Home .information{
+        display: flex;
+        justify-content: space-between;
+        padding: 60px;
+        width: 100%;
+    }
+    .Home .information .body{
+        width: 60%;
+        margin-right: 40px;
+    }
+    .Home .imagen{
+        width: 100%;
+        display: flex; 
+        justify-content: center;
+    }
+    .Home .imagen img{
+        width: 600px;
+    }
+
+
+    
+    .Team{
+        width: 100%;
+        margin: auto;
+        margin-top: 200px;
+    }
+
+    .Team .experts {
+        display: flex;
+        width: 100%;
+        flex-flow: column wrap;
+        justify-content: center;
+        align-items: center;
+
+
+    }
+
+
+
+
+    .Team .experts .experts-personality {
+        max-width: 370px;
+        border: 3px solid #f4f4f4;
+        transition: all .3s;
+        margin: 20px auto;
+
+    }
+
+    .Team .four-info {
+        text-align: center;
+        margin-top: 140px auto;
+        padding: 0px 50px;
+    }
+
+    .Team .four-info p {
+        text-align: justify;
+    }
+
+    #main-experts {
+        margin: 0px;
+    }
+
+    .Team .experts .experts-personality .img {
+        object-fit: cover;
+    }
+
+    .Team .experts .experts-personality .info {
+        text-align: center;
+        transition: all .3s;
+    }
+}

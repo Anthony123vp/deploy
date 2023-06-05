@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Poppins:wght@200;300&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    color: black;
+}
+
+
+
+
+/*HEADER */
+header {
+    width: 100%;
+    background-color: #FFFFFF;
+}
+.bg-body-tertiary {
+    --bs-bg-opacity: 1;
+    background-color: #FFFFFF !important;
+}
+.nav-link {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    color: black;
+}
+
+.navbar-expand-lg .navbar-nav{
+    width: 100%;
+    display: flex;
+    justify-content: space-around !important;
+}
+#part-two{
+    display: flex;
+    justify-content: space-between !important;
+}
+#img-logo{
+    margin-top:-14px;
+}
+.navbar-brand {
+    display: none;
+}
+
+@media (max-width: 992px) {
+    #logoHeader{
+        display: none;
+    }
+
+    .container-fluid{
+        display: grid!important;
+        grid-template-columns: 30% 70%;
+        flex-direction: row-reverse;
+        flex-wrap: wrap;
+    }
+    .navbar-brand {
+        display: grid;
+    }
+    #imgMovile{
+        margin: auto;
+    }
+    #img-logo{
+        display: none;
+    }
+    .header-static{
+        display: none;
+    }
+    
+}
+.titulo{
+    text-align: center;
+    padding: 20px;
+}
+
+.especialidad{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    gap: 5rem;
+    padding: 40px;
+}
+.contend{
+    border-radius: 10px;
+    box-shadow: 0 0 20px 0px black;
+    width: 300px;
+    height: 500px;
+}
+.especialidad img{
+    width: 300px;
+    height: 250px;
+    padding: 0px auto;
+}
+.contend h2{
+    text-align: center;
+    width: 300px;
+    padding: 10px;
+}
+.contend p{
+    max-width: 300px;
+    text-align: center;
+    padding: 10px;
+}
+.blanco{
+   filter: brightness(1.1);
+   mix-blend-mode: multiply;
+}
+.derma{
+    filter: brightness(1.2);
+    mix-blend-mode: multiply;
+}
