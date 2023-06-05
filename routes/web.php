@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::view('/','welcome');
+Route::view('/','MedHostPublic.home');
 
 Route::get('/layoutheader', function () {
     return view('layoutsmedhost.header'); 
@@ -31,4 +31,4 @@ Route::view('/medhost_about_our_team','MedHostPublic.about_our_team')->name('Our
 Route::view('/medhost_especialidades','MedHostPublic.especialidades')->name('Especialidades_MedHost');
 Route::view('/register_user', 'auth.register')->name('Register_User');
 
-Route::view('/Login_User', 'auth.login' )->name('Login_User');
+Route::view('/Login_User', 'Sistema.login' )->name('Login_User');
