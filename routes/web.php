@@ -31,5 +31,5 @@ Route::view('/medhost_about_our_team','MedHostPublic.about_our_team')->name('Our
 Route::view('/medhost_especialidades','MedHostPublic.especialidades')->name('Especialidades_MedHost');
 Route::view('/register_user', 'auth.register')->name('Register_User');
 
-Route::view('/Login_User', 'Sistema.login' )->name('Login_User');
+Route::view('/Login_User', 'Sistema.log' )->name('Login_User');
 Route::view('/sistema','Sistema.index');

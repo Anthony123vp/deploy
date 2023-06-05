@@ -1,0 +1,214 @@
+*{
+  margin: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+nav{
+  height: 170px;
+  background-image: linear-gradient(to top, #d5d4d0 0%, #d5d4d0 1%, #eeeeec 31%, #efeeec 75%, #e9e9e7 100%);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+nav img {
+  height: 150px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.contenedor_logo{
+  background-image: url("../Imagenes/medicina_log.jpeg");
+  background-repeat: no-repeat;
+  clip-path: polygon(0 0, 100% 0, 100% 70%, 0% 100%);
+}
+
+.contenedor_estetoscopio{
+  clip-path: circle(50% at 50% 50%);
+  background-image: linear-gradient(to top, #d5d4d0 0%, #d5d4d0 1%, #eeeeec 31%, #efeeec 75%, #e9e9e7 100%);
+  height: 120px;
+  width: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin: auto;
+  bottom: 115px;
+}
+
+.contenedor_estetoscopio img{
+  height: 90px;
+}
+
+.boton_login{
+  background-image: linear-gradient(to top, #d5d4d0 0%, #d5d4d0 1%, #eeeeec 31%, #efeeec 75%, #e9e9e7 100%);
+  width: 85%;
+  height: 50px;
+}
+
+.mb-3 input{
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+.boton_content{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+form{
+  position: relative;
+  bottom: 80px;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.check_{
+  cursor: pointer;
+  background-color: #818181;
+  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
+  width: 48px;
+  height: 48px;
+  appearance: none;
+  border: 2px solid #888;
+}
+
+@media only screen and (max-width: 600px){
+  .contenedor_logo{
+    height: 383px;
+    width: 605px;
+  }
+}
+
+@media only screen and (min-width: 600px){
+  .contenedor_logo{
+    width: 900px;
+    height: 400px;
+    background-size:cover;
+  }
+}
+
+@media only screen and (min-width: 900px){
+  .contenedor_logo{
+    width: 1100px;
+    height: 600px;
+    background-size:cover;
+  }
+
+  .contenedor_estetoscopio{
+    bottom: 160px;
+    height: 150px;
+    width: 150px;
+  }
+
+  .contenedor_estetoscopio img{
+    height: 100px;
+  }
+  
+}
+
+@media only screen and (min-width: 1100px){
+  .contenedor_logo{
+    width: 1200px;
+    height: 700px;
+    background-size:cover;
+  }
+
+  .contenedor_estetoscopio{
+    bottom: 160px;
+    height: 150px;
+    width: 150px;
+  }
+
+  .contenedor_estetoscopio img{
+    height: 100px;
+  }
+  
+}
+
+@media only screen and (min-width: 1200px){
+  .contenedor_logo{
+    width: 1300px;
+    height: 770px;
+    background-size:cover;
+  }
+
+  .contenedor_estetoscopio{
+    bottom: 190px;
+    height: 150px;
+    width: 150px;
+  }
+
+  .contenedor_estetoscopio img{
+    height: 100px;
+  }
+  
+}
+
+
+@media only screen and (min-width: 1300px){
+  .contenedor_logo{
+    width: 900px;
+    height: 400px;
+    background-size:cover;
+    position: relative;
+    margin: auto;
+  }
+
+  .contenedor_estetoscopio{
+    bottom: 150px;
+    height: 150px;
+    width: 150px;
+  }
+
+  .contenedor_estetoscopio img{
+    height: 100px;
+  }
+
+  .contenedor_pcs{
+    width: 1300px;
+    height: 100vh;
+  }
+
+  .boton_login{
+    width: 45%;
+    height: 50px;
+  }
+
+  form{
+    /* margin: 0px 400px 0px 400px; */
+    width: 900px;
+    position: relative;
+    margin: auto;
+    background-color: #fff;
+  }
+
+  body{
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPtU7tGLc7D4na7V1B9An9S7CRGFu_mexlQkV4N__eeSWheJidembcd-Gb_Q1hpvo7bQo&usqp=CAU");
+  }
+
+  /* .contenedor_estetoscopio{
+    clip-path: circle(50% at 50% 50%);
+    background-image: linear-gradient(to top, #d5d4d0 0%, #d5d4d0 1%, #eeeeec 31%, #efeeec 75%, #e9e9e7 100%);
+    height: 120px;
+    width: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: auto;
+    bottom: 190px;
+  } */
+
+  /* .content_content{
+    width: 1300px;
+    display: flex;
+    justify-content: center;
+    height: 150px;
+  } */
+  
+}
+
