@@ -32,3 +32,4 @@ Route::view('/medhost_especialidades','MedHostPublic.especialidades')->name('Esp
 Route::view('/register_user', 'auth.register')->name('Register_User');
 
 Route::view('/Login_User', 'Sistema.login' )->name('Login_User');
+Route::view('/sistema','Sistema.index');
