@@ -32,18 +32,13 @@
 </head>
 <body>
     
-
-
-    
-      <section class="Title">
-        <div class="Title-Home">
-          <p>NOSOTROS:DESCRIPCION</p>
-        </div>
-
-        <div class="Footer-Home">
-          ABOUT>OVERVIEW
-        </div>
-      </section>
+<div class='content_tittle'>
+    <div>SOBRE NOSOTROS</div>
+    <img width='250px' height='200px' src="https://thumbs.dreamstime.com/b/icono-medicina-y-atenci%C3%B3n-sanitaria-planos-de-la-llamada-emergencia-100940673.jpg" alt=""> 
+</div>
+<div class='content_ubi'>
+    <p>INICIO > SOBRE NOSOTROS</p> 
+</div>
 
       <section class="Home">
           <div class="information">

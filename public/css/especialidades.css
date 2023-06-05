@@ -9,6 +9,22 @@
     color: black;
 }
 
+.content_tittle{
+    height: 200px;
+    /* background-color:#AEF4CE; */
+    display:flex;
+    justify-content:space-evenly;
+    align-items:center;
+    background-image:url('https://img.freepik.com/foto-gratis/fondo-textura-acuarela-verde-cal_1083-171.jpg');
+    background-size: cover;
+    width: 100%;
+}
+
+.content_tittle div{
+    color:#fff;
+    font-size:40px;
+}
+
 
 
 
@@ -44,6 +60,87 @@ header {
 .navbar-brand {
     display: none;
 }
+
+.content_ubi{
+    height: 80px;
+    width:100%;
+    background-color:#EBEBEB;
+    display:flex;
+    align-items:center;
+}
+.content_ubi p{
+    margin:0;
+    margin-left:15%;
+}
+
+@media (min-width:0px) and (max-width: 540px) {
+
+    .content_tittle div {
+        color: #fff;
+        font-size: 30px;
+    }
+
+    .content_tittle img{
+        height:200px;
+        width:200px;
+    }
+}
+
+@media (min-width:0px) and (max-width: 448px) {
+    .content_tittle div {
+        color: #fff;
+        font-size: 20px;
+    }
+
+    .content_tittle img{
+        height:150px;
+        width:140px;
+    }
+    
+}
+
+@media (min-width:0px) and (max-width: 310px) {
+
+
+    .content_tittle img{
+        height:120px;
+        width:100px;
+    }
+
+}
+
+@media (min-width:0px) and (max-width: 270px) {
+
+
+    .content_tittle img{
+        height:80px;
+        width:60px;
+    }
+}
+
+@media (min-width:0px) and (max-width: 220px) {
+
+    
+    .content_tittle div {
+        color: #fff;
+        font-size: 17px;
+    }
+}
+
+@media (min-width:0px) and (max-width: 200px) {
+
+
+    .content_tittle div {
+        color: #fff;
+        font-size: 15px;
+    }
+
+    .content_tittle img{
+        height:40px;
+        width:30px;
+    }
+}
+
 
 @media (max-width: 992px) {
     #logoHeader{

@@ -26,6 +26,14 @@
 
 </head>
 <body>
+
+<div class='content_tittle'>
+    <div>NUESTRO EQUIPO</div>
+    <img width='250px' height='200px' src="https://thumbs.dreamstime.com/b/icono-medicina-y-atenci%C3%B3n-sanitaria-planos-de-la-llamada-emergencia-100940673.jpg" alt=""> 
+</div>
+<div class='content_ubi'>
+    <p>INICIO > NUESTRO EQUIPO</p> 
+</div>
       <section class="main">
         <div class="main">
           <div class="text">
