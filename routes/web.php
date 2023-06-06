@@ -22,6 +22,10 @@ Route::get('/layoutfooter', function () {
     return view('layoutsmedhost.footer'); 
 });
 
+Route::get('/layoutloader', function () {
+    return view('layoutsmedhost.loader'); 
+});
+
 
 Route::view('/medhost_home', 'MedHostPublic.home')->name('Home_MedHost');
 Route::view('/medhost_contactanos', 'MedHostPublic.contactanos')->name('Contact_MedHost');
