@@ -38,3 +38,6 @@ Route::view('/register_user', 'auth.register')->name('Register_User');
 Route::view('/Login_User', 'Sistema.log' )->name('Login_User');
 Route::view('/Login_Sign_User', 'Sistema.log_sign' )->name('Login_Sign_User');
 Route::view('/sistema','Sistema.index');
+
+
+Route::resource('pacientes', PacienteController::class);
