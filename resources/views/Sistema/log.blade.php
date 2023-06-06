@@ -124,7 +124,7 @@
             </div>
             <div class="mb-3">
                 <label for="password_2" class="form-label">Repetir Contraseña:</label>
-                <input type="password" autocomplete="off" class="form-control" id="password_2" >
+<input type="password" autocomplete="off" class="form-control" id="password_2" >                
                 <div id="dni_consult" class="form-text">Ingresar nuevamente contraseña</div>
             </div>
             <div class="mb-3 form-check">
