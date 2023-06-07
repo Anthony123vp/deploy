@@ -45,7 +45,7 @@ class PacienteController extends Controller
         ]);
 
         Paciente::create($request->all());
-
+        
         return redirect()->route('pacientes.index')->with('success', 'Paciente creado correctamente.');
     }
 
