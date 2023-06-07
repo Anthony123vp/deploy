@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use app\Http\Controllers\PacienteController;
+use App\Http\Controllers\PacienteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,7 +38,7 @@ Route::view('/medhost_especialidades','MedHostPublic.especialidades')->name('Esp
 Route::view('/register_user', 'auth.register')->name('Register_User');
 
 Route::view('/Login_Sign_User', 'Sistema.log_sign' )->name('Login_Sign_User');
-Route::view('/sistema','Sistema.index');
+Route::view('/dashboard','layoutssistema.index');
 
 
-Route::resource('/pacientes', PacienteController::class);
+Route::resource('/pacientes', PacienteController::class)->middleware('web');

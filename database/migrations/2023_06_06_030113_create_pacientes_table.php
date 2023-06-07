@@ -24,10 +24,12 @@ return new class extends Migration
         $table->string('email')->unique();
         $table->string('celular');
         $table->string('insurance');
-        $table->string('password');
+        $table->string('password_1');
+        $table->string('password_2');
+        $table->integer('estado')->default(1)->nullable();
         $table->timestamps();
     });
-}
+}   
 
     /**
      * Reverse the migrations.
