@@ -47,7 +47,21 @@ class PacienteController extends Controller
         ]);
         
         Paciente::create($request->all());
+
+        $request->validate([
+            'dni' => 'required',
+            'nombres' => 'required',
+            'apellidos_paternos' => 'required',
+            'apellidos_maternos' => 'required'
+        ]);
+
+<<<<<<< HEAD
+        Paciente::create($request->all());
         
+=======
+        Persona::create($request->all());
+
+>>>>>>> origin/main
         return redirect()->route('pacientes.index')->with('success', 'Paciente creado correctamente.');
     }
 
