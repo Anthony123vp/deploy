@@ -55,13 +55,8 @@ class PacienteController extends Controller
             'apellidos_maternos' => 'required'
         ]);
 
-<<<<<<< HEAD
-        Paciente::create($request->all());
-        
-=======
         Persona::create($request->all());
 
->>>>>>> origin/main
         return redirect()->route('pacientes.index')->with('success', 'Paciente creado correctamente.');
     }
 
