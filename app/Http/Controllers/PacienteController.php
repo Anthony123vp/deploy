@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Paciente;
+use App\Models\Persona;
 use Illuminate\Http\Request;
 
 class PacienteController extends Controller
@@ -11,10 +12,10 @@ class PacienteController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        $pacientes = Paciente::all();
-        return view('pacientes.index', compact('pacientes'));
-    }
+{
+    $pacientes = Paciente::all();
+    return view('pacientes.index', compact('pacientes'));
+}
 
     /**
      * Show the form for creating a new resource.
@@ -41,11 +42,12 @@ class PacienteController extends Controller
             'email' => 'required|unique:pacientes',
             'celular' => 'required',
             'insurance' => 'required',
-            'password' => 'required',
+            'password_1' => 'required',
+            'password_2' => 'required',
         ]);
-
-        Paciente::create($request->all());
         
+        Paciente::create($request->all());
+
         return redirect()->route('pacientes.index')->with('success', 'Paciente creado correctamente.');
     }
 
