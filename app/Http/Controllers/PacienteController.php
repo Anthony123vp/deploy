@@ -30,8 +30,9 @@ class PacienteController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate([
-            'dni' => 'required|unique:pacientes',
+            'dni' => 'required|unique:personas',
             'nombres' => 'required',
             'apellidos_paternos' => 'required',
             'apellidos_maternos' => 'required',
@@ -39,8 +40,14 @@ class PacienteController extends Controller
             'dia' => 'required',
             'month' => 'required',
             'anio' => 'required',
-            'email' => 'required|unique:pacientes',
+            'email' => 'required|unique:personas',
             'celular' => 'required',
+        ]);
+
+        Persona::create($request->all());
+
+
+        $request->validate([
             'insurance' => 'required',
             'password_1' => 'required',
             'password_2' => 'required',
@@ -48,14 +55,7 @@ class PacienteController extends Controller
         
         Paciente::create($request->all());
 
-        $request->validate([
-            'dni' => 'required',
-            'nombres' => 'required',
-            'apellidos_paternos' => 'required',
-            'apellidos_maternos' => 'required'
-        ]);
-
-        Persona::create($request->all());
+        
 
         return redirect()->route('pacientes.index')->with('success', 'Paciente creado correctamente.');
     }
