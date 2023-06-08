@@ -42,3 +42,5 @@ Route::view('/dashboard','layoutssistema.index');
 
 
 Route::resource('/pacientes', PacienteController::class)->middleware('web');
+
+Route::view('/sistema','Medicos.index');
