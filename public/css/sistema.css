@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-/* Google Font Import - Poppins */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-    
-=======
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 
 *,
@@ -16,13 +6,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
->>>>>>> 31164d13c82446335a79907cc4f2dd92d3be8075
 }
-body {
-    background-image: url(/Imagenes/bg-dash.jpg);
-    background-size: cover;
-  }
-  
 
 :root {
   --main-color: #99f6c3;
@@ -111,12 +95,6 @@ main .copyright span {
   font-size: 1.15rem;
 }
 
-<<<<<<< HEAD
-.sidebar header .image img{
-    width: 150px;
-    border-radius: 6px;
-    height: 50px;
-=======
 .shrink-btn {
   position: absolute;
   top: 50%;
@@ -131,7 +109,6 @@ main .copyright span {
   opacity: 0;
   pointer-events: none;
   transition: 0.3s;
->>>>>>> 31164d13c82446335a79907cc4f2dd92d3be8075
 }
 
 .shrink-btn i {
@@ -226,11 +203,6 @@ nav:hover .shrink-btn,
 .sidebar-links a.active i:first-child {
   opacity: 0;
 }
-<<<<<<< HEAD
-body.dark .home .text{
-    color: var(--text-color);
-}
-=======
 
 .sidebar-links a.active i:last-child {
   opacity: 1;
@@ -415,5 +387,3 @@ body.shrink .admin-profile {
 body.shrink .tooltip {
   display: grid;
 }
-
->>>>>>> 31164d13c82446335a79907cc4f2dd92d3be8075
