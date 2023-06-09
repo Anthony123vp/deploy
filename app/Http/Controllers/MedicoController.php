@@ -33,7 +33,7 @@ class MedicoController extends Controller
             'email' => 'required|unique:personas',
             'celular' => 'required',
         ]);
-    
+
         $persona = Persona::create($request->all());
         $id_persona = $persona->id;
     
