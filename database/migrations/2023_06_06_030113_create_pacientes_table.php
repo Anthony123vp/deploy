@@ -16,6 +16,8 @@ return new class extends Migration
         $table->string('insurance');
         $table->string('password_1');
         $table->string('password_2');
+        $table->integer('id_persona');
+        $table->integer('estado')->default(1)->nullable();
 
         $table->timestamps();
     });

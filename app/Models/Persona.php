@@ -22,5 +22,6 @@ class Persona extends Model
         'anio',
         'email',
         'celular',
+        'estado',
     ];
 }

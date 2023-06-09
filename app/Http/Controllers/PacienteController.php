@@ -12,10 +12,10 @@ class PacienteController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-{
-    $pacientes = Paciente::all();
-    return view('pacientes.index', compact('pacientes'));
-}
+    {
+        $pacientes = Paciente::all();
+        return view('pacientes.index', compact('pacientes'));
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -30,7 +30,6 @@ class PacienteController extends Controller
      */
     public function store(Request $request)
     {
-
         $request->validate([
             'dni' => 'required|unique:personas',
             'nombres' => 'required',
@@ -43,20 +42,20 @@ class PacienteController extends Controller
             'email' => 'required|unique:personas',
             'celular' => 'required',
         ]);
-
-        Persona::create($request->all());
-
-
+    
+        $persona = Persona::create($request->all());
+        $id_persona = $persona->id;
+    
         $request->validate([
             'insurance' => 'required',
             'password_1' => 'required',
             'password_2' => 'required',
         ]);
-        
+    
+        $request->merge(['id_persona' => $id_persona]);
+    
         Paciente::create($request->all());
-
-        
-
+    
         return redirect()->route('pacientes.index')->with('success', 'Paciente creado correctamente.');
     }
 
@@ -101,18 +100,9 @@ class PacienteController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'dni' => 'required|unique:pacientes,dni,'.$id,
-            'nombres' => 'required',
-            'apellidos_paternos' => 'required',
-            'apellidos_maternos' => 'required',
-            'sexo' => 'required',
-            'dia' => 'required',
-            'month' => 'required',
-            'anio' => 'required',
-            'email' => 'required|unique:pacientes,email,'.$id,
-            'celular' => 'required',
             'insurance' => 'required',
-            'password' => 'required',
+            'password_1' => 'required',
+            'password_2' => 'required',
         ]);
 
         $paciente = Paciente::findOrFail($id);
