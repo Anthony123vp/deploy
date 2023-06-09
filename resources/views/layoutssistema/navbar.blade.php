@@ -134,6 +134,10 @@
       <i class='bx bx-menu' ></i>
       <span class="text">Drop Down Sidebar</span>
     </div>
+    <div class="content">
+    @yield('content')
+    </div>
+    
   </section>
 
   <script src="Js/sistema.js"></script>
