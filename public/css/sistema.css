@@ -5,7 +5,13 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    
 }
+body {
+    background-image: url(/Imagenes/bg-dash.jpg);
+    background-size: cover;
+  }
+  
 
 :root{
     /* ===== Colors ===== */
@@ -132,8 +138,9 @@ header .image-text .profession{
 }
 
 .sidebar header .image img{
-    width: 40px;
+    width: 150px;
     border-radius: 6px;
+    height: 50px;
 }
 
 .sidebar header .toggle{
