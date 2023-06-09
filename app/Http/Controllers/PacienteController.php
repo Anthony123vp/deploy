@@ -51,10 +51,13 @@ class PacienteController extends Controller
             'password_1' => 'required',
             'password_2' => 'required',
         ]);
-    
-        $request->merge(['id_persona' => $id_persona]);
-    
-        Paciente::create($request->all());
+        
+        Paciente::create([
+            'id_persona' => $id_persona,
+            'insurance' => $request->insurance,
+            'password_1' => bcrypt($request->password_1),
+            'password_2' => $request->password_2,
+        ]);
     
         return redirect()->route('pacientes.index')->with('success', 'Paciente creado correctamente.');
     }
