@@ -15,6 +15,13 @@ class Persona extends Model
         'dni',
         'nombres',
         'apellidos_paternos',
-        'apellidos_maternos'
+        'apellidos_maternos',
+        'sexo',
+        'dia',
+        'month',
+        'anio',
+        'email',
+        'celular',
+        'estado',
     ];
 }
