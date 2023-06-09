@@ -1,159 +1,142 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MedHost System</title>
-  <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-  
-  <link rel="stylesheet" href="css/sistema.css">
-</head>
-
+<!-- Designined by CodingLab | www.youtube.com/codinglabyt -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title> Drop Down Sidebar Menu | CodingLab </title>
+    <link rel="stylesheet" href="css/sistema.css">
+    <!-- Boxiocns CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
 <body>
-  <nav>
-    <div class="sidebar-top">
-      <span class="shrink-btn">
-        <i class='bx bx-chevron-left'></i>
-      </span>
-      <img src="" class="logo" alt="">
-      <h3 class="hide">MedHost</h3>
+  <div class="sidebar close">
+    <div class="logo-details">
+      <i class='bx bxl-c-plus-plus'></i>
+      <span class="logo_name">CodingLab</span>
     </div>
-
-    <div class="search">
-      <i class='bx bx-search'></i>
-      <input type="text" class="hide" placeholder="Quick Search ...">
-    </div>
-
-    <div class="sidebar-links">
-      <ul>
-        <div class="active-tab"></div>
-        <li class="tooltip-element" data-tooltip="0">
-          <a href="#" class="active" data-active="0">
-            <div class="icon">
-              <i class='bx bx-tachometer'></i>
-              <i class='bx bxs-tachometer'></i>
-            </div>
-            <span class="link hide">Dashboard</span>
-          </a>
-        </li>
-        <li class="tooltip-element" data-tooltip="1">
-          <a href="#" data-active="1">
-            <div class="icon">
-              <i class='bx bx-book-content' ></i>
-              <i class='bx bxs-book-content' ></i>
-            </div>
-            <span class="link hide">Actividad</span>
-          </a>
-        </li>
-        <li class="tooltip-element" data-tooltip="2">
-          <a href="#" data-active="2">
-            <div class="icon">
-              <i class='bx bx-calendar-plus'></i>
-              <i class='bx bxs-calendar-plus'></i>
-            </div>
-            <span class="link hide">Citas</span>
-          </a>
-        </li>
-        <li class="tooltip-element" data-tooltip="3">
-          <a href="#" data-active="3">
-            <div class="icon">
-              <i class='bx bxs-face-mask'></i>
-              <i class='bx bxs-face-mask'></i>
-            </div>
-            <span class="link hide">Medicos</span>
-          </a>
-        </li>
-        <div class="tooltip">
-          <span class="show">Dashboard</span>
-          <span>Actividad</span>
-          <span>Citas</span>
-          <span>Medicos</span>
-        </div>
-      </ul>
-
-      <h4 class="hide">Shortcuts</h4>
-
-      <ul>
-        <li class="tooltip-element" data-tooltip="0">
-          <a href="#" data-active="4">
-            <div class="icon">
-              <i class='bx bx-notepad'></i>
-              <i class='bx bxs-notepad'></i>
-            </div>
-            <span class="link hide">Tasks</span>
-          </a>
-        </li>
-        <li class="tooltip-element" data-tooltip="1">
-          <a href="#" data-active="5">
-            <div class="icon">
-              <i class='bx bx-help-circle'></i>
-              <i class='bx bxs-help-circle'></i>
-            </div>
-            <span class="link hide">Help</span>
-          </a>
-        </li>
-        <li class="tooltip-element" data-tooltip="2">
-          <a href="#" data-active="6">
-            <div class="icon">
-              <i class='bx bx-cog'></i>
-              <i class='bx bxs-cog'></i>
-            </div>
-            <span class="link hide">Settings</span>
-          </a>
-        </li>
-        <div class="tooltip">
-          <span class="show">Tasks</span>
-          <span>Help</span>
-          <span>Settings</span>
-        </div>
-      </ul>
-    </div>
-
-    <div class="sidebar-footer">
-      <a href="#" class="account tooltip-element" data-tooltip="0">
-        <i class='bx bx-user'></i>
-      </a>
-      <div class="admin-user tooltip-element" data-tooltip="1">
-        <div class="admin-profile hide">
-          <img src="./img/face-1.png" alt="">
-          <div class="admin-info">
-            <h3>John Doe</h3>
-            <h5>Admin</h5>
-          </div>
-        </div>
-        <a href="#" class="log-out">
-          <i class='bx bx-log-out'></i>
+    <ul class="nav-links">
+      <li>
+        <a href="#">
+          <i class='bx bx-grid-alt' ></i>
+          <span class="link_name">Dashboard</span>
         </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Category</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='bx bx-collection' ></i>
+            <span class="link_name">Category</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">Category</a></li>
+          <li><a href="#">HTML & CSS</a></li>
+          <li><a href="#">JavaScript</a></li>
+          <li><a href="#">PHP & MySQL</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='bx bx-book-alt' ></i>
+            <span class="link_name">Posts</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">Posts</a></li>
+          <li><a href="#">Web Design</a></li>
+          <li><a href="#">Login Form</a></li>
+          <li><a href="#">Card Design</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-pie-chart-alt-2' ></i>
+          <span class="link_name">Analytics</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Analytics</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-line-chart' ></i>
+          <span class="link_name">Chart</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Chart</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='bx bx-plug' ></i>
+            <span class="link_name">Plugins</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">Plugins</a></li>
+          <li><a href="#">UI Face</a></li>
+          <li><a href="#">Pigments</a></li>
+          <li><a href="#">Box Icons</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-compass' ></i>
+          <span class="link_name">Explore</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Explore</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-history'></i>
+          <span class="link_name">History</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">History</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-cog' ></i>
+          <span class="link_name">Setting</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Setting</a></li>
+        </ul>
+      </li>
+      <li>
+    <div class="profile-details">
+      <div class="profile-content">
+        <img src="image/profile.jpg" alt="profileImg">
       </div>
-      <div class="tooltip">
-        <span class="show">John Doe</span>
-        <span>Logout</span>
+      <div class="name-job">
+        <div class="profile_name">Prem Shahi</div>
+        <div class="job">Web Desginer</div>
       </div>
+      <i class='bx bx-log-out' ></i>
     </div>
-  </nav>
+  </li>
+</ul>
+  </div>
+  <section class="home-section">
+    <div class="home-content">
+      <i class='bx bx-menu' ></i>
+      <span class="text">Drop Down Sidebar</span>
+    </div>
+  </section>
 
-
-  <main>
-    <h1>My Dashboard</h1>
-    <p class="text">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-    </p>
-
-    @yield('content')
-
-
-
-    <p class="copyright">
-      &copy; 2021 - <span>Aqumex</span> All Rights Reserved.
-    </p>
-
-    
-  </main>
-    
   <script src="Js/sistema.js"></script>
-  
-</body>
 
+</body>
 </html>
