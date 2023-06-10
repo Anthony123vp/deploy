@@ -106,6 +106,8 @@ class PacienteController extends Controller
             'insurance' => 'required',
             'password_1' => 'required',
             'password_2' => 'required',
+            'id_persona' => 'required',
+            'estado' => 'required',
         ]);
 
         $paciente = Paciente::findOrFail($id);
