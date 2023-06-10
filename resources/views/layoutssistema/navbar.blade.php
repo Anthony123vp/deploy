@@ -7,13 +7,14 @@
     <link rel="stylesheet" href="css/sistema.css">
     <!-- Boxiocns CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   </head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.3/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.16/jspdf.plugin.autotable.min.js"></script>
+  </head>
 <body>
   <div class="sidebar close">
     <div class="logo-details">
-      <i class='bx bxl-c-plus-plus'></i>
-      <span class="logo_name">CodingLab</span>
+    <img src="Imagenes/LOGO.png" alt="">
     </div>
     <ul class="nav-links">
       <li>
@@ -116,7 +117,7 @@
         </ul>
       </li>
       <li>
-    <div class="profile-details">
+      <div class="profile-details">
       <div class="profile-content">
         <img src="image/profile.jpg" alt="profileImg">
       </div>
@@ -131,8 +132,8 @@
   </div>
   <section class="home-section">
     <div class="home-content">
-      <i class='bx bx-menu' ></i>
-      <span class="text">Drop Down Sidebar</span>
+    <i class='bx bx-menu' ></i>
+    <span class="text">Informacion</span>
     </div>
     <div class="content">
     @yield('content')

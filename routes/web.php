@@ -41,4 +41,6 @@ Route::view('/Login_Sign_User', 'Sistema.log_sign' )->name('Login_Sign_User');
 
 Route::get('/pacientes', [PacienteController::class,'index'])->middleware('web');
 
-Route::view('/sistema','Medicos.index');
+Route::view('/medicos','Medicos.index');
+
+Route::view('/recepcionista','Recepcionista.index');
