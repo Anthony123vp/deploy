@@ -35,12 +35,10 @@ Route::view('/medhost_overview','MedHostPublic.overview')->name('Team_MedHost');
 Route::view('/medhost_about_our_team','MedHostPublic.about_our_team')->name('OurTeam_MedHost');
 Route::view('/medhost_especialidades','MedHostPublic.especialidades')->name('Especialidades_MedHost');
 
-Route::view('/register_user', 'auth.register')->name('Register_User');
 
 Route::view('/Login_Sign_User', 'Sistema.log_sign' )->name('Login_Sign_User');
-Route::view('/dashboard','layoutssistema.index');
 
 
-Route::resource('/pacientes', PacienteController::class)->middleware('web');
+Route::get('/pacientes', [PacienteController::class,'index'])->middleware('web');
 
 Route::view('/sistema','Medicos.index');
