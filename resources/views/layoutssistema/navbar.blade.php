@@ -12,6 +12,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.16/jspdf.plugin.autotable.min.js"></script>
   </head>
 <body>
+  </head>
+  <body>
   <div class="sidebar close">
     <div class="logo-details">
     <img src="Imagenes/LOGO.png" alt="">
@@ -117,31 +119,32 @@
         </ul>
       </li>
       <li>
-      <div class="profile-details">
-      <div class="profile-content">
-        <img src="image/profile.jpg" alt="profileImg">
-      </div>
-      <div class="name-job">
-        <div class="profile_name">Prem Shahi</div>
-        <div class="job">Web Desginer</div>
-      </div>
-      <i class='bx bx-log-out' ></i>
-    </div>
-  </li>
-</ul>
-  </div>
-  <section class="home-section">
-    <div class="home-content">
+        <div class="profile-details">
+          <div class="profile-content">
+            <img src="image/profile.jpg" alt="profileImg">
+          </div>
+          <div class="name-job">
+            <div class="profile_name">Prem Shahi</div>
+            <div class="job">Web Desginer</div>
+          </div>
+          <i class='bx bx-log-out' ></i>
+        </div>
+      </li>
+    </ul>
+</div>
+<section class="home-section">
+  <div class="home-content">
     <i class='bx bx-menu' ></i>
-    <span class="text">Informacion</span>
-    </div>
-    <div class="content">
+    <span class="text">Drop Down Sidebar</span>
+  </div>
+  <div class="content">
     @yield('content')
-    </div>
-    
-  </section>
+    <!-- @yield("navbar_usuarios") -->
+  </div>
+  
+</section>
 
-  <script src="Js/sistema.js"></script>
+<script src="Js/sistema.js"></script>
 
 </body>
 </html>

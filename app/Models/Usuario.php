@@ -11,11 +11,14 @@ class Usuario extends Model
 
     protected $table = 'usuarios';
 
+    protected $primaryKey = 'id_usuarios';
+
     protected $fillable = [
-        'id_rol',
+        'email',
         'password_1',
         'password_2',
-        'id_persona',
         'estado',
+        'id_rol',
     ];
 }
+
