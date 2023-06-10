@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="css/sistema.css">
     <!-- Boxiocns CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   </head>
-<body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
   <div class="sidebar close">
     <div class="logo-details">
       <i class='bx bxl-c-plus-plus'></i>
@@ -116,31 +116,32 @@
         </ul>
       </li>
       <li>
-    <div class="profile-details">
-      <div class="profile-content">
-        <img src="image/profile.jpg" alt="profileImg">
-      </div>
-      <div class="name-job">
-        <div class="profile_name">Prem Shahi</div>
-        <div class="job">Web Desginer</div>
-      </div>
-      <i class='bx bx-log-out' ></i>
-    </div>
-  </li>
-</ul>
+        <div class="profile-details">
+          <div class="profile-content">
+            <img src="image/profile.jpg" alt="profileImg">
+          </div>
+          <div class="name-job">
+            <div class="profile_name">Prem Shahi</div>
+            <div class="job">Web Desginer</div>
+          </div>
+          <i class='bx bx-log-out' ></i>
+        </div>
+      </li>
+    </ul>
+</div>
+<section class="home-section">
+  <div class="home-content">
+    <i class='bx bx-menu' ></i>
+    <span class="text">Drop Down Sidebar</span>
   </div>
-  <section class="home-section">
-    <div class="home-content">
-      <i class='bx bx-menu' ></i>
-      <span class="text">Drop Down Sidebar</span>
-    </div>
-    <div class="content">
+  <div class="content">
     @yield('content')
-    </div>
-    
-  </section>
+    <!-- @yield("navbar_usuarios") -->
+  </div>
+  
+</section>
 
-  <script src="Js/sistema.js"></script>
+<script src="Js/sistema.js"></script>
 
 </body>
 </html>
