@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PacienteController;
-
+use App\Http\Controllers\HorarioController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,3 +42,6 @@ Route::view('/Login_Sign_User', 'Sistema.log_sign' )->name('Login_Sign_User');
 Route::get('/pacientes', [PacienteController::class,'index'])->middleware('web');
 
 Route::view('/sistema','Medicos.index');
+Route::get('/horarios',[HorarioController::class,'index'])->name('Horario.index');
+Route::get('/horarios/create',[HorarioController::class,'create'])->name('Horario.create');
+Route::post('/horarios',[HorarioController::class,'store'])->name('Horario.store');
