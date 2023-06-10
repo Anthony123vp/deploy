@@ -135,7 +135,7 @@
 <section class="home-section">
   <div class="home-content">
     <i class='bx bx-menu' ></i>
-    <span class="text">Drop Down Sidebar</span>
+    <span class="text">Informacion</span>
   </div>
   <div class="content">
     @yield('content')
