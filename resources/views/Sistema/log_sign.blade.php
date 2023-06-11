@@ -42,7 +42,7 @@
       <div class="signup hide">
           <h2>REGISTRO</h2>
           <div class="inputbox">
-            <form action="{{ route('pacientes.store') }}" method="POST">
+            <form action="" method="POST">
               @csrf
               <div style='width:100%;display:flex;'>
                   <input style='margin-right:5px;' type="text" placeholder='  NUMERO DOCUMENTO' id="dni" name="dni">

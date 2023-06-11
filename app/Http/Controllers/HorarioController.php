@@ -12,7 +12,7 @@ class HorarioController extends Controller
      */
     public function index()
     {   
-        $horarios = Horario::get();
+        $horarios = DB::SELECT('call listar_medico_horario()');
         return view('horario.index',['horarios' =>$horarios]);
     }
 

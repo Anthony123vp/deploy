@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<!-- Designined by CodingLab | www.youtube.com/codinglabyt -->
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
     <title> Drop Down Sidebar Menu | CodingLab </title>
-    <link rel="stylesheet" href="css/sistema.css">
+    
+    <link rel="stylesheet" href="/css/sistema.css">
     <!-- Boxiocns CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    @yield('linkcss')
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.3/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.16/jspdf.plugin.autotable.min.js"></script>
@@ -16,7 +17,7 @@
   <body>
   <div class="sidebar close">
     <div class="logo-details">
-    <img src="Imagenes/LOGO.png" alt="">
+    <img src="/Imagenes/LOGO.png" alt="">
     </div>
     <ul class="nav-links">
       <li>
@@ -139,12 +140,12 @@
   </div>
   <div class="content">
     @yield('content')
-    <!-- @yield("navbar_usuarios") -->
+    @yield("navbar_usuarios")
   </div>
   
 </section>
 
-<script src="Js/sistema.js"></script>
+<script src="/Js/sistema.js"></script>
 
 </body>
 </html>
