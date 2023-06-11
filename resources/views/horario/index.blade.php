@@ -3,10 +3,8 @@
 
 <main class="table">
         <section class="table__header">
-            <div class="table_header_title">
-                <h1>HORARIOS</h1>
-                <a class="btn" href="{{ route('Horario.create')}}">CREAR</a>
-            </div>
+            <h1>HORARIOS</h1>
+            <a class="btn" href="{{ route('Horario.create')}}">CREAR</a>
             <div class="input-group">
                 <input type="search" placeholder="Search Data...">
                 <img src="images/search.png" alt="">
