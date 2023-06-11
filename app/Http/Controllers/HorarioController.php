@@ -12,8 +12,8 @@ class HorarioController extends Controller
      */
     public function index()
     {   
-        $horarios = DB::SELECT('call listar_medico_horario()');
-        return view('horario.index',['horarios' =>$horarios]);
+        /* $horarios = DB::SELECT('call listar_medico_horario()'); */
+        return view('horario.index');
     }
 
     /**
@@ -29,7 +29,7 @@ class HorarioController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        /* $request->validate([
             'fecha'=>'required',
             'hora_inicio'=>'required',
             'hora_final'=>'required',
@@ -39,7 +39,7 @@ class HorarioController extends Controller
         $horario->fecha = $request->input('fecha');
         $horario->hora_inicio = $request->input('hora_inicio');
         $horario->hora_final = $request->input('hora_final');
-        DB::select("CALL hora_create('$horario->fecha','$horario->hora_inicio','$horario->hora_final','2023-06-10 05:30:08','2023-06-10 05:30:08',@horas)");
+        DB::select("CALL hora_create('$horario->fecha','$horario->hora_inicio','$horario->hora_final','2023-06-10 05:30:08','2023-06-10 05:30:08',@horas)"); */
         return redirect()->route('Horario.index');
     }
 
