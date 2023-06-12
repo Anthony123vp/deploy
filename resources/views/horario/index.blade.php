@@ -3,8 +3,8 @@
 
 <main class="table">
         <section class="table__header">
-            <h1>Customer's Orders</h1>
-            <a href="{{ route('Horario.create')}}">CREAR</a>
+            <h1>HORARIOS</h1>
+            <a class="btn" href="{{ route('Horario.create')}}">CREAR</a>
             <div class="input-group">
                 <input type="search" placeholder="Search Data...">
                 <img src="images/search.png" alt="">
@@ -29,9 +29,7 @@
                         <th> Fecha <span class="icon-arrow">&UpArrow;</span></th>
                         <th> Hora Inicio <span class="icon-arrow">&UpArrow;</span></th>
                         <th> Hora Final <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Created_At <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Updated_At <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Acciones <span class="icon-arrow">&UpArrow;</span></th>
+                        <th> Estado <span class="icon-arrow">&UpArrow;</span></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -42,11 +40,7 @@
                         <td> {{ $horario->hora_inicio}} </td>
                         <td>{{ $horario->hora_final}}</td>
                         <td>
-                            {{ $horario->created_at}}
-                        </td>
-                        <td>{{ $horario->updated_at}} </td>
-                        <td>
-                        <a>EDITAR</a>
+                            {{ $horario->estado}}
                         </td>
                     </tr>
                     
