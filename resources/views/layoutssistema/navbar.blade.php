@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
-    <title> Drop Down Sidebar Menu | CodingLab </title>
+    <title> MedHost | Sistema</title>
     
     <link rel="stylesheet" href="/css/sistema.css">
     <!-- Boxiocns CDN Link -->

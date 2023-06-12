@@ -1,6 +1,8 @@
 @extends('layoutssistema.navbar')
 @section('linkcss')
 <link rel="stylesheet" href="/css/formHorarios.css">
+<link rel="stylesheet" type="text/css" href="/css/montserrat-font.css">
+<link rel="stylesheet" type="text/css" href="/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
 @endsection
 @section('content')
 	<div class="page-content">
