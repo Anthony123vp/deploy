@@ -103,7 +103,7 @@
                     </div>
 					<div class="form-row-last">
                         <div class="boton">
-						    <input type="submit" name="register" class="register" value="Register Badge">
+						    <input type="submit" name="register" class="register" value="Programar">
 					    </div>
                     </div>
 				</div>

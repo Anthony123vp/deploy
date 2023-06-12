@@ -136,7 +136,7 @@
 <section class="home-section">
   <div class="home-content">
     <i class='bx bx-menu' ></i>
-    <span class="text">Informacion</span>
+    <span class="text">MedHost</span>
   </div>
   <div class="content">
     @yield('content')

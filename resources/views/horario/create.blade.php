@@ -10,7 +10,7 @@
 			<form class="form-detail" action="{{ route('Horario.store')}}" method="post" id="myform">
 			@csrf
 				<div class="form-left">
-					<h2>General Infomation</h2>
+					<h2>Programar Horario</h2>
 					<div class="form-row">
 						<input type="date" name="fecha">
 					</div>
@@ -23,7 +23,7 @@
 						</div>
 					</div>
                     <div class="form-row-last">
-						<input type="submit" name="register" class="register" value="Register Badge">
+						<input type="submit" name="register" class="register" value="Registrar">
 					</div>
 				</div>
 				<div class="form-right">
