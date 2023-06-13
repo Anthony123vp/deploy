@@ -5,7 +5,8 @@
 
 <main class="table">
         <section class="table__header">
-            <h1>Customer's Orders</h1>
+            <h1>USUARIOS</h1>
+            <a class="btn" href="{{ route('usuarios.create')}}">CREAR</a>
             <div class="input-group">
                 <input type="search" placeholder="Search Data...">
                 <img src="images/search.png" alt="">
@@ -52,7 +53,7 @@
                         <td>{{ $usuario->created_at }}</td>
                         <td>{{ $usuario->updated_at }}</td>
                         <td>
-                            <a href="{{ asset('/nuevo_usuario')}}">Crear Usuario</a><br>
+                            <!-- <a href="{{ asset('/nuevo_usuario')}}">Crear Usuario</a><br> -->
                             <a href="{{ route('usuarios.edit', ['id' => $usuario->id_usuarios]) }}">Editar Usuario</a><br>
                             <a href="{{ route('usuarios.edit2', ['id' => $usuario->id_usuarios]) }}">Eliminar Usuario</a><br>
                         </td>

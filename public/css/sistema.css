@@ -15,7 +15,7 @@ body{
   left: 0;
   height: 100%;
   width: 260px;
-  background: #99f6c3;
+  background: #58e999;
   z-index: 100;
   transition: all 0.5s ease;
 }
@@ -169,7 +169,7 @@ body{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #99f6c3;
+  background: #58e999;
   padding: 12px 0;
   transition: all 0.5s ease;
 }
@@ -189,7 +189,7 @@ body{
   object-fit: cover;
   border-radius: 16px;
   margin: 0 14px 0 12px;
-  background: #99f6c3;
+  background: #58e999;
   transition: all 0.5s ease;
 }
 .sidebar.close .profile-details img{
@@ -432,7 +432,7 @@ tbody tr.hide td img {
 }
 
 .status.delivered {
-  background-color: #86e49d;
+  background-color: #58e999;
   color: #006b21;
 }
 

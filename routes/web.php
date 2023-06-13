@@ -52,6 +52,7 @@ Route::post('/horarios',[HorarioController::class,'store'])->name('Horario.store
 // Route::get('/usuarios', [UsuarioController::class,'index'])->middleware('web');
 Route::get('/usuarios', [UsuarioController::class, 'index'])->name('usuarios.index')->middleware('web');
 
+Route::get('/usuarios/create',[UsuarioController::class,'create'])->name('usuarios.create');
 Route::post('/usuarios', [UsuarioController::class, 'store'])->name('usuarios.store');
 Route::get('/usuarios/{id}/editar', [UsuarioController::class, 'edit'])->name('usuarios.edit');
 Route::get('/usuarios/{id}/edit2', [UsuarioController::class, 'edit2'])->name('usuarios.edit2');
@@ -60,7 +61,7 @@ Route::put('/usuarios/{id}', [UsuarioController::class, 'update'])->name('usuari
 
 Route::delete('/usuarios/{id}', [UsuarioController::class, 'destroy'])->name('usuarios.destroy');
 
-Route::view('/nuevo_usuario','usuarios.create');
+// Route::view('/nuevo_usuario','usuarios.create');
 
 
 Route::view('/sistema','Medicos.index');
