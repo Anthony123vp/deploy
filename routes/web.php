@@ -66,3 +66,4 @@ Route::view('/nuevo_usuario','usuarios.create');
 Route::view('/sistema','Medicos.index');
 Route::view('/reservas','Reserva.create');
 Route::view('/pacientes','pacientes.table');
+Route::view('/editar_medico','Medicos.editar');
