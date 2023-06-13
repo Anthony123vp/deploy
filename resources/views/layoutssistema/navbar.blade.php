@@ -5,6 +5,7 @@
     <title> MedHost | Sistema</title>
     
     <link rel="stylesheet" href="/css/sistema.css">
+    <link href="/css/editar.css" rel="stylesheet" media="all">
     <!-- Boxiocns CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     @yield('linkcss')

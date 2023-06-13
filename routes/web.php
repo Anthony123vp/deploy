@@ -67,3 +67,4 @@ Route::delete('/usuarios/{id}', [UsuarioController::class, 'destroy'])->name('us
 Route::view('/sistema','Medicos.index');
 Route::view('/reservas','Reserva.create');
 Route::view('/pacientes','pacientes.table');
+Route::view('/editar_medico','Medicos.editar');
