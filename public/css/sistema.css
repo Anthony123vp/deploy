@@ -15,7 +15,7 @@ body{
   left: 0;
   height: 100%;
   width: 260px;
-  background: #58e999;
+  background: #99f6c3;
   z-index: 100;
   transition: all 0.5s ease;
 }
@@ -169,7 +169,7 @@ body{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #58e999;
+  background: #99f6c3;
   padding: 12px 0;
   transition: all 0.5s ease;
 }
@@ -189,7 +189,7 @@ body{
   object-fit: cover;
   border-radius: 16px;
   margin: 0 14px 0 12px;
-  background: #58e999;
+  background: #99f6c3;
   transition: all 0.5s ease;
 }
 .sidebar.close .profile-details img{
@@ -432,7 +432,7 @@ tbody tr.hide td img {
 }
 
 .status.delivered {
-  background-color: #58e999;
+  background-color: #86e49d;
   color: #006b21;
 }
 
@@ -626,4 +626,66 @@ button{
 }
 .btn:hover:after{
   background-position: 100% 0;
+}
+
+.swal2-confirm{
+  background-color: #86e49d !important;
+  border: 2px solid  #61bd78 !important;
+  box-shadow: 2px 2px 4px #61bd78  !important;
+}
+
+.swal2-confirm:hover{
+  background-color: #86e49d !important;
+  border: 2px solid  #61bd78 !important;
+  box-shadow: 2px 2px 4px #61bd78  !important;
+}
+
+.swal2-cancel{
+  background-color: #818181 !important;
+  border: 2px solid  #444444 !important;
+  box-shadow: 2px 2px 4px #444444  !important;
+  padding-right: 90px !important;
+}
+
+.swal2-cancel:hover{
+  background-color: #818181 !important;
+  border: 2px solid  #444444 !important;
+  box-shadow: 2px 2px 4px #444444  !important;
+}
+
+div:where(.swal2-icon).swal2-warning {
+  border-color: #a8fab2 !important;
+  color: #87f886 !important;
+}
+
+.boton_acciones{
+  background-color: #f8f9fa;
+  color: #212529;
+  border-color: #f8f9fa;
+  padding: 8px 25px 8px 25px;
+  border-radius: 10px;
+  text-decoration: none;
+}
+
+.boton_acciones:hover{
+  background-color: #e2e6ea;
+  color: #212529;
+  border-color: #dae0e5;
+}
+
+.export__file .export__file-options label {
+  display: block;
+  width: 100%;
+  padding: 0.6rem 0;
+  background-color: #f2f2f2;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  transition: .2s ease-in-out;
+  z-index: -10;
+}
+
+thead th {
+  background-color: #99f6c3;
+  z-index: 10;
 }
