@@ -13,14 +13,15 @@
                 <input type="checkbox" id="export-file">
                 <div class="export__file-options">
                     <label>Export As &nbsp; &#10140;</label>
-                    <label for="export-file" id="toPDF">PDF <img src="images/pdf.png" alt=""></label>
+                    <label for="export-file" id="toPDF" onclick="generarPDF(event)">PDF <img src="images/pdf.png" alt=""></label>
+
                     <label for="export-file" id="toEXCEL">EXCEL <img src="images/excel.png" alt=""></label>
                     
                 </div>
             </div>
         </section>
         <section class="table__body">
-            <table>
+            <table class="table" id="table">
                 <thead>
                     <tr>
                         <th> Id </th>
@@ -37,7 +38,7 @@
                         <th>Actualizar</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="tbody" id="tbody">
                     <tr>
                         <td> 1 </td>
                         <td>Aaron</td>
@@ -58,5 +59,4 @@
             </table>
         </section>
     </main>
-    <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
 @endsection

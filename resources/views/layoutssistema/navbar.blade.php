@@ -11,9 +11,6 @@
     @yield('linkcss')
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-
 
   </head>
 <body>
@@ -150,6 +147,34 @@
 </section>
 
 <script src="/Js/sistema.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.debug.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.js"></script>
 
+<script>
+    function generarPDF(event) {
+  event.preventDefault();
+  const tBody = document.querySelector('#tbody');
+  if (tBody.childElementCount === 0) {
+    alert("No se puede generar el PDF ya que no hay registros en la tabla.");
+    return;
+  }
+
+  const doc = new jsPDF();
+  const table = document.querySelector('table');
+
+  // Definir las opciones de estilo para la tabla
+  const options = {
+    styles: {
+      fillColor: [0, 176, 80]
+    }
+
+  };
+
+  // Generar la tabla usando autoTable con las opciones de estilo
+  doc.autoTable({ html: table, ...options });
+
+  doc.save('Reporte.pdf');
+}
+</script>
 </body>
 </html>
