@@ -4,6 +4,7 @@
 <main class="table">
         <section class="table__header">
             <h1>Medicos</h1>
+            <a class="btn" href="{{ route('newmedico')}}">CREAR</a>
             <div class="input-group">
                 <input type="search" placeholder="Search Data...">
                 <img src="images/search.png"  alt="">

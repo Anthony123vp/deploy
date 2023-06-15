@@ -50,7 +50,7 @@
                         <td>1</td>
                         <td>17:25pm</td>
                         <td>0</td>
-                        <td><button class="edit">Editar</button>
+<td><button class="edit"><a href=" {{route('editmedico')}}">Editar</a></button>
                             <button class="delete">Eliminar</button></td>
                     </tr>
                     

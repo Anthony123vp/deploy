@@ -70,4 +70,5 @@ Route::delete('/recepcionistas/{id}', [RecepcionistaController::class, 'destroy'
 Route::view('/sistema','Medicos.index');
 Route::view('/reservas','Reserva.create');
 Route::view('/pacientes','pacientes.table');
-Route::view('/editar_medico','Medicos.editar');
+Route::view('/create','Medicos.create')->name('newmedico');
+Route::view('/editar_medico','Medicos.editar')->name('editmedico');
