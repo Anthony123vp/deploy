@@ -14,15 +14,13 @@
                 <input type="checkbox" id="export-file">
                 <div class="export__file-options">
                     <label>Export As &nbsp; &#10140;</label>
-                    <label for="export-file" id="toPDF">PDF <img src="images/pdf.png" alt=""></label>
-                    <label for="export-file" id="toJSON">JSON <img src="images/json.png" alt=""></label>
-                    <label for="export-file" id="toCSV">CSV <img src="images/csv.png" alt=""></label>
+                    <label for="export-file" id="toPDF" onclick="generarPDF(event)">PDF <img src="images/pdf.png" alt=""></label>
                     <label for="export-file" id="toEXCEL">EXCEL <img src="images/excel.png" alt=""></label>
                 </div>
             </div>
         </section>
         <section class="table__body">
-            <table>
+            <table class="table" id="table">
                 <thead>
                     <tr>
                         <th> Id <span class="icon-arrow">&UpArrow;</span></th>
@@ -32,7 +30,7 @@
                         <th> Estado <span class="icon-arrow">&UpArrow;</span></th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="tbody" id="tbody">
                 @foreach ( $horarios as $horario )
                     <tr>
                         <td>{{ $loop->iteration}}</td>
