@@ -244,16 +244,9 @@
 	font-size: 15px;
 }
 
-.imagen{
-	display: flex;
-	justify-content: center;
-	margin-bottom: 20px;
-}
-.imagen img{
 
-	width: 200px;
-}
 .boton{
+	margin-top: 7rem;
 	display: flex;
 	justify-content: center;
 }

@@ -1,0 +1,61 @@
+
+.citas_pendientes{
+    width: 100%;
+    margin-top: 20px;
+    height: 85vh;
+    overflow-y: scroll;
+}
+.cita{
+    background-color: rgb(237, 241, 241);
+    border-radius: 10px;
+    height: 130px;
+    width: 60%;
+    margin: auto;
+    margin-bottom: 15px;
+    padding: 12px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cita .informacion p{
+    padding: 1px 0px;
+    font-size: 14px;
+}
+.cita .informacion strong{
+    padding: 1px 0px;
+    font-size: 14px;
+}
+
+.cita .botones{
+    align-self: center;
+}
+.cita .botones .estado{
+    padding: 8px;
+    border-radius: 10px;
+    background-color: rgb(188, 24, 24);
+}
+
+.resultados{
+    display: inline-flex;
+    padding: 8px;
+    text-decoration: none;
+    border-radius: 10px;
+    color: #fff;
+    background-color: rgb(17, 213, 181);
+}
+.resultados:hover{
+    background-color: rgb(24, 185, 188);
+}
+
+
+.cita .botones .atender{
+    display: inline-flex;
+    padding: 8px;
+    text-decoration: none;
+    border-radius: 10px;
+    color: #fff;
+    background-color: rgb(69, 207, 14);
+}
+.atender:hover{
+    background-color: chartreuse;
+}

@@ -8,22 +8,27 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
+     *
+     * @return void
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('horarios', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_horario', true);
             $table->date('fecha');
             $table->time('hora_inicio');
             $table->time('hora_final');
-            $table->timestamps();
+            $table->timestamp('created_at')->index('idx_created_at');
+            $table->timestamp('updated_at');
         });
     }
 
     /**
      * Reverse the migrations.
+     *
+     * @return void
      */
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('horarios');
     }

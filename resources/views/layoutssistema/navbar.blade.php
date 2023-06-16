@@ -28,9 +28,30 @@
           <span class="link_name">Dashboard</span>
         </a>
         <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Category</a></li>
+          <li><a class="link_name" href="#">Dashboard</a></li>
         </ul>
       </li>
+      <!--Medico-->
+        <li>
+          <a href="#">
+            <i class='bx bx-line-chart' ></i>
+            <span class="link_name">Citas</span>
+          </a>
+          <ul class="sub-menu blank">
+            <li><a class="link_name" href="#">Citas</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="#">
+            <i class='bx bx-line-chart' ></i>
+            <span class="link_name">Horarios</span>
+          </a>
+          <ul class="sub-menu blank">
+            <li><a class="link_name" href="#">Horarios</a></li>
+          </ul>
+        </li>
+      <!--Medico-->
       <li>
         <div class="iocn-link">
           <a href="#">
@@ -70,57 +91,29 @@
           <li><a class="link_name" href="#">Analytics</a></li>
         </ul>
       </li>
-      <li>
-        <a href="#">
-          <i class='bx bx-line-chart' ></i>
-          <span class="link_name">Chart</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Chart</a></li>
-        </ul>
-      </li>
-      <li>
-        <div class="iocn-link">
+      <!--Paciente-->
+        <li>
           <a href="#">
-            <i class='bx bx-plug' ></i>
-            <span class="link_name">Plugins</span>
+            <i class='bx bx-line-chart' ></i>
+            <span class="link_name">Historial Medico</span>
           </a>
-          <i class='bx bxs-chevron-down arrow' ></i>
-        </div>
-        <ul class="sub-menu">
-          <li><a class="link_name" href="#">Plugins</a></li>
-          <li><a href="#">UI Face</a></li>
-          <li><a href="#">Pigments</a></li>
-          <li><a href="#">Box Icons</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bx-compass' ></i>
-          <span class="link_name">Explore</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Explore</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bx-history'></i>
-          <span class="link_name">History</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">History</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bx-cog' ></i>
-          <span class="link_name">Setting</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Setting</a></li>
-        </ul>
-      </li>
+          <ul class="sub-menu blank">
+            <li><a class="link_name" href="#">Historial Medico</a></li>
+          </ul>
+        </li>
+      
+        <li>
+          <a href="#">
+            <i class='bx bx-line-chart' ></i>
+            <span class="link_name">Citas</span>
+          </a>
+          <ul class="sub-menu blank">
+            <li><a class="link_name" href="#">Citas</a></li>
+          </ul>
+        </li>
+      <!--End Paciente-->
+     
+      
       <li>
         <div class="profile-details">
           <div class="profile-content">

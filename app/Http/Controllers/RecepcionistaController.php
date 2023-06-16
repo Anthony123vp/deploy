@@ -35,7 +35,7 @@ class RecepcionistaController extends Controller
 
         $request->validate([
             'email' => 'required|unique:usuarios',
-            'password_1' => 'required',
+            'password' => 'required',
             'password_2' => 'required',
         ]);
 

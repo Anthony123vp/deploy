@@ -9,13 +9,13 @@ class Usuario extends Model
 {
     use HasFactory;
 
-    protected $table = 'usuarios';
+    protected $table = 'users';
 
-    protected $primaryKey = 'id_usuarios';
+    protected $primaryKey = 'id_user';
 
     protected $fillable = [
         'email',
-        'password_1',
+        'password',
         'password_2',
         'estado',
         'id_rol',

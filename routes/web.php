@@ -7,6 +7,10 @@ use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\RecepcionistaController;
 use App\Http\Controllers\AdministradorController;
 
+use App\Http\Controllers\ReservaController;
+use App\Http\Controllers\ReservaPendiente;
+use App\Http\Controllers\ReservaProgramada;
+
 Route::view('/','MedHostPublic.home');
 
 Route::get('/layoutheader', function () {
@@ -78,8 +82,37 @@ Route::delete('/administradores/{id}', [AdministradorController::class, 'destroy
 
 
 // Route::view('/nuevo_usuario','usuarios.create');
-Route::view('/sistema','Medicos.index');
-Route::view('/reservas','Reserva.create');
+
 // Route::view('/pacientes','pacientes.table');
 Route::view('/create','Medicos.create')->name('newmedico');
 Route::view('/editar_medico','Medicos.editar')->name('editmedico');
+
+
+
+
+/*Vista de boton para la rececpcionista*/
+    /*Crud de Reservas*/
+    Route::get('/reservas',[ReservaController::class,'index'])->name('reservas.index');
+    Route::get('/reservas/create',[ReservaController::class,'create'])->name('reservas.create');
+    Route::post('/reservas',[ReservaController::class,'store'])->name('reservas.store');
+
+
+//Vista de botones para el paciente:
+Route::get('/citas_pendientes',[ReservaPendiente::class,'index'])->name('citas_pendiente.index');
+Route::view('/historial','Paciente_botones\historial\index');
+
+
+//Vista de botones para el medico
+    /*Visualizacion de citas para atender */
+    Route::get('/citas_programadas',[ReservaProgramada::class,'index'])->name('citas_programadas.index');
+
+    /*Creacion de Horarios */
+
+    Route::get('/horarios',[HorarioController::class,'index'])->name('Horario.index');
+    Route::get('/horarios/create',[HorarioController::class,'create'])->name('Horario.create');
+    Route::post('/horarios',[HorarioController::class,'store'])->name('Horario.store');
+
+
+
+
+

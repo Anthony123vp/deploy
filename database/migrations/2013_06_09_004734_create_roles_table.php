@@ -11,14 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('medicos', function (Blueprint $table) {
-            $table->id();
-            $table->string('id_especialidad');
-            $table->string('password_1');
-            $table->string('password_2');
-            $table->integer('id_persona');
+        Schema::create('roles', function (Blueprint $table) {
+            $table->id('id_rol');
+            $table->string('nombre_rol',20);
             $table->integer('estado')->default(1);
-    
             $table->timestamps();
         });
     }
@@ -28,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('medicos');
+        Schema::dropIfExists('roles');
     }
 };
