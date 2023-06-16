@@ -44,7 +44,7 @@ class RecepcionistaController extends Controller
     
         
         $usuario = Usuario::create($data);
-        $id_usuarios = $usuario->id_usuarios;
+        $id_usuarios = $usuario->id_user;
 
         $request->validate([
             'dni' => 'required',
@@ -165,7 +165,7 @@ class RecepcionistaController extends Controller
             'celular' => 'required',
             'dni' => 'required',
             'f_nacimiento' => 'required',
-            'email' => 'required|unique:users,email,'.$id.',id_usuarios',
+            'email' => 'required|unique:users,email,'.$id.',id_user',
             'password' => 'required',
             'password_2' => 'required',
         ]);

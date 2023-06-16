@@ -39,13 +39,12 @@ class UsuarioController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'password_1' => 'required',
+            'password' => 'required',
             'password_2' => 'required',
-            'email' => 'required|unique:usuarios',
+            'email' => 'required|unique:users',
         ]);
 
         $data = $request->all();
-        $data['id_rol'] = 1; 
 
         Usuario::create($data);
 
@@ -97,7 +96,7 @@ class UsuarioController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'email' => 'required|unique:usuarios,email,'.$id.',id_usuarios',
+            'email' => 'required|unique:users,email,'.$id.',id_usuarios',
             'password_1' => 'required',
             'password_2' => 'required',
             'estado' => 'required',

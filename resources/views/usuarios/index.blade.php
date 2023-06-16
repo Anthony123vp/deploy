@@ -49,7 +49,7 @@
                         <td>{{ $id }}</td>
                         <td>{{ $usuario->id_rol }}</td>
                         <td>{{ $usuario->email }}</td>
-                        <td>{{ $usuario->password_1 }}</td>
+                        <td>{{ $usuario->password }}</td>
                         <td>{{ $usuario->password_2 }}</td>
                         <td>
                             @if ($usuario->estado == 1)
@@ -62,12 +62,12 @@
                         <td>{{ $usuario->updated_at }}</td>
                         <td>
                             <!-- <a href="{{ asset('/nuevo_usuario')}}">Crear Usuario</a><br> -->
-                            <!-- <a href="{{ route('usuarios.edit', ['id' => $usuario->id_usuarios]) }}">Editar Usuario</a><br>
-                            <a href="{{ route('usuarios.edit2', ['id' => $usuario->id_usuarios]) }}">Eliminar Usuario</a><br> -->
+                            <!-- <a href="{{ route('usuarios.edit', ['id' => $usuario->id_user]) }}">Editar Usuario</a><br>
+                            <a href="{{ route('usuarios.edit2', ['id' => $usuario->id_user]) }}">Eliminar Usuario</a><br> -->
 
-                            <!-- <a type="button" class="btn btn-light" href="{{ route('usuarios.edit', ['id' => $usuario->id_usuarios]) }}">Editar</a><br> -->
-                            <a type="button" style="margin-top:10px;padding-right:100px;" class="btn btn-light activate-usuario" href="#" data-usuario-id="{{ $usuario->id_usuarios }}">ACTIVAR</a><br>
-                            <a type="button" style="margin-top:10px;padding-right:100px;" class="btn btn-light delete-usuario" href="#" data-usuario-id="{{ $usuario->id_usuarios }}">INACTIVAR</a>
+                            <!-- <a type="button" class="btn btn-light" href="{{ route('usuarios.edit', ['id' => $usuario->id_user]) }}">Editar</a><br> -->
+                            <a type="button" style="margin-top:10px;padding-right:100px;" class="btn btn-light activate-usuario" href="#" data-usuario-id="{{ $usuario->id_user }}">ACTIVAR</a><br>
+                            <a type="button" style="margin-top:10px;padding-right:100px;" class="btn btn-light delete-usuario" href="#" data-usuario-id="{{ $usuario->id_user }}">INACTIVAR</a>
 
                         </td>
                     </tr>
