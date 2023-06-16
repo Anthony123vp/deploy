@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('paciente', function (Blueprint $table) {
             $table->id('id_paciente', true);
             $table->unsignedBigInteger('id_user')->index('fk_Paciente_USUARIOS1_idx');
-            $table->string('nombre', 45);
+            $table->string('nombres', 45);
             $table->string('ape_paterno', 45)->unique('ape_paterno_UNIQUE');
             $table->string('ape_materno', 45);
             $table->char('sexo', 1);

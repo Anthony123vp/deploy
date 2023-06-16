@@ -57,7 +57,7 @@
                         <option style='#ccc' value="">  SELECCIONE</option>
                         <option value="M">Masculino</option>
                         <option value="F">Femenino</option>
-                        <option value="Oliver">Prefiero no decirlo</option>
+                        <option value="X">Prefiero no decirlo</option>
                     </select>
                     <input style='margin-left:5px;' type="date" placeholder='Dia' autocomplete="off" name='f_nacimiento' id="f_nacimiento" >
               </div>
@@ -89,7 +89,7 @@
               </select>
             
               <div style='width:100%;display:flex;'>
-                  <input type="password" placeholder='  CONTRASEÑA' name='password_1' autocomplete="off" id="password_1" >
+                  <input type="password" placeholder='  CONTRASEÑA' name='password' autocomplete="off" id="password" >
                   <input style='margin-left:5px;' type="password" placeholder='  REPITE CONTRASEÑA' name='password_2' autocomplete="off" id="password_2" >
               </div>
               <button class='boton_registrar_paciente' type="submit">REGISTRARME</button>

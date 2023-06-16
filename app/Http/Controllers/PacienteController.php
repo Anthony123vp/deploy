@@ -33,8 +33,8 @@ class PacienteController extends Controller
         
 
         $request->validate([
-            'email' => 'required|unique:usuarios',
-            'password_1' => 'required',
+            'email' => 'required|unique:users',
+            'password' => 'required',
             'password_2' => 'required',
         ]);
 
@@ -43,7 +43,7 @@ class PacienteController extends Controller
     
         
         $usuario = Usuario::create($data);
-        $id_usuarios = $usuario->id_usuarios;
+        $id_usuarios = $usuario->id_user;
 
         $request->validate([
             'dni' => 'required',
@@ -158,8 +158,8 @@ class PacienteController extends Controller
             'dni' => 'required',
             'f_nacimiento' => 'required',
             'insurance' => 'required',
-            'email' => 'required|unique:usuarios,email,'.$id.',id_usuarios',
-            'password_1' => 'required',
+            'email' => 'required|unique:users,email,'.$id.',id_user',
+            'password' => 'required',
             'password_2' => 'required',
         ]);
 
@@ -181,7 +181,7 @@ class PacienteController extends Controller
         $usuario = Usuario::findOrFail($id_user);
         $usuario->update([
             'email' => $request->email,
-            'password_1' => $request->password_1,
+            'password' => $request->password_1,
             'password_2' => $request->password_2,
             'updated_at' => now()
         ]);

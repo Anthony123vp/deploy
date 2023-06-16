@@ -57,7 +57,7 @@
                                         <option style='#ccc' value="">  SEXO</option>
                                         <option value="M" {{ $administrador->sexo == 'M' ? 'selected' : '' }}>Masculino</option>
                                         <option value="F" {{ $administrador->sexo == 'F' ? 'selected' : '' }}>Femenino</option>
-                                        <option value="Oliver" {{ $administrador->sexo == 'Oliver' ? 'selected' : '' }}>Prefiero no decirlo</option>
+                                        <option value="X" {{ $administrador->sexo == 'X' ? 'selected' : '' }}>Prefiero no decirlo</option>
                                     </select>
                                     <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
                                 </div>
@@ -70,7 +70,7 @@
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <input class="input--style-1 js-datepicker" value="{{ $usuario->password_1 }}" type="password" placeholder="   Password 1" name="password_1">
+                                    <input class="input--style-1 js-datepicker" value="{{ $usuario->password }}" type="password" placeholder="   Password 1" name="password">
                                     <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
                                 </div>
                             </div>
