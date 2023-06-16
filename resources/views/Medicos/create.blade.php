@@ -72,6 +72,8 @@
                         </div>
                         <div class="p-t-20">
                             <button class="btn btn--radius btn--green" type="submit">Submit</button>
+                            
+                            <a href="{{ route('indexmedicos') }}" class="btn btn--radius btn--green" id="delete">Back</a>
                         </div>
                     </form>
                 </div>

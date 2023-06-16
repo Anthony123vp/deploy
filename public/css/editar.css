@@ -71,12 +71,14 @@
      ========================================================================== */
   .page-wrapper {
     min-height: 100vh;
+    
   }
   
   .main_editar {
     font-family: "Roboto", "Arial", "Helvetica Neue", sans-serif;
     font-weight: 400;
     font-size: 14px;
+
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -122,7 +124,7 @@
   }
   
   .p-t-20 {
-    padding-top: 20px;
+
   }
   
   .p-b-100 {
@@ -138,6 +140,7 @@
   
   .wrapper--w680 {
     max-width: 680px;
+    
   }
   
   /* ==========================================================================
@@ -237,7 +240,7 @@
   
   .input-group {
     position: relative;
-    margin: 5px;
+    margin: 30px;
     border-bottom: 2px solid #ccc;
   }
   
@@ -256,7 +259,7 @@
   }
   
   .input--style-1 {
-    padding: 9px 0;
+    padding:  0;
     color: #666;
   }
   
@@ -394,7 +397,7 @@
   
   .card-1 .card-heading {
     background: url("https://e1.pxfuel.com/desktop-wallpaper/786/454/desktop-wallpaper-clinic-doctor-doctor-computer.jpg") center center/cover no-repeat;
-    padding-top: 210px;
+    padding-top: 150px;
   }
   
   .card-1 .card-body {

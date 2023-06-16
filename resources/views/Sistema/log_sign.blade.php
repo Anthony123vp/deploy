@@ -87,15 +87,22 @@
                   <option value="20523470761">Sanitas Peru EPS</option>
                   <option value="20139589638">SEMEFA</option>
               </select>
-            
-              <div style='width:100%;display:flex;'>
-                  <input type="password" placeholder='  CONTRASEÑA' name='password_1' autocomplete="off" id="password_1" >
-                  <input style='margin-left:5px;' type="password" placeholder='  REPITE CONTRASEÑA' name='password_2' autocomplete="off" id="password_2" >
-              </div>
-              <button class='boton_registrar_paciente' type="submit">REGISTRARME</button>
-              </form>
-            
+              
+          <div style="width: 100%;">
+            <div class="password-container">
+              <input type="password" placeholder="CONTRASEÑA" name="password_1" autocomplete="off" id="password_1">
+              <span class="password-toggle" onmousedown="togglePasswordVisibility('password_1')" onmouseup="togglePasswordVisibility('password_1')"></span>
             </div>
+            <div class="password-container" style="margin-left: 5px;">
+              <input type="password" placeholder="REPITE CONTRASEÑA" name="password_2" autocomplete="off" id="password_2">
+              <span class="password-toggle" onmousedown="togglePasswordVisibility('password_2')" onmouseup="togglePasswordVisibility('password_2')"></span>
+            </div>
+          </div>    
+          <button class='boton_registrar_paciente' type="submit">REGISTRARME</button>
+          <div id="error-message" class="error-message" style="display: none;"></div>
+          </form>
+            
+        </div>
         </div>
     </div>
 </div>
