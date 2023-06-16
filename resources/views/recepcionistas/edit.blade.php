@@ -57,7 +57,7 @@
                                         <option style='#ccc' value="">  SEXO</option>
                                         <option value="M" {{ $recepcionista->sexo == 'M' ? 'selected' : '' }}>Masculino</option>
                                         <option value="F" {{ $recepcionista->sexo == 'F' ? 'selected' : '' }}>Femenino</option>
-                                        <option value="Oliver" {{ $recepcionista->sexo == 'Oliver' ? 'selected' : '' }}>Prefiero no decirlo</option>
+                                        <option value="X" {{ $recepcionista->sexo == 'X' ? 'selected' : '' }}>Prefiero no decirlo</option>
                                     </select>
                                     <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
                                 </div>

@@ -56,7 +56,7 @@
                                         <option style='#ccc' value="">  SEXO</option>
                                         <option value="M">Masculino</option>
                                         <option value="F">Femenino</option>
-                                        <option value="Oliver">Prefiero no decirlo</option>
+                                        <option value="X">Prefiero no decirlo</option>
                                     </select>
                                     <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
                                 </div>

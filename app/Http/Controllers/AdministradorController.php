@@ -38,8 +38,8 @@ class AdministradorController extends Controller
         // ------------------
 
         $request->validate([
-            'email' => 'required|unique:usuarios',
-            'password_1' => 'required',
+            'email' => 'required|unique:users',
+            'password' => 'required',
             'password_2' => 'required',
         ]);
 
@@ -48,7 +48,7 @@ class AdministradorController extends Controller
     
         
         $usuario = Usuario::create($data);
-        $id_usuarios = $usuario->id_usuarios;
+        $id_usuarios = $usuario->id_user;
 
         $request->validate([
             'dni' => 'required',
@@ -85,9 +85,6 @@ class AdministradorController extends Controller
 
     public function edit($id)
     {
-        // $administrador = Administrador::findOrFail($id);
-        // return view('administradores.edit', compact('administrador'));
-
         $administrador = Administrador::findOrFail($id);
         $id_user = $administrador->id_user;
         $usuario = Usuario::findOrFail($id_user);
@@ -160,8 +157,8 @@ class AdministradorController extends Controller
             'celular' => 'required',
             'dni' => 'required',
             'f_nacimiento' => 'required',
-            'email' => 'required|unique:usuarios,email,'.$id.',id_usuarios',
-            'password_1' => 'required',
+            'email' => 'required|unique:users,email,'.$id.',id_user',
+            'password' => 'required',
             'password_2' => 'required',
         ]);
 
@@ -182,7 +179,7 @@ class AdministradorController extends Controller
         $usuario = Usuario::findOrFail($id_user);
         $usuario->update([
             'email' => $request->email,
-            'password_1' => $request->password_1,
+            'password' => $request->password,
             'password_2' => $request->password_2,
             'updated_at' => now()
         ]);

@@ -57,7 +57,7 @@
                         <option style='#ccc' value="">  SELECCIONE</option>
                         <option value="M">Masculino</option>
                         <option value="F">Femenino</option>
-                        <option value="Oliver">Prefiero no decirlo</option>
+                        <option value="X">Prefiero no decirlo</option>
                     </select>
                     <input style='margin-left:5px;' type="date" placeholder='Dia' autocomplete="off" name='f_nacimiento' id="f_nacimiento" >
               </div>
