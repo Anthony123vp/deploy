@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Paciente extends Model
+class Administrador extends Model
 {
     use HasFactory;
 
-    protected $table = 'pacientes';
+    protected $table = 'administradores';
 
-    protected $primaryKey = 'id_paciente';
+    protected $primaryKey = 'id_administrador';
 
     protected $fillable = [
         'id_user',
@@ -22,7 +22,7 @@ class Paciente extends Model
         'celular',
         'dni',
         'f_nacimiento',
-        'insurance',
         'estado',
     ];
 }
+

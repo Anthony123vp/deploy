@@ -5,8 +5,8 @@
 
 <main class="table">
         <section class="table__header">
-            <h1>Recepcionistas</h1>
-            <a class="btn" href="{{ route('recepcionistas.create')}}">CREAR</a>
+            <h1>Administradores</h1>
+            <a class="btn" href="{{ route('administradores.create')}}">CREAR</a>
             <div style='padding:20px;margin-top:30px;' class="input-group">
                 <input type="search" placeholder="Buscar Datos...">
                 <img src="images/search.png" alt="">
@@ -46,27 +46,27 @@
                         $id = 1;
                     @endphp
                     
-                    @foreach ($recepcionistas as $recepcionista)
+                    @foreach ($administradores as $administrador)
                     <tr>
                         <td>{{ $id }}</td>
-                        <td>{{ $recepcionista->nombres }}</td>
-                        <td>{{ $recepcionista->ape_paterno }}</td>
-                        <td>{{ $recepcionista->ape_materno }}</td>
-                        <td>{{ $recepcionista->celular }}</td>
-                        <td>{{ $recepcionista->dni }}</td>
-                        <td>{{ $recepcionista->f_nacimiento }}</td>
+                        <td>{{ $administrador->nombres }}</td>
+                        <td>{{ $administrador->ape_paterno }}</td>
+                        <td>{{ $administrador->ape_materno }}</td>
+                        <td>{{ $administrador->celular }}</td>
+                        <td>{{ $administrador->dni }}</td>
+                        <td>{{ $administrador->f_nacimiento }}</td>
                         <td>
-                            @if ($recepcionista->estado == 1)
+                            @if ($administrador->estado == 1)
                                 <button type="button" style='background-color:#99f6c3;padding:8px 5px 8px 5px; color:#000;'>Activo</button>
                                 @else
                                 <button type="button" style='background-color:#c94444;padding:8px 5px 8px 5px; color:#fff;'>Inactivo</button>
                             @endif
                         </td>
-                        <td>{{ $recepcionista->created_at }}</td>
-                        <td>{{ $recepcionista->updated_at }}</td>
+                        <td>{{ $administrador->created_at }}</td>
+                        <td>{{ $administrador->updated_at }}</td>
                         <td>
-                            <a type="button" class="btn btn-light" href="{{ route('recepcionistas.edit', ['id' => $recepcionista->id_recepcionista]) }}">Editar</a><br>
-                            <a type="button" style="margin-top:10px;" class="btn btn-light delete-recepcionista" href="#" data-recepcionista-id="{{ $recepcionista->id_recepcionista }}">Eliminar</a>
+                            <a type="button" class="btn btn-light" href="{{ route('administradores.edit', ['id' => $administrador->id_administrador]) }}">Editar</a><br>
+                            <a type="button" style="margin-top:10px;" class="btn btn-light delete-administrador" href="#" data-administrador-id="{{ $administrador->id_administrador }}">Eliminar</a>
 
                         </td>
                     </tr>
@@ -82,16 +82,16 @@
     </main>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        const deleteLinks = document.querySelectorAll('.delete-recepcionista');
+        const deleteLinks = document.querySelectorAll('.delete-administrador');
 
         deleteLinks.forEach(function(link) {
             link.addEventListener('click', function(event) {
                 event.preventDefault();
 
-                const recepcionistaId = this.getAttribute('data-recepcionista-id');
+                const administradorId = this.getAttribute('data-administrador-id');
                 Swal.fire({
                     title: '¿Estás seguro?',
-                    text: 'Esta acción eliminará el recepcionista',
+                    text: 'Esta acción eliminará el administrador',
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonText: 'Eliminar',
@@ -99,19 +99,19 @@
                 }).then((result) => {
                     if (result.isConfirmed) {
 
-                        fetch("{{ route('recepcionistas.destroy', ['id' => 'RECEPCIONISTA_ID']) }}".replace('RECEPCIONISTA_ID', recepcionistaId), {
+                        fetch("{{ route('administradores.destroy', ['id' => 'ADMINISTRADOR_ID']) }}".replace('ADMINISTRADOR_ID', administradorId), {
                             method: 'DELETE',
                             headers: {
                                 'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
                             }
                         }).then(function(response) {
                             if (response.ok) {
-                                window.location.href = "{{ route('recepcionistas.index') }}";
+                                window.location.href = "{{ route('administradores.index') }}";
                             } else {
                             }
                         });
                         
-                        window.location.href = "{{ route('recepcionistas.index') }}";
+                        window.location.href = "{{ route('administradores.index') }}";
 
                     }
                 });

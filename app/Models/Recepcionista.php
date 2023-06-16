@@ -18,6 +18,7 @@ class Recepcionista extends Model
         'nombres',
         'ape_paterno',
         'ape_materno',
+        'sexo',
         'celular',
         'dni',
         'f_nacimiento',

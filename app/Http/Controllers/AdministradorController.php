@@ -2,36 +2,40 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Recepcionista;
+use App\Models\Administrador;
 use App\Models\Usuario;
 use Illuminate\Http\Request;
 
-class RecepcionistaController extends Controller
+class AdministradorController extends Controller
 {
     public function index()
     {
-        $recepcionistas = Recepcionista::all();
-        return view('recepcionistas.index', compact('recepcionistas'));
+        $administradores = Administrador::all();
+        return view('administradores.index', compact('administradores'));
     }
 
     public function create()
     {
-        return view('recepcionistas.create');
+        return view('administradores.create');
     }
 
     public function store(Request $request)
     {
         // $request->validate([
+        //     'dni' => 'required',
         //     'nombres' => 'required',
         //     'ape_paterno' => 'required',
         //     'ape_materno' => 'required',
+        //     // 'sexo' => 'required',
         //     'celular' => 'required',
-        //     'dni' => 'required',
         //     'f_nacimiento' => 'required',
         // ]);
-        // Recepcionista::create($request->all());
+ 
 
-        // -------------------------
+        // Administrador::create($request->all());
+
+
+        // ------------------
 
         $request->validate([
             'email' => 'required|unique:usuarios',
@@ -40,7 +44,7 @@ class RecepcionistaController extends Controller
         ]);
 
         $data = $request->all();
-        $data['id_rol'] = 3; 
+        $data['id_rol'] = 2; 
     
         
         $usuario = Usuario::create($data);
@@ -56,7 +60,7 @@ class RecepcionistaController extends Controller
             'f_nacimiento' => 'required',
         ]);
         
-        Recepcionista::create([
+        Administrador::create([
             'id_user' => $id_usuarios,
             'dni' => $request->dni,
             'nombres' => $request->nombres,
@@ -68,37 +72,34 @@ class RecepcionistaController extends Controller
             // 'password_1' => bcrypt($request->password_1),
         ]);
     
-        return redirect()->route('recepcionistas.index')->with('success', 'Recepcionista creado correctamente.');
+        return redirect()->route('administradores.index')->with('success', 'Administrador creado correctamente.');
     }
 
 
     public function show($id)
     {
-        $recepcionista = Recepcionista::findOrFail($id);
-        return view('recepcionistas.show', compact('recepcionista'));
+        $administrador = Administrador::findOrFail($id);
+        return view('administradores.show', compact('administrador'));
     } 
 
 
-    // public function edit($id)
-    // {
-    //     $recepcionista = Recepcionista::findOrFail($id);
-    //     return view('recepcionistas.edit', compact('recepcionista'));
-    // }
-
     public function edit($id)
     {
-        $recepcionista = Recepcionista::findOrFail($id);
-        $id_user = $recepcionista->id_user;
+        // $administrador = Administrador::findOrFail($id);
+        // return view('administradores.edit', compact('administrador'));
+
+        $administrador = Administrador::findOrFail($id);
+        $id_user = $administrador->id_user;
         $usuario = Usuario::findOrFail($id_user);
-        
-        return view('recepcionistas.edit', compact('recepcionista', 'usuario'));
+
+        return view('administradores.edit', compact('administrador', 'usuario'));
     }
     
     public function edit2($id)
     {
-        $recepcionista = Recepcionista::findOrFail($id);
+        $administrador = Administrador::findOrFail($id);
         // return view('recepcionistas.destroy', compact('recepcionista'));
-        return redirect()->route('recepcionistas.destroy', ['id' => $id]);
+        return redirect()->route('administradores.destroy', ['id' => $id]);
     }
 
     // public function update(Request $request, $id)
@@ -124,41 +125,35 @@ class RecepcionistaController extends Controller
     //     return redirect()->route('usuarios.index')->with('success', 'Usuario actualizado correctamente.');
     // }
 
-    // public function update(Request $request, $id)
-    // {
-    //     $request->validate([
-    //         'nombres' => 'required|unique:recepcionistas,nombres,'.$id.',id_recepcionista',
-    //         'ape_paterno' => 'required',
-    //         'ape_materno' => 'required',
-    //         'sexo' => 'required',
-    //         'celular' => 'required',
-    //         'dni' => 'required',
-    //         'f_nacimiento' => 'required',
-    //     ]);
-
-    //     $recepcionista = Recepcionista::findOrFail($id);
-    //     $recepcionista->update([
-    //         'nombres' => $request->nombres,
-    //         'ape_paterno' => $request->ape_paterno,
-    //         'ape_materno' => $request->ape_materno,
-    //         'sexo' => $request->sexo,
-    //         'celular' => $request->celular,
-    //         'dni' => $request->dni,
-    //         'f_nacimiento' => $request->f_nacimiento,
-    //         'updated_at' => now()
-    //     ]);
-
-
-
-    //     return redirect()->route('recepcionistas.index')->with('success', 'Recepcionista actualizado correctamente.');
-    // }
-
-
-
     public function update(Request $request, $id)
     {
+        // $request->validate([
+        //     'nombres' => 'required|unique:administradores,nombres,'.$id.',id_administrador',
+        //     'ape_paterno' => 'required',
+        //     'ape_materno' => 'required',
+        //     'sexo' => 'required',
+        //     'celular' => 'required',
+        //     'dni' => 'required',
+        //     'f_nacimiento' => 'required',
+        // ]);
+        
+
+        // $administrador = Administrador::findOrFail($id);
+        // $administrador->update([
+        //     'nombres' => $request->nombres,
+        //     'ape_paterno' => $request->ape_paterno,
+        //     'ape_materno' => $request->ape_materno,
+        //     'sexo' => $request->sexo,
+        //     'celular' => $request->celular,
+        //     'dni' => $request->dni,
+        //     'f_nacimiento' => $request->f_nacimiento,
+        //     'updated_at' => now()
+        // ]);
+
+        // ---------------------------------
+
         $request->validate([
-            'nombres' => 'required|unique:recepcionistas,nombres,'.$id.',id_recepcionista',
+            'nombres' => 'required|unique:administradores,nombres,'.$id.',id_administrador',
             'ape_paterno' => 'required',
             'ape_materno' => 'required',
             'sexo' => 'required',
@@ -170,10 +165,10 @@ class RecepcionistaController extends Controller
             'password_2' => 'required',
         ]);
 
-        $recepcionista = Recepcionista::findOrFail($id);
-        $id_user = $recepcionista->id_user;
+        $administrador = Administrador::findOrFail($id);
+        $id_user = $administrador->id_user;
         
-        $recepcionista->update([
+        $administrador->update([
             'nombres' => $request->nombres,
             'ape_paterno' => $request->ape_paterno,
             'ape_materno' => $request->ape_materno,
@@ -191,33 +186,31 @@ class RecepcionistaController extends Controller
             'password_2' => $request->password_2,
             'updated_at' => now()
         ]);
-
-        return redirect()->route('recepcionistas.index')->with('success', 'Recepcionista actualizado correctamente.');
+        
+        return redirect()->route('administradores.index')->with('success', 'Administrador actualizado correctamente.');
     }
 
 
     public function destroy($id)
     {
-        // $recepcionista = Recepcionista::findOrFail($id);
-        // $recepcionista->estado = 0;
-        // $recepcionista->updated_at = now();
-        // $recepcionista->save();
+        // $administrador = Administrador::findOrFail($id);
+        // $administrador->estado = 0;
+        // $administrador->updated_at = now();
+        // $administrador->save();
 
-        $recepcionista = Recepcionista::findOrFail($id);
-        $idUsuario = $recepcionista->id_user;
+        $administrador = Administrador::findOrFail($id);
+        $idUsuario = $administrador->id_user;
 
-        $recepcionista->estado = 0;
-        $recepcionista->updated_at = now();
-        $recepcionista->save();
+        $administrador->estado = 0;
+        $administrador->updated_at = now();
+        $administrador->save();
 
         $usuario = Usuario::findOrFail($idUsuario);
         $usuario->estado = 0;
         $usuario->updated_at = now();
         $usuario->save();
 
-        return redirect()->route('recepcionistas.index')->with('success', 'Recepcionista desactivado correctamente.');
+        return redirect()->route('administradores.index')->with('success', 'Administrador desactivado correctamente.');
     }
-
-
 
 }

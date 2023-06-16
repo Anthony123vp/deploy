@@ -40,17 +40,17 @@
       </div>
 
       <div class="signup hide">
-          <h2>REGISTRO</h2>
+          <h2>REGISTRO PACIENTE</h2>
           <div class="inputbox">
-            <form action="" method="POST">
+            <form action="{{ route('pacientes.store')}}" method="POST">
               @csrf
               <div style='width:100%;display:flex;'>
                   <input style='margin-right:5px;' type="text" placeholder='  NUMERO DOCUMENTO' id="dni" name="dni">
                   <input type="text" name='nombres' placeholder='  NOMBRE'  id="nombres_">
               </div>
               <div style='width:100%;display:flex;'>
-                  <input type="text" placeholder='  APELLIDO PATERNO' name='apellidos_paternos' id="apellidos_paternos" >
-                  <input style='margin-left:5px;' type="text" name='apellidos_maternos' placeholder='  APELLIDO MATERNO' id="apellidos_maternos" >
+                  <input type="text" placeholder='  APELLIDO PATERNO' name='ape_paterno' id="ape_paterno" >
+                  <input style='margin-left:5px;' type="text" name='ape_materno' placeholder='  APELLIDO MATERNO' id="ape_materno" >
               </div>
               <div style='width:100%;display:flex;'>
                   <select name="sexo" id="sexo" >
@@ -59,30 +59,12 @@
                         <option value="F">Femenino</option>
                         <option value="Oliver">Prefiero no decirlo</option>
                     </select>
-                    <input style='margin-left:5px;' type="text" placeholder='  Dia' autocomplete="off" name='dia' id="dia" >
-              </div>
-              <div style='width:100%;display:flex;'>
-                  <select name="month" id="month">
-                      <option value="">  MES</option>
-                      <option value="01">Enero</option>
-                      <option value="02">Febrero</option>
-                      <option value="03">Marzo</option>
-                      <option value="04">Abril</option>
-                      <option value="05">Mayo</option>
-                      <option value="06">Junio</option>
-                      <option value="07">Julio</option>
-                      <option value="08">Agosto</option>
-                      <option value="09">Septiembre</option>
-                      <option value="10">Octubre</option>
-                      <option value="11">Noviembre</option>
-                      <option value="12">Diciembre</option>
-                  </select>
-                  <input style='margin-left:5px;' type="text" placeholder='  Año' autocomplete="off" name='anio' id="anio" >
+                    <input style='margin-left:5px;' type="date" placeholder='Dia' autocomplete="off" name='f_nacimiento' id="f_nacimiento" >
               </div>
             
               <div style='width:100%;display:flex;'>
                   <input type="text" name="email" placeholder="  EMAIL">
-                  <input style='margin-left:5px;' type="number" placeholder='  Celular' autocomplete="off" name='celular' id="celular" >
+                  <input style='margin-left:5px;' type="number" placeholder='  CELULAR' autocomplete="off" name='celular' id="celular" >
               </div>
               <select name="insurance" id="insurance">
                   <option value="">  SEGURO</option>
@@ -110,7 +92,7 @@
                   <input type="password" placeholder='  CONTRASEÑA' name='password_1' autocomplete="off" id="password_1" >
                   <input style='margin-left:5px;' type="password" placeholder='  REPITE CONTRASEÑA' name='password_2' autocomplete="off" id="password_2" >
               </div>
-              <button type="submit">SIGN UP</button>
+              <button class='boton_registrar_paciente' type="submit">REGISTRARME</button>
               </form>
             
             </div>

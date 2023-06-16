@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Usuario;
+use App\Models\Paciente;
+use App\Models\Administrador;
+use App\Models\Recepcionista;
 use Illuminate\Http\Request;
 
 class UsuarioController extends Controller
@@ -18,22 +21,36 @@ class UsuarioController extends Controller
         return view('usuarios.create');
     }
 
+    // public function store(Request $request)
+    // {
+    //     $request->validate([
+    //         'password_1' => 'required',
+    //         'password_2' => 'required',
+    //         'estado' => 'required',
+    //         'email' => 'required|unique:usuarios',
+    //         'id_rol' => 'required',
+    //     ]);
+    
+    //     Usuario::create($request->all());
+    
+    //     return redirect()->route('usuarios.index')->with('success', 'Usuario creado correctamente.');
+    // }
+
     public function store(Request $request)
     {
         $request->validate([
-            'email' => 'required',
             'password_1' => 'required',
             'password_2' => 'required',
-            'estado' => 'required',
             'email' => 'required|unique:usuarios',
-            'id_rol' => 'required',
         ]);
-    
-        Usuario::create($request->all());
-    
+
+        $data = $request->all();
+        $data['id_rol'] = 1; 
+
+        Usuario::create($data);
+
         return redirect()->route('usuarios.index')->with('success', 'Usuario creado correctamente.');
     }
-
 
     public function show($id)
     {
@@ -99,15 +116,85 @@ class UsuarioController extends Controller
 
         return redirect()->route('usuarios.index')->with('success', 'Usuario actualizado correctamente.');
     }
+    
+    public function activate($id)
+    {
+        $usuario = Usuario::findOrFail($id);
+        $usuario->estado = 1;
+        $usuario->updated_at = now();
+        $usuario->save();
+
+        if ($usuario->id_rol == 1) {
+            $paciente = Paciente::where('id_user', $id)->first();
+            if ($paciente) {
+                $paciente->estado = 1;
+                $paciente->updated_at = now();
+                $paciente->save();
+            }
+        }else if ($usuario->id_rol == 2) {
+            $administrador = Administrador::where('id_user', $id)->first();
+            if ($administrador) {
+                $administrador->estado = 1;
+                $administrador->updated_at = now();
+                $administrador->save();
+            }
+        }else if ($usuario->id_rol == 3) {
+            $recepcionista = Recepcionista::where('id_user', $id)->first();
+            if ($recepcionista) {
+                $recepcionista->estado = 1;
+                $recepcionista->updated_at = now();
+                $recepcionista->save();
+            }
+        }
+
+        return redirect()->route('usuarios.index')->with('success', 'Usuario activado correctamente.');
+    }
 
 
     public function destroy($id)
-{
-    $usuario = Usuario::findOrFail($id);
-    $usuario->estado = 0;
-    $usuario->save();
+    {
+        // $usuario = Usuario::findOrFail($id);
+        // $usuario->estado = 0;
+        // $usuario->save();
 
-    return redirect()->route('usuarios.index')->with('success', 'Usuario desactivado correctamente.');
-}
+        $usuario = Usuario::findOrFail($id);
+        $usuario->estado = 0;
+        $usuario->updated_at = now();
+        $usuario->save();
+
+        if ($usuario->id_rol == 1) {
+            $paciente = Paciente::where('id_user', $id)->first();
+            if ($paciente) {
+                $paciente->estado = 0;
+                $paciente->updated_at = now();
+                $paciente->save();
+            }
+        }else if ($usuario->id_rol == 2) {
+            $administrador = Administrador::where('id_user', $id)->first();
+            if ($administrador) {
+                $administrador->estado = 0;
+                $administrador->updated_at = now();
+                $administrador->save();
+            }
+        }else if ($usuario->id_rol == 3) {
+            $recepcionista = Recepcionista::where('id_user', $id)->first();
+            if ($recepcionista) {
+                $recepcionista->estado = 0;
+                $recepcionista->updated_at = now();
+                $recepcionista->save();
+            }
+        }
+
+        return redirect()->route('usuarios.index')->with('success', 'Usuario desactivado correctamente.');
+    }
+    
+    // public function destroy2($id)
+    // {
+    //     $usuario = Usuario::findOrFail($id);
+    //     $usuario->estado = 1;
+    //     $usuario->save();
+
+    //     return redirect()->route('usuarios.index')->with('success', 'Usuario desactivado correctamente.');
+    // }
 
 }

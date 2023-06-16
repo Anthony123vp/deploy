@@ -127,6 +127,10 @@ body {
     bottom: 30px;
     cursor: pointer;
   }
+
+  .boton_registrar_paciente{
+    padding: 10px 35px 10px 10px !important;
+  }
   
   /* Fade In & Out*/
   .login p {

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Paciente;
-use App\Models\Persona;
+use App\Models\Usuario;
 use Illuminate\Http\Request;
 
 class PacienteController extends Controller
@@ -30,33 +30,43 @@ class PacienteController extends Controller
      */
     public function store(Request $request)
     {
+        
+
         $request->validate([
-            'dni' => 'required|unique:personas',
-            'nombres' => 'required',
-            'apellidos_paternos' => 'required',
-            'apellidos_maternos' => 'required',
-            'sexo' => 'required',
-            'dia' => 'required',
-            'month' => 'required',
-            'anio' => 'required',
-            'email' => 'required|unique:personas',
-            'celular' => 'required',
-        ]);
-    
-        $persona = Persona::create($request->all());
-        $id_persona = $persona->id;
-    
-        $request->validate([
-            'insurance' => 'required',
+            'email' => 'required|unique:usuarios',
             'password_1' => 'required',
             'password_2' => 'required',
         ]);
+
+        $data = $request->all();
+        $data['id_rol'] = 1; 
+    
+        
+        $usuario = Usuario::create($data);
+        $id_usuarios = $usuario->id_usuarios;
+
+        $request->validate([
+            'dni' => 'required',
+            'nombres' => 'required',
+            'ape_paterno' => 'required',
+            'ape_materno' => 'required',
+            'sexo' => 'required',
+            'f_nacimiento' => 'required',
+            'insurance' => 'required',
+            'celular' => 'required',
+        ]);
         
         Paciente::create([
-            'id_persona' => $id_persona,
+            'id_user' => $id_usuarios,
+            'nombres' => $request->nombres,
+            'ape_paterno' => $request->ape_paterno,
+            'ape_materno' => $request->ape_materno,
+            'dni' => $request->dni,
+            'sexo' => $request->sexo,
+            'f_nacimiento' => $request->f_nacimiento,
             'insurance' => $request->insurance,
-            'password_1' => bcrypt($request->password_1),
-            'password_2' => $request->password_2,
+            'celular' => $request->celular,
+            // 'password_1' => bcrypt($request->password_1),
         ]);
     
         return redirect()->route('pacientes.index')->with('success', 'Paciente creado correctamente.');
@@ -88,8 +98,15 @@ class PacienteController extends Controller
 
     public function edit($id)
     {
+        // $paciente = Paciente::findOrFail($id);
+        // return view('pacientes.edit', compact('paciente'));
+
+
         $paciente = Paciente::findOrFail($id);
-        return view('pacientes.edit', compact('paciente'));
+        $id_user = $paciente->id_user;
+        $usuario = Usuario::findOrFail($id_user);
+
+        return view('pacientes.edit', compact('paciente', 'usuario'));
     }
 
     /**
@@ -102,16 +119,72 @@ class PacienteController extends Controller
 
     public function update(Request $request, $id)
     {
+        // $request->validate([
+        //     'nombres' => 'required|unique:pacientes,nombres,'.$id.',id_paciente',
+        //     'ape_paterno' => 'required',
+        //     'ape_materno' => 'required',
+        //     'sexo' => 'required',
+        //     'f_nacimiento' => 'required',
+        //     'celular' => 'required',
+        //     'insurance' => 'required',
+        //     'dni' => 'required',
+        // ]);
+        
+        
+        // $paciente = Paciente::findOrFail($id);
+        // $paciente->update([
+        //     'nombres' => $request->nombres,
+        //     'ape_paterno' => $request->ape_paterno,
+        //     'ape_materno' => $request->ape_materno,
+        //     'sexo' => $request->sexo,
+        //     'celular' => $request->celular,
+        //     'insurance' => $request->insurance,
+        //     'dni' => $request->dni,
+        //     'f_nacimiento' => $request->f_nacimiento,
+        //     'updated_at' => now()
+        // ]);
+
+        // $paciente = Paciente::findOrFail($id);
+        // $paciente->update($request->all());
+
+        // ---------------------------------
+
         $request->validate([
+            'nombres' => 'required|unique:pacientes,nombres,'.$id.',id_paciente',
+            'ape_paterno' => 'required',
+            'ape_materno' => 'required',
+            'sexo' => 'required',
+            'celular' => 'required',
+            'dni' => 'required',
+            'f_nacimiento' => 'required',
             'insurance' => 'required',
+            'email' => 'required|unique:usuarios,email,'.$id.',id_usuarios',
             'password_1' => 'required',
             'password_2' => 'required',
-            'id_persona' => 'required',
-            'estado' => 'required',
         ]);
 
         $paciente = Paciente::findOrFail($id);
-        $paciente->update($request->all());
+        $id_user = $paciente->id_user;
+        
+        $paciente->update([
+            'nombres' => $request->nombres,
+            'ape_paterno' => $request->ape_paterno,
+            'ape_materno' => $request->ape_materno,
+            'sexo' => $request->sexo,
+            'celular' => $request->celular,
+            'dni' => $request->dni,
+            'f_nacimiento' => $request->f_nacimiento,
+            'insurance' => $request->insurance,
+            'updated_at' => now()
+        ]);
+
+        $usuario = Usuario::findOrFail($id_user);
+        $usuario->update([
+            'email' => $request->email,
+            'password_1' => $request->password_1,
+            'password_2' => $request->password_2,
+            'updated_at' => now()
+        ]);
 
         return redirect()->route('pacientes.index')->with('success', 'Paciente actualizado correctamente.');
     }
@@ -119,15 +192,27 @@ class PacienteController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    // public function destroy(Paciente $paciente)
-    // {
-        //
-    // }
 
     public function destroy($id)
     {
+
+        // $paciente = Paciente::findOrFail($id);
+        // $paciente->estado = 0;
+        // $paciente->updated_at = now();
+        // $paciente->save();
+
+
         $paciente = Paciente::findOrFail($id);
-        $paciente->delete();
+        $idUsuario = $paciente->id_user;
+
+        $paciente->estado = 0;
+        $paciente->updated_at = now();
+        $paciente->save();
+
+        $usuario = Usuario::findOrFail($idUsuario);
+        $usuario->estado = 0;
+        $usuario->updated_at = now();
+        $usuario->save();
 
         return redirect()->route('pacientes.index')->with('success', 'Paciente eliminado correctamente.');
     }
