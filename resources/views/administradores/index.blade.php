@@ -34,6 +34,7 @@
                         <th> DNI <span class="icon-arrow">&UpArrow;</span></th>
                         <th> Celular <span class="icon-arrow">&UpArrow;</span></th>
                         <th> Fecha de Nacimiento <span class="icon-arrow">&UpArrow;</span></th>
+                        <th> Sexo <span class="icon-arrow">&UpArrow;</span></th>
                         <th> Estado <span class="icon-arrow">&UpArrow;</span></th>
                         <th> Fecha de Creación <span class="icon-arrow">&UpArrow;</span></th>
                         <th> Fecha de Actualización <span class="icon-arrow">&UpArrow;</span></th>
@@ -41,20 +42,17 @@
                     </tr>
                 </thead>
                 <tbody>
-
-                    @php
-                        $id = 1;
-                    @endphp
                     
                     @foreach ($administradores as $administrador)
                     <tr>
-                        <td>{{ $id }}</td>
+                        <td>{{ $loop->iteration }}</td>
                         <td>{{ $administrador->nombres }}</td>
                         <td>{{ $administrador->ape_paterno }}</td>
                         <td>{{ $administrador->ape_materno }}</td>
                         <td>{{ $administrador->celular }}</td>
                         <td>{{ $administrador->dni }}</td>
                         <td>{{ $administrador->f_nacimiento }}</td>
+                        <td>{{ $administrador->sexo }}</td>
                         <td>
                             @if ($administrador->estado == 1)
                                 <button type="button" style='background-color:#99f6c3;padding:8px 5px 8px 5px; color:#000;'>Activo</button>
@@ -70,9 +68,6 @@
 
                         </td>
                     </tr>
-                    @php
-                        $id++;
-                    @endphp
 
                     @endforeach
                     

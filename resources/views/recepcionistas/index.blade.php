@@ -34,6 +34,7 @@
                         <th> DNI <span class="icon-arrow">&UpArrow;</span></th>
                         <th> Celular <span class="icon-arrow">&UpArrow;</span></th>
                         <th> Fecha de Nacimiento <span class="icon-arrow">&UpArrow;</span></th>
+                        <th> Sexo <span class="icon-arrow">&UpArrow;</span></th>
                         <th> Estado <span class="icon-arrow">&UpArrow;</span></th>
                         <th> Fecha de Creación <span class="icon-arrow">&UpArrow;</span></th>
                         <th> Fecha de Actualización <span class="icon-arrow">&UpArrow;</span></th>
@@ -55,6 +56,7 @@
                         <td>{{ $recepcionista->celular }}</td>
                         <td>{{ $recepcionista->dni }}</td>
                         <td>{{ $recepcionista->f_nacimiento }}</td>
+                        <td>{{ $recepcionista->sexo }}</td>
                         <td>
                             @if ($recepcionista->estado == 1)
                                 <button type="button" style='background-color:#99f6c3;padding:8px 5px 8px 5px; color:#000;'>Activo</button>

@@ -34,6 +34,7 @@
                         <th> DNI <span class="icon-arrow">&UpArrow;</span></th>
                         <th> Celular <span class="icon-arrow">&UpArrow;</span></th>
                         <th> Fecha de Nacimiento <span class="icon-arrow">&UpArrow;</span></th>
+                        <th> Sexo <span class="icon-arrow">&UpArrow;</span></th>
                         <th> Seguro <span class="icon-arrow">&UpArrow;</span></th>
                         <th> Estado <span class="icon-arrow">&UpArrow;</span></th>
                         <th> Fecha de Creación <span class="icon-arrow">&UpArrow;</span></th>
@@ -56,6 +57,7 @@
                         <td>{{ $paciente->dni }}</td>
                         <td>{{ $paciente->celular }}</td>
                         <td>{{ $paciente->f_nacimiento }}</td>
+                        <td>{{ $paciente->sexo }}</td>
                         <td>{{ $paciente->insurance }}</td>
                         <td>
                             @if ($paciente->estado == 1)
