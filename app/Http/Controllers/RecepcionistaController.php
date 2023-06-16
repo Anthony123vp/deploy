@@ -34,7 +34,7 @@ class RecepcionistaController extends Controller
         // -------------------------
 
         $request->validate([
-            'email' => 'required|unique:usuarios',
+            'email' => 'required|unique:users',
             'password' => 'required',
             'password_2' => 'required',
         ]);
@@ -165,8 +165,8 @@ class RecepcionistaController extends Controller
             'celular' => 'required',
             'dni' => 'required',
             'f_nacimiento' => 'required',
-            'email' => 'required|unique:usuarios,email,'.$id.',id_usuarios',
-            'password_1' => 'required',
+            'email' => 'required|unique:users,email,'.$id.',id_usuarios',
+            'password' => 'required',
             'password_2' => 'required',
         ]);
 
@@ -187,7 +187,7 @@ class RecepcionistaController extends Controller
         $usuario = Usuario::findOrFail($id_user);
         $usuario->update([
             'email' => $request->email,
-            'password_1' => $request->password_1,
+            'password' => $request->password,
             'password_2' => $request->password_2,
             'updated_at' => now()
         ]);

@@ -69,7 +69,7 @@
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <input class="input--style-1 js-datepicker" type="password" placeholder="   Password 1" name="password_1">
+                                    <input class="input--style-1 js-datepicker" type="password" placeholder="   Password 1" name="password">
                                     <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
                                 </div>
                             </div>
