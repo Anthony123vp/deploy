@@ -8,6 +8,7 @@ use App\Http\Controllers\RecepcionistaController;
 use App\Http\Controllers\AdministradorController;
 use App\Http\Controllers\MedicoController;
 use App\Http\Controllers\RolController;
+use App\Http\Controllers\SistemaController;
 
 use App\Http\Controllers\ReservaController;
 use App\Http\Controllers\ReservaPendiente;
@@ -34,7 +35,8 @@ Route::view('/medhost_servicios', 'MedHostPublic.servicios')->name('Servicios_Me
 Route::view('/medhost_overview','MedHostPublic.overview')->name('Team_MedHost');
 Route::view('/medhost_about_our_team','MedHostPublic.about_our_team')->name('OurTeam_MedHost');
 Route::view('/medhost_especialidades','MedHostPublic.especialidades')->name('Especialidades_MedHost');
-Route::view('/Login_Sign_User', 'Sistema.log_sign' )->name('Login_Sign_User');
+// Route::view('/Login_Sign_User', 'Sistema.log_sign' )->name('Login_Sign_User');
+Route::get('/log_sign', [SistemaController::class,'index'])->name('Sistema.log_sign')->middleware('web');
 
 
 Route::get('/pacientes', [PacienteController::class,'index'])->name('pacientes.index')->middleware('web');

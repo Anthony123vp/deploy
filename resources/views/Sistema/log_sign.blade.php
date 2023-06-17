@@ -54,7 +54,7 @@
               </div>
               <div style='width:100%;display:flex;'>
                   <select name="sexo" id="sexo" >
-                        <option style='#ccc' value="">  SELECCIONE</option>
+                        <option style='#ccc' value="">  SEXO</option>
                         <option value="M">Masculino</option>
                         <option value="F">Femenino</option>
                         <option value="X">Prefiero no decirlo</option>
@@ -66,26 +66,11 @@
                   <input type="text" name="email" placeholder="  EMAIL">
                   <input style='margin-left:5px;' type="number" placeholder='  CELULAR' autocomplete="off" name='celular' id="celular" >
               </div>
-              <select name="insurance" id="insurance">
-                  <option value="">  SEGURO</option>
-                  <option value="20144438354">BCRP</option>
-                  <option value="20122794424">FEBAN</option>
-                  <option value="20508650451">FOSPEME</option>
-                  <option value="20601978572">La Positiva EPS</option>
-                  <option value="20100210909">La Positiva Seguros</option>
-                  <option value="20517182673">Mapfre EPS</option>
-                  <option value="20418896915">Mapfre Seguros</option>
-                  <option value="00000000003">Otros</option>
-                  <option value="20431115825">Pacifico EPS</option>
-                  <option value="20332970411">Pacifico Seguros</option>
-                  <option value="20100128218">PAMF PETROPERU</option>
-                  <option value="00000000002">Particular</option>
-                  <option value="20100176964">Plan de Salud Familiar</option>
-                  <option value="20101039910">Prepaga ONCOSALUD</option>
-                  <option value="20507264108">Prepagada Clínica EL GOLF</option>
-                  <option value="20414955020">Rimac Seguros y EPS</option>
-                  <option value="20523470761">Sanitas Peru EPS</option>
-                  <option value="20139589638">SEMEFA</option>
+              <select  name="id_insurance" id="id_insurance">
+                  <option value="">SEGURO</option>
+                  @foreach ($insurances as $insurance)
+                      <option value="{{ $insurance->id_insurance }}">{{ $insurance->nombre }}</option>
+                  @endforeach
               </select>
               
           <div style="width: 100%;">
@@ -98,6 +83,15 @@
               <span class="password-toggle" onmousedown="togglePasswordVisibility('password_2')" onmouseup="togglePasswordVisibility('password_2')"></span>
             </div>
           </div>    
+          @if ($errors->any())
+              <div class="alert alert-danger">
+                  <ul>
+                      @foreach ($errors->all() as $error)
+                          <li>{{ $error }}</li>
+                      @endforeach
+                  </ul>
+              </div>
+          @endif
           <button class='boton_registrar_paciente' type="submit">REGISTRARME</button>
           <div id="error-message" class="error-message" style="display: none;"></div>
           </form>
