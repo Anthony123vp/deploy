@@ -1,8 +1,8 @@
 @extends('layoutssistema.navbar')
 @section('linkcss')
 <link rel="stylesheet" href="/css/formHorarios.css">
-<link rel="stylesheet" type="text/css" href="/css/montserrat-font.css">
-<link rel="stylesheet" type="text/css" href="/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+<link rel="stylesheet" href="/css/montserrat-font.css">
+<link rel="stylesheet" href="/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
 @endsection
 @section('content')
 	<div class="page-content">
@@ -92,7 +92,7 @@
 					<br><br>
 					<h2>Consultorio</h2>
 					<div class="form-row">
-						<select name="cod_habitacion" id="consultorios">
+						<select name="consultorio" id="consultorios">
 						    <option value="position">Consultorio Disponible</option>
 						    
 						</select>
@@ -127,11 +127,11 @@
 		const response = await fetch(`/api/Reserva/${id_servicio}/${e.target.value}`);
 		const data = await response.json();
 
+		/*Rellena los tipos de servicios*/
 		let options = ``;
 		data.forEach(element=>{
 			options= options + `<option value="${element.id_servicio_medhost}">${element.nombre}</option>`
 		});
-
 		especilidad_Servicio.innerHTML = options;
 
 		/*rellena los options del select medico*/
@@ -139,7 +139,7 @@
 		const medicoresponse= await fetch(`/api/Medico/${e.target.value}`);
 		const medicos = await medicoresponse.json()
 		medicos.forEach(element=>{
-			option_medico= option_medico + `<option value="${element.id_medico}">${element.nombre},${element.ape_paterno}</option>`
+			option_medico= option_medico + `<option value="${element.id_medico}">${element.nombres},${element.ape_paterno}</option>`
 		});
 		medico.innerHTML = option_medico;
 
@@ -148,7 +148,7 @@
 		const consultorioresponse= await fetch(`/api/Consultorios/${e.target.value}`);
 		const consultorios = await consultorioresponse.json()
 		consultorios.forEach(element=>{
-			habitaciones_disponibles= habitaciones_disponibles + `<option value="${element.id_salon}">${element.codigo}</option>`
+			habitaciones_disponibles= habitaciones_disponibles + `<option value="${element.id_consultorio}">${element.cod_habitacion}</option>`
 		});
 		consultorio.innerHTML = habitaciones_disponibles;
 	});
@@ -179,7 +179,7 @@
 		let ape_materno_val = ``;
 		let seguro_val = ``;
 		data.forEach(element=>{
-			nombre_val = nombre_val + `${element.nombre}`;
+			nombre_val = nombre_val + `${element.nombres}`;
 			ape_paterno_val = ape_paterno_val + `${element.ape_paterno}`;
 			ape_materno_val = ape_materno_val + `${element.ape_materno}`;
 			seguro_val = seguro_val + `${element.insurance}`;

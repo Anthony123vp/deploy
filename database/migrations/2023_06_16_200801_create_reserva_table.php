@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('reserva', function (Blueprint $table) {
+        Schema::create('cita_medica', function (Blueprint $table) {
             $table->id('id_reserva', true);
             $table->unsignedBigInteger('id_paciente')->index('fk_Citas_Paciente1_idx');
             $table->unsignedBigInteger('id_servicio_medhost')->index('fk_cita_medica_ServiciosMedHost1_idx');

@@ -6,10 +6,16 @@ use App\Http\Controllers\HorarioController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\RecepcionistaController;
 use App\Http\Controllers\AdministradorController;
+use App\Http\Controllers\MedicoController;
+use App\Http\Controllers\RolController;
 
 use App\Http\Controllers\ReservaController;
 use App\Http\Controllers\ReservaPendiente;
 use App\Http\Controllers\ReservaProgramada;
+
+
+use App\Http\Controllers\AuthenthicatedSessionController;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::view('/','MedHostPublic.home');
 
@@ -32,7 +38,12 @@ Route::view('/medhost_servicios', 'MedHostPublic.servicios')->name('Servicios_Me
 Route::view('/medhost_overview','MedHostPublic.overview')->name('Team_MedHost');
 Route::view('/medhost_about_our_team','MedHostPublic.about_our_team')->name('OurTeam_MedHost');
 Route::view('/medhost_especialidades','MedHostPublic.especialidades')->name('Especialidades_MedHost');
-Route::view('/Login_Sign_User', 'Sistema.log_sign' )->name('Login_Sign_User');
+
+/*AUTENTICACION DE USUARIO */
+Route::view('/Login_Sign_User', 'Sistema.log_sign' )->name('login');
+Route::post('/LoginUser',[AuthenthicatedSessionController::class,'store'])->name('Login.store');
+Route::post('/Logout',[AuthenthicatedSessionController::class,'destroy'])->name('Logout');
+Route::view('/Dashboard','Sistema.dashboard')-> name('Dashboard');
 
 
 Route::get('/pacientes', [PacienteController::class,'index'])->name('pacientes.index')->middleware('web');
@@ -46,7 +57,7 @@ Route::put('/pacientes/{id}', [PacienteController::class, 'update'])->name('paci
 Route::delete('/pacientes/{id}', [PacienteController::class, 'destroy'])->name('pacientes.destroy');
 
 
-Route::view('/medicos','Medicos.index')->name('indexmedicos');
+// Route::view('/medicos','Medicos.index')->name('indexmedicos');
 // Route::view('/recepcionista','Recepcionista.index');
 
 Route::get('/horarios',[HorarioController::class,'index'])->name('Horario.index');
@@ -73,6 +84,19 @@ Route::get('/recepcionistas/{id}/edit2', [RecepcionistaController::class, 'edit2
 Route::put('/recepcionistas/{id}', [RecepcionistaController::class, 'update'])->name('recepcionistas.update');
 Route::delete('/recepcionistas/{id}', [RecepcionistaController::class, 'destroy'])->name('recepcionistas.destroy');
 
+
+Route::get('/medicos', [MedicoController::class, 'index'])->name('medicos.index')->middleware('web');
+Route::get('/medicos/create',[MedicoController::class,'create'])->name('medicos.create');
+Route::post('/medicos', [MedicoController::class, 'store'])->name('medicos.store');
+Route::match(['get', 'put'], '/medicos/{id}/editar', [MedicoController::class, 'edit'])->name('medicos.edit');
+Route::put('/medicos/{id}', [MedicoController::class, 'update'])->name('medicos.update');
+Route::delete('/medicos/{id}', [MedicoController::class, 'destroy'])->name('medicos.destroy');
+
+
+Route::get('/roles', [RolController::class, 'index'])->name('roles.index')->middleware('web');
+
+
+
 Route::get('/administradores', [AdministradorController::class, 'index'])->name('administradores.index')->middleware('web');
 Route::get('/administradores/create',[AdministradorController::class,'create'])->name('administradores.create');
 Route::post('/administradores', [AdministradorController::class, 'store'])->name('administradores.store');
@@ -84,8 +108,6 @@ Route::delete('/administradores/{id}', [AdministradorController::class, 'destroy
 // Route::view('/nuevo_usuario','usuarios.create');
 
 // Route::view('/pacientes','pacientes.table');
-Route::view('/create','Medicos.create')->name('newmedico');
-Route::view('/editar_medico','Medicos.editar')->name('editmedico');
 
 
 
@@ -99,7 +121,7 @@ Route::view('/editar_medico','Medicos.editar')->name('editmedico');
 
 //Vista de botones para el paciente:
 Route::get('/citas_pendientes',[ReservaPendiente::class,'index'])->name('citas_pendiente.index');
-Route::view('/historial','Paciente_botones\historial\index');
+Route::view('/historial','Paciente_botones\historial\index')->name('historial.index');
 
 
 //Vista de botones para el medico

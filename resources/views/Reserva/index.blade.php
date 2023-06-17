@@ -60,8 +60,8 @@
                                 @endif
                             </td>
                             <td>
-                                <a type="button" class="btn-primary" href="#">Editar</a><br>
-                                <a type="button" class="btn-primary" href="#">Eliminar</a>
+                                <a type="button" class="btn" href="#">Editar</a><br>
+                                <a type="button" class="btn" href="#">Eliminar</a>
 
                             </td>
                         </tr>

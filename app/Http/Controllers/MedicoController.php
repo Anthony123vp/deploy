@@ -2,50 +2,105 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Persona;
+use App\Models\Usuario;
 use App\Models\Medico;
+use App\Models\Especialidad;
 use Illuminate\Http\Request;
 
 class MedicoController extends Controller
 {
+    // public function index()
+    // {
+    //     $medicos = Medico::all();
+    //     return view('medicos.index', compact('medicos'));
+    // }
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    
     public function index()
     {
-        $medico = Medico::all();
-        return view('medicos.index', compact('medico'));
+        $medicos = Medico::with('especialidad')->get();
+        return view('medicos.index', compact('medicos'));
     }
 
     public function create()
     {
-        return view('medicos.create');
+        $especialidades = Especialidad::all();
+        return view('medicos.create', compact('especialidades'));
     }
 
     public function store(Request $request)
     {
-        $request->validate([
-            'dni' => 'required|unique:personas',
-            'nombres' => 'required',
-            'apellidos_paternos' => 'required',
-            'apellidos_maternos' => 'required',
-            'sexo' => 'required',
-            'dia' => 'required',
-            'month' => 'required',
-            'anio' => 'required',
-            'email' => 'required|unique:personas',
-            'celular' => 'required',
-        ]);
+        // $request->validate([
+        //     'dni' => 'required|unique:personas',
+        //     'nombres' => 'required',
+        //     'apellidos_paternos' => 'required',
+        //     'apellidos_maternos' => 'required',
+        //     'sexo' => 'required',
+        //     'dia' => 'required',
+        //     'month' => 'required',
+        //     'anio' => 'required',
+        //     'email' => 'required|unique:personas',
+        //     'celular' => 'required',
+        // ]);
 
-        $persona = Persona::create($request->all());
-        $id_persona = $persona->id;
+        // $persona = Persona::create($request->all());
+        // $id_persona = $persona->id;
     
+        // $request->validate([
+        //     'id_especialidad' => 'required',
+        //     'password_1' => 'required',
+        //     'password_2' => 'required',
+        // ]);
+    
+        // $request->merge(['id_persona' => $id_persona]);
+    
+        // Medico::create($request->all());
+    
+        // return redirect()->route('medicos.index')->with('success', 'Medico creado correctamente.');
+
+        // --------------------------------------------
+
         $request->validate([
-            'id_especialidad' => 'required',
-            'password_1' => 'required',
+            'email' => 'required|unique:users',
+            'password' => 'required',
             'password_2' => 'required',
         ]);
-    
-        $request->merge(['id_persona' => $id_persona]);
-    
-        Medico::create($request->all());
+
+        $usuario = Usuario::create([
+            'email' => $request->input('email'),
+            'id_rol' =>4,
+            'password' => bcrypt($request->input('password')),
+            'password_2' => bcrypt($request->input('password_2')),
+        ]);
+        $id_usuarios = $usuario->id_user;
+
+        $request->validate([
+            'dni' => 'required',
+            'id_especialidad' => 'required',
+            'nombres' => 'required',
+            'ape_paterno' => 'required',
+            'ape_materno' => 'required',
+            'sexo' => 'required',
+            'celular' => 'required',
+            'f_nacimiento' => 'required',
+        ]);
+        
+        Medico::create([
+            'id_user' => $id_usuarios,
+            'id_especialidad' => $request->id_especialidad,
+            'dni' => $request->dni,
+            'nombres' => $request->nombres,
+            'ape_paterno' => $request->ape_paterno,
+            'ape_materno' => $request->ape_materno,
+            'sexo' => $request->sexo,
+            'f_nacimiento' => $request->f_nacimiento,
+            'celular' => $request->celular,
+            // 'password_1' => bcrypt($request->password_1),
+        ]);
     
         return redirect()->route('medicos.index')->with('success', 'Medico creado correctamente.');
     }
@@ -55,36 +110,97 @@ class MedicoController extends Controller
     {
         $medico = Medico::findOrFail($id);
         return view('medicos.show', compact('medico'));
+
     } 
 
 
     public function edit($id)
     {
+        // $medico = Medico::findOrFail($id);
+        // return view('medicos.edit', compact('medico'));
+
         $medico = Medico::findOrFail($id);
-        return view('medicos.edit', compact('medico'));
+        $id_user = $medico->id_user;
+        $usuario = Usuario::findOrFail($id_user);
+        $especialidades = Especialidad::all();
+        
+        return view('medicos.edit', compact('medico', 'usuario','especialidades'));
     }
 
     public function update(Request $request, $id)
     {
+        // $request->validate([
+        //     'id_especialidad' => 'required',
+        //     'password_1' => 'required',
+        //     'password_2' => 'required',
+        //     'id_persona' => 'required',
+        //     'estado' => 'required',
+        // ]);
+
+        // $medico = Medico::findOrFail($id);
+        // $medico->update($request->all());
+
+        // return redirect()->route('medicos.index')->with('success', 'Medico actualizado correctamente.');
+
         $request->validate([
+            'nombres' => 'required|unique:medicos,nombres,'.$id.',id_medico',
             'id_especialidad' => 'required',
-            'password_1' => 'required',
+            'ape_paterno' => 'required',
+            'ape_materno' => 'required',
+            'sexo' => 'required',
+            'celular' => 'required',
+            'dni' => 'required',
+            'f_nacimiento' => 'required',
+            'email' => 'required',
+            'password' => 'required',
             'password_2' => 'required',
-            'id_persona' => 'required',
-            'estado' => 'required',
         ]);
 
-        $medico = Medico::findOrFail($id);
-        $medico->update($request->all());
+        $medicos = Medico::findOrFail($id);
+        $id_user = $medicos->id_user;
+        
+        $medicos->update([
+            'nombres' => $request->nombres,
+            'id_especialidad' => $request->id_especialidad,
+            'ape_paterno' => $request->ape_paterno,
+            'ape_materno' => $request->ape_materno,
+            'sexo' => $request->sexo,
+            'celular' => $request->celular,
+            'dni' => $request->dni,
+            'f_nacimiento' => $request->f_nacimiento,
+            'updated_at' => now()
+        ]);
+
+        $usuario = Usuario::findOrFail($id_user);
+        $usuario->update([
+            'email' => $request->email,
+            'password' => $request->password,
+            'password_2' => $request->password_2,
+            'updated_at' => now()
+        ]);
 
         return redirect()->route('medicos.index')->with('success', 'Medico actualizado correctamente.');
     }
 
     public function destroy($id)
     {
-        $medico = Medico::findOrFail($id);
-        $medico->delete();
+        // $medico = Medico::findOrFail($id);
+        // $medico->delete();
 
-        return redirect()->route('medicos.index')->with('success', 'Medico eliminado correctamente.');
+        // return redirect()->route('medicos.index')->with('success', 'Medico eliminado correctamente.');
+
+        $medico = Medico::findOrFail($id);
+        $idUsuario = $medico->id_user;
+
+        $medico->estado = 0;
+        $medico->updated_at = now();
+        $medico->save();
+
+        $usuario = Usuario::findOrFail($idUsuario);
+        $usuario->estado = 0;
+        $usuario->updated_at = now();
+        $usuario->save();
+
+        return redirect()->route('medicos.index')->with('success', 'Medico desactivado correctamente.');
     }
 }

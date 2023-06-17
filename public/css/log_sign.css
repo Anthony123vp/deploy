@@ -175,3 +175,10 @@ body {
     font-size: 12px;
     margin-top: 5px;
   }
+
+.btn_login_submit{
+  cursor: pointer;
+}
+.btn_login_submit:hover{
+  background-color: #48dd8b;
+}
