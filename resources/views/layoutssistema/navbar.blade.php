@@ -15,117 +15,172 @@
 
   </head>
 <body>
-  </head>
-  <body>
-  <div class="sidebar close">
+<div class="sidebar close">
     <div class="logo-details">
     <img src="/Imagenes/LOGO.png" alt="">
     </div>
     <ul class="nav-links">
-      <li>
-        <a href="#">
-          <i class='bx bx-grid-alt' ></i>
-          <span class="link_name">Dashboard</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Dashboard</a></li>
-        </ul>
-      </li>
+    
+    <li>
+          <a href="{{route('Dashboard')}}">
+            <i class='bx bx-line-chart' ></i>
+            <span class="link_name">Dashboard</span>
+          </a>
+          <ul class="sub-menu blank">
+            <li><a class="link_name" href="{{route('citas_programadas.index')}}">Dashboard</a></li>
+          </ul>
+        </li>
+
+    @auth
       <!--Medico-->
+      @if(Auth::user()->id_rol===4)
         <li>
-          <a href="#">
+          <a href="{{route('citas_programadas.index')}}">
             <i class='bx bx-line-chart' ></i>
             <span class="link_name">Citas</span>
           </a>
           <ul class="sub-menu blank">
-            <li><a class="link_name" href="#">Citas</a></li>
+            <li><a class="link_name" href="{{route('citas_programadas.index')}}">Citas</a></li>
           </ul>
         </li>
 
         <li>
-          <a href="#">
+          <a href="{{route('Horario.index')}}">
             <i class='bx bx-line-chart' ></i>
             <span class="link_name">Horarios</span>
           </a>
           <ul class="sub-menu blank">
-            <li><a class="link_name" href="#">Horarios</a></li>
+            <li><a class="link_name" href="{{route('Horario.index')}}">Horarios</a></li>
           </ul>
         </li>
+      @endif
       <!--Medico-->
-      <li>
-        <div class="iocn-link">
-          <a href="#">
-            <i class='bx bx-collection' ></i>
-            <span class="link_name">Category</span>
-          </a>
-          <i class='bx bxs-chevron-down arrow' ></i>
-        </div>
-        <ul class="sub-menu">
-          <li><a class="link_name" href="#">Category</a></li>
-          <li><a href="#">HTML & CSS</a></li>
-          <li><a href="#">JavaScript</a></li>
-          <li><a href="#">PHP & MySQL</a></li>
-        </ul>
-      </li>
-      <li>
-        <div class="iocn-link">
-          <a href="#">
-            <i class='bx bx-book-alt' ></i>
-            <span class="link_name">Posts</span>
-          </a>
-          <i class='bx bxs-chevron-down arrow' ></i>
-        </div>
-        <ul class="sub-menu">
-          <li><a class="link_name" href="#">Posts</a></li>
-          <li><a href="#">Web Design</a></li>
-          <li><a href="#">Login Form</a></li>
-          <li><a href="#">Card Design</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bx-pie-chart-alt-2' ></i>
-          <span class="link_name">Analytics</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Analytics</a></li>
-        </ul>
-      </li>
-      <!--Paciente-->
-        <li>
-          <a href="#">
-            <i class='bx bx-line-chart' ></i>
-            <span class="link_name">Historial Medico</span>
-          </a>
-          <ul class="sub-menu blank">
-            <li><a class="link_name" href="#">Historial Medico</a></li>
-          </ul>
-        </li>
-      
-        <li>
-          <a href="#">
+    @endauth
+
+    @auth
+      <!--Recepcionista-->
+      @if(Auth::user()->id_rol===3)
+       <li>
+          <a href="{{route('reservas.index')}}">
             <i class='bx bx-line-chart' ></i>
             <span class="link_name">Citas</span>
           </a>
           <ul class="sub-menu blank">
-            <li><a class="link_name" href="#">Citas</a></li>
+            <li><a class="link_name" href="{{route('reservas.index')}}">Citas</a></li>
+          </ul>
+        </li>
+      
+        <li>
+          <a href="{{route('pacientes.index')}}">
+            <i class='bx bx-line-chart' ></i>
+            <span class="link_name">Paciente</span>
+          </a>
+          <ul class="sub-menu blank">
+            <li><a class="link_name" href="{{route('pacientes.index')}}">Paciente</a></li>
+          </ul>
+        </li>
+      <!--Recepcionista-->
+      @endif
+    @endauth
+
+    @auth
+      <!--Paciente-->
+    @if(Auth::user()->id_rol===1)
+        <li>
+          <a href="{{ route('historial.index') }}">
+            <i class='bx bx-line-chart' ></i>
+            <span class="link_name">Historial Medico</span>
+          </a>
+          <ul class="sub-menu blank">
+            <li><a class="link_name" href="{{ route('historial.index') }}">Historial Medico</a></li>
+          </ul>
+        </li>
+      
+        <li>
+          <a href="{{ route('citas_pendiente.index') }}">
+            <i class='bx bx-line-chart' ></i>
+            <span class="link_name">Citas</span>
+          </a>
+          <ul class="sub-menu blank">
+            <li><a class="link_name" href="{{ route('citas_pendiente.index') }}">Citas</a></li>
           </ul>
         </li>
       <!--End Paciente-->
-     
+    @endif
+    @endauth
+
+    @auth
+    @if(Auth::user()->id_rol===2)
+     <!--Administrador-->
+       <li>
+          <a href="{{route('medicos.index')}}">
+            <i class='bx bx-line-chart' ></i>
+            <span class="link_name">Medicos</span>
+          </a>
+          <ul class="sub-menu blank">
+            <li><a class="link_name" href="{{route('medicos.index')}}">Medicos</a></li>
+          </ul>
+        </li>
       
+        <li>
+          <a href="{{route('recepcionistas.index')}}">
+            <i class='bx bx-line-chart' ></i>
+            <span class="link_name">Recepcionistas</span>
+          </a>
+          <ul class="sub-menu blank">
+            <li><a class="link_name" href="{{route('recepcionistas.index')}}">Recepcionistas</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="{{route('usuarios.index')}}">
+            <i class='bx bx-line-chart' ></i>
+            <span class="link_name">Usuarios</span>
+          </a>
+          <ul class="sub-menu blank">
+            <li><a class="link_name" href="{{route('usuarios.index')}}">Usuarios</a></li>
+          </ul>
+        </li>
+     <!--End Administrator-->
+    @endif
+    @endauth
+    @guest
+      <!--SUPERUSUARIO-->
       <li>
+          <a href="{{route('administradores.index')}}">
+            <i class='bx bx-line-chart' ></i>
+            <span class="link_name">Administrador</span>
+          </a>
+          <ul class="sub-menu blank">
+            <li><a class="link_name" href="{{route('administradores.index')}}">Administrador</a></li>
+          </ul>
+        </li>
+      
+        <li>
+          <a href="{{route('usuarios.index')}}">
+            <i class='bx bx-line-chart' ></i>
+            <span class="link_name">Usuarios</span>
+          </a>
+          <ul class="sub-menu blank">
+            <li><a class="link_name" href="{{route('usuarios.index')}}">Usuarios</a></li>
+          </ul>
+        </li>
+      <!--END SUPERUSUARIO-->
+    @endguest
+
+    @auth
+        <form method="POST" action="{{ route('Logout')}}">
+        @csrf
         <div class="profile-details">
           <div class="profile-content">
-            <img src="image/profile.jpg" alt="profileImg">
+            <button type="submit"><img src="/images/botonsalir.png" alt="profileImg"></button>
           </div>
           <div class="name-job">
-            <div class="profile_name">Prem Shahi</div>
-            <div class="job">Web Desginer</div>
+            <div class="profile_name">Logout</div>
+            <div class="job">Medhost</div>
           </div>
-          <i class='bx bx-log-out' ></i>
         </div>
-      </li>
+        </form>
+        @endauth  
     </ul>
 </div>
 <section class="home-section">
@@ -170,5 +225,6 @@
   doc.save('Reporte.pdf');
 }
 </script>
+@yield('scripts')
 </body>
 </html>

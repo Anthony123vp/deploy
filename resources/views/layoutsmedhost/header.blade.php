@@ -80,8 +80,8 @@
                     <i class="fa-solid fa-user fa-xl" style="color: #000000;"></i>
                   </a>
                   <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{{ route('Login_Sign_User' ) }}">Registrarse</a></li>
-                    <li><a class="dropdown-item" href="{{ route('Login_Sign_User' ) }}">Iniciar Sesion</a></li>
+                    <li><a class="dropdown-item" href="{{ route('login' ) }}">Registrarse</a></li>
+                    <li><a class="dropdown-item" href="{{ route('login' ) }}">Iniciar Sesion</a></li>
                   </ul>
                 </li>
               </ul>
