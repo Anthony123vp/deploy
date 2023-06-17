@@ -6,6 +6,7 @@ use App\Models\Usuario;
 use App\Models\Paciente;
 use App\Models\Administrador;
 use App\Models\Recepcionista;
+use App\Models\Medico;
 use Illuminate\Http\Request;
 
 class UsuarioController extends Controller
@@ -144,6 +145,13 @@ class UsuarioController extends Controller
                 $recepcionista->updated_at = now();
                 $recepcionista->save();
             }
+        }else if ($usuario->id_rol == 4) {
+            $medico = Medico::where('id_user', $id)->first();
+            if ($medico) {
+                $medico->estado = 1;
+                $medico->updated_at = now();
+                $medico->save();
+            }
         }
 
         return redirect()->route('usuarios.index')->with('success', 'Usuario activado correctamente.');
@@ -181,6 +189,13 @@ class UsuarioController extends Controller
                 $recepcionista->estado = 0;
                 $recepcionista->updated_at = now();
                 $recepcionista->save();
+            }
+        }else if ($usuario->id_rol == 4) {
+            $medico = Medico::where('id_user', $id)->first();
+            if ($medico) {
+                $medico->estado = 0;
+                $medico->updated_at = now();
+                $medico->save();
             }
         }
 

@@ -6,6 +6,7 @@ use App\Http\Controllers\HorarioController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\RecepcionistaController;
 use App\Http\Controllers\AdministradorController;
+use App\Http\Controllers\MedicoController;
 
 use App\Http\Controllers\ReservaController;
 use App\Http\Controllers\ReservaPendiente;
@@ -45,8 +46,6 @@ Route::get('/pacientes/{id}/editar', [PacienteController::class, 'edit'])->name(
 Route::put('/pacientes/{id}', [PacienteController::class, 'update'])->name('pacientes.update');
 Route::delete('/pacientes/{id}', [PacienteController::class, 'destroy'])->name('pacientes.destroy');
 
-
-Route::view('/medicos','Medicos.index');
 // Route::view('/recepcionista','Recepcionista.index');
 
 Route::get('/horarios',[HorarioController::class,'index'])->name('Horario.index');
@@ -73,6 +72,16 @@ Route::get('/recepcionistas/{id}/edit2', [RecepcionistaController::class, 'edit2
 Route::put('/recepcionistas/{id}', [RecepcionistaController::class, 'update'])->name('recepcionistas.update');
 Route::delete('/recepcionistas/{id}', [RecepcionistaController::class, 'destroy'])->name('recepcionistas.destroy');
 
+
+Route::get('/medicos', [MedicoController::class, 'index'])->name('medicos.index')->middleware('web');
+Route::get('/medicos/create',[MedicoController::class,'create'])->name('medicos.create');
+Route::post('/medicos', [MedicoController::class, 'store'])->name('medicos.store');
+Route::match(['get', 'put'], '/medicos/{id}/editar', [MedicoController::class, 'edit'])->name('medicos.edit');
+Route::put('/medicos/{id}', [MedicoController::class, 'update'])->name('medicos.update');
+Route::delete('/medicos/{id}', [MedicoController::class, 'destroy'])->name('medicos.destroy');
+
+
+
 Route::get('/administradores', [AdministradorController::class, 'index'])->name('administradores.index')->middleware('web');
 Route::get('/administradores/create',[AdministradorController::class,'create'])->name('administradores.create');
 Route::post('/administradores', [AdministradorController::class, 'store'])->name('administradores.store');
@@ -84,8 +93,6 @@ Route::delete('/administradores/{id}', [AdministradorController::class, 'destroy
 // Route::view('/nuevo_usuario','usuarios.create');
 
 // Route::view('/pacientes','pacientes.table');
-Route::view('/create','Medicos.create')->name('newmedico');
-Route::view('/editar_medico','Medicos.editar')->name('editmedico');
 
 
 

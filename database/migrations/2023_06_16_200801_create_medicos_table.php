@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id('id_medico', true);
             $table->unsignedBigInteger('id_especialidad')->index('fk_Medico_Especialidades1_idx');
             $table->unsignedBigInteger('id_user')->index('fk_MEDICOS_USUARIOS1_idx');
-            $table->string('nombre', 45);
+            $table->string('nombres', 45);
             $table->string('ape_paterno', 45);
             $table->string('ape_materno', 45);
             $table->char('sexo', 1);

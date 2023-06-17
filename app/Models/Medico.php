@@ -11,11 +11,18 @@ class Medico extends Model
 
     protected $table = 'medicos';
 
+    protected $primaryKey = 'id_medico';
+    
     protected $fillable = [
+        'id_user',
         'id_especialidad',
-        'password_1',
-        'password_2',
-        'id_persona',
+        'nombres',
+        'ape_paterno',
+        'ape_materno',
+        'sexo',
+        'celular',
+        'dni',
+        'f_nacimiento',
         'estado',
     ];
 }
