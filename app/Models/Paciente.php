@@ -22,7 +22,12 @@ class Paciente extends Model
         'celular',
         'dni',
         'f_nacimiento',
-        'insurance',
+        'id_insurance',
         'estado',
     ];
+
+    public function insurance()
+    {
+        return $this->belongsTo(Insurance::class, 'id_insurance');
+    }
 }

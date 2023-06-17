@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('roles', function (Blueprint $table) {
-            $table->id('id_rol');
-            $table->string('nombre_rol',20);
+        Schema::create('insurances', function (Blueprint $table) {
+            $table->id('id_insurance');
+            $table->string('nombre',30);
             $table->integer('estado')->default(1);
             $table->timestamps();
         });
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('roles');
+        Schema::dropIfExists('insurances');
     }
 };

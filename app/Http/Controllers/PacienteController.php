@@ -4,30 +4,34 @@ namespace App\Http\Controllers;
 
 use App\Models\Paciente;
 use App\Models\Usuario;
+use App\Models\Insurance;
 use Illuminate\Http\Request;
 
 class PacienteController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    // public function index()
+    // {
+    //     $pacientes = Paciente::all();
+    //     return view('pacientes.index', compact('pacientes'));
+    // }
+
     public function index()
     {
-        $pacientes = Paciente::all();
+        $pacientes = Paciente::with('insurance')->get();
         return view('pacientes.index', compact('pacientes'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+    // public function create()
+    // {
+    //     return view('pacientes.create');
+    // }
+
     public function create()
     {
-        return view('pacientes.create');
+        $insurances = Insurance::all();
+        return view('pacientes.create', compact('insurances'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         
@@ -54,7 +58,7 @@ class PacienteController extends Controller
             'ape_materno' => 'required',
             'sexo' => 'required',
             'f_nacimiento' => 'required',
-            'insurance' => 'required',
+            'id_insurance' => 'required',
             'celular' => 'required',
         ]);
         
@@ -66,7 +70,7 @@ class PacienteController extends Controller
             'dni' => $request->dni,
             'sexo' => $request->sexo,
             'f_nacimiento' => $request->f_nacimiento,
-            'insurance' => $request->insurance,
+            'id_insurance' => $request->id_insurance,
             'celular' => $request->celular,
             // 'password_1' => bcrypt($request->password_1),
         ]);
@@ -107,8 +111,9 @@ class PacienteController extends Controller
         $paciente = Paciente::findOrFail($id);
         $id_user = $paciente->id_user;
         $usuario = Usuario::findOrFail($id_user);
+        $insurances = Insurance::all();
 
-        return view('pacientes.edit', compact('paciente', 'usuario'));
+        return view('pacientes.edit', compact('paciente', 'usuario','insurances'));
     }
 
     /**
@@ -152,15 +157,15 @@ class PacienteController extends Controller
         // ---------------------------------
 
         $request->validate([
-            'nombres' => 'required|unique:pacientes,nombres,'.$id.',id_paciente',
+            'nombres' => 'required|unique:paciente,nombres,'.$id.',id_paciente',
             'ape_paterno' => 'required',
             'ape_materno' => 'required',
             'sexo' => 'required',
             'celular' => 'required',
             'dni' => 'required',
             'f_nacimiento' => 'required',
-            'insurance' => 'required',
-            'email' => 'required|unique:users,email,'.$id.',id_user',
+            'id_insurance' => 'required',
+            'email' => 'required',
             'password' => 'required',
             'password_2' => 'required',
         ]);
@@ -176,14 +181,14 @@ class PacienteController extends Controller
             'celular' => $request->celular,
             'dni' => $request->dni,
             'f_nacimiento' => $request->f_nacimiento,
-            'insurance' => $request->insurance,
+            'id_insurance' => $request->id_insurance,
             'updated_at' => now()
         ]);
 
         $usuario = Usuario::findOrFail($id_user);
         $usuario->update([
             'email' => $request->email,
-            'password' => $request->password_1,
+            'password' => $request->password,
             'password_2' => $request->password_2,
             'updated_at' => now()
         ]);

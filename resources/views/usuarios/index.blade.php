@@ -47,7 +47,8 @@
                     @foreach ($usuarios as $usuario)
                     <tr>
                         <td>{{ $id }}</td>
-                        <td>{{ $usuario->id_rol }}</td>
+                        <!-- <td>{{ $usuario->id_rol }}</td> -->
+                        <td> {{ $usuario->rol->nombre_rol }}</td>
                         <td>{{ $usuario->email }}</td>
                         <td>{{ $usuario->password }}</td>
                         <td>{{ $usuario->password_2 }}</td>

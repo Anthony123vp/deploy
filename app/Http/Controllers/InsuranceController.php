@@ -2,20 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Rol;
+use App\Models\Insurance;
 use Illuminate\Http\Request;
 
-class RolController extends Controller
+class InsuranceController extends Controller
 {
     public function index()
     {
-        $roles = Rol::all();
-        return view('roles.index', compact('roles'));
+        $insurances = Insurance::all();
+        return view('pacientes.index', compact('insurances'));
     }
 
     public function create()
     {
-        return view('roles.create');
+        $insurances = Insurance::all();
+        return view('pacientes.index', compact('insurances'));
     }
 
     public function store(Request $request)

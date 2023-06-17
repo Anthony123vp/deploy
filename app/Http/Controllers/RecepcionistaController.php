@@ -166,7 +166,7 @@ class RecepcionistaController extends Controller
             'celular' => 'required',
             'dni' => 'required',
             'f_nacimiento' => 'required',
-            'email' => 'required|unique:users,email,'.$id.',id_user',
+            'email' => 'required',
             'password' => 'required',
             'password_2' => 'required',
         ]);

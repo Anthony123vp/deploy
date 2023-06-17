@@ -25,4 +25,9 @@ class Medico extends Model
         'f_nacimiento',
         'estado',
     ];
+
+    public function especialidad()
+    {
+        return $this->belongsTo(Especialidad::class, 'id_especialidad');
+    }
 }

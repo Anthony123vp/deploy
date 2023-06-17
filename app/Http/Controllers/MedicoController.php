@@ -4,19 +4,27 @@ namespace App\Http\Controllers;
 
 use App\Models\Usuario;
 use App\Models\Medico;
+use App\Models\Especialidad;
 use Illuminate\Http\Request;
 
 class MedicoController extends Controller
 {
+    // public function index()
+    // {
+    //     $medicos = Medico::all();
+    //     return view('medicos.index', compact('medicos'));
+    // }
+
     public function index()
     {
-        $medicos = Medico::all();
+        $medicos = Medico::with('especialidad')->get();
         return view('medicos.index', compact('medicos'));
     }
 
     public function create()
     {
-        return view('medicos.create');
+        $especialidades = Especialidad::all();
+        return view('medicos.create', compact('especialidades'));
     }
 
     public function store(Request $request)
@@ -109,8 +117,9 @@ class MedicoController extends Controller
         $medico = Medico::findOrFail($id);
         $id_user = $medico->id_user;
         $usuario = Usuario::findOrFail($id_user);
+        $especialidades = Especialidad::all();
         
-        return view('medicos.edit', compact('medico', 'usuario'));
+        return view('medicos.edit', compact('medico', 'usuario','especialidades'));
     }
 
     public function update(Request $request, $id)
@@ -137,7 +146,7 @@ class MedicoController extends Controller
             'celular' => 'required',
             'dni' => 'required',
             'f_nacimiento' => 'required',
-            'email' => 'required|unique:users,email,'.$id.',id_user',
+            'email' => 'required',
             'password' => 'required',
             'password_2' => 'required',
         ]);
