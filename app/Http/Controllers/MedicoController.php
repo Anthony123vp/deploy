@@ -14,11 +14,7 @@ class MedicoController extends Controller
     //     $medicos = Medico::all();
     //     return view('medicos.index', compact('medicos'));
     // }
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
+    
     
     public function index()
     {
