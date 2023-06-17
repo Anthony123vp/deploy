@@ -61,3 +61,28 @@ setTimeout(function () {
 setTimeout(function () {
   document.querySelector("#switch2").click();
 }, 3000);
+function togglePasswordVisibility(inputId) {
+  var input = document.getElementById(inputId);
+  var toggle = document.querySelector("span.password-toggle");
+  if (input.type === "password") {
+    input.type = "text";
+    toggle.style.backgroundImage = "url('https://cdn-icons-png.flaticon.com/512/3722/3722014.png')";
+  } else {
+    input.type = "password";
+    toggle.style.backgroundImage = "url('https://cdn-icons-png.flaticon.com/512/3722/3722014.png')";
+  }
+}
+
+document.querySelector("button.boton_registrar_paciente").addEventListener("click", function(event) {
+  var password1 = document.getElementById("password_1").value;
+  var password2 = document.getElementById("password_2").value;
+  var errorMessage = document.getElementById("error-message");
+
+  if (password1 !== password2) {
+    errorMessage.innerText = "Las contraseñas deben ser iguales";
+    errorMessage.style.display = "block";
+    event.preventDefault();
+  } else {
+    errorMessage.style.display = "none";
+  }
+});

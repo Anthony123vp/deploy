@@ -128,7 +128,7 @@ class MedicoController extends Controller
         // return redirect()->route('medicos.index')->with('success', 'Medico actualizado correctamente.');
 
         $request->validate([
-            'nombres' => 'required|unique:medicos,nombres,'.$id.',id_medicos',
+            'nombres' => 'required|unique:medicos,nombres,'.$id.',id_medico',
             'id_especialidad' => 'required',
             'ape_paterno' => 'required',
             'ape_materno' => 'required',

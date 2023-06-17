@@ -46,6 +46,8 @@ Route::get('/pacientes/{id}/editar', [PacienteController::class, 'edit'])->name(
 Route::put('/pacientes/{id}', [PacienteController::class, 'update'])->name('pacientes.update');
 Route::delete('/pacientes/{id}', [PacienteController::class, 'destroy'])->name('pacientes.destroy');
 
+
+// Route::view('/medicos','Medicos.index')->name('indexmedicos');
 // Route::view('/recepcionista','Recepcionista.index');
 
 Route::get('/horarios',[HorarioController::class,'index'])->name('Horario.index');
