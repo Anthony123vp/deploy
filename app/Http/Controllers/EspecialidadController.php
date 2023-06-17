@@ -2,20 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Rol;
+use App\Models\Especialidad;
 use Illuminate\Http\Request;
 
-class RolController extends Controller
+class EspecialidadController extends Controller
 {
     public function index()
     {
-        $roles = Rol::all();
-        return view('roles.index', compact('roles'));
+        $especialidades = Especialidad::all();
+        return view('medicos.index', compact('especialidades'));
     }
 
     public function create()
     {
-        return view('roles.create');
+        $especialidades = Especialidad::all();
+        return view('medicos.index', compact('especialidades'));
     }
 
     public function store(Request $request)

@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('especialidades', function (Blueprint $table) {
             $table->id('id_especialidad', true);
-            $table->string('nombre', 20);
+            $table->string('nombre', 30);
             $table->char('estado', 1)->default('1');
             $table->timestamp('created_at');
             $table->timestamp('updated_at');

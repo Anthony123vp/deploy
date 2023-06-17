@@ -71,7 +71,7 @@
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <input class="input--style-1 js-datepicker" value="{{ $usuario->password }}" type="password" placeholder="   Password 1" name="password_1">
+                                    <input class="input--style-1 js-datepicker" value="{{ $usuario->password }}" type="password" placeholder="   Password 1" name="password">
                                     <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
                                 </div>
                             </div>
@@ -86,31 +86,25 @@
                         <div class="row row-space">
                             <div class="col-3">
                                 <div class="input-group">
-                                    <select style='border:none;margin-top:11.5px;' class="input--style-1 js-datepicker" name="insurance" id="insurance">
-                                        <option value="">  SEGURO</option>
-                                        <option value="20144438354" {{ $paciente->insurance == '20144438354' ? 'selected' : '' }} >BCRP</option>
-                                        <option value="20122794424" {{ $paciente->insurance == '20122794424' ? 'selected' : '' }}>FEBAN</option>
-                                        <option value="20508650451" {{ $paciente->insurance == '20508650451' ? 'selected' : '' }}>FOSPEME</option>
-                                        <option value="20601978572" {{ $paciente->insurance == '20601978572' ? 'selected' : '' }}>La Positiva EPS</option>
-                                        <option value="20100210909" {{ $paciente->insurance == '20100210909' ? 'selected' : '' }}>La Positiva Seguros</option>
-                                        <option value="20517182673" {{ $paciente->insurance == '20517182673' ? 'selected' : '' }}>Mapfre EPS</option>
-                                        <option value="20418896915" {{ $paciente->insurance == '20418896915' ? 'selected' : '' }}>Mapfre Seguros</option>
-                                        <option value="00000000003" {{ $paciente->insurance == '00000000003' ? 'selected' : '' }}>Otros</option>
-                                        <option value="20431115825" {{ $paciente->insurance == '20431115825' ? 'selected' : '' }}>Pacifico EPS</option>
-                                        <option value="20332970411" {{ $paciente->insurance == '20332970411' ? 'selected' : '' }}>Pacifico Seguros</option>
-                                        <option value="20100128218" {{ $paciente->insurance == '20100128218' ? 'selected' : '' }}>PAMF PETROPERU</option>
-                                        <option value="00000000002" {{ $paciente->insurance == '00000000002' ? 'selected' : '' }}>Particular</option>
-                                        <option value="20100176964" {{ $paciente->insurance == '20100176964' ? 'selected' : '' }}>Plan de Salud Familiar</option>
-                                        <option value="20101039910" {{ $paciente->insurance == '20101039910' ? 'selected' : '' }}>Prepaga ONCOSALUD</option>
-                                        <option value="20507264108" {{ $paciente->insurance == '20507264108' ? 'selected' : '' }}>Prepagada Clínica EL GOLF</option>
-                                        <option value="20414955020" {{ $paciente->insurance == '20414955020' ? 'selected' : '' }}>Rimac Seguros y EPS</option>
-                                        <option value="20523470761" {{ $paciente->insurance == '20523470761' ? 'selected' : '' }}>Sanitas Peru EPS</option>
-                                        <option value="20139589638" {{ $paciente->insurance == '20139589638' ? 'selected' : '' }}>SEMEFA</option>
-                                    </select>
+                                    <select class="input--style-1 js-datepicker" name="id_insurance" id="id_insurance">
+                                    <option value="">SEGURO</option>
+                                    @foreach ($insurances as $insurance)
+                                        <option value="{{ $insurance->id_insurance }}" {{ $paciente->id_insurance == $insurance->id_insurance ? 'selected' : '' }}>{{ $insurance->nombre }}</option>
+                                    @endforeach
+                                </select>
                                     <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
                                 </div>
                             </div>
                         </div>
+                        @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                         <div class="p-t-20">
                             <button class="btn btn--radius btn--green" type="submit">Enviar</button>
                         </div>

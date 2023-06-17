@@ -21,21 +21,6 @@ class AdministradorController extends Controller
 
     public function store(Request $request)
     {
-        // $request->validate([
-        //     'dni' => 'required',
-        //     'nombres' => 'required',
-        //     'ape_paterno' => 'required',
-        //     'ape_materno' => 'required',
-        //     // 'sexo' => 'required',
-        //     'celular' => 'required',
-        //     'f_nacimiento' => 'required',
-        // ]);
- 
-
-        // Administrador::create($request->all());
-
-
-        // ------------------
 
         $request->validate([
             'email' => 'required|unique:users',
@@ -157,7 +142,7 @@ class AdministradorController extends Controller
             'celular' => 'required',
             'dni' => 'required',
             'f_nacimiento' => 'required',
-            'email' => 'required|unique:users,email,'.$id.',id_user',
+            'email' => 'required',
             'password' => 'required',
             'password_2' => 'required',
         ]);

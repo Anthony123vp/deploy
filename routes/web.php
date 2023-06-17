@@ -7,6 +7,7 @@ use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\RecepcionistaController;
 use App\Http\Controllers\AdministradorController;
 use App\Http\Controllers\MedicoController;
+use App\Http\Controllers\RolController;
 
 use App\Http\Controllers\ReservaController;
 use App\Http\Controllers\ReservaPendiente;
@@ -81,6 +82,9 @@ Route::post('/medicos', [MedicoController::class, 'store'])->name('medicos.store
 Route::match(['get', 'put'], '/medicos/{id}/editar', [MedicoController::class, 'edit'])->name('medicos.edit');
 Route::put('/medicos/{id}', [MedicoController::class, 'update'])->name('medicos.update');
 Route::delete('/medicos/{id}', [MedicoController::class, 'destroy'])->name('medicos.destroy');
+
+
+Route::get('/roles', [RolController::class, 'index'])->name('roles.index')->middleware('web');
 
 
 

@@ -81,18 +81,11 @@
                             </div>
                         </div>
                         <div class="input-group">
-                                <select style='border:none;margin-top:11.5px;padding-right:100px;' class="input--style-1 js-datepicker" name="id_especialidad" id="id_especialidad">
+                                <select class="input--style-1 js-datepicker" name="id_especialidad" id="id_especialidad">
                                     <option value="">ESPECIALIDADES</option>
-                                    <option value="1">Cardiología</option>
-                                    <option value="2">Dermatología</option>
-                                    <option value="3">Endocrinología</option>
-                                    <option value="4">Gastroenterología</option>
-                                    <option value="5">Neurología</option>
-                                    <option value="6">Oftalmología</option>
-                                    <option value="7">Otorrinolaringología</option>
-                                    <option value="8">Psicología</option>
-                                    <option value="9">Traumatología</option>
-                                    <option value="10">Urología</option>
+                                    @foreach ($especialidades as $especialidad)
+                                        <option value="{{ $especialidad->id_especialidad }}">{{ $especialidad->nombre }}</option>
+                                    @endforeach
                                 </select>
                                 <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
                         </div>

@@ -32,6 +32,7 @@
                         <th> Apellido Paterno <span class="icon-arrow">&UpArrow;</span></th>
                         <th> Apellido Materno <span class="icon-arrow">&UpArrow;</span></th>
                         <th> DNI <span class="icon-arrow">&UpArrow;</span></th>
+                        <th> Especialidad <span class="icon-arrow">&UpArrow;</span></th>
                         <th> Celular <span class="icon-arrow">&UpArrow;</span></th>
                         <th> Fecha de Nacimiento <span class="icon-arrow">&UpArrow;</span></th>
                         <th> Sexo <span class="icon-arrow">&UpArrow;</span></th>
@@ -53,8 +54,10 @@
                         <td>{{ $medico->nombres }}</td>
                         <td>{{ $medico->ape_paterno }}</td>
                         <td>{{ $medico->ape_materno }}</td>
-                        <td>{{ $medico->celular }}</td>
                         <td>{{ $medico->dni }}</td>
+                        <!-- <td>{{ $medico->id_especialidad }}</td> -->
+                        <td> {{ $medico->especialidad->nombre }}</td>
+                        <td>{{ $medico->celular }}</td>
                         <td>{{ $medico->f_nacimiento }}</td>
                         <td>{{ $medico->sexo }}</td>
                         <td>

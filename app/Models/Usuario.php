@@ -20,5 +20,11 @@ class Usuario extends Model
         'estado',
         'id_rol',
     ];
+
+
+    public function rol()
+    {
+        return $this->belongsTo(Rol::class, 'id_rol');
+    }
 }
 

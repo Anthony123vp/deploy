@@ -56,7 +56,8 @@
                         <td>{{ $paciente->celular }}</td>
                         <td>{{ $paciente->f_nacimiento }}</td>
                         <td>{{ $paciente->sexo }}</td>
-                        <td>{{ $paciente->insurance }}</td>
+                        <!-- <td>{{ $paciente->insurance }}</td> -->
+                        <td> {{ $paciente->insurance->nombre }}</td>
                         <td>
                             @if ($paciente->estado == 1)
                                 <button type="button" style='background-color:#99f6c3;padding:8px 5px 8px 5px; color:#000;'>Activo</button>

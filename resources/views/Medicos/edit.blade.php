@@ -82,24 +82,27 @@
                             </div>
                         </div>
                         <div class="input-group">
-                                <select style='border:none;margin-top:11.5px;padding-right:100px;' class="input--style-1 js-datepicker" name="id_especialidad" id="id_especialidad">
+                                <select class="input--style-1 js-datepicker" name="id_especialidad" id="id_especialidad">
                                     <option value="">ESPECIALIDADES</option>
-                                    <option value="1" {{ $medico->id_especialidad == '1' ? 'selected' : '' }}>Cardiología</option>
-                                    <option value="2" {{ $medico->id_especialidad == '2' ? 'selected' : '' }}>Dermatología</option>
-                                    <option value="3" {{ $medico->id_especialidad == '3' ? 'selected' : '' }}>Endocrinología</option>
-                                    <option value="4" {{ $medico->id_especialidad == '4' ? 'selected' : '' }}>Gastroenterología</option>
-                                    <option value="5" {{ $medico->id_especialidad == '5' ? 'selected' : '' }}>Neurología</option>
-                                    <option value="6" {{ $medico->id_especialidad == '6' ? 'selected' : '' }}>Oftalmología</option>
-                                    <option value="7" {{ $medico->id_especialidad == '7' ? 'selected' : '' }}>Otorrinolaringología</option>
-                                    <option value="8" {{ $medico->id_especialidad == '8' ? 'selected' : '' }}>Psicología</option>
-                                    <option value="9" {{ $medico->id_especialidad == '9' ? 'selected' : '' }}>Traumatología</option>
-                                    <option value="10" {{ $medico->id_especialidad == '10' ? 'selected' : '' }}>Urología</option>
+                                    @foreach ($especialidades as $especialidad)
+                                        <option value="{{ $especialidad->id_especialidad }}" {{ $medico->id_especialidad == $especialidad->id_especialidad ? 'selected' : '' }}>{{ $especialidad->nombre }}</option>
+                                    @endforeach
                                 </select>
                                 <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
                         </div>
                         <div class="p-t-20">
                             <button class="btn btn--radius btn--green" type="submit">Enviar</button>
                         </div>
+
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         
                     </form>
                 </div>
