@@ -10,6 +10,12 @@ use Ramsey\Uuid\Type\Integer;
 
 class ReservaController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function Tipo_Servicio($servicio,$especialidad){
         $consulta = DB::select("call ServicioMedhost($servicio,$especialidad) ");
         return response()->json($consulta);

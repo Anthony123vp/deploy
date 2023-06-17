@@ -14,7 +14,12 @@ class PacienteController extends Controller
     //     $pacientes = Paciente::all();
     //     return view('pacientes.index', compact('pacientes'));
     // }
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
+    
     public function index()
     {
         $pacientes = Paciente::with('insurance')->get();

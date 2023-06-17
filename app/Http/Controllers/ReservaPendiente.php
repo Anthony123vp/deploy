@@ -7,6 +7,11 @@ use Illuminate\Support\Facades\DB;
 
 class ReservaPendiente extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index(){
         $citas_pendientes = DB::select("
         SELECT a.id_reserva,f.nombre AS especialidad,serv.nombre as servicio  ,concat(h.nombres,' ',h.ape_paterno)AS medico,horario.fecha,horario.hora_inicio FROM cita_medica a
