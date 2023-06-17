@@ -64,7 +64,7 @@
             
               <div style='width:100%;display:flex;'>
                   <input type="text" name="email" placeholder="  EMAIL">
-                  <input style='margin-left:5px;' type="number" placeholder='  CELULAR' autocomplete="off" name='celular' id="celular" >
+                  <input style='margin-left:5px;' type="text" placeholder='CELULAR' autocomplete="off" name='celular' id="celular" oninput="formatNumber()" maxlength="13">
               </div>
               <select name="insurance" id="insurance">
                   <option value="">  SEGURO</option>
