@@ -39,11 +39,12 @@ class RecepcionistaController extends Controller
             'password_2' => 'required',
         ]);
 
-        $data = $request->all();
-        $data['id_rol'] = 3; 
-    
-        
-        $usuario = Usuario::create($data);
+        $usuario = Usuario::create([
+            'email' => $request->input('email'),
+            'id_rol' =>3,
+            'password' => bcrypt($request->input('password')),
+            'password_2' => bcrypt($request->input('password_2')),
+        ]);
         $id_usuarios = $usuario->id_user;
 
         $request->validate([

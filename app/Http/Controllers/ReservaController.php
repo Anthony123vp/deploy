@@ -38,7 +38,7 @@ class ReservaController extends Controller
     }
 
     public function getConsultorios($especialidad){
-        $consultorios = DB::select("SELECT * FROM SALON WHERE id_especialidad=$especialidad");
+        $consultorios = DB::select("select * from consultorios where id_especialidad =$especialidad");
         return response()->json($consultorios);
     }
     /**
@@ -47,10 +47,10 @@ class ReservaController extends Controller
     public function index()
     {   
         $reservas=DB::select("
-        SELECT a.id_reserva,pac.dni,f.nombre AS especialidad,serv.nombre AS servicio ,concat(h.nombre,' ',h.ape_paterno)AS medico,horario.fecha,horario.hora_inicio,
+        SELECT a.id_reserva,pac.dni,f.nombre AS especialidad,serv.nombre AS servicio ,concat(h.nombres,' ',h.ape_paterno)AS medico,horario.fecha,horario.hora_inicio,
 		a.estado
 
- FROM cita_medica a
+        FROM cita_medica a
         
         INNER JOIN serviciosmedhost c ON a.id_servicio_medhost = c.id_servicio_medhost
         INNER JOIN servicios_especialidades e ON c.id_servicio_especialidad=e.id_servicio_especialidad
@@ -63,7 +63,7 @@ class ReservaController extends Controller
         
         INNER JOIN paciente pac ON a.id_paciente=pac.id_paciente");
 
-        return view('Reserva.index',['reservas']);
+        return view('Reserva.index',['reservas'=>$reservas]);
     }
 
     /**
@@ -85,7 +85,7 @@ class ReservaController extends Controller
             'dni'=>'required',
             'servicio_medhost'=>'required',
             'medico_horario'=>'required',
-            'cod_habitacion'=>'required',
+            'consultorio'=>'required'
         ]);
 
         /** Consiguiendo el Id del paciente por medio del dni*/
@@ -97,8 +97,9 @@ class ReservaController extends Controller
         $cita_nueva->id_paciente = $id_paciente;
         $cita_nueva->id_servicio_medhost= $request->input('servicio_medhost');
         $cita_nueva->id_medico_horario = $request->input('medico_horario');
+        $cita_nueva->id_consultorio= $request->input('consultorio');
         $cita_nueva -> save();
-        return redirect()->route('reservas.index');   
+        return redirect()->route('reservas.index');
 
 
     }

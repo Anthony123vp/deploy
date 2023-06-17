@@ -12,6 +12,10 @@ use App\Http\Controllers\ReservaController;
 use App\Http\Controllers\ReservaPendiente;
 use App\Http\Controllers\ReservaProgramada;
 
+
+use App\Http\Controllers\AuthenthicatedSessionController;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
+
 Route::view('/','MedHostPublic.home');
 
 Route::get('/layoutheader', function () {
@@ -33,7 +37,12 @@ Route::view('/medhost_servicios', 'MedHostPublic.servicios')->name('Servicios_Me
 Route::view('/medhost_overview','MedHostPublic.overview')->name('Team_MedHost');
 Route::view('/medhost_about_our_team','MedHostPublic.about_our_team')->name('OurTeam_MedHost');
 Route::view('/medhost_especialidades','MedHostPublic.especialidades')->name('Especialidades_MedHost');
-Route::view('/Login_Sign_User', 'Sistema.log_sign' )->name('Login_Sign_User');
+
+/*AUTENTICACION DE USUARIO */
+Route::view('/Login_Sign_User', 'Sistema.log_sign' )->name('login');
+Route::post('/LoginUser',[AuthenthicatedSessionController::class,'store'])->name('Login.store');
+Route::post('/Logout',[AuthenthicatedSessionController::class,'destroy'])->name('Logout');
+Route::view('/Dashboard','Sistema.dashboard')-> name('Dashboard');
 
 
 Route::get('/pacientes', [PacienteController::class,'index'])->name('pacientes.index')->middleware('web');
@@ -108,7 +117,7 @@ Route::delete('/administradores/{id}', [AdministradorController::class, 'destroy
 
 //Vista de botones para el paciente:
 Route::get('/citas_pendientes',[ReservaPendiente::class,'index'])->name('citas_pendiente.index');
-Route::view('/historial','Paciente_botones\historial\index');
+Route::view('/historial','Paciente_botones\historial\index')->name('historial.index');
 
 
 //Vista de botones para el medico

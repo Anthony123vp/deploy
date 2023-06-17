@@ -10,34 +10,40 @@
 
 <body>
   <div class="container">
-    <div class="backbox">
-      <div class="loginMsg">
-        <div class="textcontent">
-          <p class="title">¿No tienes una cuenta?</p>
-          <p>Registrate e inicia una gran <br> experiencia en Medhost.</p>
-          <button id="switch1">REGISTRARME</button>
+      <div class="backbox">
+        <div class="loginMsg">
+          <div class="textcontent">
+            <p class="title">¿No tienes una cuenta?</p>
+            <p>Registrate e inicia una gran <br> experiencia en Medhost.</p>
+            <button id="switch1">REGISTRARME</button>
+          </div>
+        </div>
+        <div class="signupMsg visibility">
+          <div class="textcontent">
+            <p class="title">¿Ya tienes una cuenta?</p>
+            <p>Inicia sesión y disfruta de nuestros servicios.</p>
+            <button id="switch2">INICIAR SESIÓN</button>
+          </div>
         </div>
       </div>
-      <div class="signupMsg visibility">
-        <div class="textcontent">
-          <p class="title">¿Ya tienes una cuenta?</p>
-          <p>Inicia sesión y disfruta de nuestros servicios.</p>
-          <button id="switch2">INICIAR SESIÓN</button>
+
+    <form method="POST" action="{{route('Login.store')}}">
+    @csrf
+      <div class="frontbox">
+        <div class="login">
+            <h2>INICIAR SESIÓN</h2>
+            <div  class="inputbox">
+                <input type="text" name="email" placeholder="EMAIL">
+                @error('email')
+                {{ $message}}
+                @enderror
+                  <input type="password" name="password" placeholder="PASSWORD">
+                
+              </div>
+              <p>FORGET PASSWORD?</p>
+          <button type="submit">LOG IN</button>
         </div>
-      </div>
-    </div>
-    
-    <div class="frontbox">
-      <div class="login">
-          <h2>INICIAR SESIÓN</h2>
-          <div  class="inputbox">
-                <input type="text" name="email" placeholder="  EMAIL">
-                <input type="password" name="password" placeholder="  PASSWORD">
-              
-            </div>
-            <p>FORGET PASSWORD?</p>
-        <button>LOG IN</button>
-      </div>
+    </form>
 
       <div class="signup hide">
           <h2>REGISTRO PACIENTE</h2>
