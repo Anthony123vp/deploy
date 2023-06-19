@@ -10,58 +10,61 @@ class InsuranceController extends Controller
     public function index()
     {
         $insurances = Insurance::all();
-        return view('pacientes.index', compact('insurances'));
+        return view('insurances.index', compact('insurances'));
     }
 
     public function create()
     {
         $insurances = Insurance::all();
-        return view('pacientes.index', compact('insurances'));
+        return view('insurances.create', compact('insurances'));
     }
 
     public function store(Request $request)
     {
         $request->validate([
-            'nombre_rol' => 'required',
+            'nombre' => 'required',
         ]);
     
-        Rol::create($request->all());
+        Insurance::create($request->all());
     
-        return redirect()->route('roles.index')->with('success', 'Rol creado correctamente.');
+        return redirect()->route('insurances.index')->with('success', 'Seguro creado correctamente.');
     }
 
 
     public function show($id)
     {
-        $rol = Rol::findOrFail($id);
-        return view('roles.show', compact('rol'));
+        $insurance = Insurance::findOrFail($id);
+        return view('insurances.show', compact('insurance'));
     } 
 
 
     public function edit($id)
     {
-        $rol = Rol::findOrFail($id);
-        return view('roles.edit', compact('rol'));
+        $insurance = Insurance::findOrFail($id);
+        return view('insurances.edit', compact('insurance'));
     }
 
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nombre_rol' => 'required',
+            'nombre' => 'required',
             'estado' => 'required',
+            'updated_at' => now()
         ]);
 
-        $rol = Rol::findOrFail($id);
-        $rol->update($request->all());
+        $insurance = Insurance::findOrFail($id);
+        $insurance->update($request->all());
 
-        return redirect()->route('roles.index')->with('success', 'Rol actualizado correctamente.');
+        return redirect()->route('insurances.index')->with('success', 'Seguro actualizado correctamente.');
     }
 
     public function destroy($id)
     {
-        $rol = Rol::findOrFail($id);
-        $rol->delete();
-
-        return redirect()->route('roles.index')->with('success', 'Rol eliminado correctamente.');
+        $insurance = Insurance::findOrFail($id);
+        $insurance->estado = 0;
+        $insurance->updated_at = now();
+        $insurance->save();
+    
+        return redirect()->route('insurances.index')->with('success', 'Seguro desactivada correctamente.');
     }
 }

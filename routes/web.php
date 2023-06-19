@@ -10,6 +10,7 @@ use App\Http\Controllers\MedicoController;
 use App\Http\Controllers\RolController;
 use App\Http\Controllers\SistemaController;
 use App\Http\Controllers\EspecialidadController;
+use App\Http\Controllers\InsuranceController;
 
 use App\Http\Controllers\ReservaController;
 use App\Http\Controllers\ReservaPendiente;
@@ -90,6 +91,18 @@ Route::put('/recepcionistas/{id}', [RecepcionistaController::class, 'update'])->
 Route::delete('/recepcionistas/{id}', [RecepcionistaController::class, 'destroy'])->name('recepcionistas.destroy');
 
 Route::get('/especialidades', [EspecialidadController::class, 'index'])->name('especialidades.index')->middleware('web');
+Route::get('/especialidades/create',[EspecialidadController::class,'create'])->name('especialidades.create');
+Route::get('/especialidades/{id}/editar', [EspecialidadController::class, 'edit'])->name('especialidades.edit');
+Route::post('/especialidades', [EspecialidadController::class, 'store'])->name('especialidades.store');
+Route::put('/especialidades/{id}', [EspecialidadController::class, 'update'])->name('especialidades.update');
+Route::delete('/especialidades/{id}', [EspecialidadController::class, 'destroy'])->name('especialidades.destroy');
+
+Route::get('/insurances', [InsuranceController::class, 'index'])->name('insurances.index')->middleware('web');
+Route::get('/insurances/create',[InsuranceController::class,'create'])->name('insurances.create');
+Route::get('/insurances/{id}/editar', [InsuranceController::class, 'edit'])->name('insurances.edit');
+Route::post('/insurances', [InsuranceController::class, 'store'])->name('insurances.store');
+Route::put('/insurances/{id}', [InsuranceController::class, 'update'])->name('insurances.update');
+Route::delete('/insurances/{id}', [InsuranceController::class, 'destroy'])->name('insurances.destroy');
 
 
 Route::get('/medicos', [MedicoController::class, 'index'])->name('medicos.index')->middleware('web');
@@ -119,8 +132,8 @@ Route::delete('/administradores/{id}', [AdministradorController::class, 'destroy
 
 
 
-/*Vista de boton para la rececpcionista*/
-    /*Crud de Reservas*/
+// /Vista de boton para la rececpcionista/
+//     /Crud de Reservas/
     Route::get('/reservas',[ReservaController::class,'index'])->name('reservas.index');
     Route::get('/reservas/create',[ReservaController::class,'create'])->name('reservas.create');
     Route::post('/reservas',[ReservaController::class,'store'])->name('reservas.store');
@@ -140,8 +153,3 @@ Route::view('/historial','Paciente_botones\historial\index')->name('historial.in
     Route::get('/horarios',[HorarioController::class,'index'])->name('Horario.index');
     Route::get('/horarios/create',[HorarioController::class,'create'])->name('Horario.create');
     Route::post('/horarios',[HorarioController::class,'store'])->name('Horario.store');
-
-
-
-
-

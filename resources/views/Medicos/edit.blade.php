@@ -93,16 +93,6 @@
                         <div class="p-t-20">
                             <button class="btn btn--radius btn--green" type="submit">Enviar</button>
                         </div>
-
-                        @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
                         
                     </form>
                 </div>
