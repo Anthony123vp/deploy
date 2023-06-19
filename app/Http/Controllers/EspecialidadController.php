@@ -10,13 +10,14 @@ class EspecialidadController extends Controller
     public function index()
     {
         $especialidades = Especialidad::all();
-        return view('medicos.index', compact('especialidades'));
+        // return view('especialidades.index', compact('especialidades'));
+        return $especialidades;
     }
 
     public function create()
     {
         $especialidades = Especialidad::all();
-        return view('medicos.index', compact('especialidades'));
+        return view('especialidades.index', compact('especialidades'));
     }
 
     public function store(Request $request)

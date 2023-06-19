@@ -9,6 +9,7 @@ use App\Http\Controllers\AdministradorController;
 use App\Http\Controllers\MedicoController;
 use App\Http\Controllers\RolController;
 use App\Http\Controllers\SistemaController;
+use App\Http\Controllers\EspecialidadController;
 
 use App\Http\Controllers\ReservaController;
 use App\Http\Controllers\ReservaPendiente;
@@ -87,6 +88,8 @@ Route::match(['get', 'put'], '/recepcionistas/{id}/editar', [RecepcionistaContro
 Route::get('/recepcionistas/{id}/edit2', [RecepcionistaController::class, 'edit2'])->name('recepcionistas.edit2');
 Route::put('/recepcionistas/{id}', [RecepcionistaController::class, 'update'])->name('recepcionistas.update');
 Route::delete('/recepcionistas/{id}', [RecepcionistaController::class, 'destroy'])->name('recepcionistas.destroy');
+
+Route::get('/especialidades', [EspecialidadController::class, 'index'])->name('especialidades.index')->middleware('web');
 
 
 Route::get('/medicos', [MedicoController::class, 'index'])->name('medicos.index')->middleware('web');

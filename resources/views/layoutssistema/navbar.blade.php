@@ -140,7 +140,7 @@
             <li><a class="link_name" href="{{route('usuarios.index')}}">Usuarios</a></li>
           </ul>
         </li>
-     <!--End Administrator-->
+      <!--End Administrator-->
     @endif
     @endauth
     @guest
