@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Especialidad;
-use App\Models\Rol;
 use Illuminate\Http\Request;
 
 class EspecialidadController extends Controller
@@ -16,52 +15,56 @@ class EspecialidadController extends Controller
 
     public function create()
     {
-        return view('especialidades.create');
+        $especialidades = Especialidad::all();
+        return view('especialidades.create', compact('especialidades'));
     }
 
     public function store(Request $request)
     {
         $request->validate([
-            'nombre_rol' => 'required',
+            'nombre' => 'required',
         ]);
     
-        Rol::create($request->all());
+        Especialidad::create($request->all());
     
-        return redirect()->route('roles.index')->with('success', 'Rol creado correctamente.');
+        return redirect()->route('especialidades.index')->with('success', 'Especialidad creado correctamente.');
     }
 
 
     public function show($id)
     {
-        $rol = Rol::findOrFail($id);
-        return view('roles.show', compact('rol'));
+        $especialidad = Especialidad::findOrFail($id);
+        return view('especialidades.show', compact('especialidad'));
     } 
 
 
     public function edit($id)
     {
-        $rol = Rol::findOrFail($id);
-        return view('roles.edit', compact('rol'));
+        $especialidad = Especialidad::findOrFail($id);
+        return view('especialidades.edit', compact('especialidad'));
     }
 
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nombre_rol' => 'required',
+            'nombre' => 'required',
             'estado' => 'required',
+            'updated_at' => now()
         ]);
 
-        $rol = Rol::findOrFail($id);
-        $rol->update($request->all());
+        $especialidad = Especialidad::findOrFail($id);
+        $especialidad->update($request->all());
 
-        return redirect()->route('roles.index')->with('success', 'Rol actualizado correctamente.');
+        return redirect()->route('especialidades.index')->with('success', 'Especialidad actualizado correctamente.');
     }
 
     public function destroy($id)
     {
-        $rol = Rol::findOrFail($id);
-        $rol->delete();
-
-        return redirect()->route('roles.index')->with('success', 'Rol eliminado correctamente.');
+        $especialidad = Especialidad::findOrFail($id);
+        $especialidad->estado = 0;
+        $especialidad->updated_at = now();
+        $especialidad->save();
+    
+        return redirect()->route('especialidades.index')->with('success', 'Especialidad desactivada correctamente.');
     }
 }
