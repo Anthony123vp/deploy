@@ -4,18 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Paciente;
 use App\Models\Reserva;
+use App\Models\Horario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Ramsey\Uuid\Type\Integer;
 
 class ReservaController extends Controller
 {
-
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     public function Tipo_Servicio($servicio,$especialidad){
         $consulta = DB::select("call ServicioMedhost($servicio,$especialidad) ");
         return response()->json($consulta);
@@ -56,11 +51,7 @@ class ReservaController extends Controller
         SELECT a.id_reserva,pac.dni,f.nombre AS especialidad,serv.nombre AS servicio ,concat(h.nombres,' ',h.ape_paterno)AS medico,horario.fecha,horario.hora_inicio,
 		a.estado
 
-<<<<<<< HEAD
-    FROM cita_medica a
-=======
         FROM cita_medica a
->>>>>>> 592db52da92aab9cedb740d53194202abc16c82b
         
         INNER JOIN serviciosmedhost c ON a.id_servicio_medhost = c.id_servicio_medhost
         INNER JOIN servicios_especialidades e ON c.id_servicio_especialidad=e.id_servicio_especialidad
@@ -109,12 +100,14 @@ class ReservaController extends Controller
         $cita_nueva->id_medico_horario = $request->input('medico_horario');
         $cita_nueva->id_consultorio= $request->input('consultorio');
         $cita_nueva -> save();
+
+        /*Cambiando de estado el horario del medico seleccionado */
+        $horario_medico=Horario::findOrFail($request->input('medico_horario'));
+        $horario_medico->estado='0';
+        $horario_medico->save();
         return redirect()->route('reservas.index');
-<<<<<<< HEAD
-=======
 
 
->>>>>>> 592db52da92aab9cedb740d53194202abc16c82b
     }
 
     /**
