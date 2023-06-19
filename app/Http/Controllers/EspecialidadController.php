@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Especialidad;
+use App\Models\Rol;
 use Illuminate\Http\Request;
 
 class EspecialidadController extends Controller
@@ -10,14 +11,12 @@ class EspecialidadController extends Controller
     public function index()
     {
         $especialidades = Especialidad::all();
-        // return view('especialidades.index', compact('especialidades'));
-        return $especialidades;
+        return view('especialidades.index', compact('especialidades'));
     }
 
     public function create()
     {
-        $especialidades = Especialidad::all();
-        return view('especialidades.index', compact('especialidades'));
+        return view('especialidades.create');
     }
 
     public function store(Request $request)
