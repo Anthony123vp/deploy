@@ -103,6 +103,7 @@
 					<div class="form-row-last">
                         <div class="boton">
 						    <input type="submit" class="register" value="Programar">
+							<input type="reset" class="cancelar" value="Limpiar">
 					    </div>
                     </div>
 				</div>
@@ -116,11 +117,10 @@
 <script>
 	var servicio = document.getElementById('servicio');
 	const especialidad = document.getElementById('especialidad');
-	const especilidad_Servicio = document.getElementById('especilidad_Servicio');
+	const especialidad_Servicio = document.getElementById('especilidad_Servicio');
 	const precioServicio = document.getElementById('precioServicio');
 	const medico = document.getElementById('medicos');
 	const consultorio = document.getElementById('consultorios');
-
 
 	especialidad.addEventListener('change',async(e)=>{
 		var id_servicio = servicio.value;
@@ -128,11 +128,24 @@
 		const data = await response.json();
 
 		/*Rellena los tipos de servicios*/
-		let options = ``;
-		data.forEach(element=>{
-			options= options + `<option value="${element.id_servicio_medhost}">${element.nombre}</option>`
-		});
-		especilidad_Servicio.innerHTML = options;
+			let options = ``;
+			data.forEach(element=>{
+				options= options + `<option value="${element.id_servicio_medhost}">${element.nombre}</option>`
+			});
+	
+			especialidad_Servicio.innerHTML = options;
+				/*Selecciona al primer tipo de servicio que aparece en el select option y muestr su precio*/
+				const responsexd = await fetch(`/api/Reserva/${especialidad_Servicio.value}`);
+				const dataxd = await responsexd.json();
+				let option = ``;
+				dataxd.forEach(element=>{
+					option= option + `${element.precio} soles`
+				});
+				precioServicio.value = option;
+
+
+
+
 
 		/*rellena los options del select medico*/
 		let option_medico =  ``;
@@ -142,6 +155,16 @@
 			option_medico= option_medico + `<option value="${element.id_medico}">${element.nombres},${element.ape_paterno}</option>`
 		});
 		medico.innerHTML = option_medico;
+		/*Selecciona al primer medico que aparece en el select option*/
+		const responseHorario = await fetch(`/api/Medico/${medico.value}/Horarios`);
+		const datahorario = await responseHorario.json();
+		let optionhorario = ``;
+		datahorario.forEach(element=>{
+			optionhorario= optionhorario + `<option value="${element.id_medico_horario}">${element.fecha}->${element.hora_inicio} - ${element.hora_final}</option>`
+		});
+		medico_horarios.innerHTML = optionhorario;
+
+
 
 		/*rellenas las habitaciones disponibles*/
 		let habitaciones_disponibles='';
@@ -153,7 +176,7 @@
 		consultorio.innerHTML = habitaciones_disponibles;
 	});
 
-	especilidad_Servicio.addEventListener('change',async(e)=>{
+	especialidad_Servicio.addEventListener('change',async(e)=>{
 		const response = await fetch(`/api/Reserva/${e.target.value}`);
 		const data = await response.json();
 		let option = ``;

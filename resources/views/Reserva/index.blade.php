@@ -33,6 +33,7 @@
                         <th> Medico <span class="icon-arrow">&UpArrow;</span></th>
                         <th> Fecha <span class="icon-arrow">&UpArrow;</span></th>
                         <th> Hora <span class="icon-arrow">&UpArrow;</span></th>
+                        <th> Consultorio <span class="icon-arrow">&UpArrow;</span></th>
                         <th> Estado <span class="icon-arrow">&UpArrow;</span></th>
                         <th> Acciones <span class="icon-arrow">&UpArrow;</span></th>
                     </tr>
@@ -51,6 +52,7 @@
                             <td>{{ $reserva->medico }}</td>
                             <td>{{ $reserva->fecha }}</td>
                             <td>{{ $reserva->hora_inicio }}</td>
+                            <td>{{ $reserva->cod_habitacion }}</td>
                             <td>
                                 @if ($reserva->estado == 1)
                                 

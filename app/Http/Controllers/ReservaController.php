@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Paciente;
 use App\Models\Reserva;
 use App\Models\Horario;
+use App\Models\Especialidad;
+use App\Models\Servicio;
+use App\Models\Medico;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Ramsey\Uuid\Type\Integer;
@@ -12,22 +15,22 @@ use Ramsey\Uuid\Type\Integer;
 class ReservaController extends Controller
 {
     public function Tipo_Servicio($servicio,$especialidad){
-        $consulta = DB::select("call ServicioMedhost($servicio,$especialidad) ");
+        $consulta = DB::select("SELECT * FROM SERVICIOMEDHOST where  id_servicio=$servicio and id_especialidad=$especialidad");
         return response()->json($consulta);
     }
  
     public function PrecioServicio($id){
-        $consulta = DB::select("SELECT precio From serviciosmedhost where id_servicio_medhost=$id");
+        $consulta = DB::select("SELECT precio FROM SERVICIOMEDHOST where id_servicio_medhost=$id");
         return response()->json($consulta);
     }
 
     public function InformacionPaciente(String $dni){
-        $paciente = DB::select("SELECT * FROM paciente WHERE dni=$dni");
+        $paciente = Paciente::where('dni',$dni)->get();
         return response()->json($paciente);
     }
 
     public function getMedicos($especialidad){
-        $medicos=DB::select("SELECT * FROM medicos WHERE id_especialidad=$especialidad");
+        $medicos=Medico::where('id_especialidad',$especialidad)->get();
         return response()->json($medicos);
     }
 
@@ -47,22 +50,7 @@ class ReservaController extends Controller
      */
     public function index()
     {   
-        $reservas=DB::select("
-        SELECT a.id_reserva,pac.dni,f.nombre AS especialidad,serv.nombre AS servicio ,concat(h.nombres,' ',h.ape_paterno)AS medico,horario.fecha,horario.hora_inicio,
-		a.estado
-
-        FROM cita_medica a
-        
-        INNER JOIN serviciosmedhost c ON a.id_servicio_medhost = c.id_servicio_medhost
-        INNER JOIN servicios_especialidades e ON c.id_servicio_especialidad=e.id_servicio_especialidad
-        INNER JOIN especialidades f ON e.id_especialidad=f.id_especialidad
-        INNER JOIN servicios serv ON e.id_servicio=serv.id_servicio
-        
-        INNER JOIN medico_horarios g ON a.id_medico_horario=g.id_medico_horario
-        INNER JOIN horarios horario ON g.id_horario = horario.id_horario
-        INNER JOIN medicos h ON g.id_medico = h.id_medico
-        
-        INNER JOIN paciente pac ON a.id_paciente=pac.id_paciente");
+        $reservas=DB::select("SELECT * FROM CITA_MEDICA_RECEPCIONISTA");
 
         return view('Reserva.index',['reservas'=>$reservas]);
     }
@@ -72,8 +60,8 @@ class ReservaController extends Controller
      */
     public function create()
     {
-        $servicios=DB::select("Select * from SERVICIOS");
-        $especialidades=DB::select("SELECT * FROM especialidades");
+        $servicios=Servicio::get();
+        $especialidades=Especialidad::get();
         return view('Reserva.create',['servicios'=>$servicios,'especialidades'=>$especialidades]);
     }
 
