@@ -11,6 +11,8 @@ use App\Http\Controllers\RolController;
 use App\Http\Controllers\SistemaController;
 use App\Http\Controllers\EspecialidadController;
 use App\Http\Controllers\InsuranceController;
+use App\Http\Controllers\ServicioController; 
+use App\Http\Controllers\Servicio_especialidadController; 
 
 use App\Http\Controllers\ReservaController;
 use App\Http\Controllers\ReservaPendiente;
@@ -114,6 +116,10 @@ Route::delete('/medicos/{id}', [MedicoController::class, 'destroy'])->name('medi
 
 
 Route::get('/roles', [RolController::class, 'index'])->name('roles.index')->middleware('web');
+
+Route::get('/servicios', [ServicioController::class, 'index'])->name('servicios.index')->middleware('web');
+
+Route::get('/servicios_especialidades', [Servicio_especialidadController::class, 'index'])->name('servicios_especialidades.index')->middleware('web');
 
 
 
