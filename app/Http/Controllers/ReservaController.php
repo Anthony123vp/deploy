@@ -35,9 +35,7 @@ class ReservaController extends Controller
     }
 
     public function getHorarioMedico($medico){
-        $horario_medico = DB::select("
-        select a.id_medico_horario,b.fecha,b.hora_inicio,b.hora_final from medico_horarios a
-        INNER JOIN horarios b on a.id_horario = b.id_horario where a.id_medico=$medico and a.estado=1");
+        $horario_medico = DB::select(" SELECT * FROM HORARIO_MEDICO WHERE id_medico=$medico and estado=1");
         return response()->json($horario_medico);
     }
 
