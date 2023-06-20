@@ -69,16 +69,18 @@
   /* ==========================================================================
      #PAGE WRAPPER
      ========================================================================== */
-  .page-wrapper {
-    min-height: 100vh;
-    
-  }
   
   .main_editar {
     font-family: "Roboto", "Arial", "Helvetica Neue", sans-serif;
     font-weight: 400;
     font-size: 14px;
-
+    height: 90vh;
+  }
+  .paciente{
+    overflow-y: scroll;
+  }
+  .medicos{
+    overflow-y: scroll;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -123,13 +125,7 @@
     padding-top: 0;
   }
   
-  .p-t-20 {
 
-  }
-  
-  .p-b-100 {
-    padding-bottom: 100px;
-  }
   
   /* ==========================================================================
      #WRAPPER
@@ -386,6 +382,7 @@
     -moz-border-radius: 3px;
     border-radius: 3px;
     background: #fff;
+    
   }
   
   .card-1 {
