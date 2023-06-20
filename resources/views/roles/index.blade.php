@@ -42,7 +42,7 @@
                     @foreach ($roles as $rol)
                     <tr>
                         <td>{{ $id }}</td>
-                        <td>{{ $rol->nombre_rol }}</td>
+                        <td><button type="button" class='boton_rol'>{{ $rol->nombre_rol }}</button></td>
                         <td>
                             @if ($rol->estado == 1)
                                 <button type="button" style='background-color:#99f6c3;padding:8px 5px 8px 5px; color:#000;'>Activo</button>
@@ -64,6 +64,14 @@
         </section>
     </main>
 
-
+<style>
+        .boton_rol {
+        background-color:#21A375;
+        color:#fff;
+        outline: 4px groove #21A975;
+        outline-offset: 1px;
+        text-align:center;
+        }
+</style>
 
 @endsection

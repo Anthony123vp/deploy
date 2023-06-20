@@ -48,7 +48,7 @@
                     <tr>
                         <td>{{ $id }}</td>
                         <!-- <td>{{ $usuario->id_rol }}</td> -->
-                        <td> {{ $usuario->rol->nombre_rol }}</td>
+                        <td><button type="button" class='boton_rol'>{{ $usuario->rol->nombre_rol }}</button></td>
                         <td>{{ $usuario->email }}</td>
                         <td>{{ $usuario->password }}</td>
                         <td>{{ $usuario->password_2 }}</td>
@@ -82,6 +82,15 @@
             </table>
         </section>
     </main>
+    <style>
+        .boton_rol {
+            background-color:#21A375;
+            color:#fff;
+            outline: 4px groove #21A975;
+            outline-offset: 1px;
+            text-align:center;
+        }
+    </style>
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         const deleteLinks = document.querySelectorAll('.delete-usuario');

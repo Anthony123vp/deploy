@@ -56,8 +56,7 @@
                         <td>{{ $paciente->celular }}</td>
                         <td>{{ $paciente->f_nacimiento }}</td>
                         <td>{{ $paciente->sexo }}</td>
-                        <!-- <td>{{ $paciente->insurance }}</td> -->
-                        <td> {{ $paciente->insurance->nombre }}</td>
+                        <td><button type="button" class='boton_seguro'>{{ $paciente->insurance->nombre }}</button></td>
                         <td>
                             @if ($paciente->estado == 1)
                                 <button type="button" style='background-color:#99f6c3;padding:8px 5px 8px 5px; color:#000;'>Activo</button>
@@ -83,6 +82,14 @@
             </table>
         </section>
     </main>
+<style>
+    .boton_seguro {
+        background-color:#21A375;
+        color:#fff;
+        outline: 4px groove #21A975;
+        outline-offset: 1px;
+    }
+</style>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const deleteLinks = document.querySelectorAll('.delete-paciente');

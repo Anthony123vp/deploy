@@ -55,8 +55,7 @@
                         <td>{{ $medico->ape_paterno }}</td>
                         <td>{{ $medico->ape_materno }}</td>
                         <td>{{ $medico->dni }}</td>
-                        <!-- <td>{{ $medico->id_especialidad }}</td> -->
-                        <td> {{ $medico->especialidad->nombre }}</td>
+                        <td><button type="button" class='boton_especialidad'>{{ $medico->especialidad->nombre }}</button></td>
                         <td>{{ $medico->celular }}</td>
                         <td>{{ $medico->f_nacimiento }}</td>
                         <td>{{ $medico->sexo }}</td>
@@ -85,6 +84,14 @@
             </table>
         </section>
     </main>
+<style>
+    .boton_especialidad {
+        background-color:#21A375;
+        color:#fff;
+        outline: 4px groove #21A975;
+        outline-offset: 1px;
+    }
+</style>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const deleteLinks = document.querySelectorAll('.delete-medico');

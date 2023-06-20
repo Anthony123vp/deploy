@@ -74,7 +74,7 @@
 					<h2>Medico</h2>
 					<div class="form-row">
 						<select id="medicos">
-						    <option value="position">Seleccione Medico</option>
+						    <option value="">Seleccione Medico</option>
 						</select>
 						<span class="select-btn">
 						  	<i class="zmdi zmdi-chevron-down"></i>
@@ -83,7 +83,7 @@
 					<br>
 					<div class="form-row">
 						<select name="medico_horario" id="medico_horarios">
-						    <option value="position">Horarios Disponibles</option>
+						    <option value="">Horarios Disponibles</option>
 						</select>
 						<span class="select-btn">
 						  	<i class="zmdi zmdi-chevron-down"></i>
@@ -93,7 +93,7 @@
 					<h2>Consultorio</h2>
 					<div class="form-row">
 						<select name="consultorio" id="consultorios">
-						    <option value="position">Consultorio Disponible</option>
+						    <option value="">Consultorio Disponible</option>
 						    
 						</select>
 						<span class="select-btn">
