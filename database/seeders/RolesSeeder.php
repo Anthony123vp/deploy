@@ -14,6 +14,7 @@ class RolesSeeder extends Seeder
      */
     public function run()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0');
         DB::table('roles')->insert([
             'nombre_rol' => 'Paciente',
             'estado' => 1,
@@ -41,5 +42,6 @@ class RolesSeeder extends Seeder
             'created_at' => now(),
             'updated_at' => now(),
         ]);
+        DB::statement('SET FOREIGN_KEY_CHECKS=1');
     }
 }

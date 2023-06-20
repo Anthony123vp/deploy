@@ -14,6 +14,7 @@ class ServiciosEspecialidadesSeeder extends Seeder
      */
     public function run()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0');
         DB::table('servicios_especialidades')->insert([
             'id_servicio' => 1,
             'id_especialidad' => 1,
@@ -243,5 +244,6 @@ class ServiciosEspecialidadesSeeder extends Seeder
         ]);
 
         // ------------------------------------------------
+        DB::statement('SET FOREIGN_KEY_CHECKS=1');
     }
 }

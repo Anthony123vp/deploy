@@ -15,6 +15,7 @@ class InsurancesSeeder extends Seeder
      */
     public function run()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0');
         $insurances = [
             'BCRP',
             'FEBAN',
@@ -41,5 +42,6 @@ class InsurancesSeeder extends Seeder
                 'estado' => 1,
             ]);
         }
+        DB::statement('SET FOREIGN_KEY_CHECKS=1');
     }
 }

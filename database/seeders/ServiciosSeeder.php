@@ -14,6 +14,7 @@ class ServiciosSeeder extends Seeder
      */
     public function run()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0');
         DB::table('servicios')->insert([
             'nombre' => 'Cita_Medica',
             'estado' => 1,
@@ -34,5 +35,6 @@ class ServiciosSeeder extends Seeder
             'created_at' => now(),
             'updated_at' => now(),
         ]);
+        DB::statement('SET FOREIGN_KEY_CHECKS=1');
     }
 }
