@@ -23,7 +23,7 @@
     
     <li>
           <a href="{{route('Dashboard')}}">
-            <i class='bx bx-line-chart' ></i>
+            <i class='bx bxs-home' ></i>
             <span class="link_name">Dashboard</span>
           </a>
           <ul class="sub-menu blank">
@@ -36,7 +36,7 @@
       @if(Auth::user()->id_rol===4)
         <li>
           <a href="{{route('citas_programadas.index')}}">
-            <i class='bx bx-line-chart' ></i>
+            <i class='bx bx-calendar-plus'></i>
             <span class="link_name">Citas</span>
           </a>
           <ul class="sub-menu blank">
@@ -46,7 +46,7 @@
 
         <li>
           <a href="{{route('Horario.index')}}">
-            <i class='bx bx-line-chart' ></i>
+            <i class='bx bx-time' ></i>
             <span class="link_name">Horarios</span>
           </a>
           <ul class="sub-menu blank">
@@ -62,7 +62,7 @@
       @if(Auth::user()->id_rol===3)
        <li>
           <a href="{{route('reservas.index')}}">
-            <i class='bx bx-line-chart' ></i>
+            <i class='bx bx-calendar-plus'></i>
             <span class="link_name">Citas</span>
           </a>
           <ul class="sub-menu blank">
@@ -72,7 +72,7 @@
       
         <li>
           <a href="{{route('pacientes.index')}}">
-            <i class='bx bx-line-chart' ></i>
+            <i class='bx bxs-face'></i>
             <span class="link_name">Paciente</span>
           </a>
           <ul class="sub-menu blank">
@@ -88,7 +88,7 @@
     @if(Auth::user()->id_rol===1)
         <li>
           <a href="{{ route('historial.index') }}">
-            <i class='bx bx-line-chart' ></i>
+            <i class='bx bx-plus-medical' ></i>
             <span class="link_name">Historial Medico</span>
           </a>
           <ul class="sub-menu blank">
@@ -98,7 +98,7 @@
       
         <li>
           <a href="{{ route('citas_pendiente.index') }}">
-            <i class='bx bx-line-chart' ></i>
+            <i class='bx bxs-calendar-plus' ></i>
             <span class="link_name">Citas</span>
           </a>
           <ul class="sub-menu blank">
@@ -133,7 +133,7 @@
         </li>
         <li>
           <a href="{{route('usuarios.index')}}">
-            <i class='bx bx-line-chart' ></i>
+            <i class='bx bxs-user'></i>
             <span class="link_name">Usuarios</span>
           </a>
           <ul class="sub-menu blank">
