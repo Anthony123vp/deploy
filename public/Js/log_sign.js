@@ -87,21 +87,21 @@ document.querySelector("button.boton_registrar_paciente").addEventListener("clic
   }
 });
 
-function formatNumber() {
-  let input = document.getElementById("celular");
-  let value = input.value.replace(/[^0-9]/g, ""); // Remueve cualquier carácter no numérico
+// function formatNumber() {
+//   let input = document.getElementById("celular");
+//   let value = input.value.replace(/[^0-9]/g, ""); // Remueve cualquier carácter no numérico
 
-  if (value.length > 9) {
-    value = value.slice(0, 9); // Limita la entrada a 9 dígitos
-  }
+//   if (value.length > 9) {
+//     value = value.slice(0, 9); // Limita la entrada a 9 dígitos
+//   }
 
-  let formattedValue = "";
-  for (let i = 0; i < value.length; i++) {
-    formattedValue += value[i];
-    if ((i + 1) % 3 === 0 && i !== value.length - 1) {
-      formattedValue += "-";
-    }
-  }
+//   let formattedValue = "";
+//   for (let i = 0; i < value.length; i++) {
+//     formattedValue += value[i];
+//     if ((i + 1) % 3 === 0 && i !== value.length - 1) {
+//       formattedValue += "-";
+//     }
+//   }
 
-  input.value = formattedValue;
-}
+//   input.value = formattedValue;
+// }
