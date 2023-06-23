@@ -13,8 +13,7 @@
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 
     @yield('linkcss')
-    <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> -->
-    <script src="Js/sweetalert2.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -28,8 +27,8 @@
                 </span>
 
                 <div class="text logo-text">
-                    <span class="name">Codinglab</span>
-                    <span class="profession">Web developer</span>
+                    <span class="name">MEDHOST</span>
+                    <span class="profession">SYSTEM</span>
                 </div>
             </div>
 
@@ -56,14 +55,14 @@
                 @if(Auth::user()->id_rol===4)
                     <li class="nav-link">
                         <a href="{{route('citas_programadas.index')}}">
-                            <i class='bx bxs-calendar-plus'></i>
+                            <i class='bx bx-bar-chart-alt-2 icon' ></i>
                             <span class="text nav-text">Citas</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
                         <a href="{{route('Horario.index')}}">
-                            <i class='bx bxs-time' ></i>
+                            <i class='bx bx-bell icon'></i>
                             <span class="text nav-text">Horarios</span>
                         </a>
                     </li>
@@ -76,14 +75,14 @@
                 @if(Auth::user()->id_rol===3)
                     <li class="nav-link">
                         <a href="#">
-                            <i class='bx bxs-calendar-plus'></i>
+                            <i class='bx bx-pie-chart-alt icon' ></i>
                             <span class="text nav-text">Citas</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
                         <a href="#">
-                            <i class='bx bxs-user-pin' ></i>
+                            <i class='bx bx-heart icon' ></i>
                             <span class="text nav-text">Pacientes</span>
                         </a>
                     </li>
@@ -103,7 +102,7 @@
 
                     <li class="nav-link">
                         <a href="#">
-                            <i class='bx bxs-calendar-plus'></i>
+                            <i class='bx bx-wallet icon' ></i>
                             <span class="text nav-text">Citas</span>
                         </a>
                     </li>
