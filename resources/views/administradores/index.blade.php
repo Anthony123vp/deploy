@@ -17,8 +17,6 @@
                 <div class="export__file-options">
                     <label>Export As &nbsp; &#10140;</label>
                     <label for="export-file" id="toPDF">PDF <img src="images/pdf.png" alt=""></label>
-                    <label for="export-file" id="toJSON">JSON <img src="images/json.png" alt=""></label>
-                    <label for="export-file" id="toCSV">CSV <img src="images/csv.png" alt=""></label>
                     <label for="export-file" id="toEXCEL">EXCEL <img src="images/excel.png" alt=""></label>
                 </div>
             </div>
@@ -27,18 +25,18 @@
             <table id='tabla_admin'>
                 <thead>
                     <tr>
-                        <th> Nº <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Nombres <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Apellido Paterno <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Apellido Materno <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> DNI <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Celular <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Fecha de Nacimiento <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Sexo <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Estado <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Fecha de Creación <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Fecha de Actualización <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Acciones <span class="icon-arrow">&UpArrow;</span></th>
+                        <th> Nº </th>
+                        <th> Nombres </th>
+                        <th> Apellido Paterno </th>
+                        <th> Apellido Materno </th>
+                        <th>DNI</th>
+                        <th> Celular </th>
+                        <th> Fecha de Nacimiento </th>
+                        <th> Sexo </th>
+                        <th> Estado </th>
+                        <th> Fecha de Creación </th>
+                        <th> Fecha de Actualización </th>
+                        <th> Acciones </th>
                     </tr>
                 </thead>
                 <tbody>

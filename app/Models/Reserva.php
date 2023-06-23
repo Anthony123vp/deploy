@@ -10,4 +10,9 @@ class Reserva extends Model
     use HasFactory;
     protected $table = 'cita_medica';
     protected $primaryKey  ='id_reserva';
+
+    protected $fillable = [
+        'id_paciente',
+        'estado',
+    ];
 }

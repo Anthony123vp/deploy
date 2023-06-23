@@ -15,6 +15,7 @@
 
   </head>
 <body>
+<div class="form-container">
 <div class="sidebar close">
     <div class="logo-details">
     <img src="/Imagenes/LOGO.png" alt="">
@@ -51,6 +52,16 @@
           </a>
           <ul class="sub-menu blank">
             <li><a class="link_name" href="{{route('Horario.index')}}">Horarios</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="{{route('recetas.index')}}">
+            <i class='bx bx-line-chart' ></i>
+            <span class="link_name">Recetas Medicas</span>
+          </a>
+          <ul class="sub-menu blank">
+            <li><a class="link_name" href="{{route('recetas.index')}}">Recetas Medicas</a></li>
           </ul>
         </li>
       @endif
@@ -183,6 +194,7 @@
         @endauth  
     </ul>
 </div>
+
 <section class="home-section">
   <div class="home-content">
     <i class='bx bx-menu' ></i>

@@ -8,6 +8,7 @@
                 <div class="card-heading"></div>
                 <div class="card-body">
                     <h2 class="title">Crear Administradores</h2>
+                    
                     <form action="{{ route('administradores.store')}}" method="POST">
                     @csrf
                         <div class="input-group">
@@ -65,23 +66,27 @@
                         <div class="input-group">
                             <input class="input--style-1" type="email" placeholder="    Email" name="email">
                         </div>
-
+                        
                         <div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <input class="input--style-1 js-datepicker" type="password" placeholder="   Password 1" name="password">
-                                    <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
-                                </div>
-                            </div>
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <input class="input--style-1 js-datepicker" type="password" placeholder="   Password 2" name="password_2">
-                                    <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
-                                </div>
+                        <div class="col-1">
+                            <div class="input-group">
+                            <input class="input--style-1 js-datepicker" type="password" placeholder="Password 1" name="password" id="password1">
+                            <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+                            <img class="toggle-password" src="https://cdn-icons-png.flaticon.com/512/6405/6405909.png" alt="Mostrar contraseña" onmousedown="showPassword('password1')" onmouseup="hidePassword('password1')">
                             </div>
                         </div>
+                        <div class="col-2">
+                            <div class="input-group">
+                            <input class="input--style-1 js-datepicker" type="password" placeholder="Password 2" name="password_2" id="password2">
+                            <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+                            <img class="toggle-password" src="https://cdn-icons-png.flaticon.com/512/6405/6405909.png" alt="Mostrar contraseña" onmousedown="showPassword('password2')" onmouseup="hidePassword('password2')">
+                            </div>
+                        </div>
+                        </div>
+
                         <div class="p-t-20">
                             <button class="btn btn--radius btn--green" type="submit">Enviar</button>
+                            <a type="button" style="margin-top:10px;" class="btn btn-light delete-insurance" href=" {{ route('administradores.index') }} " id="delete">Atras</a>
                         </div>
                     </form>
                 </div>
@@ -91,3 +96,26 @@
     </div>
 
 @endsection
+<script>
+  var showPasswordTimeout;
+
+  function showPassword(inputId) {
+    var input = document.getElementById(inputId);
+    input.type = 'text';
+  }
+
+  function hidePassword(inputId) {
+    var input = document.getElementById(inputId);
+    input.type = 'password';
+  }
+
+  function startShowPasswordTimer(inputId) {
+    showPasswordTimeout = setTimeout(function() {
+      showPassword(inputId);
+    }, 500);
+  }
+
+  function cancelShowPasswordTimer() {
+    clearTimeout(showPasswordTimeout);
+  }
+</script>

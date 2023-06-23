@@ -15,7 +15,7 @@ use App\Http\Controllers\InsuranceController;
 use App\Http\Controllers\ReservaController;
 use App\Http\Controllers\ReservaPendiente;
 use App\Http\Controllers\ReservaProgramada;
-
+use App\Http\Controllers\RecetasController;
 
 use App\Http\Controllers\AuthenthicatedSessionController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -153,3 +153,10 @@ Route::view('/historial','Paciente_botones\historial\index')->name('historial.in
     Route::get('/horarios',[HorarioController::class,'index'])->name('Horario.index');
     Route::get('/horarios/create',[HorarioController::class,'create'])->name('Horario.create');
     Route::post('/horarios',[HorarioController::class,'store'])->name('Horario.store');
+
+    /*Creacion de Recetas*/
+    Route::get('/recetas',[RecetasController::class,'index'])->name('recetas.index');
+
+    Route::get('/recetas/create',[RecetasController::class,'create'])->name('recetas.create');
+
+    Route::post('/recetas',[RecetasController::class,'store'])->name('recetas.store');

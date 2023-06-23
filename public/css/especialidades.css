@@ -217,6 +217,9 @@ header {
     padding: 0px auto;
     object-fit: cover;
 }
+.contend{
+    transition: 1s all;
+}
 .contend:hover{
     transform: translateY(-30px) scale(1.03);
     transition: 1s all;

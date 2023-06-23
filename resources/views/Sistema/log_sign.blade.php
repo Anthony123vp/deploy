@@ -38,7 +38,7 @@
                 {{ $message}}
                 @enderror
                   <input type="password" name="password" placeholder="PASSWORD">
-                
+
               </div>
               <p>FORGET PASSWORD?</p>
           <button type="submit">LOG IN</button>
@@ -51,12 +51,13 @@
             <form action="{{ route('pacientes.store')}}" method="POST">
               @csrf
               <div style='width:100%;display:flex;'>
-                  <input style='margin-right:5px;' type="text" placeholder='  NUMERO DOCUMENTO' id="dni" name="dni">
-                  <input type="text" name='nombres' placeholder='  NOMBRE'  id="nombres_">
+                  <input style='margin-right:5px;' type="text" placeholder='NUMERO DOCUMENTO' id="dni" name="dni">
+                  <input type="text" name='nombres' placeholder='NOMBRE' id="nombres_">
+
               </div>
               <div style='width:100%;display:flex;'>
-                  <input type="text" placeholder='  APELLIDO PATERNO' name='ape_paterno' id="ape_paterno" >
-                  <input style='margin-left:5px;' type="text" name='ape_materno' placeholder='  APELLIDO MATERNO' id="ape_materno" >
+              <input type="text" placeholder='APELLIDO PATERNO' name='ape_paterno' id="ape_paterno">
+              <input style='margin-left:5px;' type="text" name='ape_materno' placeholder='APELLIDO MATERNO' id="ape_materno">
               </div>
               <div style='width:100%;display:flex;'>
                   <select name="sexo" id="sexo" >
@@ -65,7 +66,7 @@
                         <option value="F">Femenino</option>
                         <option value="X">Prefiero no decirlo</option>
                     </select>
-                    <input style='margin-left:5px;' type="date" placeholder='Dia' autocomplete="off" name='f_nacimiento' id="f_nacimiento" >
+                    <input style='margin-left:5px;' type="date" placeholder='Dia' autocomplete="off" name='f_nacimiento' id="f_nacimiento">
               </div>
             
               <div style='width:100%;display:flex;'>

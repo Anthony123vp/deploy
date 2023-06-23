@@ -56,11 +56,7 @@ class ReservaController extends Controller
         SELECT a.id_reserva,pac.dni,f.nombre AS especialidad,serv.nombre AS servicio ,concat(h.nombres,' ',h.ape_paterno)AS medico,horario.fecha,horario.hora_inicio,
 		a.estado
 
-<<<<<<< HEAD
     FROM cita_medica a
-=======
-        FROM cita_medica a
->>>>>>> 592db52da92aab9cedb740d53194202abc16c82b
         
         INNER JOIN serviciosmedhost c ON a.id_servicio_medhost = c.id_servicio_medhost
         INNER JOIN servicios_especialidades e ON c.id_servicio_especialidad=e.id_servicio_especialidad
@@ -110,11 +106,8 @@ class ReservaController extends Controller
         $cita_nueva->id_consultorio= $request->input('consultorio');
         $cita_nueva -> save();
         return redirect()->route('reservas.index');
-<<<<<<< HEAD
-=======
 
-
->>>>>>> 592db52da92aab9cedb740d53194202abc16c82b
+        
     }
 
     /**
