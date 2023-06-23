@@ -4,47 +4,44 @@ namespace App\Http\Controllers;
 
 use App\Models\Paciente;
 use App\Models\Reserva;
+use App\Models\Horario;
+use App\Models\Especialidad;
+use App\Models\Servicio;
+use App\Models\Medico;
+use App\Models\Consultorio;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Ramsey\Uuid\Type\Integer;
 
 class ReservaController extends Controller
 {
-
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     public function Tipo_Servicio($servicio,$especialidad){
-        $consulta = DB::select("call ServicioMedhost($servicio,$especialidad) ");
+        $consulta = DB::select("SELECT * FROM SERVICIOMEDHOST where  id_servicio=$servicio and id_especialidad=$especialidad");
         return response()->json($consulta);
     }
  
     public function PrecioServicio($id){
-        $consulta = DB::select("SELECT precio From serviciosmedhost where id_servicio_medhost=$id");
+        $consulta = DB::select("SELECT precio FROM SERVICIOMEDHOST where id_servicio_medhost=$id");
         return response()->json($consulta);
     }
 
     public function InformacionPaciente(String $dni){
-        $paciente = DB::select("SELECT * FROM paciente WHERE dni=$dni");
+        $paciente = Paciente::where('dni',$dni)->get();
         return response()->json($paciente);
     }
 
     public function getMedicos($especialidad){
-        $medicos=DB::select("SELECT * FROM medicos WHERE id_especialidad=$especialidad");
+        $medicos=Medico::where('id_especialidad',$especialidad)->get();
         return response()->json($medicos);
     }
 
     public function getHorarioMedico($medico){
-        $horario_medico = DB::select("
-        select a.id_medico_horario,b.fecha,b.hora_inicio,b.hora_final from medico_horarios a
-        INNER JOIN horarios b on a.id_horario = b.id_horario where a.id_medico=$medico and a.estado=1");
+        $horario_medico = DB::select(" SELECT * FROM HORARIO_MEDICO WHERE id_medico=$medico and estado=1");
         return response()->json($horario_medico);
     }
 
-    public function getConsultorios($especialidad){
-        $consultorios = DB::select("select * from consultorios where id_especialidad =$especialidad");
+    public function getConsultorios($medico){
+        $consultorios = DB::select("select * from consultorios where id_medico =$medico");
         return response()->json($consultorios);
     }
     /**
@@ -52,22 +49,7 @@ class ReservaController extends Controller
      */
     public function index()
     {   
-        $reservas=DB::select("
-        SELECT a.id_reserva,pac.dni,f.nombre AS especialidad,serv.nombre AS servicio ,concat(h.nombres,' ',h.ape_paterno)AS medico,horario.fecha,horario.hora_inicio,
-		a.estado
-
-    FROM cita_medica a
-        
-        INNER JOIN serviciosmedhost c ON a.id_servicio_medhost = c.id_servicio_medhost
-        INNER JOIN servicios_especialidades e ON c.id_servicio_especialidad=e.id_servicio_especialidad
-        INNER JOIN especialidades f ON e.id_especialidad=f.id_especialidad
-        INNER JOIN servicios serv ON e.id_servicio=serv.id_servicio
-        
-        INNER JOIN medico_horarios g ON a.id_medico_horario=g.id_medico_horario
-        INNER JOIN horarios horario ON g.id_horario = horario.id_horario
-        INNER JOIN medicos h ON g.id_medico = h.id_medico
-        
-        INNER JOIN paciente pac ON a.id_paciente=pac.id_paciente");
+        $reservas=DB::select("SELECT * FROM CITA_MEDICA_RECEPCIONISTA");
 
         return view('Reserva.index',['reservas'=>$reservas]);
     }
@@ -77,8 +59,8 @@ class ReservaController extends Controller
      */
     public function create()
     {
-        $servicios=DB::select("Select * from SERVICIOS");
-        $especialidades=DB::select("SELECT * FROM especialidades");
+        $servicios=Servicio::get();
+        $especialidades=Especialidad::get();
         return view('Reserva.create',['servicios'=>$servicios,'especialidades'=>$especialidades]);
     }
 
@@ -98,16 +80,24 @@ class ReservaController extends Controller
         $paciente = Paciente::where('dni',$request->dni)->firstOrFail();
         $id_paciente = $paciente->id_paciente;
 
+        /** Consiguiendo el id del consultorio */
+        $Cod_habitacion = $request->input('consultorio');
+        $consultorio = Consultorio::where('cod_habitacion',$Cod_habitacion)->firstOrFail();
+        $idConsulto = $consultorio->id_consultorio;
         /*Creando nueva cita**/
         $cita_nueva= new Reserva();
         $cita_nueva->id_paciente = $id_paciente;
         $cita_nueva->id_servicio_medhost= $request->input('servicio_medhost');
         $cita_nueva->id_medico_horario = $request->input('medico_horario');
-        $cita_nueva->id_consultorio= $request->input('consultorio');
+        $cita_nueva->id_consultorio=$idConsulto;
         $cita_nueva -> save();
+
+        /*Cambiando de estado el horario del medico seleccionado */
+        $horario_medico=Horario::findOrFail($request->input('medico_horario'));
+        $horario_medico->estado='0';
+        $horario_medico->save();
         return redirect()->route('reservas.index');
 
-        
     }
 
     /**

@@ -8,10 +8,10 @@
     @foreach ($citas as $cita)
     <div class="cita">
         <div class="informacion">
-          <h3>{{$cita->especialidad}}:{{ $cita->servicio}}</h3>
-          <p><b>Medico:</b>{{$cita->medico}}</p>
+          <h3>{{ $cita->servicio}}:<b>{{$cita->serv_exacto}}</b></h3>
+          <p><b>Paciente:</b>{{$cita->paciente}}</p>
           <strong>{{$cita->fecha}} : {{$cita->hora_inicio}}</strong>
-          <p><b>Consultorio:</b>A512</p>
+          <p><b>Consultorio:</b>{{$cita->cod_habitacion}}</p>
         </div>
         <div class="botones">
           <a href="" class="atender">ATENDER</a>

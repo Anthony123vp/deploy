@@ -1,7 +1,7 @@
 @extends('layoutssistema.navbar')
 @section('content')
 
-    <div class="main_editar">
+    <div class="main_editar medicos">
     <div class="page-wrapper bg-blue p-t-100 p-b-100 font-robo">
         <div class="wrapper wrapper--w680">
             <div class="card card-1">

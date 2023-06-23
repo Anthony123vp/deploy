@@ -27,7 +27,6 @@
 					</div>
 				</div>
 				<div class="form-right">
-					
 				</div>
 			</form>
 		</div>

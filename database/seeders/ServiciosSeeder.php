@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class RolesSeeder extends Seeder
+class ServiciosSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,29 +15,22 @@ class RolesSeeder extends Seeder
     public function run()
     {
         DB::statement('SET FOREIGN_KEY_CHECKS=0');
-        DB::table('roles')->insert([
-            'nombre_rol' => 'Paciente',
-            'estado' => 1,
-            'created_at' => now(),
-            'updated_at' => now(),
-        ]);
-
-        DB::table('roles')->insert([
-            'nombre_rol' => 'Administrador',
-            'estado' => 1,
-            'created_at' => now(),
-            'updated_at' => now(),
-        ]);
-
-        DB::table('roles')->insert([
-            'nombre_rol' => 'Recepcionista',
+        DB::table('servicios')->insert([
+            'nombre' => 'Cita_Medica',
             'estado' => 1,
             'created_at' => now(),
             'updated_at' => now(),
         ]);
         
-        DB::table('roles')->insert([
-            'nombre_rol' => 'Médico',
+        DB::table('servicios')->insert([
+            'nombre' => 'Examen',
+            'estado' => 1,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        
+        DB::table('servicios')->insert([
+            'nombre' => 'Terapia',
             'estado' => 1,
             'created_at' => now(),
             'updated_at' => now(),

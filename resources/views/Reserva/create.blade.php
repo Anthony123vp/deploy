@@ -74,7 +74,7 @@
 					<h2>Medico</h2>
 					<div class="form-row">
 						<select id="medicos">
-						    <option value="position">Seleccione Medico</option>
+						    <option value="">Seleccione Medico</option>
 						</select>
 						<span class="select-btn">
 						  	<i class="zmdi zmdi-chevron-down"></i>
@@ -83,7 +83,7 @@
 					<br>
 					<div class="form-row">
 						<select name="medico_horario" id="medico_horarios">
-						    <option value="position">Horarios Disponibles</option>
+						    <option value="">Horarios Disponibles</option>
 						</select>
 						<span class="select-btn">
 						  	<i class="zmdi zmdi-chevron-down"></i>
@@ -92,17 +92,12 @@
 					<br><br>
 					<h2>Consultorio</h2>
 					<div class="form-row">
-						<select name="consultorio" id="consultorios">
-						    <option value="position">Consultorio Disponible</option>
-						    
-						</select>
-						<span class="select-btn">
-						  	<i class="zmdi zmdi-chevron-down"></i>
-						</span>
+						<input type="text"  name="consultorio" id="consultorio" placeholder="Consultorio" readonly required>
 					</div>
 					<div class="form-row-last">
                         <div class="boton">
 						    <input type="submit" class="register" value="Programar">
+							<input type="reset" class="cancelar" value="Limpiar">
 					    </div>
                     </div>
 				</div>
@@ -116,11 +111,10 @@
 <script>
 	var servicio = document.getElementById('servicio');
 	const especialidad = document.getElementById('especialidad');
-	const especilidad_Servicio = document.getElementById('especilidad_Servicio');
+	const especialidad_Servicio = document.getElementById('especilidad_Servicio');
 	const precioServicio = document.getElementById('precioServicio');
 	const medico = document.getElementById('medicos');
-	const consultorio = document.getElementById('consultorios');
-
+	const consultorio = document.getElementById('consultorio');
 
 	especialidad.addEventListener('change',async(e)=>{
 		var id_servicio = servicio.value;
@@ -128,11 +122,24 @@
 		const data = await response.json();
 
 		/*Rellena los tipos de servicios*/
-		let options = ``;
-		data.forEach(element=>{
-			options= options + `<option value="${element.id_servicio_medhost}">${element.nombre}</option>`
-		});
-		especilidad_Servicio.innerHTML = options;
+			let options = ``;
+			data.forEach(element=>{
+				options= options + `<option value="${element.id_servicio_medhost}">${element.nombre}</option>`
+			});
+	
+			especialidad_Servicio.innerHTML = options;
+				/*Selecciona al primer tipo de servicio que aparece en el select option y muestr su precio*/
+				const responsexd = await fetch(`/api/Reserva/${especialidad_Servicio.value}`);
+				const dataxd = await responsexd.json();
+				let option = ``;
+				dataxd.forEach(element=>{
+					option= option + `${element.precio} soles`
+				});
+				precioServicio.value = option;
+
+
+
+
 
 		/*rellena los options del select medico*/
 		let option_medico =  ``;
@@ -143,17 +150,27 @@
 		});
 		medico.innerHTML = option_medico;
 
-		/*rellenas las habitaciones disponibles*/
-		let habitaciones_disponibles='';
-		const consultorioresponse= await fetch(`/api/Consultorios/${e.target.value}`);
+
+		/*Selecciona al primer medico que aparece en el select option y muestra sus horarios*/
+		const responseHorario = await fetch(`/api/Medico/${medico.value}/Horarios`);
+		const datahorario = await responseHorario.json();
+		let optionhorario = ``;
+		datahorario.forEach(element=>{
+			optionhorario= optionhorario + `<option value="${element.id_medico_horario}">${element.fecha}->${element.hora_inicio} - ${element.hora_final}</option>`
+		});
+		medico_horarios.innerHTML = optionhorario;
+
+		/*Muestra el consultorio del primer medico seleccionado que aparece*/
+		let consultorio_disponible='';
+		const consultorioresponse= await fetch(`/api/Consultorios/${medico.value}`);
 		const consultorios = await consultorioresponse.json()
 		consultorios.forEach(element=>{
-			habitaciones_disponibles= habitaciones_disponibles + `<option value="${element.id_consultorio}">${element.cod_habitacion}</option>`
+			consultorio_disponible= consultorio_disponible + `${element.cod_habitacion}`;
 		});
-		consultorio.innerHTML = habitaciones_disponibles;
+		consultorio.value = consultorio_disponible;
 	});
 
-	especilidad_Servicio.addEventListener('change',async(e)=>{
+	especialidad_Servicio.addEventListener('change',async(e)=>{
 		const response = await fetch(`/api/Reserva/${e.target.value}`);
 		const data = await response.json();
 		let option = ``;
@@ -200,6 +217,15 @@
 			option= option + `<option value="${element.id_medico_horario}">${element.fecha}->${element.hora_inicio} - ${element.hora_final}</option>`
 		});
 		medico_horarios.innerHTML = option;
+
+		/*Muestra el consultorio del medico seleccionado*/
+		let consultorio_disponible='';
+		const consultorioresponse= await fetch(`/api/Consultorios/${e.target.value}`);
+		const consultorios = await consultorioresponse.json()
+		consultorios.forEach(element=>{
+			consultorio_disponible= consultorio_disponible + `${element.cod_habitacion}`;
+		});
+		consultorio.value = consultorio_disponible;
 	});
 </script>
 

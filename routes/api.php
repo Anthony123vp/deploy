@@ -26,4 +26,4 @@ Route::get('Paciente/{dni}/Reserva',[ReservaController::class,'InformacionPacien
 
 Route::get('Medico/{especialidad}',[ReservaController::class,'getMedicos']);
 Route::get('Medico/{medico}/Horarios',[ReservaController::class,'getHorarioMedico']);
-Route::get('Consultorios/{especialidad}',[ReservaController::class,'getConsultorios']);
+Route::get('Consultorios/{medicos}',[ReservaController::class,'getConsultorios']);

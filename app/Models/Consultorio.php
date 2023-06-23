@@ -5,9 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Horario extends Model
+class Consultorio extends Model
 {
     use HasFactory;
-    protected $table ="medico_horarios";
-    protected $primaryKey = "id_medico_horario";
 }

@@ -44,7 +44,7 @@
                     @foreach ($especialidades as $especialidad)
                     <tr>
                         <td>{{ $id }}</td>
-                        <td>{{ $especialidad->nombre }}</td>
+                        <td><button type="button" class='boton_especialidad'>{{ $especialidad->nombre }}</button></td>
                         <td>
                             @if ($especialidad->estado == 1)
                                 <button type="button" style='background-color:#99f6c3;padding:8px 5px 8px 5px; color:#000;'>Activo</button>
@@ -70,7 +70,15 @@
             </table>
         </section>
     </main>
-
+    <style>
+        .boton_especialidad {
+        background-color:#21A375;
+        color:#fff;
+        outline: 4px groove #21A975;
+        outline-offset: 1px;
+        text-align:center;
+        }
+    </style>
 
     <script>
     document.addEventListener('DOMContentLoaded', function() {

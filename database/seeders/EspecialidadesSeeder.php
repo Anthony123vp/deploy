@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Especialidad;
+use Illuminate\Support\Facades\DB;
 
 class EspecialidadesSeeder extends Seeder
 {
@@ -14,6 +15,7 @@ class EspecialidadesSeeder extends Seeder
      */
     public function run()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0');
         $especialidades = [
             'Cardiología',
             'Dermatología',
@@ -33,5 +35,6 @@ class EspecialidadesSeeder extends Seeder
                 'estado' => 1,
             ]);
         }
+        DB::statement('SET FOREIGN_KEY_CHECKS=1');
     }
 }

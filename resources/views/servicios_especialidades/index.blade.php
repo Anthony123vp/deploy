@@ -5,7 +5,7 @@
 
 <main class="table">
         <section class="table__header">
-            <h1>Roles</h1>
+            <h1>Servicios de Especialidades</h1>
             <div style='padding:20px;margin-top:30px;' class="input-group">
                 <input type="search" placeholder="Buscar Datos...">
                 <img src="images/search.png" alt="">
@@ -27,8 +27,8 @@
                 <thead>
                     <tr>
                         <th> Nº <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Nombre Rol <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Estado <span class="icon-arrow">&UpArrow;</span></th>
+                        <th> Nombre Servicio <span class="icon-arrow">&UpArrow;</span></th>
+                        <th> Nombre Especialidad <span class="icon-arrow">&UpArrow;</span></th>
                         <th> Fecha de Creación <span class="icon-arrow">&UpArrow;</span></th>
                         <th> Fecha de Actualización <span class="icon-arrow">&UpArrow;</span></th>
                     </tr>
@@ -39,19 +39,13 @@
                         $id = 1;
                     @endphp
                     
-                    @foreach ($roles as $rol)
+                    @foreach ($servicios_especialidades as $servicio_especialidad)
                     <tr>
                         <td>{{ $id }}</td>
-                        <td><button type="button" class='boton_rol'>{{ $rol->nombre_rol }}</button></td>
-                        <td>
-                            @if ($rol->estado == 1)
-                                <button type="button" style='background-color:#99f6c3;padding:8px 5px 8px 5px; color:#000;'>Activo</button>
-                                @else
-                                <button type="button" style='background-color:#c94444;padding:8px 5px 8px 5px; color:#fff;'>Inactivo</button>
-                            @endif
-                        </td>
-                        <td>{{ $rol->created_at }}</td>
-                        <td>{{ $rol->updated_at }}</td>
+                        <td><button type="button" class='boton_servicio'>{{ $servicio_especialidad->servicio->nombre }}</button></td>
+                        <td><button type="button" class='boton_servicio'>{{ $servicio_especialidad->especialidad->nombre }}</button></td>
+                        <td>{{ $servicio_especialidad->created_at }}</td>
+                        <td>{{ $servicio_especialidad->updated_at }}</td>
                     </tr>
                     @php
                         $id++;
@@ -65,7 +59,7 @@
     </main>
 
 <style>
-        .boton_rol {
+        .boton_servicio {
         background-color:#21A375;
         color:#fff;
         outline: 4px groove #21A975;

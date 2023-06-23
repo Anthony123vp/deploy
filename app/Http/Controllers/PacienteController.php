@@ -72,7 +72,6 @@ class PacienteController extends Controller
             'f_nacimiento' => $request->f_nacimiento,
             'id_insurance' => $request->id_insurance,
             'celular' => $request->celular,
-            // 'password_1' => bcrypt($request->password_1),
         ]);
     
         return redirect()->route('pacientes.index')->with('success', 'Paciente creado correctamente.');

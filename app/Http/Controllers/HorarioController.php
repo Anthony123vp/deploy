@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Horario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Medico;
+
 class HorarioController extends Controller
 {
     /**
@@ -17,7 +20,11 @@ class HorarioController extends Controller
 
     public function index()
     {   
-        $horarios = DB::SELECT('call listar_medico_horario()'); 
+        $id_user=Auth::user()->id_user;
+        $medico=Medico::where('id_user',$id_user)->firstOrFail();
+        $id_medico=$medico->id_medico;
+        
+        $horarios = DB::SELECT("select * from HORARIO_MEDICO where id_medico=$id_medico"); 
         return view('Medico_botones/horario/index',['horarios'=>$horarios]);
     }
 
@@ -40,12 +47,17 @@ class HorarioController extends Controller
             'hora_final'=>'required',
         ]);
 
+        $id_user=Auth::user()->id_user;
+        $medico=Medico::where('id_user',$id_user)->firstOrFail();
+        $id_medico=$medico->id_medico;
+
+
         $horario = new Horario();
         $horario->fecha = $request->input('fecha');
         $horario->hora_inicio = $request->input('hora_inicio');
         $horario->hora_final = $request->input('hora_final');
         DB::select("CALL hora_create('$horario->fecha','$horario->hora_inicio','$horario->hora_final',@horas)");
-        DB::select("CALL registro_total(1)");
+        DB::select("CALL registro_total($id_medico)");
         return redirect()->route('Horario.index');
     }
 

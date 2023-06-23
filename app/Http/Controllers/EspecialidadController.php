@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Especialidad;
-use Illuminate\Http\Request;
+use App\Models\Servicio_Especialidad;
 
+use Illuminate\Http\Request;
 class EspecialidadController extends Controller
 {
     public function index()
@@ -24,8 +25,25 @@ class EspecialidadController extends Controller
         $request->validate([
             'nombre' => 'required',
         ]);
-    
-        Especialidad::create($request->all());
+
+        $especialidad = Especialidad::create([
+            'nombre' => $request->input('nombre'),
+        ]);
+
+        $id_especialidad = $especialidad->id_especialidad;
+        
+        Servicio_Especialidad::create([
+            'id_servicio' => 1,
+            'id_especialidad' => $id_especialidad,
+        ]);
+        Servicio_Especialidad::create([
+            'id_servicio' => 2,
+            'id_especialidad' => $id_especialidad,
+        ]);
+        Servicio_Especialidad::create([
+            'id_servicio' => 3,
+            'id_especialidad' => $id_especialidad,
+        ]);
     
         return redirect()->route('especialidades.index')->with('success', 'Especialidad creado correctamente.');
     }
@@ -44,19 +62,39 @@ class EspecialidadController extends Controller
         return view('especialidades.edit', compact('especialidad'));
     }
 
+    // public function update(Request $request, $id)
+    // {
+    //     $request->validate([
+    //         'nombre' => 'required',
+    //         'estado' => 'required',
+    //         'updated_at' => now()
+    //     ]);
+
+    //     $especialidad = Especialidad::findOrFail($id);
+    //     $especialidad->update($request->all());
+
+    //     $servicios_especialidades = Servicio_Especialidad::findOrFail($id);
+    //     $servicios_especialidades->updated_at = now();
+    //     $servicios_especialidades->save();
+
+    //     return redirect()->route('especialidades.index')->with('success', 'Especialidad actualizado correctamente.');
+    // }
+
     public function update(Request $request, $id)
-    {
-        $request->validate([
-            'nombre' => 'required',
-            'estado' => 'required',
-            'updated_at' => now()
-        ]);
+{
+    $request->validate([
+        'nombre' => 'required',
+        'estado' => 'required',
+    ]);
 
-        $especialidad = Especialidad::findOrFail($id);
-        $especialidad->update($request->all());
+    $especialidad = Especialidad::findOrFail($id);
+    $especialidad->update($request->all());
 
-        return redirect()->route('especialidades.index')->with('success', 'Especialidad actualizado correctamente.');
-    }
+    Servicio_Especialidad::where('id_especialidad', $id)
+        ->update(['updated_at' => now()]);
+
+    return redirect()->route('especialidades.index')->with('success', 'Especialidad actualizada correctamente.');
+}
 
     public function destroy($id)
     {

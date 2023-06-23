@@ -42,11 +42,11 @@
 	width: 100%;
 }
 .form-v10-content .form-detail .form-left h2 {
-	color: #4c9b70;
+	color: #345B63;
 }
 .form-v10-content .form-detail .form-right {
 	width: 100%;
-	background: #4c9b70;
+	background: #345B63;
 	border-top-right-radius: 10px;
 	border-bottom-right-radius: 10px;
 }
@@ -273,11 +273,34 @@
 	font-weight: 700;
 	font-size: 15px;
 }
+
+
+.form-v10-content .form-detail .form-right .cancelar:hover {
+	background: #888888;
+}
+
+.form-v10-content .form-detail .form-right .cancelar {
+	background: #706f6f;
+	border-radius: 25px;
+	-o-border-radius: 25px;
+	-ms-border-radius: 25px;
+	-moz-border-radius: 25px;
+	-webkit-border-radius: 25px;
+	box-shadow: 0px 6px 17px 0px rgba(0, 0, 0, 0.15);
+	-o-box-shadow: 0px 6px 17px 0px rgba(0, 0, 0, 0.15);
+	-ms-box-shadow: 0px 6px 17px 0px rgba(0, 0, 0, 0.15);
+	-moz-box-shadow: 0px 6px 17px 0px rgba(0, 0, 0, 0.15);
+	-webkit-box-shadow: 0px 6px 17px 0px rgba(0, 0, 0, 0.15);
+	width: 180px;
+	border: none;
+	cursor: pointer;
+	color: #333;
+	font-weight: 700;
+	font-size: 15px;
+}
 .form-v10-content .form-detail .form-right .register:hover {
 	background: #ccc;
 }
-
-
 .form-v10-content .form-detail .form-left .form-row-last input {
     margin-top: 20px;
 	padding: 12.5px;

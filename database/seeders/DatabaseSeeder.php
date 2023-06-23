@@ -20,5 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call(InsurancesSeeder::class);
         $this->call(EspecialidadesSeeder::class);
         $this->call(AdministradoresSeeder::class);
+        $this->call(ServiciosEspecialidadesSeeder::class);
+        $this->call(ServiciosSeeder::class);
     }
 }
