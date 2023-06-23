@@ -8,6 +8,7 @@ use App\Models\Horario;
 use App\Models\Especialidad;
 use App\Models\Servicio;
 use App\Models\Medico;
+use App\Models\Consultorio;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Ramsey\Uuid\Type\Integer;
@@ -39,8 +40,8 @@ class ReservaController extends Controller
         return response()->json($horario_medico);
     }
 
-    public function getConsultorios($especialidad){
-        $consultorios = DB::select("select * from consultorios where id_especialidad =$especialidad");
+    public function getConsultorios($medico){
+        $consultorios = DB::select("select * from consultorios where id_medico =$medico");
         return response()->json($consultorios);
     }
     /**
@@ -79,12 +80,16 @@ class ReservaController extends Controller
         $paciente = Paciente::where('dni',$request->dni)->firstOrFail();
         $id_paciente = $paciente->id_paciente;
 
+        /** Consiguiendo el id del consultorio */
+        $Cod_habitacion = $request->input('consultorio');
+        $consultorio = Consultorio::where('cod_habitacion',$Cod_habitacion)->firstOrFail();
+        $idConsulto = $consultorio->id_consultorio;
         /*Creando nueva cita**/
         $cita_nueva= new Reserva();
         $cita_nueva->id_paciente = $id_paciente;
         $cita_nueva->id_servicio_medhost= $request->input('servicio_medhost');
         $cita_nueva->id_medico_horario = $request->input('medico_horario');
-        $cita_nueva->id_consultorio= $request->input('consultorio');
+        $cita_nueva->id_consultorio=$idConsulto;
         $cita_nueva -> save();
 
         /*Cambiando de estado el horario del medico seleccionado */

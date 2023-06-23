@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <title> Medhost | Sistema </title>
     <meta charset="UTF-8">
-    <title> MedHost | Sistema</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <!----======== CSS ======== -->
     <link rel="stylesheet" href="/css/sistema.css">
-    <link href="/css/editar.css" rel="stylesheet" media="all">
-    <!-- Boxiocns CDN Link -->
-    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    
+    <!----===== Boxicons CSS ===== -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
     @yield('linkcss')
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,191 +19,195 @@
 
   </head>
 <body>
-<div class="sidebar close">
-    <div class="logo-details">
-    <img src="/Imagenes/LOGO.png" alt="">
-    </div>
-    <ul class="nav-links">
-    
-    <li>
-          <a href="{{route('Dashboard')}}">
-            <i class='bx bxs-home' ></i>
-            <span class="link_name">Dashboard</span>
-          </a>
-          <ul class="sub-menu blank">
-            <li><a class="link_name" href="{{route('citas_programadas.index')}}">Dashboard</a></li>
-          </ul>
-        </li>
+<nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <img src="logo.png" alt="">
+                </span>
 
-    @auth
-      <!--Medico-->
-      @if(Auth::user()->id_rol===4)
-        <li>
-          <a href="{{route('citas_programadas.index')}}">
-            <i class='bx bx-calendar-plus'></i>
-            <span class="link_name">Citas</span>
-          </a>
-          <ul class="sub-menu blank">
-            <li><a class="link_name" href="{{route('citas_programadas.index')}}">Citas</a></li>
-          </ul>
-        </li>
+                <div class="text logo-text">
+                    <span class="name">Codinglab</span>
+                    <span class="profession">Web developer</span>
+                </div>
+            </div>
 
-        <li>
-          <a href="{{route('Horario.index')}}">
-            <i class='bx bx-time' ></i>
-            <span class="link_name">Horarios</span>
-          </a>
-          <ul class="sub-menu blank">
-            <li><a class="link_name" href="{{route('Horario.index')}}">Horarios</a></li>
-          </ul>
-        </li>
-      @endif
-      <!--Medico-->
-    @endauth
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
 
-    @auth
-      <!--Recepcionista-->
-      @if(Auth::user()->id_rol===3)
-       <li>
-          <a href="{{route('reservas.index')}}">
-            <i class='bx bx-calendar-plus'></i>
-            <span class="link_name">Citas</span>
-          </a>
-          <ul class="sub-menu blank">
-            <li><a class="link_name" href="{{route('reservas.index')}}">Citas</a></li>
-          </ul>
-        </li>
-      
-        <li>
-          <a href="{{route('pacientes.index')}}">
-            <i class='bx bxs-face'></i>
-            <span class="link_name">Paciente</span>
-          </a>
-          <ul class="sub-menu blank">
-            <li><a class="link_name" href="{{route('pacientes.index')}}">Paciente</a></li>
-          </ul>
-        </li>
-      <!--Recepcionista-->
-      @endif
-    @endauth
+        <div class="menu-bar">
+            <div class="menu">
 
-    @auth
-      <!--Paciente-->
-    @if(Auth::user()->id_rol===1)
-        <li>
-          <a href="{{ route('historial.index') }}">
-            <i class='bx bx-plus-medical' ></i>
-            <span class="link_name">Historial Medico</span>
-          </a>
-          <ul class="sub-menu blank">
-            <li><a class="link_name" href="{{ route('historial.index') }}">Historial Medico</a></li>
-          </ul>
-        </li>
-      
-        <li>
-          <a href="{{ route('citas_pendiente.index') }}">
-            <i class='bx bxs-calendar-plus' ></i>
-            <span class="link_name">Citas</span>
-          </a>
-          <ul class="sub-menu blank">
-            <li><a class="link_name" href="{{ route('citas_pendiente.index') }}">Citas</a></li>
-          </ul>
-        </li>
-      <!--End Paciente-->
-    @endif
-    @endauth
+                <li class="search-box">
+                    <i class='bx bx-search icon'></i>
+                    <input type="text" placeholder="Search...">
+                </li>
 
-    @auth
-    @if(Auth::user()->id_rol===2)
-     <!--Administrador-->
-       <li>
-          <a href="{{route('medicos.index')}}">
-            <i class='bx bx-line-chart' ></i>
-            <span class="link_name">Medicos</span>
-          </a>
-          <ul class="sub-menu blank">
-            <li><a class="link_name" href="{{route('medicos.index')}}">Medicos</a></li>
-          </ul>
-        </li>
-      
-        <li>
-          <a href="{{route('recepcionistas.index')}}">
-            <i class='bx bx-line-chart' ></i>
-            <span class="link_name">Recepcionistas</span>
-          </a>
-          <ul class="sub-menu blank">
-            <li><a class="link_name" href="{{route('recepcionistas.index')}}">Recepcionistas</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="{{route('usuarios.index')}}">
-            <i class='bx bxs-user'></i>
-            <span class="link_name">Usuarios</span>
-          </a>
-          <ul class="sub-menu blank">
-            <li><a class="link_name" href="{{route('usuarios.index')}}">Usuarios</a></li>
-          </ul>
-        </li>
-      <!--End Administrator-->
-    @endif
-    @endauth
-    @guest
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="{{route('Dashboard')}}">
+                            <i class='bx bx-home-alt icon' ></i>
+                            <span class="text nav-text">Dashboard</span>
+                        </a>
+                    </li>
+              @auth
+              <!--Medico-->
+                @if(Auth::user()->id_rol===4)
+                    <li class="nav-link">
+                        <a href="{{route('citas_programadas.index')}}">
+                            <i class='bx bxs-calendar-plus'></i>
+                            <span class="text nav-text">Citas</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="{{route('Horario.index')}}">
+                            <i class='bx bxs-time' ></i>
+                            <span class="text nav-text">Horarios</span>
+                        </a>
+                    </li>
+                @endif
+                <!--Medico-->
+              @endauth
+
+              @auth
+              <!--Recepcionista-->
+                @if(Auth::user()->id_rol===3)
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bxs-calendar-plus'></i>
+                            <span class="text nav-text">Citas</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bxs-user-pin' ></i>
+                            <span class="text nav-text">Pacientes</span>
+                        </a>
+                    </li>
+              <!--Recepcionista-->
+                @endif
+              @endauth
+
+              @auth
+                  <!--Paciente-->
+                @if(Auth::user()->id_rol===1)
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-wallet icon' ></i>
+                            <span class="text nav-text">Historial Clinico</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bxs-calendar-plus'></i>
+                            <span class="text nav-text">Citas</span>
+                        </a>
+                    </li>
+                <!--End Paciente-->
+                @endif
+              @endauth
+              @auth
+                @if(Auth::user()->id_rol===2)
+                 <!--Administrador-->
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-wallet icon' ></i>
+                            <span class="text nav-text">Medicos</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-wallet icon' ></i>
+                            <span class="text nav-text">Recepcionistas</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-wallet icon' ></i>
+                            <span class="text nav-text">Usuarios</span>
+                        </a>
+                    </li>
+                 <!--End Administrator-->
+                @endif
+              @endauth
+                </ul>
+            </div>
+
+            <div class="bottom-content">
+
+            @auth
+            <form method="POST" action="{{ route('Logout')}}">
+            @csrf
+                <li class="">
+                    <a href="#">
+                        <i class='bx bx-log-out icon' ></i>
+                        <button type="Submit"><span class="text nav-text">Logout</span></button>
+                    </a>
+                </li>
+            </form>
+
+          @guest
       <!--SUPERUSUARIO-->
-      <li>
-          <a href="{{route('administradores.index')}}">
-            <i class='bx bx-line-chart' ></i>
-            <span class="link_name">Administrador</span>
-          </a>
-          <ul class="sub-menu blank">
-            <li><a class="link_name" href="{{route('administradores.index')}}">Administrador</a></li>
-          </ul>
-        </li>
-      
-        <li>
-          <a href="{{route('usuarios.index')}}">
-            <i class='bx bx-line-chart' ></i>
-            <span class="link_name">Usuarios</span>
-          </a>
-          <ul class="sub-menu blank">
-            <li><a class="link_name" href="{{route('usuarios.index')}}">Usuarios</a></li>
-          </ul>
-        </li>
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-wallet icon' ></i>
+                            <span class="text nav-text">Administrador</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-wallet icon' ></i>
+                            <span class="text nav-text">Usuarios</span>
+                        </a>
+                    </li>
       <!--END SUPERUSUARIO-->
     @endguest
 
-    @auth
-        <form method="POST" action="{{ route('Logout')}}">
-        @csrf
-        <div class="profile-details">
-          <div class="profile-content">
-            <button type="submit"><img src="/images/botonsalir.png" alt="profileImg"></button>
-          </div>
-          <div class="name-job">
-            <div class="profile_name">Logout</div>
-            <div class="job">Medhost</div>
-          </div>
+
+
+            @endauth
+                <li class="mode">
+                    <div class="sun-moon">
+                        <i class='bx bx-moon icon moon'></i>
+                        <i class='bx bx-sun icon sun'></i>
+                    </div>
+                    <span class="mode-text text">Dark mode</span>
+
+                    <div class="toggle-switch">
+                        <span class="switch"></span>
+                    </div>
+                </li>
+                
+            </div>
         </div>
-        </form>
-        @endauth  
-    </ul>
-</div>
-<section class="home-section">
-  <div class="home-content">
-    <i class='bx bx-menu' ></i>
-    <span class="text">MedHost</span>
-  </div>
-  <div class="content">
-    @yield('content')
-    @yield("navbar_usuarios")
-  </div>
+
+    </nav>
+
+    <section class="home">
+        <div class="text">Dashboard Sidebar</div>
+        <div class="content">
+          @yield('content')
+          @yield('navbar_usuarios')
+        </div>
+    </section>
   
 </section>
 
+<script src="/Js/navbar_script.js"></script>
 <script src="/Js/sistema.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.debug.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.js"></script>
 
 <script>
+
+
+
     function generarPDF(event) {
   event.preventDefault();
   const tBody = document.querySelector('#tbody');
