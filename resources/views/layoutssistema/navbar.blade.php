@@ -76,14 +76,14 @@
               <!--Recepcionista-->
                 @if(Auth::user()->id_rol===3)
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="{{route('reservas.index')}}">
                             <i class='bx bx-pie-chart-alt icon' ></i>
                             <span class="text nav-text">Citas</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="{{route('pacientes.index')}}">
                             <i class='bx bx-heart icon' ></i>
                             <span class="text nav-text">Pacientes</span>
                         </a>
@@ -96,14 +96,14 @@
                   <!--Paciente-->
                 @if(Auth::user()->id_rol===1)
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="{{ route('historial.index') }}">
                             <i class='bx bx-wallet icon' ></i>
                             <span class="text nav-text">Historial Clinico</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="{{ route('citas_pendiente.index') }}">
                             <i class='bx bx-wallet icon' ></i>
                             <span class="text nav-text">Citas</span>
                         </a>
