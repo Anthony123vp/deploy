@@ -13,6 +13,7 @@ use App\Http\Controllers\EspecialidadController;
 use App\Http\Controllers\InsuranceController;
 use App\Http\Controllers\ServicioController; 
 use App\Http\Controllers\Servicio_especialidadController; 
+use App\Http\Controllers\ServiciomedhostController; 
 
 use App\Http\Controllers\ReservaController;
 use App\Http\Controllers\ReservaPendiente;
@@ -116,6 +117,13 @@ Route::delete('/medicos/{id}', [MedicoController::class, 'destroy'])->name('medi
 
 
 Route::get('/roles', [RolController::class, 'index'])->name('roles.index')->middleware('web');
+
+Route::get('/serviciosmedhost', [ServiciomedhostController::class, 'index'])->name('serviciosmedhost.index')->middleware('web');
+Route::get('/serviciosmedhost/create',[ServiciomedhostController::class,'create'])->name('serviciosmedhost.create');
+Route::post('/serviciosmedhost', [ServiciomedhostController::class, 'store'])->name('serviciosmedhost.store');
+Route::get('/serviciosmedhost/{id}/editar', [ServiciomedhostController::class, 'edit'])->name('serviciosmedhost.edit');
+Route::put('/serviciosmedhost/{id}', [ServiciomedhostController::class, 'update'])->name('serviciosmedhost.update');
+Route::delete('/serviciosmedhost/{id}', [ServiciomedhostController::class, 'destroy'])->name('serviciosmedhost.destroy');
 
 Route::get('/servicios', [ServicioController::class, 'index'])->name('servicios.index')->middleware('web');
 
