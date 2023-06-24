@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('ape_paterno', 45);
             $table->string('ape_materno', 45);
             $table->char('sexo', 1);
-            $table->string('celular', 9);
+            $table->string('celular', 11);
             $table->char('dni', 8)->unique('dni_UNIQUE');
             $table->date('f_nacimiento');
             $table->char('estado', 1)->default('1');

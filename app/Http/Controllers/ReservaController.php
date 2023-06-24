@@ -98,7 +98,6 @@ class ReservaController extends Controller
         $horario_medico->save();
         return redirect()->route('reservas.index');
 
-
     }
 
     /**

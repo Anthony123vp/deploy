@@ -18,9 +18,10 @@ use App\Http\Controllers\ServiciomedhostController;
 use App\Http\Controllers\ReservaController;
 use App\Http\Controllers\ReservaPendiente;
 use App\Http\Controllers\ReservaProgramada;
-
+use App\Http\Controllers\RecetasController;
 
 use App\Http\Controllers\AuthenthicatedSessionController;
+use App\Http\Controllers\HistorialController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::view('/','MedHostPublic.home');
@@ -161,9 +162,17 @@ Route::view('/historial','Paciente_botones\historial\index')->name('historial.in
 //Vista de botones para el medico
     /*Visualizacion de citas para atender */
     Route::get('/citas_programadas',[ReservaProgramada::class,'index'])->name('citas_programadas.index');
-
+    Route::get('/citas_crear', [HistorialController::class,'create'])->name('citas_crear.create');
+    Route::get('/citas_editar', [HistorialController::class,'edit'])->name('citas_editar.edit');
     /*Creacion de Horarios */
 
     Route::get('/horarios',[HorarioController::class,'index'])->name('Horario.index');
     Route::get('/horarios/create',[HorarioController::class,'create'])->name('Horario.create');
     Route::post('/horarios',[HorarioController::class,'store'])->name('Horario.store');
+
+    /*Creacion de Recetas*/
+    Route::get('/recetas',[RecetasController::class,'index'])->name('recetas.index');
+
+    Route::get('/recetas/create',[RecetasController::class,'create'])->name('recetas.create');
+
+    Route::post('/recetas',[RecetasController::class,'store'])->name('recetas.store');

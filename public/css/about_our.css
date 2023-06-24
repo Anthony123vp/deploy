@@ -252,8 +252,10 @@
   transition: transform 1s ease;
 }
 .contend h2,p{
+  text-align: start;
+}
+#titulos{
   text-align: center;
-  
 }
 .bn{
   width: 90%;
