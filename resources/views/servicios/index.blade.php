@@ -26,11 +26,11 @@
             <table id='tabla_admin'>
                 <thead>
                     <tr>
-                        <th> Nº <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Nombre Servicio <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Estado <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Fecha de Creación <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Fecha de Actualización <span class="icon-arrow">&UpArrow;</span></th>
+                        <th> Nº </th>
+                        <th> Nombre Servicio </th>
+                        <th> Estado </th>
+                        <th> Fecha de Creación </th>
+                        <th> Fecha de Actualización </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -45,9 +45,11 @@
                         <td><button type="button" class='boton_servicio'>{{ $servicio->nombre }}</button></td>
                         <td>
                             @if ($servicio->estado == 1)
-                                <button type="button" style='background-color:#99f6c3;padding:8px 5px 8px 5px; color:#000;'>Activo</button>
+                                <!-- <button type="button" style='background-color:#99f6c3;padding:8px 5px 8px 5px; color:#000;'>Activo</button> -->
+                                <button class='button_1'> Activo </button>
                                 @else
-                                <button type="button" style='background-color:#c94444;padding:8px 5px 8px 5px; color:#fff;'>Inactivo</button>
+                                <!-- <button type="button" style='background-color:#c94444;padding:8px 5px 8px 5px; color:#fff;'>Inactivo</button> -->
+                                <button class='button_2'> Inactivo </button>
                             @endif
                         </td>
                         <td>{{ $servicio->created_at }}</td>
@@ -66,9 +68,9 @@
 
 <style>
         .boton_servicio {
-        background-color:#21A375;
+        background-color:#345B63;
         color:#fff;
-        outline: 4px groove #21A975;
+        outline: 4px groove #345B63;
         outline-offset: 1px;
         text-align:center;
         }

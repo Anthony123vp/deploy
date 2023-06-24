@@ -26,11 +26,11 @@
             <table id='tabla_admin'>
                 <thead>
                     <tr>
-                        <th> Nº <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Nombre Servicio <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Nombre Especialidad <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Fecha de Creación <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Fecha de Actualización <span class="icon-arrow">&UpArrow;</span></th>
+                        <th> Nº </th>
+                        <th> Nombre Servicio </th>
+                        <th> Nombre Especialidad </th>
+                        <th> Fecha de Creación </th>
+                        <th> Fecha de Actualización </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -60,9 +60,9 @@
 
 <style>
         .boton_servicio {
-        background-color:#21A375;
+        background-color:#345B63;
         color:#fff;
-        outline: 4px groove #21A975;
+        outline: 4px groove #345B63;
         outline-offset: 1px;
         text-align:center;
         }

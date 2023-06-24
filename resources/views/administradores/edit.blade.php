@@ -1,94 +1,78 @@
 @extends('layoutssistema.navbar')
 @section('content')
 
-    <div class="main_editar">
-    <div class="page-wrapper bg-blue p-t-100 p-b-100 font-robo">
-        <div class="wrapper wrapper--w680">
-            <div class="card card-1">
-                <div class="card-heading"></div>
-                <div class="card-body">
-                    <h2 class="title">Editar Administradores</h2>
-                    <form action="{{ route('administradores.update', ['id' => $administrador->id_administrador]) }}" method="POST">
-                        @csrf
-                        @method('PUT')
-                        <div class="input-group">
-                            <input class="input--style-1" value="{{ $administrador->nombres }}" type="text" placeholder="Nombres" name="nombres">
-                        </div>
-                        <div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <input class="input--style-1 js-datepicker" value="{{ $administrador->ape_paterno }}" type="text" placeholder="Apellido Paterno" name="ape_paterno">
-                                    <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
-                                </div>
-                            </div>
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <input class="input--style-1 js-datepicker" value="{{ $administrador->ape_materno }}" type="text" placeholder="Apellido Materno" name="ape_materno">
-                                    <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <input class="input--style-1 js-datepicker" value="{{ $administrador->dni }}" type="text" placeholder="DNI" name="dni">
-                                    <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
-                                </div>
-                            </div>
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <input class="input--style-1 js-datepicker" value="{{ $administrador->celular }}" type="text" placeholder="Celular" name="celular">
-                                    <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row row-space">
-                            <div class="col-3">
-                                <div class="input-group">
-                                    <input class="input--style-1 js-datepicker" value="{{ $administrador->f_nacimiento }}" type="date" placeholder="Fecha de Nacimiento" name="f_nacimiento">
-                                    <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
-                                </div>
-                            </div>
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <select style='border:none;margin-top:11.5px;' class="input--style-1 js-datepicker" name="sexo" id="sexo">
-                                        <option style='#ccc' value="">  SEXO</option>
-                                        <option value="M" {{ $administrador->sexo == 'M' ? 'selected' : '' }}>Masculino</option>
-                                        <option value="F" {{ $administrador->sexo == 'F' ? 'selected' : '' }}>Femenino</option>
-                                        <option value="X" {{ $administrador->sexo == 'X' ? 'selected' : '' }}>Prefiero no decirlo</option>
-                                    </select>
-                                    <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group">
-                            <input class="input--style-1" value="{{ $usuario->email }}" type="email" placeholder="    Email"  name="email">
-                        </div>
-
-                        <div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <input class="input--style-1 js-datepicker" value="{{ $usuario->password }}" type="password" placeholder="   Password 1" name="password">
-                                    <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
-                                </div>
-                            </div>
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <input class="input--style-1 js-datepicker" value="{{ $usuario->password_2 }}" type="password" placeholder="   Password 2" name="password_2">
-                                    <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="p-t-20">
-                            <button class="btn btn--radius btn--green" type="submit">Enviar</button>
-                        </div>
-                    </form>
+    <link rel="stylesheet" href="{{ asset('css/Recepcionista.css') }}">
+    <div class="login-box">
+        <p>Nuevo Administrador</p>
+        <form action="{{ route('administradores.update', ['id' => $administrador->id_administrador]) }}" method="POST">
+            @csrf
+            @method('PUT')
+            <div class='contenedor_flex'>
+                <div class="user-box">
+                    <input  value="{{ $administrador->nombres }}"  required="" name="nombres" type="text">
+                    <label>Nombres</label>
+                </div>
+                <div class="user-box">
+                    <input  value="{{ $administrador->ape_paterno }}"  required="" name="ape_paterno" type="text">
+                    <label>Apellido Paterno</label>
                 </div>
             </div>
-        </div>
-    </div>
+            <div class='contenedor_flex'>
+                <div class="user-box">
+                    <input value="{{ $administrador->ape_materno }}" required="" name="ape_materno" type="text">
+                    <label>Apellido Materno</label>
+                </div>
+                <div class="user-box">
+                    <input  value="{{ $administrador->dni }}" required="" name="dni" type="number">
+                    <label>DNI</label>
+                </div>
+            </div>
+            <div class='contenedor_flex'>
+                <div class="user-box">
+                    <input value="{{ $administrador->celular }}" required="" name="celular" type="number">
+                    <label>Celular</label>
+                </div>
+                <div class="user-box">
+                    <input value="{{ $administrador->f_nacimiento }}" required="" name="f_nacimiento" type="date">
+                    <label>Fecha Nacimiento</label>
+                </div>
+            </div>
+            <div class='contenedor_flex'>
+                <div class="user-box">
+                    <select name="sexo" id="sexo">
+                        <option style='#ccc' value="">  SEXO</option>
+                        <option value="M" {{ $administrador->sexo == 'M' ? 'selected' : '' }}>Masculino</option>
+                        <option value="F" {{ $administrador->sexo == 'F' ? 'selected' : '' }}>Femenino</option>
+                        <option value="X" {{ $administrador->sexo == 'X' ? 'selected' : '' }}>Prefiero no decirlo</option>
+                    </select>
+                </div>
+                <div class="user-box">
+                <input value="{{ $usuario->email }}" required="" name="email" type="email">
+                <label>Email</label>
+                </div>
+            </div>
+            <div class='contenedor_flex'>
+                <div class="user-box">
+                <input value="{{ $usuario->password }}" required="" name="password" type="password" >
+                <label>Password</label>
+                </div>
+                <div class="user-box">
+                <input value="{{ $usuario->password_2 }}" required="" name="password_2" type="password" >
+                <label>Repite Password</label>
+                </div>
+            </div>
+            <button class='boton_send' type="submit">
+                <div class="svg-wrapper-1">
+                    <div class="svg-wrapper">
+                    <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z" fill="currentColor"></path>
+                    </svg>
+                    </div>
+                </div>
+                <span>Enviar</span>
+            </button>
+        </form>
     </div>
 
 @endsection

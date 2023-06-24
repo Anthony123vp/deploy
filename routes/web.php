@@ -57,8 +57,6 @@ Route::view('/Dashboard','Sistema.dashboard')-> name('Dashboard');
 
 Route::get('/pacientes', [PacienteController::class,'index'])->name('pacientes.index')->middleware('web');
 Route::get('/pacientes/create',[PacienteController::class,'create'])->name('pacientes.create');
-
-
 Route::post('/Sistema', [PacienteController::class, 'store'])->name('pacientes.store');
 Route::get('/pacientes/create',[PacienteController::class,'create'])->name('pacientes.create');
 Route::get('/pacientes/{id}/editar', [PacienteController::class, 'edit'])->name('pacientes.edit');
@@ -92,6 +90,7 @@ Route::match(['get', 'put'], '/recepcionistas/{id}/editar', [RecepcionistaContro
 Route::get('/recepcionistas/{id}/edit2', [RecepcionistaController::class, 'edit2'])->name('recepcionistas.edit2');
 Route::put('/recepcionistas/{id}', [RecepcionistaController::class, 'update'])->name('recepcionistas.update');
 Route::delete('/recepcionistas/{id}', [RecepcionistaController::class, 'destroy'])->name('recepcionistas.destroy');
+
 
 Route::get('/especialidades', [EspecialidadController::class, 'index'])->name('especialidades.index')->middleware('web');
 Route::get('/especialidades/create',[EspecialidadController::class,'create'])->name('especialidades.create');

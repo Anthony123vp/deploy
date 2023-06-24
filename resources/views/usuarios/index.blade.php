@@ -27,15 +27,15 @@
             <table>
                 <thead>
                     <tr>
-                        <th> Nº <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Rol <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Email <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Password 1 <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Password 2 <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Estado <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Fecha de Creación <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Fecha de Actualización <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Acciones <span class="icon-arrow">&UpArrow;</span></th>
+                        <th > Nº </th>
+                        <th> Rol </th>
+                        <th> Email </th>
+                        <th> Password 1 </th>
+                        <th> Password 2 </th>
+                        <th> Estado </th>
+                        <th> Fecha de Creación </th>
+                        <th> Fecha de Actualización </th>
+                        <th> Acciones </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -54,22 +54,20 @@
                         <td>{{ $usuario->password_2 }}</td>
                         <td>
                             @if ($usuario->estado == 1)
-                                <button type="button" style='background-color:#99f6c3;padding:8px 5px 8px 5px; color:#000;'>Activo</button>
+                                <!-- <button type="button" style='background-color:#99f6c3;padding:8px 5px 8px 5px; color:#000;'>Activo</button> -->
+                                <button class='button_1'> Activo </button>
                                 @else
-                                <button type="button" style='background-color:#c94444;padding:8px 5px 8px 5px; color:#fff;'>Inactivo</button>
+                                <!-- <button type="button" style='background-color:#c94444;padding:8px 5px 8px 5px; color:#fff;'>Inactivo</button> -->
+                                <button class='button_2'> Inactivo </button>
                             @endif
                         </td>
                         <td>{{ $usuario->created_at }}</td>
                         <td>{{ $usuario->updated_at }}</td>
                         <td>
-                            <!-- <a href="{{ asset('/nuevo_usuario')}}">Crear Usuario</a><br> -->
-                            <!-- <a href="{{ route('usuarios.edit', ['id' => $usuario->id_user]) }}">Editar Usuario</a><br>
-                            <a href="{{ route('usuarios.edit2', ['id' => $usuario->id_user]) }}">Eliminar Usuario</a><br> -->
-
-                            <!-- <a type="button" class="btn btn-light" href="{{ route('usuarios.edit', ['id' => $usuario->id_user]) }}">Editar</a><br> -->
-                            <a type="button" style="margin-top:10px;padding-right:100px;" class="btn btn-light activate-usuario" href="#" data-usuario-id="{{ $usuario->id_user }}">ACTIVAR</a><br>
-                            <a type="button" style="margin-top:10px;padding-right:100px;" class="btn btn-light delete-usuario" href="#" data-usuario-id="{{ $usuario->id_user }}">INACTIVAR</a>
-
+                            <!-- <a type="button" style="margin-top:10px;padding-right:100px;" class="btn btn-light activate-usuario" href="#" data-usuario-id="{{ $usuario->id_user }}">ACTIVAR</a><br>
+                            <a type="button" style="margin-top:10px;padding-right:100px;" class="btn btn-light delete-usuario" href="#" data-usuario-id="{{ $usuario->id_user }}">INACTIVAR</a> -->
+                            <button class='activate-usuario activar_b' data-usuario-id="{{ $usuario->id_user }}"> ACTIVAR </button><br>
+                            <button class='delete-usuario eliminar_b' data-usuario-id="{{ $usuario->id_user }}"> INACTIVAR </button>
                         </td>
                     </tr>
                     @php
@@ -83,10 +81,13 @@
         </section>
     </main>
     <style>
-        .boton_rol {
-            background-color:#21A375;
+        th{
             color:#fff;
-            outline: 4px groove #21A975;
+        }
+        .boton_rol {
+            background-color:#345B63;
+            color:#fff;
+            outline: 4px groove #345B63;
             outline-offset: 1px;
             text-align:center;
         }
