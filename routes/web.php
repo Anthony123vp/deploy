@@ -57,8 +57,6 @@ Route::view('/Dashboard','Sistema.dashboard')-> name('Dashboard');
 
 Route::get('/pacientes', [PacienteController::class,'index'])->name('pacientes.index')->middleware('web');
 Route::get('/pacientes/create',[PacienteController::class,'create'])->name('pacientes.create');
-
-
 Route::post('/Sistema', [PacienteController::class, 'store'])->name('pacientes.store');
 Route::get('/pacientes/create',[PacienteController::class,'create'])->name('pacientes.create');
 Route::get('/pacientes/{id}/editar', [PacienteController::class, 'edit'])->name('pacientes.edit');

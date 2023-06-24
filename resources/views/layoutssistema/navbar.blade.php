@@ -8,14 +8,14 @@
     
     <!----======== CSS ======== -->
     <link rel="stylesheet" href="/css/sistema.css">
-        <link rel="stylesheet" href="/css/editar.css">
+    <link rel="stylesheet" href="/css/editar.css">
 
     
     <!----===== Boxicons CSS ===== -->
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 
     @yield('linkcss')
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="Js/sweetalert2.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 

@@ -5,7 +5,10 @@
 <main class="table">
         <section class="table__header">
             <h1>Reservas</h1>
-            <a class="btn" href="{{ route('reservas.create')}}">CREAR</a>
+            <!-- <a class="btn" href="{{ route('reservas.create')}}">CREAR</a> -->
+            <button class="crear_new" onclick="window.location.href='{{ route('reservas.create')}}'">
+                CREAR
+            </button>
             <div class="input-group">
                 <input type="search" placeholder="Buscar Datos...">
                 <img src="images/search.png" alt="">

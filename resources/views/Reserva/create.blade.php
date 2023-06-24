@@ -96,8 +96,10 @@
 					</div>
 					<div class="form-row-last">
                         <div class="boton">
-						    <input type="submit" class="register" value="Programar">
-							<input type="reset" class="cancelar" value="Limpiar">
+						    <!-- <input type="submit" class="register" value="Programar"> -->
+							<!-- <input type="reset" class="cancelar" value="Limpiar"> -->
+							<button class="cancelar_boton" type="submit" >Programar</button>
+							<button class="cancelar_boton" type="reset" >Limpiar</button>
 					    </div>
                     </div>
 				</div>

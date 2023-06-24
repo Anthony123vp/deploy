@@ -3,7 +3,10 @@
 <main class="table">
         <section class="table__header">
             <h1>Servicios Exactos</h1>
-            <a class="btn" href="{{ route('serviciosmedhost.create')}}">CREAR</a>
+            <!-- <a class="btn" href="{{ route('serviciosmedhost.create')}}">CREAR</a> -->
+            <button class="crear_new" onclick="window.location.href='{{ route('serviciosmedhost.create')}}'">
+                CREAR
+            </button>
             <div style='padding:20px;margin-top:30px;' class="input-group">
                 <input type="search" placeholder="Buscar Datos...">
                 <img src="images/search.png" alt="">
@@ -24,15 +27,15 @@
             <table id='tabla_admin'>
                 <thead>
                     <tr>
-                        <th> Nº <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Servicio <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Especialidad <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Servicio Exacto <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Precio <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Estado <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Fecha de Creación <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Fecha de Actualización <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Acciones <span class="icon-arrow">&UpArrow;</span></th>
+                        <th> Nº </th>
+                        <th> Servicio </th>
+                        <th> Especialidad </th>
+                        <th> Servicio Exacto </th>
+                        <th> Precio </th>
+                        <th> Estado </th>
+                        <th> Fecha de Creación </th>
+                        <th> Fecha de Actualización </th>
+                        <th> Acciones </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -58,17 +61,20 @@
                         <td>S/. {{ $servicio_medhost->precio }} </td>
                         <td>
                             @if ($servicio_medhost->estado == 1)
-                                <button type="button" style='background-color:#99f6c3;padding:8px 5px 8px 5px; color:#000;'>Activo</button>
+                                <!-- <button type="button" style='background-color:#99f6c3;padding:8px 5px 8px 5px; color:#000;'>Activo</button> -->
+                                <button class='button_1'> Activo </button>
                                 @else
-                                <button type="button" style='background-color:#c94444;padding:8px 5px 8px 5px; color:#fff;'>Inactivo</button>
+                                <!-- <button type="button" style='background-color:#c94444;padding:8px 5px 8px 5px; color:#fff;'>Inactivo</button> -->
+                                <button class='button_2'> Inactivo </button>
                             @endif
                         </td>
                         <td>{{ $servicio_medhost->created_at }}</td>
                         <td>{{ $servicio_medhost->updated_at }}</td>
                         <td>
-                            <a type="button" class="btn btn-light" href="{{ route('serviciosmedhost.edit', ['id' => $servicio_medhost->id_servicio_medhost]) }}">Editar</a><br>
-                            <a type="button" style="margin-top:10px;" class="btn btn-light delete-servicio_medhost" href="#" data-servicio_medhost-id="{{ $servicio_medhost->id_servicio_medhost }}">Eliminar</a>
-
+                            <!-- <a type="button" class="btn btn-light" href="{{ route('serviciosmedhost.edit', ['id' => $servicio_medhost->id_servicio_medhost]) }}">EDITAR</a><br> -->
+                            <!-- <a type="button" style="margin-top:10px;" class="btn btn-light delete-servicio_medhost" href="#" data-servicio_medhost-id="{{ $servicio_medhost->id_servicio_medhost }}">Eliminar</a> -->
+                            <button class='activar_b' onclick="window.location.href='{{ route('serviciosmedhost.edit', ['id' => $servicio_medhost->id_servicio_medhost]) }}'"> EDITAR </button><br>
+                            <button class='delete-servicio_medhost eliminar_b' data-servicio_medhost-id="{{ $servicio_medhost->id_servicio_medhost }}"> ELIMINAR </button>
                         </td>
                     </tr>
                     @php
@@ -82,8 +88,6 @@
         </section>
     </main>
 <script>
-
-
     document.addEventListener('DOMContentLoaded', function() {
         const deleteLinks = document.querySelectorAll('.delete-servicio_medhost');
 
