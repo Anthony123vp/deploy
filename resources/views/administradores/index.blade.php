@@ -6,7 +6,9 @@
 <main class="table">
         <section class="table__header">
             <h1>Administradores</h1>
-            <a class="btn" href="{{ route('administradores.create')}}">CREAR</a>
+            <button class="crear_new" onclick="window.location.href='{{ route('administradores.create')}}'">
+                CREAR
+            </button>
             <div style='padding:20px;margin-top:30px;' class="input-group">
                 <input type="search" placeholder="Buscar Datos...">
                 <img src="images/search.png" alt="">
@@ -27,18 +29,18 @@
             <table id='tabla_admin'>
                 <thead>
                     <tr>
-                        <th> Nº <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Nombres <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Apellido Paterno <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Apellido Materno <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> DNI <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Celular <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Fecha de Nacimiento <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Sexo <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Estado <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Fecha de Creación <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Fecha de Actualización <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Acciones <span class="icon-arrow">&UpArrow;</span></th>
+                        <th> Nº </th>
+                        <th> Nombres </th>
+                        <th> Apellido Paterno </th>
+                        <th> Apellido Materno </th>
+                        <th> DNI </th>
+                        <th> Celular </th>
+                        <th> Fecha de Nacimiento </th>
+                        <th> Sexo </th>
+                        <th> Estado </th>
+                        <th> Fecha de Creación </th>
+                        <th> Fecha de Actualización </th>
+                        <th> Acciones </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -55,17 +57,20 @@
                         <td>{{ $administrador->sexo }}</td>
                         <td>
                             @if ($administrador->estado == 1)
-                                <button type="button" style='background-color:#99f6c3;padding:8px 5px 8px 5px; color:#000;'>Activo</button>
+                                <!-- <button type="button" style='background-color:#99f6c3;padding:8px 5px 8px 5px; color:#000;'>Activo</button> -->
+                                <button class='button_1'> Activo </button>
                                 @else
-                                <button type="button" style='background-color:#c94444;padding:8px 5px 8px 5px; color:#fff;'>Inactivo</button>
+                                <!-- <button type="button" style='background-color:#c94444;padding:8px 5px 8px 5px; color:#fff;'>Inactivo</button> -->
+                                <button class='button_2'> Inactivo </button>
                             @endif
                         </td>
                         <td>{{ $administrador->created_at }}</td>
                         <td>{{ $administrador->updated_at }}</td>
                         <td>
-                            <a type="button" class="btn btn-light" href="{{ route('administradores.edit', ['id' => $administrador->id_administrador]) }}">Editar</a><br>
-                            <a type="button" style="margin-top:10px;" class="btn btn-light delete-administrador" href="#" data-administrador-id="{{ $administrador->id_administrador }}">Eliminar</a>
-
+                            <!-- <a type="button" class="btn btn-light" href="{{ route('administradores.edit', ['id' => $administrador->id_administrador]) }}">Editar</a><br>
+                            <a type="button" style="margin-top:10px;" class="btn btn-light delete-administrador" href="#" data-administrador-id="{{ $administrador->id_administrador }}">Eliminar</a> -->
+                            <button class='activar_b' onclick="window.location.href='{{ route('administradores.edit', ['id' => $administrador->id_administrador]) }}'"> EDITAR </button><br>
+                            <button class='delete-administrador eliminar_b' data-administrador-id="{{ $administrador->id_administrador }}"> ELIMINAR </button>
                         </td>
                     </tr>
 

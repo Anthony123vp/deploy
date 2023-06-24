@@ -1,26 +1,30 @@
 @extends('layoutssistema.navbar')
 @section('content')
 
-    <div class="main_editar">
-    <div class="page-wrapper bg-blue p-t-100 p-b-100 font-robo">
-        <div class="wrapper wrapper--w680">
-            <div class="card card-1">
-                <div class="card-heading"></div>
-                <div class="card-body">
-                    <h2 class="title">Crear Seguro</h2>
-                    <form action="{{ route('insurances.store')}}" method="POST">
-                    @csrf
-                        <div class="input-group">
-                            <input class="input--style-1" type="text" placeholder="Nombre" name="nombre">
-                        </div>
-                        <div class="p-t-20">
-                            <button class="btn btn--radius btn--green" type="submit">Enviar</button>
-                        </div>
-                    </form>
+     
+    <link rel="stylesheet" href="{{ asset('css/insurances.css') }}">
+    <div class="login-box">
+        <p>Nuevo Seguro</p>
+        <form action="{{ route('insurances.store')}}" method="POST">
+            @csrf
+            <div class='contenedor_flex'>
+                <div class="user-box">
+                    <input required="" name="nombre" type="text">
+                    <label>Nombre</label>
                 </div>
             </div>
-        </div>
-    </div>
+            <button class='boton_send' type="submit">
+                <div class="svg-wrapper-1">
+                    <div class="svg-wrapper">
+                    <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z" fill="currentColor"></path>
+                    </svg>
+                    </div>
+                </div>
+                <span>Enviar</span>
+            </button>
+        </form>
     </div>
 
 @endsection

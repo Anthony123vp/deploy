@@ -6,7 +6,9 @@
 <main class="table">
         <section class="table__header">
             <h1>Especialidades</h1>
-            <a class="btn" href="{{ route('especialidades.create')}}">CREAR</a>
+            <button class="crear_new" onclick="window.location.href='{{ route('especialidades.create')}}'">
+                CREAR
+            </button>
             <div style='padding:20px;margin-top:30px;' class="input-group">
                 <input type="search" placeholder="Buscar Datos...">
                 <img src="images/search.png" alt="">
@@ -27,12 +29,12 @@
             <table id='tabla_admin'>
                 <thead>
                     <tr>
-                        <th> Nº <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Nombre Rol <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Estado <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Fecha de Creación <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Fecha de Actualización <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Acciones <span class="icon-arrow">&UpArrow;</span></th>
+                        <th> Nº </th>
+                        <th> Nombre Rol </th>
+                        <th> Estado </th>
+                        <th> Fecha de Creación </th>
+                        <th> Fecha de Actualización </th>
+                        <th> Acciones </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -47,17 +49,20 @@
                         <td><button type="button" class='boton_especialidad'>{{ $especialidad->nombre }}</button></td>
                         <td>
                             @if ($especialidad->estado == 1)
-                                <button type="button" style='background-color:#99f6c3;padding:8px 5px 8px 5px; color:#000;'>Activo</button>
+                                <!-- <button type="button" style='background-color:#99f6c3;padding:8px 5px 8px 5px; color:#000;'>Activo</button> -->
+                                <button class='button_1'> Activo </button>
                                 @else
-                                <button type="button" style='background-color:#c94444;padding:8px 5px 8px 5px; color:#fff;'>Inactivo</button>
+                                <!-- <button type="button" style='background-color:#c94444;padding:8px 5px 8px 5px; color:#fff;'>Inactivo</button> -->
+                                <button class='button_2'> Inactivo </button>
                             @endif
                         </td>
                         <td>{{ $especialidad->created_at }}</td>
                         <td>{{ $especialidad->updated_at }}</td>
                         <td>
-                            <a type="button" class="btn btn-light" href="{{ route('especialidades.edit', ['id' => $especialidad->id_especialidad]) }}">Editar</a><br>
-                            <a type="button" style="margin-top:10px;" class="btn btn-light delete-especialidad" href="#" data-especialidad-id="{{ $especialidad->id_especialidad }}">Eliminar</a>
-
+                            <!-- <a type="button" class="btn btn-light" href="{{ route('especialidades.edit', ['id' => $especialidad->id_especialidad]) }}">Editar</a><br>
+                            <a type="button" style="margin-top:10px;" class="btn btn-light delete-especialidad" href="#" data-especialidad-id="{{ $especialidad->id_especialidad }}">Eliminar</a> -->
+                            <button class='activar_b' onclick="window.location.href='{{ route('especialidades.edit', ['id' => $especialidad->id_especialidad]) }}'"> EDITAR </button><br>
+                            <button class='delete-especialidad eliminar_b' data-especialidad-id="{{ $especialidad->id_especialidad }}"> ELIMINAR </button>
                         </td>
                     </tr>
                     @php
@@ -72,9 +77,9 @@
     </main>
     <style>
         .boton_especialidad {
-        background-color:#21A375;
+        background-color:#345B63;
         color:#fff;
-        outline: 4px groove #21A975;
+        outline: 4px groove #345B63;
         outline-offset: 1px;
         text-align:center;
         }

@@ -59,15 +59,16 @@
                             <td>
                                 @if ($reserva->estado == 1)
                                 
-                                    <button type="button" style='background-color:#99f6c3;padding:8px 5px 8px 5px; color:#000;'>Activo</button>
+                                    <!-- <button type="button" style='background-color:#99f6c3;padding:8px 5px 8px 5px; color:#000;'>Activo</button> -->
+                                    <button class='button_1'> Activo </button>
                                     @else
-                                    <button type="button" style='background-color:#c94444;padding:8px 5px 8px 5px; color:#fff;'>Inactivo</button>
+                                    <!-- <button type="button" style='background-color:#c94444;padding:8px 5px 8px 5px; color:#fff;'>Inactivo</button> -->
+                                    <button class='button_2'> Inactivo </button>
                                 @endif
                             </td>
                             <td>
-                                <a type="button" class="btn" href="#">Editar</a><br>
-                                <a type="button" class="btn" href="#">Eliminar</a>
-
+                                <button class='activar_b' onclick=""> EDITAR </button><br>
+                            <button class='delete-servicio_medhost eliminar_b' data-servicio_medhost-id=""> ELIMINAR </button>
                             </td>
                         </tr>
                     @endforeach
