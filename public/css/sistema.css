@@ -774,27 +774,6 @@ thead th {
   background-color: #152d35;
   z-index: 10;
 }
-<<<<<<< HEAD
-.form-container {
-  max-height: 100vh;
-overflow-y: auto;
-
-}
-
-.input-group {
-  position: relative;
-}
-
-.toggle-password {
-  position: absolute;
-  top: 50%;
-  right: 5px;
-  transform: translateY(-50%);
-  cursor: pointer;
-  width: 30px;
-  height: 30px;
-}
-=======
 
 .cancelar_boton {
   padding: 15px 25px;
@@ -1003,4 +982,3 @@ overflow-y: auto;
   th{
     color: #fff;
   }
->>>>>>> 601108ab0404dfb7ec41494791aef71d169164e1

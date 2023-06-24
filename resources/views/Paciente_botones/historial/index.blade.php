@@ -12,7 +12,9 @@
           <p><b>Consultorio:</b>A512</p>
         </div>
         <div class="botones">
+          <a href="{{ route('citas_crear.create') }}" class="resultados">Nueva Cita</a>
           <a href="" class="resultados">Ver Resultados</a>
+          <a href="{{ route('citas_editar.edit') }}" class="resultados">Editar</a>
         </div>
       </div>     
     </div>

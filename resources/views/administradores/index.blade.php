@@ -31,11 +31,7 @@
                         <th> Nombres </th>
                         <th> Apellido Paterno </th>
                         <th> Apellido Materno </th>
-<<<<<<< HEAD
-                        <th>DNI</th>
-=======
                         <th> DNI </th>
->>>>>>> 601108ab0404dfb7ec41494791aef71d169164e1
                         <th> Celular </th>
                         <th> Fecha de Nacimiento </th>
                         <th> Sexo </th>
