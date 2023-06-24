@@ -69,7 +69,6 @@
                         <td>
                             <a type="button" class="btn btn-light" href="{{ route('recepcionistas.edit', ['id' => $recepcionista->id_recepcionista]) }}">Editar</a><br>
                             <a type="button" style="margin-top:10px;" class="btn btn-light delete-recepcionista" href="#" data-recepcionista-id="{{ $recepcionista->id_recepcionista }}">Eliminar</a>
-
                         </td>
                     </tr>
                     @php

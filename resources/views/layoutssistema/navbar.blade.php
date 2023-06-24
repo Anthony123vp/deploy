@@ -25,7 +25,7 @@
         <header>
             <div class="image-text">
                 <span class="image">
-                    <img src="logo.png" alt="">
+                    <img src="/Images/logo.png" alt="">
                 </span>
 
                 <div class="text logo-text">
@@ -57,14 +57,14 @@
                 @if(Auth::user()->id_rol===4)
                     <li class="nav-link">
                         <a href="{{route('citas_programadas.index')}}">
-                            <i class='bx bx-bar-chart-alt-2 icon' ></i>
+                            <i class='bx bx-calendar-plus icon' ></i>
                             <span class="text nav-text">Citas</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
                         <a href="{{route('Horario.index')}}">
-                            <i class='bx bx-bell icon'></i>
+                            <i class='bx bx-time icon' ></i>
                             <span class="text nav-text">Horarios</span>
                         </a>
                     </li>
@@ -77,14 +77,14 @@
                 @if(Auth::user()->id_rol===3)
                     <li class="nav-link">
                         <a href="{{route('reservas.index')}}">
-                            <i class='bx bx-pie-chart-alt icon' ></i>
+                            <i class='bx bx-calendar-plus icon'></i>
                             <span class="text nav-text">Citas</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
                         <a href="{{route('pacientes.index')}}">
-                            <i class='bx bx-heart icon' ></i>
+                            <i class='bx bx-user icon' ></i>
                             <span class="text nav-text">Pacientes</span>
                         </a>
                     </li>
@@ -97,14 +97,14 @@
                 @if(Auth::user()->id_rol===1)
                     <li class="nav-link">
                         <a href="{{ route('historial.index') }}">
-                            <i class='bx bx-wallet icon' ></i>
+                            <i class='bx bx-history icon'></i>
                             <span class="text nav-text">Historial Clinico</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
                         <a href="{{ route('citas_pendiente.index') }}">
-                            <i class='bx bx-wallet icon' ></i>
+                            <i class='bx bx-calendar-plus icon' ></i>
                             <span class="text nav-text">Citas</span>
                         </a>
                     </li>
@@ -146,7 +146,7 @@
             <form method="POST" action="{{ route('Logout')}}">
             @csrf
                 <li class="">
-                    <a href="#">
+                    <a>
                         <i class='bx bx-log-out icon' ></i>
                         <button type="Submit"><span class="text nav-text">Logout</span></button>
                     </a>
@@ -192,7 +192,7 @@
     </nav>
 
     <section class="home">
-        <div class="text">Dashboard Sidebar</div>
+        <div class="text">Dashboard Medhost System</div>
         <div class="content">
           @yield('content')
           @yield('navbar_usuarios')

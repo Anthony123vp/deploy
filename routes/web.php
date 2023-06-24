@@ -91,6 +91,7 @@ Route::get('/recepcionistas/{id}/edit2', [RecepcionistaController::class, 'edit2
 Route::put('/recepcionistas/{id}', [RecepcionistaController::class, 'update'])->name('recepcionistas.update');
 Route::delete('/recepcionistas/{id}', [RecepcionistaController::class, 'destroy'])->name('recepcionistas.destroy');
 
+
 Route::get('/especialidades', [EspecialidadController::class, 'index'])->name('especialidades.index')->middleware('web');
 Route::get('/especialidades/create',[EspecialidadController::class,'create'])->name('especialidades.create');
 Route::get('/especialidades/{id}/editar', [EspecialidadController::class, 'edit'])->name('especialidades.edit');
