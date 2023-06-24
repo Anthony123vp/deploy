@@ -20,9 +20,10 @@ return new class extends Migration
             $table->string('examenes', 45)->nullable();
             $table->string('medicinas', 45)->nullable();
             $table->string('comentario', 45);
-            $table->char('estado', 1);
+            $table->char('estado', 1)->default('1');
             $table->timestamp('created_at');
             $table->timestamp('updated_at');
+            // $table->foreign('id_receta')->references('id')->on('cita_medica');
         });
     }
 

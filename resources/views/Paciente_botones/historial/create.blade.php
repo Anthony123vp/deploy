@@ -1,10 +1,12 @@
 @extends('layoutssistema.navbar')
 @section('content')
 
+
+        
     <link rel="stylesheet" href="{{ asset('css/Recepcionista.css') }}">
     <div class="login-box">
-        <p>Nuevo Administrador</p>
-        <form action="{{ route('administradores.store')}}" method="POST">
+        <p>Nueva Receta</p>
+        <form action="{{ route('citas_crear.create')}}" method="POST">
             @csrf
             <div class='contenedor_flex'>
                 <div class="user-box">
@@ -28,39 +30,52 @@
             </div>
             <div class='contenedor_flex'>
                 <div class="user-box">
-                    <input required="" name="celular" type="number">
-                    <label>Celular</label>
+                    <input required="" name="consultorio" type="text">
+                    <label>Consultorio</label>
                 </div>
                 <div class="user-box">
-                    <input required="" name="f_nacimiento" type="date">
-                    <label>Fecha Nacimiento</label>
+                    <input required="" name="discapacidad" type="text">
+                    <label>Discapacidad</label>
                 </div>
             </div>
             <div class='contenedor_flex'>
                 <div class="user-box">
-                    <select name="sexo" id="sexo">
-                        <option style='#ccc' value="">  SEXO</option>
-                        <option value="M">Masculino</option>
-                        <option value="F">Femenino</option>
-                        <option value="X">Prefiero no decirlo</option>
+                    <input required="" name="medicamentos" type="text">
+                    <label>Medicamentos</label>
+                </div>
+                <div class="user-box">
+                    <input required="" name="terapias" type="text">
+                    <label>Terapias</label>
+                </div>
+            </div>
+
+            <div class='contenedor_flex'>
+                <div class="user-box">
+                <textarea name="comentario" id="" cols="50" rows="5" placeholder="Se solicita"></textarea>
+                    <label  style="top:-30px">Prescripcion</label>
+                </div>
+                
+                <div class="user-box">
+                    <input required="" name="diagnostico" type="text">
+                    <label>Diagnostico</label>
+                </div>
+            </div>
+            <div class='contenedor_flex'>
+                <div class="user-box">
+                    <select name="id_medico" id="id_medico">
+                        <option value="">Medico</option>
+                        @foreach ($medicos as $medico)
+                            <option value="{{ $medico->id_medico }}">{{ $medico->nombres }}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="user-box">
-                <input required="" name="email" type="email">
-                <label>Email</label>
+                    <input required="" name="fecha" type="date">
+                    <label  style="top:-25px">Fecha de la receta</label>
                 </div>
             </div>
-            <div class='contenedor_flex'>
-                <div class="user-box">
-                <input required="" name="password" type="password" >
-                <label>Password</label>
-                </div>
-                <div class="user-box">
-                <input required="" name="password_2" type="password" >
-                <label>Repite Password</label>
-                </div>
-            </div>
-            <button class='boton_send' type="submit">
+            
+            <button class='boton_send' type="submit" style="margin-left: 610px ">
                 <div class="svg-wrapper-1">
                     <div class="svg-wrapper">
                     <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -75,26 +90,3 @@
     </div>
 
 @endsection
-<script>
-  var showPasswordTimeout;
-
-  function showPassword(inputId) {
-    var input = document.getElementById(inputId);
-    input.type = 'text';
-  }
-
-  function hidePassword(inputId) {
-    var input = document.getElementById(inputId);
-    input.type = 'password';
-  }
-
-  function startShowPasswordTimer(inputId) {
-    showPasswordTimeout = setTimeout(function() {
-      showPassword(inputId);
-    }, 500);
-  }
-
-  function cancelShowPasswordTimer() {
-    clearTimeout(showPasswordTimeout);
-  }
-</script>
