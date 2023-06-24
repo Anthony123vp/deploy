@@ -150,7 +150,8 @@ Route::delete('/administradores/{id}', [AdministradorController::class, 'destroy
     Route::get('/reservas',[ReservaController::class,'index'])->name('reservas.index');
     Route::get('/reservas/create',[ReservaController::class,'create'])->name('reservas.create');
     Route::post('/reservas',[ReservaController::class,'store'])->name('reservas.store');
-
+    Route::delete('/reservas/{id}',[ReservaController::class,'destroy'])->name('reservas.destroy');
+    Route::post('/Informe',[ReservaController::class,'generateInforme'])->name('reservas.generateInforme');
 
 //Vista de botones para el paciente:
 Route::get('/citas_pendientes',[ReservaPendiente::class,'index'])->name('citas_pendiente.index');
