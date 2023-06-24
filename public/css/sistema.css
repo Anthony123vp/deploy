@@ -71,6 +71,7 @@ body.dark{
 .sidebar header .image,
 .sidebar .icon{
     min-width: 60px;
+    object-fit: cover;
     border-radius: 6px;
 }
 
@@ -132,7 +133,7 @@ header .image-text .profession{
 }
 
 .sidebar header .image img{
-    width: 40px;
+    width: 50px;
     border-radius: 6px;
 }
 
@@ -172,7 +173,10 @@ body.dark .sidebar header .toggle{
     cursor: pointer;
     transition: var(--tran-05);
 }
-
+button{
+  display: flex;
+  cursor:pointer;
+}
 .sidebar li.search-box input{
     height: 100%;
     width: 100%;
