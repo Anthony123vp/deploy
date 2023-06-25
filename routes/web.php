@@ -163,6 +163,7 @@ Route::view('/historial','Paciente_botones\historial\index')->name('historial.in
     Route::get('/citas_programadas',[ReservaProgramada::class,'index'])->name('citas_programadas.index');
     Route::get('/citas_crear', [HistorialController::class,'create'])->name('citas_crear.create');
     Route::get('/citas_editar', [HistorialController::class,'edit'])->name('citas_editar.edit');
+    Route::post('/receta.store',[HistorialController::class, 'store'])->name('recetas.store');
     /*Creacion de Horarios */
 
     Route::get('/horarios',[HorarioController::class,'index'])->name('Horario.index');
@@ -174,4 +175,4 @@ Route::view('/historial','Paciente_botones\historial\index')->name('historial.in
 
     Route::get('/recetas/create',[RecetasController::class,'create'])->name('recetas.create');
 
-    Route::post('/recetas',[RecetasController::class,'store'])->name('recetas.store');
+    Route::view('/terapia', 'Medico_botones.terapia.create')->name('terapia.create');

@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="{{ asset('css/Recepcionista.css') }}">
     <div class="login-box">
         <p>Nueva Receta</p>
-        <form action="{{ route('citas_editar.edit')}}" method="POST">
+        <form action="{{ route('recetas.store')}}" method="POST">
             @csrf
             <div class='contenedor_flex'>
                 <div class="user-box">
@@ -48,7 +48,7 @@
                     <label>Terapias</label>
                 </div>
             </div>
-			
+
             <div class='contenedor_flex'>
                 <div class="user-box">
                 <textarea name="comentario" id="" cols="50" rows="5" placeholder="Se solicita"></textarea>
@@ -62,7 +62,7 @@
             </div>
             <div class='contenedor_flex'>
                 <div class="user-box">
-                    <select name="id_medico" id="id_medico">
+                    <select name="medico" id="id_medico">
                         <option value="">Medico</option>
                         @foreach ($medicos as $medico)
                             <option value="{{ $medico->id_medico }}">{{ $medico->nombres }}</option>

@@ -5,13 +5,13 @@
         
     <link rel="stylesheet" href="{{ asset('css/Recepcionista.css') }}">
     <div class="login-box">
-        <p>Nueva Receta</p>
-        <form action="{{ route('citas_crear.create')}}" method="POST">
+        <p>Nueva Terapia</p>
+        <form action="{{ route('recetas.store')}}" method="POST">
             @csrf
             <div class='contenedor_flex'>
                 <div class="user-box">
-                    <input required="" name="nombres" type="text">
-                    <label>Nombres</label>
+                    <input required="" name="paciente" type="text">
+                    <label>Nombre del Paciente</label>
                 </div>
                 <div class="user-box">
                     <input required="" name="ape_paterno" type="text">
@@ -30,12 +30,12 @@
             </div>
             <div class='contenedor_flex'>
                 <div class="user-box">
-                    <input required="" name="consultorio" type="text">
-                    <label>Consultorio</label>
+                    <input required="" name="terapia" type="text">
+                    <label>Terapia</label>
                 </div>
                 <div class="user-box">
-                    <input required="" name="discapacidad" type="text">
-                    <label>Discapacidad</label>
+                    <input required="" name="evaluacion" type="text">
+                    <label>Evaluacion fisica</label>
                 </div>
             </div>
             <div class='contenedor_flex'>
@@ -44,15 +44,15 @@
                     <label>Medicamentos</label>
                 </div>
                 <div class="user-box">
-                    <input required="" name="terapias" type="text">
-                    <label>Terapias</label>
+                    <input required="" name="tiempo" type="text">
+                    <label>Tiempo de Terapia</label>
                 </div>
             </div>
 
             <div class='contenedor_flex'>
                 <div class="user-box">
-                <textarea name="comentario" id="" cols="50" rows="5" placeholder="Se solicita"></textarea>
-                    <label  style="top:-30px">Prescripcion</label>
+                <textarea name="comentario" id="" cols="50" rows="5" placeholder="Se recomienda"></textarea>
+                    <label  style="top:-30px">Recomendaciones</label>
                 </div>
                 
                 <div class="user-box">
@@ -60,20 +60,15 @@
                     <label>Diagnostico</label>
                 </div>
             </div>
-            <div class='contenedor_flex'>
+            {{-- <div class='contenedor_flex'>
                 <div class="user-box">
-                    <select name="id_medico" id="id_medico">
+                    <select name="medico" id="id_medico">
                         <option value="">Medico</option>
                         @foreach ($medicos as $medico)
                             <option value="{{ $medico->id_medico }}">{{ $medico->nombres }}</option>
                         @endforeach
                     </select>
-                </div>
-                <div class="user-box">
-                    <input required="" name="fecha" type="date">
-                    <label  style="top:-25px">Fecha de la receta</label>
-                </div>
-            </div>
+                </div> --}}
             
             <button class='boton_send' type="submit" style="margin-left: 610px ">
                 <div class="svg-wrapper-1">
