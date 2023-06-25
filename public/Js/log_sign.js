@@ -36,7 +36,25 @@ const signupMsg = document.querySelector(".signupMsg");
 const signup = document.querySelector(".signup");
 const frontbox = document.querySelector(".frontbox");
 
-document.querySelector("#switch1").addEventListener("click", function () {
+// document.querySelector("#switch1").addEventListener("click", function () {
+//   loginMsg.classList.toggle("visibility");
+//   frontbox.classList.add("moving");
+//   signupMsg.classList.toggle("visibility");
+
+//   signup.classList.toggle("hide");
+//   login.classList.toggle("hide");
+// });
+
+// document.querySelector("#switch2").addEventListener("click", function () {
+//   loginMsg.classList.toggle("visibility");
+//   frontbox.classList.remove("moving");
+//   signupMsg.classList.toggle("visibility");
+
+//   signup.classList.toggle("hide");
+//   login.classList.toggle("hide");
+// });
+
+document.querySelector("#switch1").addEventListener("click", function (event) {
   loginMsg.classList.toggle("visibility");
   frontbox.classList.add("moving");
   signupMsg.classList.toggle("visibility");
@@ -45,7 +63,7 @@ document.querySelector("#switch1").addEventListener("click", function () {
   login.classList.toggle("hide");
 });
 
-document.querySelector("#switch2").addEventListener("click", function () {
+document.querySelector("#switch2").addEventListener("click", function (event) {
   loginMsg.classList.toggle("visibility");
   frontbox.classList.remove("moving");
   signupMsg.classList.toggle("visibility");
@@ -53,6 +71,7 @@ document.querySelector("#switch2").addEventListener("click", function () {
   signup.classList.toggle("hide");
   login.classList.toggle("hide");
 });
+
 
 setTimeout(function () {
   document.querySelector("#switch1").click();
@@ -86,22 +105,3 @@ document.querySelector("button.boton_registrar_paciente").addEventListener("clic
     errorMessage.style.display = "none";
   }
 });
-
-// function formatNumber() {
-//   let input = document.getElementById("celular");
-//   let value = input.value.replace(/[^0-9]/g, ""); // Remueve cualquier carácter no numérico
-
-//   if (value.length > 9) {
-//     value = value.slice(0, 9); // Limita la entrada a 9 dígitos
-//   }
-
-//   let formattedValue = "";
-//   for (let i = 0; i < value.length; i++) {
-//     formattedValue += value[i];
-//     if ((i + 1) % 3 === 0 && i !== value.length - 1) {
-//       formattedValue += "-";
-//     }
-//   }
-
-//   input.value = formattedValue;
-// }

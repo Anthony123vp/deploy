@@ -15,14 +15,14 @@
           <div class="textcontent">
             <p class="title">¿No tienes una cuenta?</p>
             <p>Registrate e inicia una gran <br> experiencia en Medhost.</p>
-            <button id="switch1">REGISTRARME</button>
+            <button class='magic_boton' id="switch1">REGISTRARME</button>
           </div>
         </div>
         <div class="signupMsg visibility">
           <div class="textcontent">
             <p class="title">¿Ya tienes una cuenta?</p>
             <p>Inicia sesión y disfruta de nuestros servicios.</p>
-            <button id="switch2">INICIAR SESIÓN</button>
+            <button class='magic_boton' id="switch2">INICIAR SESIÓN</button>
           </div>
         </div>
       </div>
@@ -41,7 +41,12 @@
 
               </div>
               <p>FORGET PASSWORD?</p>
-          <button type="submit">LOG IN</button>
+          <!-- <button type="submit">LOG IN</button> -->
+          <button type="submit" class="ui-btn">
+            <span>
+              LOG IN 
+            </span>
+          </button>
         </div>
     </form>
 
@@ -99,7 +104,12 @@
                   </ul>
               </div>
           @endif
-          <button class='boton_registrar_paciente' type="submit">REGISTRARME</button>
+          <!-- <button class='boton_registrar_paciente' type="submit">REGISTRARME</button> -->
+          <button type="submit" class="ui-btn">
+            <span>
+              REGISTRARME 
+            </span>
+          </button>
           <div id="error-message" class="error-message" style="display: none;"></div>
           </form>
             
