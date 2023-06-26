@@ -21,7 +21,9 @@ use App\Http\Controllers\ReservaProgramada;
 use App\Http\Controllers\RecetasController;
 
 use App\Http\Controllers\AuthenthicatedSessionController;
+use App\Http\Controllers\ExamenesController;
 use App\Http\Controllers\HistorialController;
+use App\Http\Controllers\TerapiaController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::view('/','MedHostPublic.home');
@@ -172,7 +174,16 @@ Route::view('/historial','Paciente_botones\historial\index')->name('historial.in
 
     /*Creacion de Recetas*/
     Route::get('/recetas',[RecetasController::class,'index'])->name('recetas.index');
-
     Route::get('/recetas/create',[RecetasController::class,'create'])->name('recetas.create');
 
+    Route::get('/examenes',[ExamenesController::class,'index'])->name('examenes.index');
+    Route::get('/examenes/create',[ExamenesController::class,'create'])->name('examenes.create');
+    Route::get('/examenes/store',[ExamenesController::class,'store'])->name('examenes.store');
+
+    Route::get('/terapia',[TerapiaController::class,'index'])->name('terapia.index');
+    Route::get('/terapia/create',[TerapiaController::class,'create'])->name('terapia.create');
+    Route::get('/terapia/store',[TerapiaController::class,'store'])->name('terapia.store');
+
     Route::view('/terapia', 'Medico_botones.terapia.create')->name('terapia.create');
+    Route::view('/examenes', 'Medico_botones.examenes.create')->name('examenes.create');
+    Route::view('/recetas', 'Medico_botones.recetas.create')->name('recetas.create');
