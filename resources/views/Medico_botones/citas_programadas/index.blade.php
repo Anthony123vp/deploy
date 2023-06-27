@@ -14,7 +14,8 @@
           <p><b>Consultorio:</b>{{$cita->cod_habitacion}}</p>
         </div>
         <div class="botones">
-          <a href="" class="atender">ATENDER</a>
+          <!-- <a href="" class="atender">ATENDER</a> -->
+          <button class='activar_b' onclick="window.location.href='{{ route('citas_programadas.edit', ['id' => $cita->id_paciente, 'id2' => $cita->id_reserva]) }}'"> ATENDER </button><br>
         </div>
     </div>   
     @endforeach

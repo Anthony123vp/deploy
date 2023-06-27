@@ -21,7 +21,7 @@ class RecetasController extends Controller
 
     public function create(){
         $pacientes = DB::select("SELECT * FROM paciente");
-return view('Medico_botones/recetas/create', ['pacientes' => $pacientes]);
+        return view('Medico_botones/recetas/create', ['pacientes' => $pacientes]);
     }
 
     public function store(Request $request)

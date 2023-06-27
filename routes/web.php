@@ -16,8 +16,8 @@ use App\Http\Controllers\Servicio_especialidadController;
 use App\Http\Controllers\ServiciomedhostController; 
 
 use App\Http\Controllers\ReservaController;
-use App\Http\Controllers\ReservaPendiente;
-use App\Http\Controllers\ReservaProgramada;
+use App\Http\Controllers\ReservaPendienteController;
+use App\Http\Controllers\ReservaProgramadaController;
 use App\Http\Controllers\RecetasController;
 
 use App\Http\Controllers\AuthenthicatedSessionController;
@@ -150,28 +150,31 @@ Route::delete('/administradores/{id}', [AdministradorController::class, 'destroy
 
 // /Vista de boton para la rececpcionista/
 //     /Crud de Reservas/
-    Route::get('/reservas',[ReservaController::class,'index'])->name('reservas.index');
-    Route::get('/reservas/create',[ReservaController::class,'create'])->name('reservas.create');
-    Route::post('/reservas',[ReservaController::class,'store'])->name('reservas.store');
+Route::get('/reservas',[ReservaController::class,'index'])->name('reservas.index');
+Route::get('/reservas/create',[ReservaController::class,'create'])->name('reservas.create');
+Route::post('/reservas',[ReservaController::class,'store'])->name('reservas.store');
 
 
 //Vista de botones para el paciente:
-Route::get('/citas_pendientes',[ReservaPendiente::class,'index'])->name('citas_pendiente.index');
-Route::view('/historial','Paciente_botones\historial\index')->name('historial.index');
-
-
-//Vista de botones para el medico
+    Route::get('/citas_pendientes',[ReservaPendiente::class,'index'])->name('citas_pendiente.index');
+    Route::view('/historial','Paciente_botones\historial\index')->name('historial.index');
+    
+    
+    //Vista de botones para el medico
     /*Visualizacion de citas para atender */
-    Route::get('/citas_programadas',[ReservaProgramada::class,'index'])->name('citas_programadas.index');
-    Route::get('/citas_crear', [HistorialController::class,'create'])->name('citas_crear.create');
-    Route::get('/citas_editar', [HistorialController::class,'edit'])->name('citas_editar.edit');
+    Route::get('/citas_programadas',[ReservaProgramadaController::class,'index'])->name('citas_programadas.index');
+    Route::get('/citas_programadas/{id}/{id2}/editar', [ReservaProgramadaController::class, 'edit'])->name('citas_programadas.edit');
+    Route::put('/citas_programadas/{id}', [ReservaProgramadaController::class, 'update'])->name('citas_programadas.update');
+    Route::post('/citas_programadas', [ReservaProgramadaController::class, 'store'])->name('citas_programadas.store');
+    // Route::get('/citas_crear', [HistorialController::class,'create'])->name('citas_crear.create');
+    // Route::get('/citas_editar', [HistorialController::class,'edit'])->name('citas_editar.edit');
     Route::post('/receta.store',[HistorialController::class, 'store'])->name('recetas.store');
     /*Creacion de Horarios */
-
+    
     Route::get('/horarios',[HorarioController::class,'index'])->name('Horario.index');
     Route::get('/horarios/create',[HorarioController::class,'create'])->name('Horario.create');
     Route::post('/horarios',[HorarioController::class,'store'])->name('Horario.store');
-
+    
     /*Creacion de Recetas*/
     Route::get('/recetas',[RecetasController::class,'index'])->name('recetas.index');
     Route::get('/recetas/create',[RecetasController::class,'create'])->name('recetas.create');
