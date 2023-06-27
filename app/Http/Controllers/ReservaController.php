@@ -41,7 +41,13 @@ class ReservaController extends Controller
     }
 
     public function getConsultorios($medico){
-        $consultorios = DB::select("select * from consultorios where id_medico =$medico");
+        $medico = Medico::where('id_medico',$medico)->FirstOrFail();
+        $consultorios = Consultorio::where('id_consultorio',$medico->id_consultorio)->FirstOrFail();
+        return response()->json($consultorios);
+    }
+
+    public function getConsultoriosEspecialidad($especialidad){
+        $consultorios = DB::select("select * from consultorios where id_especialidad =$especialidad and estado=1");
         return response()->json($consultorios);
     }
     /**
@@ -80,16 +86,11 @@ class ReservaController extends Controller
         $paciente = Paciente::where('dni',$request->dni)->firstOrFail();
         $id_paciente = $paciente->id_paciente;
 
-        /** Consiguiendo el id del consultorio */
-        $Cod_habitacion = $request->input('consultorio');
-        $consultorio = Consultorio::where('cod_habitacion',$Cod_habitacion)->firstOrFail();
-        $idConsulto = $consultorio->id_consultorio;
         /*Creando nueva cita**/
         $cita_nueva= new Reserva();
         $cita_nueva->id_paciente = $id_paciente;
         $cita_nueva->id_servicio_medhost= $request->input('servicio_medhost');
         $cita_nueva->id_medico_horario = $request->input('medico_horario');
-        $cita_nueva->id_consultorio=$idConsulto;
         $cita_nueva -> save();
 
         /*Cambiando de estado el horario del medico seleccionado */
@@ -111,17 +112,50 @@ class ReservaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Reserva $reserva)
+    public function edit($id)
     {
-        //
+        $reserva=DB::select("Select * from cita_pendiente where id_reserva=$id");
+        $servicios=Servicio::get();
+        $especialidades=Especialidad::get();
+        $dniPaciente = Paciente::where('id_paciente',$reserva[0]->id_paciente)->FirstOrFail();        
+        return view('Reserva.editar',['reserva'=>$reserva,'paciente'=>$dniPaciente,'servicios'=>$servicios,'especialidades'=>$especialidades]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Reserva $reserva)
+    public function update(Request $request, Reserva $id)
     {
-        //
+        $request->validate([
+            'dni'=>'required',
+            'servicio_medhost'=>'required',
+            'medico_horario'=>'required',
+            'consultorio'=>'required'
+        ]);
+
+        $id_horario_medico=$id->id_medico_horario;
+        /** Consiguiendo el Id del paciente por medio del dni*/
+        $paciente = Paciente::where('dni',$request->dni)->firstOrFail();
+        $id_paciente = $paciente->id_paciente;
+
+        /*Creando nueva cita**/
+        $id->id_paciente = $id_paciente;
+        $id->id_servicio_medhost= $request->input('servicio_medhost');
+        $id->id_medico_horario = $request->input('medico_horario');
+        $id -> save();
+
+        /*Cambiando de estado el horario del medico seleccionado */
+        if($id_horario_medico!=$request->medico_horario){
+            $horario_medico=Horario::findOrFail($request->input('medico_horario'));
+            $horario_medico->estado='0';
+            $horario_medico->save();
+
+            $horario_medico=Horario::findOrFail($id_horario_medico);
+            $horario_medico->estado='1';
+            $horario_medico->save();
+        }
+        return redirect()->route('reservas.index');
+        
     }
 
     /**
@@ -129,6 +163,9 @@ class ReservaController extends Controller
      */
     public function destroy(Reserva $id)
     {
+        $horario_medico=Horario::findOrFail($id->id_horario_medico);
+        $horario_medico->estado='1';
+        $horario_medico->save();
         $id->delete();
         return redirect()->route('reservas.index');
     }

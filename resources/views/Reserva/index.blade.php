@@ -73,7 +73,7 @@
                             </td>
                             <td>
                             @if($reserva->estado==1)
-                                <button class='activar_b' onclick=""> EDITAR </button><br>
+                                <button class='activar_b' onclick="window.location.href='{{ route('reservas.edit',$reserva->id_reserva)}}'"> EDITAR </button>
                                 <form action="{{ route('reservas.destroy',$reserva->id_reserva)}}" method="POST" id="eliminarReserva">
                                 @method('DELETE') @csrf
                                     <button type="Submit" class='delete-servicio_medhost eliminar_b' data-servicio_medhost-id=""> ELIMINAR </button>

@@ -73,6 +73,9 @@
                     </select>
                 </div>
                 <div class="user-box">
+                    <select name="id_consultorio" id="id_consultorio">
+                        <option value="">CONSULTORIO</option>
+                    </select>
                 </div>
             </div>
             <button class='boton_send' type="submit">
@@ -89,4 +92,41 @@
         </form>
     </div>
 
+@endsection
+
+@section('scripts')
+<script>
+    const id_especialidad = document.getElementById('id_especialidad');
+    const id_consultorio = document.getElementById('id_consultorio');
+    let medico = {!! json_encode($medico, JSON_HEX_TAG) !!};
+
+    window.onload = async () => {
+        const response = await fetch(`/api/Consultorios/${id_especialidad.value}/especialidad`);
+		const data = await response.json();
+		let option = ``;
+		data.forEach(element=>{
+				if(element.id_consultorio==medico["id_consultorio"]){
+			        option= option + `<option selected value="${element.id_consultorio}">${element.cod_habitacion}</option>`;
+				}else{
+			        option= option + `<option value="${element.id_consultorio}">${element.cod_habitacion}</option>`;
+				}
+			});
+		id_consultorio.innerHTML = option;
+    }    
+
+
+    id_especialidad.addEventListener('change',async(e)=>{
+        const response = await fetch(`/api/Consultorios/${e.target.value}/especialidad`);
+		const data = await response.json();
+		let option = ``;
+		data.forEach(element=>{
+				if(element.id_consultorio==medico["id_consultorio"]){
+			        option= option + `<option selected value="${element.id_consultorio}">${element.cod_habitacion}</option>`;
+				}else{
+			        option= option + `<option value="${element.id_consultorio}">${element.cod_habitacion}</option>`;
+				}
+			});
+		id_consultorio.innerHTML = option;
+    });
+</script>
 @endsection

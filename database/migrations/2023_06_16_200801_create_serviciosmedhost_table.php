@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('serviciosmedhost', function (Blueprint $table) {
             $table->id('id_servicio_medhost', true);
             $table->unsignedBigInteger('id_servicio_especialidad')->index('fk_ServiciosMedHost_servicios_especialidades1_idx');
-            $table->string('nombre', 45);
+            $table->string('nombre', 50);
             $table->float('precio', 10, 0);
             $table->char('estado', 1)->default('1');
             $table->timestamps();

@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Consultorio extends Model
+class HistorialClinico extends Model
 {
     use HasFactory;
-    protected $table = 'consultorios';
-    protected $primaryKey = 'id_consultorio';
+    protected $connection = 'pruebademigraciones';
+    protected $table = 'reserva';
 }

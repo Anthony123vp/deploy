@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_reserva')->index('fk_examen_resultado_reserva1_idx');
             $table->string('resultados', 180);
             $table->string('observacion', 100);
-            $table->char('estado', 1);
+            $table->char('estado', 1)->default('1');;
             $table->timestamp('created_at');
             $table->timestamp('updated_at');
         });

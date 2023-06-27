@@ -18,7 +18,6 @@ return new class extends Migration
             $table->unsignedBigInteger('id_paciente')->index('fk_Citas_Paciente1_idx');
             $table->unsignedBigInteger('id_servicio_medhost')->index('fk_cita_medica_ServiciosMedHost1_idx');
             $table->unsignedBigInteger('id_medico_horario')->index('fk_Reserva_Medico_Horarios1_idx');
-            $table->unsignedBigInteger('id_consultorio')->index('fk_reserva_consultarios1_idx');
             $table->char('estado', 1)->default('1');
             $table->timestamp('created_at');
             $table->timestamp('updated_at');

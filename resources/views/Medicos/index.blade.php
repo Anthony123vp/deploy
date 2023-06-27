@@ -33,6 +33,7 @@
                         <th> Apellido Materno </th>
                         <th> DNI </th>
                         <th> Especialidad </th>
+                        <th> Consultorio </th>
                         <th> Celular </th>
                         <th> Fecha de Nacimiento </th>
                         <th> Sexo </th>
@@ -56,6 +57,12 @@
                         <td>{{ $medico->ape_materno }}</td>
                         <td>{{ $medico->dni }}</td>
                         <td><button type="button" class='boton_especialidad'>{{ $medico->especialidad->nombre }}</button></td>
+                        @if ($medico->estado==1)
+                            <td>{{ $medico->consultorio->cod_habitacion}}</td>
+                            @else
+                            <td>Ninguno</td>
+                        @endif
+
                         <td>{{ $medico->celular }}</td>
                         <td>{{ $medico->f_nacimiento }}</td>
                         <td>{{ $medico->sexo }}</td>
@@ -71,10 +78,14 @@
                         <td>{{ $medico->created_at }}</td>
                         <td>{{ $medico->updated_at }}</td>
                         <td>
-                            <!-- <a type="button" class="btn btn-light" href="{{ route('medicos.edit', ['id' => $medico->id_medico]) }}">Editar</a><br>
-                            <a type="button" style="margin-top:10px;" class="btn btn-light delete-medico" href="#" data-medico-id="{{ $medico->id_medico }}">Eliminar</a> -->
-                            <button class='activar_b' onclick="window.location.href='{{ route('medicos.edit', ['id' => $medico->id_medico]) }}'"> EDITAR </button><br>
-                            <button class='delete-medico eliminar_b' data-medico-id="{{ $medico->id_medico }}"> ELIMINAR </button>
+                            @if ($medico->estado==1)
+                                <button class='activar_b' onclick="window.location.href='{{ route('medicos.edit', ['id' => $medico->id_medico]) }}'"> EDITAR </button>
+                                <button class='delete-medico eliminar_b' data-medico-id="{{ $medico->id_medico }}"> ELIMINAR </button>
+                                @else
+                                
+                            @endif
+        
+                            
                         </td>
                     </tr>
                     @php
