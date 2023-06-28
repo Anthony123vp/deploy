@@ -344,7 +344,23 @@ border-radius: 5px;
   }
   
   .imagen_boton:hover{
-    background-color: royalblue;
+    background-color: #11352b;
+  }
+  .imagen_boton2 {
+    display: block;
+    flex-shrink: 0;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 0.5rem;
+    object-fit: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #005869;
+  }
+  
+  .imagen_boton2:hover{
+    background-color: #002733;
   }
   .imagen_boton i{
     font-size: 35px;
