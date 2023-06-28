@@ -16,7 +16,6 @@ use Carbon\Carbon;
 use App\Models\Reserva;
 class ReservaProgramadaController extends Controller
 {
-    //VISTA PARA EL MEDICO SUS CITAS PROGRAMADAS
 
     public function __construct()
     {
@@ -28,7 +27,7 @@ class ReservaProgramadaController extends Controller
         $medico=Medico::where('id_user',$id_user)->firstOrFail();
         $id_medico=$medico->id_medico;
         $citas_pendientes = Cita_Pendiente::where('id_medico',$id_medico)->get();
-        return view('Medico_botones\citas_programadas\index',['citas'=>$citas_pendientes]);
+        return view('citas_programadas.index',['citas'=>$citas_pendientes]);
     }
 
     public function edit($id, $id2)
@@ -46,7 +45,7 @@ class ReservaProgramadaController extends Controller
         $seguros = Insurance::findOrFail($id_insurance);
         $reserva = Cita_Pendiente::where('id_reserva', $id2)->firstOrFail();
         $horaFin = Carbon::parse($reserva->hora_inicio)->addMinutes(30);
-        return view('Medico_botones\citas_programadas\edit', compact('pacientes', 'seguros','edad','reserva','horaFin'));
+        return view('citas_programadas.edit', compact('pacientes', 'seguros','edad','reserva','horaFin'));
         // return view('Medico_botones\citas_programadas\edit');
     }
 

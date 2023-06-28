@@ -340,13 +340,52 @@ border-radius: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #345B63;
+    background-color: #589eac;
   }
   
   .imagen_boton:hover{
-    background-color: royalblue;
+    background-color: #1e5e6b;
+  }
+  .imagen_boton2 {
+    display: block;
+    flex-shrink: 0;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 0.5rem;
+    object-fit: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #b4cfbe;
+  }
+  
+  .imagen_boton2:hover{
+    background-color: #36b667;
+  }
+
+  .imagen_boton3 {
+    display: block;
+    flex-shrink: 0;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 0.5rem;
+    object-fit: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ccce7d;
+  }
+  
+  .imagen_boton3:hover{
+    background-color: #aaac2f;
   }
   .imagen_boton i{
+    font-size: 35px;
+  }
+  .imagen_boton2 i{
+    font-size: 35px;
+  }
+  .imagen_boton3 i{
     font-size: 35px;
   }
   

@@ -45,8 +45,8 @@
                                     <div class='primer_content_2_2_div_2_1'><b>HC:</b> {{ rand(1000, 5000) }}</div>
                                 </div>
                                 <div class='primer_content_2_2 primer_content_2_2_div_2'>
-                                    <div class='primer_content_2_2_div_2_1'><b>FECHA-INICIO:</b>{{ date( "d/m/Y", strtotime($reserva->fecha))}}-{{ date( "g:i a", strtotime( $reserva->hora_inicio)) }}</div>
-                                    <div class='primer_content_2_2_div_2_1'><b>FECHA-FIN:</b> {{ date( "d/m/Y", strtotime($reserva->fecha))}}-{{ date( "g:i a", strtotime( $horaFin)) }}</div>
+                                    <div class='primer_content_2_2_div_2_1'><b>FECHA-INICIO:</b> {{ $reserva->fecha }} {{ $reserva->hora_inicio }}</div>
+                                    <div class='primer_content_2_2_div_2_1'><b>FECHA-FIN:</b> {{ $reserva->fecha }} {{ $horaFin }}</div>
                                 </div>
                             </div>
                         </div>
