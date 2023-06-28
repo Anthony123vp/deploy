@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class HistorialClinico extends Model
 {
     use HasFactory;
-    protected $connection = 'pruebademigraciones';
+    protected $connection = 'medhosthistorial';
     protected $table = 'reserva';
 }
