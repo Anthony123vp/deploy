@@ -16,12 +16,17 @@ return new class extends Migration
         Schema::create('terapia_resultado', function (Blueprint $table) {
             $table->id('id_terapia', true);
             $table->unsignedBigInteger('id_reserva')->index('fk_terapia_resultado_reserva1_idx');
-            $table->string('evaluacion_fisica', 45);
-            $table->string('recomendaciones', 45);
+            $table->string('objetivos_tratamiento', 500);
+            $table->string('modalidad_terapia', 500);
+            $table->string('frecuencia_sesiones', 500);
+            $table->string('duracion_tratamiento', 500);
+            $table->string('intervenciones_terapeuticas', 500);
+            $table->string('recomendaciones', 500);
+            $table->string('img_firma_doctor', 500);
             $table->char('estado', 1)->default('1');
             $table->timestamp('created_at');
             $table->timestamp('updated_at');
-        });
+        }); 
     }
 
     /**

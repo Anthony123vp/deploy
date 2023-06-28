@@ -24,7 +24,7 @@ use App\Http\Controllers\AuthenthicatedSessionController;
 use App\Http\Controllers\ExamenesController;
 use App\Http\Controllers\HistorialClinicoController;
 use App\Http\Controllers\HistorialController;
-use App\Http\Controllers\TerapiaController;
+use App\Http\Controllers\TerapiasController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::view('/','MedHostPublic.home');
@@ -173,8 +173,13 @@ Route::get('/cita_medica_resultado/{id}',[HistorialClinicoController::class,'get
     // Route::get('/citas_editar', [HistorialController::class,'edit'])->name('citas_editar.edit');
     // Route::post('/receta.store',[HistorialController::class, 'store'])->name('recetas.store');
     /*Creacion de Horarios */
-    Route::get('/examanes_resultado',[ExamenesController::class,'index'])->name('examenes.index');
-    Route::get('/examanes_resultado/{id}/{id2}/editar', [ExamenesController::class, 'edit'])->name('examanes_resultado.edit');
+    Route::get('/examenes',[ExamenesController::class,'index'])->name('examenes.index');
+    Route::get('/examenes/{id}/{id2}/editar', [ExamenesController::class, 'edit'])->name('examenes.edit');
+    Route::patch('/examenes/{id}', [ExamenesController::class, 'store'])->name('examenes.store');
+
+    Route::get('/terapias',[TerapiasController::class,'index'])->name('terapias.index');
+    Route::get('/terapias/{id}/{id2}/editar', [TerapiasController::class, 'edit'])->name('terapias.edit');
+    Route::patch('/terapias/{id}', [TerapiasController::class, 'store'])->name('terapias.store');
     
 
 

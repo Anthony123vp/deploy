@@ -7,7 +7,7 @@
         <div class='contenedor_todo'>
             <div class='contenedor_todo_2'>
                 <div class='contenedor_todo_3'>
-                    <form action=" {{ route('citas_programadas.store',$reserva->id_reserva)}}" method="post">
+                    <form action=" {{ route('examenes.store',$reserva->id_reserva)}}" method="post">
                         @csrf
                         @method('PATCH')
                         
@@ -62,40 +62,40 @@
                             <div class='case1'><b>RESUMEN DE ATENCIÓN</b></div><br>
                             <div class='case2'>
                                 <div class='case2_1'><b>SIGNOS VITALES</b></div>
-                                <div class='case2_2'><textarea placeholder='Ingresa el motivo de ingreso del paciente' name="signos_vitales" id="" require></textarea></div>
+                                <div class='case2_2'><textarea placeholder='Ingresa los signo vitales del paciente' name="signos_vitales" id="" require></textarea></div>
                                 <input type="hidden" name='id_reserva' value='{{$reserva->id_reserva}}'>
                             </div><br>
                             <div class='case3'>
                                 <div class='case3_1'><b>SISTEMA CARDIOVASCULAR</b></div>
-                                <div class='case3_2'><textarea  require placeholder='Ingresa el diagnostico de ingreso del paciente' name="sistema_cardiovascular" id=""></textarea></div>
+                                <div class='case3_2'><textarea  require placeholder='Ingresa resultado del sistema cardiovascular del paciente' name="sistema_cardiovascular" id=""></textarea></div>
                             </div><br>
                             <div class='case3'>
                                 <div class='case3_1'><b>SISTEMA GASTROINTESTINAL</b></div>
-                                <div class='case3_2'><textarea require placeholder='Ingresa comorbilidades del paciente' name="sistema_gastrointestinal" id=""></textarea></div>
+                                <div class='case3_2'><textarea require placeholder='Ingresa resultado del sistema gastrointestinal del paciente' name="sistema_gastrointestinal" id=""></textarea></div>
                             </div><br>
                             <div class='case2'>
                                 <div class='case2_1'><b>SISTEMA MUSCULOESQUELETICO</b></div>
-                                <div class='case2_2'><textarea require placeholder='Ingresa los procedimientos durante la cita' name="sistema_musculoesqueletico" id=""></textarea></div>
+                                <div class='case2_2'><textarea require placeholder='Ingresa resultado del sistema musculoesqueletico del paciente' name="sistema_musculoesqueletico" id=""></textarea></div>
                             </div><br>
                             <div class='case2'>
                                 <div class='case2_1'><b>SISTEMA NERVIOSO</b></div>
-                                <div class='case2_2'><textarea require placeholder='Ingresa los medicamentos recibidos durante la cita' name="sistema_nervioso" id=""></textarea></div>
+                                <div class='case2_2'><textarea require placeholder='Ingresa resultado del sistema nervioso del paciente' name="sistema_nervioso" id=""></textarea></div>
                             </div><br>
                             <div class='case3'>
                                 <div class='case3_1'><b>SISTEMA ENDOCRINO</b></div>
-                                <div class='case3_2'><textarea require placeholder='Ingresa comentarios sobre el paciente' name="sistema_endocrino" id=""></textarea></div>
+                                <div class='case3_2'><textarea require placeholder='Ingresa resultado del sistema endocrino del paciente' name="sistema_endocrino" id=""></textarea></div>
                             </div><br>
                             <div class='case3'>
                                 <div class='case3_1'><b>SISTEMA GENITORINARIO</b></div>
-                                <div class='case3_2'><textarea require  placeholder='Ingresar estado del paciente' name="sistema_genitourinario" id=""></textarea></div>
+                                <div class='case3_2'><textarea require  placeholder='Ingresar resultado del sistema genitorinario del paciente' name="sistema_genitourinario" id=""></textarea></div>
                             </div><br>
                             <div class='case2'>
                                 <div class='case2_1'><b>SISTEMA INMUNOLOGICO</b></div>
-                                <div class='case2_2'><textarea require placeholder='Ingresar medicamentos requeridos para el paciente'  name="sistema_inmunologico" id=""></textarea></div>
+                                <div class='case2_2'><textarea require placeholder='Ingresar resultado del sistema inmunologico del paciente'  name="sistema_inmunologico" id=""></textarea></div>
                             </div><br>
                             <div class='case2'>
                                 <div class='case2_1'><b>SISTEMA MENTAL</b></div>
-                                <div class='case2_2'><textarea require placeholder='Ingresar terapias requeridos para el paciente'  name="sistema_mental" id=""></textarea></div>
+                                <div class='case2_2'><textarea require placeholder='Ingresar resultado del sistema mental del paciente'  name="sistema_mental" id=""></textarea></div>
                             </div><br>
                         </div>
                         <br>
@@ -124,12 +124,14 @@
                                 <div style='border-bottom:2px solid #000;'>FIRMA Y SELLO DEL MÉDICO A CARGO</div>
                                 <div>{{ $reserva->medico }}</div>
                                 <div><b>C . M . P: </b> 0000{{ rand(10000000000000000, 500000000000000000) }}0000</div>
+                                <img id="signatureImage" src="" alt="Firma" style="display: none;">
+                                <input type="hidden" name="firma_base64" id="firma_base64">
                             </div>
                         </div>
                         <br>
                         <div class='enviar_receta'>
                             <button id="btn_receta" type='submit'>
-                                Enviar Receta
+                                Enviar Examen
                             </button>
                         </div>
                         @if ($errors->any())
