@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('signos_vitales', 500);
             $table->string('sistema_cardiovascular', 500);
             $table->string('sistema_gastrointestinal', 500);
-            $table->string('sistema_musculoesquelético', 500);
+            $table->string('sistema_musculoesqueletico', 500);
             $table->string('sistema_nervioso', 500);
             $table->string('sistema_endocrino', 500);
             $table->string('sistema_genitourinario', 500);
