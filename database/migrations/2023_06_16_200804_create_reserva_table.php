@@ -18,6 +18,10 @@ return new class extends Migration
             $table->unsignedBigInteger('id_reserva')->primary();
             $table->bigInteger('id_paciente')->nullable();
             $table->string('paciente', 100);
+            $table->char('dni',8);
+            $table->char('sexo',1);
+            $table->char('edad',3);
+            $table->string('seguro',30);
             $table->string('medico', 100);
             $table->string('especialidad', 20);
             $table->string('servicio', 20);
