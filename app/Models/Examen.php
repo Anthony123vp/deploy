@@ -16,7 +16,7 @@ class Examen extends Model
         'signos_vitales',
         'sistema_cardiovascular',
         'sistema_gastrointestinal',
-        'sistema_musculoesquelético',
+        'sistema_musculoesqueletico',
         'sistema_nervioso',
         'sistema_endocrino',
         'sistema_genitourinario',

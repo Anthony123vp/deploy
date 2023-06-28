@@ -61,47 +61,42 @@
                         <div class='tercero_content_form'>
                             <div class='case1'><b>RESUMEN DE ATENCIÓN</b></div><br>
                             <div class='case2'>
-                                <div class='case2_1'><b>MOTIVO DE INGRESO</b></div>
-                                <div class='case2_2'><textarea placeholder='Ingresa el motivo de ingreso del paciente' name="motivo_ingreso" id="" require></textarea></div>
+                                <div class='case2_1'><b>SIGNOS VITALES</b></div>
+                                <div class='case2_2'><textarea placeholder='Ingresa el motivo de ingreso del paciente' name="signos_vitales" id="" require></textarea></div>
                                 <input type="hidden" name='id_reserva' value='{{$reserva->id_reserva}}'>
                             </div><br>
                             <div class='case3'>
-                                <div class='case3_1'><b>DIAGNOSTICO DE INGRESO</b></div>
-                                <div class='case3_2'><textarea  require placeholder='Ingresa el diagnostico de ingreso del paciente' name="diagnostico_ingreso" id=""></textarea></div>
+                                <div class='case3_1'><b>SISTEMA CARDIOVASCULAR</b></div>
+                                <div class='case3_2'><textarea  require placeholder='Ingresa el diagnostico de ingreso del paciente' name="sistema_cardiovascular" id=""></textarea></div>
                             </div><br>
                             <div class='case3'>
-                                <div class='case3_1'><b>COMORBILIDADES</b></div>
-                                <div class='case3_2'><textarea require placeholder='Ingresa comorbilidades del paciente' name="comorbilidades" id=""></textarea></div>
+                                <div class='case3_1'><b>SISTEMA GASTROINTESTINAL</b></div>
+                                <div class='case3_2'><textarea require placeholder='Ingresa comorbilidades del paciente' name="sistema_gastrointestinal" id=""></textarea></div>
                             </div><br>
                             <div class='case2'>
-                                <div class='case2_1'><b>PROCEDIMIENTOS</b></div>
-                                <div class='case2_2'><textarea require placeholder='Ingresa los procedimientos durante la cita' name="procedimientos" id=""></textarea></div>
+                                <div class='case2_1'><b>SISTEMA MUSCULOESQUELETICO</b></div>
+                                <div class='case2_2'><textarea require placeholder='Ingresa los procedimientos durante la cita' name="sistema_musculoesqueletico" id=""></textarea></div>
                             </div><br>
                             <div class='case2'>
-                                <div class='case2_1'><b>MEDICAMENTOS RECIBIDOS</b></div>
-                                <div class='case2_2'><textarea require placeholder='Ingresa los medicamentos recibidos durante la cita' name="medicamentos_recibidos" id=""></textarea></div>
+                                <div class='case2_1'><b>SISTEMA NERVIOSO</b></div>
+                                <div class='case2_2'><textarea require placeholder='Ingresa los medicamentos recibidos durante la cita' name="sistema_nervioso" id=""></textarea></div>
                             </div><br>
                             <div class='case3'>
-                                <div class='case3_1'><b>COMENTARIOS DEL DOCTOR</b></div>
-                                <div class='case3_2'><textarea require placeholder='Ingresa comentarios sobre el paciente' name="comentario_doctor" id=""></textarea></div>
+                                <div class='case3_1'><b>SISTEMA ENDOCRINO</b></div>
+                                <div class='case3_2'><textarea require placeholder='Ingresa comentarios sobre el paciente' name="sistema_endocrino" id=""></textarea></div>
                             </div><br>
                             <div class='case3'>
-                                <div class='case3_1'><b>Estado del paciente</b></div>
-                                <div class='case3_2'><textarea require  placeholder='Ingresar estado del paciente' name="estado_paciente" id=""></textarea></div>
-                            </div><br>
-                            <div class='case1'><b>INSTRUCCIONES DE SEGUIMIENTO</b></div><br>
-                            <div class='case2'>
-                                <div class='case2_1'><b>MEDICAMENTOS PARA CASA</b></div>
-                                <div class='case2_2'><textarea placeholder='Ingresar medicamentos requeridos para el paciente'  name="medicamentos_casa" id=""></textarea></div>
+                                <div class='case3_1'><b>SISTEMA GENITORINARIO</b></div>
+                                <div class='case3_2'><textarea require  placeholder='Ingresar estado del paciente' name="sistema_genitourinario" id=""></textarea></div>
                             </div><br>
                             <div class='case2'>
-                                <div class='case2_1'><b>TERAPIAS REQUERIDAS</b></div>
-                                <div class='case2_2'><textarea placeholder='Ingresar terapias requeridos para el paciente'  name="terapias" id=""></textarea></div>
+                                <div class='case2_1'><b>SISTEMA INMUNOLOGICO</b></div>
+                                <div class='case2_2'><textarea require placeholder='Ingresar medicamentos requeridos para el paciente'  name="sistema_inmunologico" id=""></textarea></div>
                             </div><br>
                             <div class='case2'>
-                                <div class='case2_1'><b>EXAMENES REQUERIDAS</b></div>
-                                <div class='case2_2'><textarea placeholder='Ingresar exámenes requeridos para el paciente'  name="examenes" id=""></textarea></div>
-                            </div>
+                                <div class='case2_1'><b>SISTEMA MENTAL</b></div>
+                                <div class='case2_2'><textarea require placeholder='Ingresar terapias requeridos para el paciente'  name="sistema_mental" id=""></textarea></div>
+                            </div><br>
                         </div>
                         <br>
                         <br>

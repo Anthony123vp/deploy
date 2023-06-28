@@ -129,6 +129,8 @@
                                 <div style='border-bottom:2px solid #000;'>FIRMA Y SELLO DEL MÉDICO A CARGO</div>
                                 <div>{{ $reserva->medico }}</div>
                                 <div><b>C . M . P: </b> 0000{{ rand(10000000000000000, 500000000000000000) }}0000</div>
+                                <img id="signatureImage" src="" alt="Firma">
+                                <input type="text" name="firma_base64" id="firma_base64">
                             </div>
                         </div>
                         <br>
@@ -150,6 +152,8 @@
                 </div>
             </div>
         </div>
+
+
         <script>
             function loadImage(url) {
                 return new Promise(resolve => {
