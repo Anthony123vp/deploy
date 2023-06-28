@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Medico;
 use App\Models\Cita_Pendiente;
+use App\Models\Servicio_Especialidad;
+use App\Models\Servicio_Medhost;
 use App\Models\Paciente;
 use App\Models\Insurance;
 use App\Models\Receta;
@@ -53,6 +55,7 @@ class ReservaProgramadaController extends Controller
     /**Cuando se pone la clase Modelo detras de la variable */
     public function store(Request $request,Reserva $id)
     {
+        
         $id->estado=0;
         $id->save();
         $request->validate([
@@ -104,6 +107,8 @@ class ReservaProgramadaController extends Controller
 
     public function update(Request $request, $id)
     {
+
+        
         $request->validate([
             'id_servicio' => 'required',
             'motivo_ingreso' => 'required',

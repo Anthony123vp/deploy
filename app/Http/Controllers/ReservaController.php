@@ -13,9 +13,12 @@ use App\Models\Insurance;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Ramsey\Uuid\Type\Integer;
-
+use Illuminate\Support\Facades\Auth;
 class ReservaController extends Controller
 {
+
+    
+    
     public function Tipo_Servicio($servicio,$especialidad){
         $consulta = DB::select("SELECT * FROM SERVICIOMEDHOST where  id_servicio=$servicio and id_especialidad=$especialidad");
         return response()->json($consulta);

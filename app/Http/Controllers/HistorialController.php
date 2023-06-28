@@ -5,9 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\Medico;
 use App\Models\Receta;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 class HistorialController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
     {
         

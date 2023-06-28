@@ -15,6 +15,9 @@ class ReservaPendienteController extends Controller
     }
 
     public function index(){
+        if(Auth::user()->id_rol!=1){
+            return redirect()->route('Dashboard');
+        }
         $id_user=Auth::user()->id_user;
         $paciente=Paciente::where('id_user',$id_user)->firstOrFail();
         $id_paciente=$paciente->id_paciente;
