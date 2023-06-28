@@ -14,6 +14,7 @@ use App\Models\Insurance;
 use App\Models\Receta;
 use Carbon\Carbon;
 use App\Models\Reserva;
+
 class ReservaProgramadaController extends Controller
 {
 
@@ -27,7 +28,7 @@ class ReservaProgramadaController extends Controller
         $medico=Medico::where('id_user',$id_user)->firstOrFail();
         $id_medico=$medico->id_medico;
         $citas_pendientes = Cita_Pendiente::where('id_medico',$id_medico)->get();
-        return view('citas_programadas.index',['citas'=>$citas_pendientes]);
+        return view('Medico_botones\citas_programadas\index',['citas'=>$citas_pendientes]);
     }
 
     public function edit($id, $id2)
