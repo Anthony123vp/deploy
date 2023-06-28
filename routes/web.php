@@ -173,7 +173,11 @@ Route::get ('/historial',[HistorialClinicoController::class,'index'])->name('his
     // Route::get('/citas_editar', [HistorialController::class,'edit'])->name('citas_editar.edit');
     // Route::post('/receta.store',[HistorialController::class, 'store'])->name('recetas.store');
     /*Creacion de Horarios */
+    Route::get('/examanes_resultado',[ExamenesController::class,'index'])->name('examenes.index');
+    Route::get('/examanes_resultado/{id}/{id2}/editar', [ExamenesController::class, 'edit'])->name('examanes_resultado.edit');
     
+
+
     Route::get('/horarios',[HorarioController::class,'index'])->name('Horario.index');
     Route::get('/horarios/create',[HorarioController::class,'create'])->name('Horario.create');
     Route::post('/horarios',[HorarioController::class,'store'])->name('Horario.store');
