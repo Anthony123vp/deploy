@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('medicos', function (Blueprint $table) {
             $table->id('id_medico', true);
             $table->unsignedBigInteger('id_especialidad')->index('fk_Medico_Especialidades1_idx');
+            $table->unsignedBigInteger('id_consultorio')->index('fk_Medico_Consultorio_idx');
             $table->unsignedBigInteger('id_user')->index('fk_MEDICOS_USUARIOS1_idx');
             $table->string('nombres', 45);
             $table->string('ape_paterno', 45);

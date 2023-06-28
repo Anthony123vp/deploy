@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Consultorio;
 use App\Models\Usuario;
 use App\Models\Medico;
 use App\Models\Especialidad;
@@ -18,7 +19,7 @@ class MedicoController extends Controller
     
     public function index()
     {
-        $medicos = Medico::with('especialidad')->get();
+        $medicos = Medico::with('especialidad','consultorio')->get();
         return view('medicos.index', compact('medicos'));
     }
 
@@ -77,6 +78,7 @@ class MedicoController extends Controller
         $request->validate([
             'dni' => 'required',
             'id_especialidad' => 'required',
+            'id_consultorio' => 'required',
             'nombres' => 'required',
             'ape_paterno' => 'required',
             'ape_materno' => 'required',
@@ -88,6 +90,7 @@ class MedicoController extends Controller
         Medico::create([
             'id_user' => $id_usuarios,
             'id_especialidad' => $request->id_especialidad,
+            'id_consultorio' => $request->id_consultorio,
             'dni' => $request->dni,
             'nombres' => $request->nombres,
             'ape_paterno' => $request->ape_paterno,
@@ -97,7 +100,12 @@ class MedicoController extends Controller
             'celular' => $request->celular,
             // 'password_1' => bcrypt($request->password_1),
         ]);
-    
+        
+        /**Cambiando de estado al consultorio seleccionado */
+        $consultorio = Consultorio::where('id_consultorio', $request->id_consultorio)->FirstOrFail();
+        $consultorio->estado=0;
+        $consultorio->save();
+        
         return redirect()->route('medicos.index')->with('success', 'Medico creado correctamente.');
     }
 
@@ -141,6 +149,7 @@ class MedicoController extends Controller
         $request->validate([
             'nombres' => 'required|unique:medicos,nombres,'.$id.',id_medico',
             'id_especialidad' => 'required',
+            'id_consultorio' => 'required',
             'ape_paterno' => 'required',
             'ape_materno' => 'required',
             'sexo' => 'required',
@@ -154,10 +163,11 @@ class MedicoController extends Controller
 
         $medicos = Medico::findOrFail($id);
         $id_user = $medicos->id_user;
-        
+        $id_consultoriovalidar=$medicos->id_consultorio;
         $medicos->update([
             'nombres' => $request->nombres,
             'id_especialidad' => $request->id_especialidad,
+            'id_consultorio' => $request->id_consultorio,
             'ape_paterno' => $request->ape_paterno,
             'ape_materno' => $request->ape_materno,
             'sexo' => $request->sexo,
@@ -166,6 +176,17 @@ class MedicoController extends Controller
             'f_nacimiento' => $request->f_nacimiento,
             'updated_at' => now()
         ]);
+
+        if($id_consultoriovalidar!=$request->id_consultorio){
+            $consultorio = Consultorio::where('id_consultorio', $id_consultoriovalidar)->FirstOrFail();
+            $consultorio->estado=1;
+            $consultorio->save();
+
+            $consultorio = Consultorio::where('id_consultorio', $request->id_consultorio)->FirstOrFail();
+            $consultorio->estado=0;
+            $consultorio->save();
+        }
+
 
         $usuario = Usuario::findOrFail($id_user);
         $usuario->update([
@@ -196,6 +217,11 @@ class MedicoController extends Controller
         $usuario->estado = 0;
         $usuario->updated_at = now();
         $usuario->save();
+
+
+        $consultorio = Consultorio::findOrFail($medico->id_consultorio);
+        $consultorio->estado=1;
+        $consultorio->save();
 
         return redirect()->route('medicos.index')->with('success', 'Medico desactivado correctamente.');
     }

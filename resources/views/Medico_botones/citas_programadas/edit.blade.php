@@ -7,9 +7,9 @@
         <div class='contenedor_todo'>
             <div class='contenedor_todo_2'>
                 <div class='contenedor_todo_3'>
-                    <form action=" {{ route('citas_programadas.store')}}" method="post">
+                    <form action=" {{ route('citas_programadas.store',$reserva->id_reserva)}}" method="post">
                         @csrf
-                        @method('POST')
+                        @method('PATCH')
                         
                         <div class='primer_content_form'>
                             <div class='primer_content_1'>

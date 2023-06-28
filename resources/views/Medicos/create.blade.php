@@ -10,37 +10,37 @@
             @csrf
             <div class='contenedor_flex'>
                 <div class="user-box">
-                    <input required="" name="nombres" type="text">
+                    <input required="" name="nombres" type="text" value="{{ old('nombres') }}">
                     <label>Nombres</label>
                 </div>
                 <div class="user-box">
-                    <input required="" name="ape_paterno" type="text">
+                    <input required="" name="ape_paterno" type="text" value="{{ old('ape_paterno') }}">
                     <label>Apellido Paterno</label>
                 </div>
             </div>
             <div class='contenedor_flex'>
                 <div class="user-box">
-                    <input required="" name="ape_materno" type="text">
+                    <input required="" name="ape_materno" type="text" value="{{ old('ape_materno') }}">
                     <label>Apellido Materno</label>
                 </div>
                 <div class="user-box">
-                    <input required="" name="dni" type="number">
+                    <input required="" name="dni" type="number" value="{{ old('dni') }}">
                     <label>DNI</label>
                 </div>
             </div>
             <div class='contenedor_flex'>
                 <div class="user-box">
-                    <input required="" name="celular" type="number">
+                    <input required="" name="celular" type="number" value="{{ old('celular') }}">
                     <label>Celular</label>
                 </div>
                 <div class="user-box">
-                    <input required="" name="f_nacimiento" type="date">
+                    <input required="" name="f_nacimiento" type="date"  value="{{ old('f_nacimiento') }}">
                     <label>Fecha Nacimiento</label>
                 </div>
             </div>
             <div class='contenedor_flex'>
                 <div class="user-box">
-                    <select name="sexo" id="sexo">
+                    <select name="sexo" id="sexo" value="{{ old('sexo') }}">
                         <option style='#ccc' value="">  SEXO</option>
                         <option value="M">Masculino</option>
                         <option value="F">Femenino</option>
@@ -48,17 +48,17 @@
                     </select>
                 </div>
                 <div class="user-box">
-                    <input required="" name="email" type="email">
+                    <input required="" name="email" type="email" value="{{ old('email') }}">
                 <label>Email</label>
                 </div>
             </div>
             <div class='contenedor_flex'>
                 <div class="user-box">
-                <input required="" name="password" type="password" >
+                <input required="" name="password" type="password" value="{{ old('password') }}" >
                 <label>Password</label>
                 </div>
                 <div class="user-box">
-                <input required="" name="password_2" type="password" >
+                <input required="" name="password_2" type="password"  value="{{ old('password_2') }}">
                 <label>Repite Password</label>
                 </div>
             </div>
@@ -71,7 +71,11 @@
                         @endforeach
                     </select>
                 </div>
+                
                 <div class="user-box">
+                    <select name="id_consultorio" id="id_consultorio">
+                        <option value="">CONSULTORIO</option>
+                    </select>
                 </div>
             </div>
             <button class='boton_send' type="submit">
@@ -88,4 +92,21 @@
         </form>
     </div>
 
+@endsection
+
+@section('scripts')
+<script>
+    const id_especialidad = document.getElementById('id_especialidad');
+    const id_consultorio = document.getElementById('id_consultorio');
+    
+    id_especialidad.addEventListener('change',async(e)=>{
+        const response = await fetch(`/api/Consultorios/${e.target.value}/especialidad`);
+		const data = await response.json();
+		let option = ``;
+		data.forEach(element=>{
+			option= option + `<option value="${element.id_consultorio}">${element.cod_habitacion}</option>`;
+		});
+		id_consultorio.innerHTML = option;
+    });
+</script>
 @endsection

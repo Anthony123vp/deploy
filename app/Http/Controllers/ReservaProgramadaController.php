@@ -13,6 +13,7 @@ use App\Models\Paciente;
 use App\Models\Insurance;
 use App\Models\Receta;
 use Carbon\Carbon;
+use App\Models\Reserva;
 class ReservaProgramadaController extends Controller
 {
     //VISTA PARA EL MEDICO SUS CITAS PROGRAMADAS
@@ -49,8 +50,12 @@ class ReservaProgramadaController extends Controller
         // return view('Medico_botones\citas_programadas\edit');
     }
 
-    public function store(Request $request)
+
+    /**Cuando se pone la clase Modelo detras de la variable */
+    public function store(Request $request,Reserva $id)
     {
+        $id->estado=0;
+        $id->save();
         $request->validate([
             'firma_base64' => 'required',
             'id_reserva' => 'required',

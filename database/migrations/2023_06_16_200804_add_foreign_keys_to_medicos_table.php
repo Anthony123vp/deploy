@@ -16,6 +16,8 @@ return new class extends Migration
         Schema::table('medicos', function (Blueprint $table) {
             $table->foreign(['id_user'], 'fk_MEDICOS_USUARIOS1')->references(['id_user'])->on('users')->onUpdate('NO ACTION')->onDelete('NO ACTION');
             $table->foreign(['id_especialidad'], 'fk_Medico_Especialidades1')->references(['id_especialidad'])->on('especialidades')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+            $table->foreign(['id_consultorio'], 'fk_Medico_Consultorios1')->references(['id_consultorio'])->on('consultorios')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+
         });
     }
 

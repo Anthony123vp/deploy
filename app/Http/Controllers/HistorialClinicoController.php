@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Paciente;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use App\Models\HistorialClinico;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Cita_Pendiente;
-class ReservaPendienteController extends Controller
+use App\Models\Paciente;
+class HistorialClinicoController extends Controller
 {
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -18,7 +18,7 @@ class ReservaPendienteController extends Controller
         $id_user=Auth::user()->id_user;
         $paciente=Paciente::where('id_user',$id_user)->firstOrFail();
         $id_paciente=$paciente->id_paciente;
-        $citas_atendidas = Cita_Pendiente::where('id_paciente',$id_paciente)->get();
-        return view ('Paciente_botones\citas_pendiente\index',['citas'=>$citas_atendidas]);
+        $citas_atendidas = HistorialClinico::where('id_paciente',$id_paciente)->get();
+        return  view('Paciente_botones\historial\index',['citas_atendidas'=>$citas_atendidas]);
     }
 }
