@@ -36,9 +36,9 @@
                 @foreach ( $horarios as $horario )
                     <tr>
                         <td>{{ $loop->iteration}}</td>
-                        <td>{{  $horario->fecha}} </td>
-                        <td> {{ $horario->hora_inicio}} </td>
-                        <td>{{ $horario->hora_final}}</td>
+                        <td>{{  date( "l,d M Y", strtotime($horario->fecha))}} </td>
+                        <td> {{ date( "g:i a", strtotime($horario->hora_inicio))}} </td>
+                        <td>{{ date( "g:i a", strtotime($horario->hora_final))}}</td>
                         <td>
                             {{ $horario->estado}}
                         </td>

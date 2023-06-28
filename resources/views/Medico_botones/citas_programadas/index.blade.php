@@ -42,11 +42,11 @@
         <dl class="post-info">
           <div class="cr">
             <dt class="dt">Fecha</dt>
-            <dd class="dd">{{$cita->fecha}}</dd>
+            <dd class="dd">{{ date( "d/m/y", strtotime($cita->fecha))}} </dd>
           </div>
           <div class="cr">
             <dt class="dt">Hora</dt>
-            <dd class="dd">{{$cita->hora_inicio}}</dd>
+            <dd class="dd">{{ date( "g:i a", strtotime($cita->hora_inicio))}} </dd>
           </div>
           <div class="cr">
             <dt class="dt">Duracion</dt>

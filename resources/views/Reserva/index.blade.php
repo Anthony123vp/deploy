@@ -40,7 +40,7 @@
                         <th> Servicio <span class="icon-arrow">&UpArrow;</span></th>
                         <th> Medico <span class="icon-arrow">&UpArrow;</span></th>
                         <th> Fecha <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Hora <span class="icon-arrow">&UpArrow;</span></th>
+                        <th> Hora Cita  <span class="icon-arrow">&UpArrow;</span></th>
                         <th> Consultorio <span class="icon-arrow">&UpArrow;</span></th>
                         <th> Estado <span class="icon-arrow">&UpArrow;</span></th>
                         <th> Acciones <span class="icon-arrow">&UpArrow;</span></th>
@@ -58,8 +58,8 @@
                             <td>{{ $reserva->especialidad }}</td>
                             <td>{{ $reserva->servicio}}</td>
                             <td>{{ $reserva->medico }}</td>
-                            <td>{{ $reserva->fecha }}</td>
-                            <td>{{ $reserva->hora_inicio }}</td>
+                            <td>{{ date( "d/m/Y", strtotime($reserva->fecha))}}</td>
+                            <td>{{ date( "g:i a", strtotime( $reserva->hora_inicio)) }}</td>
                             <td>{{ $reserva->cod_habitacion }}</td>
                             <td>
                                 @if ($reserva->estado == 1)
