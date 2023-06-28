@@ -43,11 +43,11 @@
         <dl class="post-info">
           <div class="cr">
             <dt class="dt">Fecha</dt>
-            <dd class="dd">{{$cita->fecha}}</dd>
+            <dd class="dd">{{ date( "d/m/y", strtotime($cita->fecha))}} </dd>
           </div>
           <div class="cr">
             <dt class="dt">Hora</dt>
-            <dd class="dd">{{$cita->hora_inicio}}</dd>
+            <dd class="dd">{{ date( "g:i a", strtotime($cita->hora_inicio))}} </dd>
           </div>
           <div class="cr">
             <dt class="dt">Duracion</dt>
@@ -69,7 +69,7 @@
             </a>
             <p class="name">{{$cita->servicio}} en {{$cita->especialidad}}</p>
           </div>
-          <a href="{{ route('examenes.edit', ['id' => $cita->id_paciente, 'id2' => $cita->id_reserva])}}"><div class="imagen_boton2"><i class='bx bxs-donate-heart'></i></div></a>
+          <a href="{{ route('examanes_resultado.edit', ['id' => $cita->id_paciente, 'id2' => $cita->id_reserva])}}"><div class="imagen_boton2"><i class='bx bxs-donate-heart'></i></div></a>
         </div>
           <p class="description">
             <b>Paciente |</b> {{$cita->paciente}}

@@ -46,7 +46,7 @@ class ReservaProgramadaController extends Controller
         $seguros = Insurance::findOrFail($id_insurance);
         $reserva = Cita_Pendiente::where('id_reserva', $id2)->firstOrFail();
         $horaFin = Carbon::parse($reserva->hora_inicio)->addMinutes(30);
-        return view('citas_programadas.edit', compact('pacientes', 'seguros','edad','reserva','horaFin'));
+        return view('Medico_botones\citas_programadas\edit', compact('pacientes', 'seguros','edad','reserva','horaFin'));
         // return view('Medico_botones\citas_programadas\edit');
     }
 
