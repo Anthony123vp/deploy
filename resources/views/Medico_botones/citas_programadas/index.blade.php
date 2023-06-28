@@ -34,7 +34,7 @@
             </a>
             <p class="name">{{$cita->servicio}} en {{$cita->especialidad}}</p>
           </div>
-          <a href="#"><div class="imagen_boton"><i class='bx bxs-donate-heart' ></i></div></a>
+          <a href="{{ route('citas_programadas.edit', ['id' => $cita->id_paciente, 'id2' => $cita->id_reserva])}}"><div class="imagen_boton"><i class='bx bxs-donate-heart' ></i></div></a>
         </div>
           <p class="description">
             <b>Paciente |</b> {{$cita->paciente}}

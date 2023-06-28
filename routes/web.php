@@ -16,16 +16,15 @@ use App\Http\Controllers\Servicio_especialidadController;
 use App\Http\Controllers\ServiciomedhostController; 
 
 use App\Http\Controllers\ReservaController;
-use App\Http\Controllers\ReservaPendiente;
-use App\Http\Controllers\ReservaProgramada;
+use App\Http\Controllers\ReservaPendienteController;
+use App\Http\Controllers\ReservaProgramadaController;
 use App\Http\Controllers\RecetasController;
 
 use App\Http\Controllers\AuthenthicatedSessionController;
+use App\Http\Controllers\ExamenesController;
 use App\Http\Controllers\HistorialClinicoController;
-
-
-
-
+use App\Http\Controllers\HistorialController;
+use App\Http\Controllers\TerapiaController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::view('/','MedHostPublic.home');
@@ -161,18 +160,36 @@ Route::delete('/administradores/{id}', [AdministradorController::class, 'destroy
     Route::post('/Informe',[ReservaController::class,'generateInforme'])->name('reservas.generateInforme');
 
 //Vista de botones para el paciente:
-Route::get('/citas_pendientes',[ReservaPendiente::class,'index'])->name('citas_pendiente.index');
-    //Historial Clinico Para el paciente
-    Route::get('/historial',[HistorialClinicoController::class,'index'])->name('historial.index');
+Route::get('/citas_pendientes',[ReservaPendienteController::class,'index'])->name('citas_pendiente.index');
+Route::get ('/historial',[HistorialClinicoController::class,'index'])->name('historial.index');
 
 //Vista de botones para el medico
     /*Visualizacion de citas para atender */
-    Route::get('/citas_programadas',[ReservaProgramada::class,'index'])->name('citas_programadas.index');
-    Route::get('/citas_crear', [HistorialController::class,'create'])->name('citas_crear.create');
-    Route::get('/citas_editar', [HistorialController::class,'edit'])->name('citas_editar.edit');
-    Route::post('/receta.store',[HistorialController::class, 'store'])->name('recetas.store');
+    Route::get('/citas_programadas',[ReservaProgramadaController::class,'index'])->name('citas_programadas.index');
+    Route::get('/citas_programadas/{id}/{id2}/editar', [ReservaProgramadaController::class, 'edit'])->name('citas_programadas.edit');
+    Route::put('/citas_programadas/{id}', [ReservaProgramadaController::class, 'update'])->name('citas_programadas.update');
+    Route::patch('/citas_programadas/{id}', [ReservaProgramadaController::class, 'store'])->name('citas_programadas.store');
+    // Route::get('/citas_crear', [HistorialController::class,'create'])->name('citas_crear.create');
+    // Route::get('/citas_editar', [HistorialController::class,'edit'])->name('citas_editar.edit');
+    // Route::post('/receta.store',[HistorialController::class, 'store'])->name('recetas.store');
     /*Creacion de Horarios */
-
+    
     Route::get('/horarios',[HorarioController::class,'index'])->name('Horario.index');
     Route::get('/horarios/create',[HorarioController::class,'create'])->name('Horario.create');
     Route::post('/horarios',[HorarioController::class,'store'])->name('Horario.store');
+    
+    // /*Creacion de Recetas*/
+    // // Route::get('/recetas',[RecetasController::class,'index'])->name('recetas.index');
+    // // Route::get('/recetas/create',[RecetasController::class,'create'])->name('recetas.create');
+
+    // // Route::get('/examenes',[ExamenesController::class,'index'])->name('examenes.index');
+    // // Route::get('/examenes/create',[ExamenesController::class,'create'])->name('examenes.create');
+    // // Route::get('/examenes/store',[ExamenesController::class,'store'])->name('examenes.store');
+
+    // Route::get('/terapia',[TerapiaController::class,'index'])->name('terapia.index');
+    // Route::get('/terapia/create',[TerapiaController::class,'create'])->name('terapia.create');
+    // Route::get('/terapia/store',[TerapiaController::class,'store'])->name('terapia.store');
+
+    // Route::view('/terapia', 'Medico_botones.terapia.create')->name('terapia.create');
+    // Route::view('/examenes', 'Medico_botones.examenes.create')->name('examenes.create');
+    // Route::view('/recetas', 'Medico_botones.recetas.create')->name('recetas.create');

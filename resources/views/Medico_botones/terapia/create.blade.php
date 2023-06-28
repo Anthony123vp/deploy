@@ -8,26 +8,7 @@
         <p>Nueva Terapia</p>
         <form action="{{ route('recetas.store')}}" method="POST">
             @csrf
-            <div class='contenedor_flex'>
-                <div class="user-box">
-                    <input required="" name="paciente" type="text">
-                    <label>Nombre del Paciente</label>
-                </div>
-                <div class="user-box">
-                    <input required="" name="ape_paterno" type="text">
-                    <label>Apellido Paterno</label>
-                </div>
-            </div>
-            <div class='contenedor_flex'>
-                <div class="user-box">
-                    <input required="" name="ape_materno" type="text">
-                    <label>Apellido Materno</label>
-                </div>
-                <div class="user-box">
-                    <input required="" name="dni" type="number">
-                    <label>DNI</label>
-                </div>
-            </div>
+            
             <div class='contenedor_flex'>
                 <div class="user-box">
                     <input required="" name="terapia" type="text">

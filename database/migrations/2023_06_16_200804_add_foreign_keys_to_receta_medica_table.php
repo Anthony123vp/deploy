@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('receta_medica', function (Blueprint $table) {
-            $table->foreign(['⁯id_reserva'], 'fk_receta_medica_reserva1')->references(['id_reserva'])->on('cita_medica')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+            $table->foreign(['id_reserva'], 'fk_receta_medica_reserva1')->references(['id_reserva'])->on('cita_medica')->onUpdate('NO ACTION')->onDelete('NO ACTION');
         });
     }
 

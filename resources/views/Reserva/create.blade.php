@@ -198,7 +198,7 @@
 			nombre_val = nombre_val + `${element.nombres}`;
 			ape_paterno_val = ape_paterno_val + `${element.ape_paterno}`;
 			ape_materno_val = ape_materno_val + `${element.ape_materno}`;
-			seguro_val = seguro_val + `${element.insurance}`;
+			seguro_val = seguro_val + `${element.nombre}`;
 		});
 		first_name.value = nombre_val;
 		ape_paterno.value =ape_paterno_val;

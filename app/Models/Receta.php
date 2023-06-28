@@ -12,14 +12,20 @@ class Receta extends Model
    protected $primaryKey = 'id_receta';
 
    protected $fillable = [
-        'id_reserva',
         'terapias',
         'examenes',
-        'medicinas',
-        'comentario',
+        'id_reserva',
+        'motivo_ingreso',
+        'diagnostico_ingreso',
+        'comorbilidades',
+        'procedimientos',
+        'medicamentos_recibidos',
+        'comentario_doctor',
+        'estado_paciente',
+        'medicamentos_casa',
+        'img_firma_doctor',
         'estado',
    ];
-
 //    public function reserva(){
 //     return $this->belongsTo(Reserva::class, 'id_reserva');
 //    }

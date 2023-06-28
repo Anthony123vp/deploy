@@ -9,6 +9,7 @@ use App\Models\Especialidad;
 use App\Models\Servicio;
 use App\Models\Medico;
 use App\Models\Consultorio;
+use App\Models\Insurance;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Ramsey\Uuid\Type\Integer;
@@ -19,14 +20,15 @@ class ReservaController extends Controller
         $consulta = DB::select("SELECT * FROM SERVICIOMEDHOST where  id_servicio=$servicio and id_especialidad=$especialidad");
         return response()->json($consulta);
     }
- 
+    
     public function PrecioServicio($id){
         $consulta = DB::select("SELECT precio FROM SERVICIOMEDHOST where id_servicio_medhost=$id");
         return response()->json($consulta);
     }
-
+    
     public function InformacionPaciente(String $dni){
-        $paciente = Paciente::where('dni',$dni)->get();
+        $paciente = DB::select("SELECT * FROM paciente INNER JOIN insurances ON (paciente.id_insurance = insurances.id_insurance) where  dni=$dni");
+        // $paciente = Paciente::where('dni',$dni)->get();
         return response()->json($paciente);
     }
 

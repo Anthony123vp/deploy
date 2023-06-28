@@ -4,7 +4,7 @@
 @endsection
 @section('content')
 <div class="citas_pendientes">
-  @foreach ($citas as  $cita)
+  @foreach ($citas_atendidas as  $cita)
         <div class="cita">
           <div class="informacion">
             <h3>{{ $cita->servicio }}</h3>

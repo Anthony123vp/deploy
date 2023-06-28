@@ -10,71 +10,46 @@
         @csrf
         <div class='contenedor_flex'>
             <div class="user-box">
-                <input required="" name="nombres" type="text">
-                <label>Nombres</label>
+                <input required="" name="diagnostico" type="text">
+                <label>Diagnostico</label>
             </div>
             <div class="user-box">
-                <input required="" name="ape_paterno" type="text">
-                <label>Apellido Paterno</label>
-            </div>
-        </div>
-        <div class='contenedor_flex'>
-            <div class="user-box">
-                <input required="" name="ape_materno" type="text">
-                <label>Apellido Materno</label>
-            </div>
-            <div class="user-box">
-                <input required="" name="dni" type="number">
-                <label>DNI</label>
-            </div>
-        </div>
-        <div class='contenedor_flex'>
-            <div class="user-box">
-                <input required="" name="consultorio" type="text">
-                <label>Consultorio</label>
-            </div>
-            <div class="user-box">
-                <input required="" name="discapacidad" type="text">
-                <label>Discapacidad</label>
-            </div>
-        </div>
-        <div class='contenedor_flex'>
-            <div class="user-box">
-                <input required="" name="medicamentos" type="text">
-                <label>Medicamentos</label>
-            </div>
-            <div class="user-box">
-                <input required="" name="terapias" type="text">
+                <input required="" name="terapia" type="text">
                 <label>Terapias</label>
+            </div>
+        </div>
+        <div class='contenedor_flex'>
+            <div class="user-box">
+                <input required="" name="examenes" type="text">
+                <label>Examenes</label>
+            </div>
+            <div class="user-box">
+                <input required="" name="medicinas" type="text">
+                <label>Medicinas</label>
+            </div>
+        </div>
+        <div class='contenedor_flex'>
+            <div class="user-box">
+                <input required="" name="recomendacion" type="text">
+                <label>Recomendacion</label>
+            </div>
+            <div class="user-box">
+                <input required="" name="prescripcion" type="text">
+                <label>Prescripcion</label>
             </div>
         </div>
 
         <div class='contenedor_flex'>
             <div class="user-box">
             <textarea name="comentario" id="" cols="50" rows="5" placeholder="Se solicita"></textarea>
-                <label  style="top:-30px">Prescripcion</label>
+                <label  style="top:-30px">Comentario</label>
             </div>
             
-            <div class="user-box">
-                <input required="" name="diagnostico" type="text">
-                <label>Diagnostico</label>
-            </div>
-        </div>
-        <div class='contenedor_flex'>
-            <div class="user-box">
-                <select name="medico" id="id_medico">
-                    <option value="">Medico</option>
-                    @foreach ($medicos as $medico)
-                        <option value="{{ $medico->id_medico }}">{{ $medico->nombres }}</option>
-                    @endforeach
-                </select>
-            </div>
             <div class="user-box">
                 <input required="" name="fecha" type="date">
                 <label  style="top:-25px">Fecha de la receta</label>
             </div>
         </div>
-        
         <button class='boton_send' type="submit" style="margin-left: 610px ">
             <div class="svg-wrapper-1">
                 <div class="svg-wrapper">
@@ -86,6 +61,16 @@
             </div>
             <span>Enviar</span>
         </button>
+        {{-- <div class='contenedor_flex'>
+            <div class="user-box">
+                <select name="medico" id="id_medico">
+                    <option value="">Medico</option>
+                    @foreach ($medicos as $medico)
+                        <option value="{{ $medico->id_medico }}">{{ $medico->nombres }}</option>
+                    @endforeach
+                </select>
+            </div> --}}
+        </div>
     </form>
 </div>
 @endsection

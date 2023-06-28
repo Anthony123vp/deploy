@@ -21,18 +21,18 @@ class RecetasController extends Controller
 
     public function create(){
         $pacientes = DB::select("SELECT * FROM paciente");
-return view('Medico_botones/recetas/create', ['pacientes' => $pacientes]);
+        return view('Medico_botones/recetas/create', ['pacientes' => $pacientes]);
     }
 
     public function store(Request $request)
     {
         $request->validate([
             // 'paciente'=>'required',
-            'dni'=>'required',
+            'diagnostico'=>'required',
             'terapias'=>'required',
             'examenes'=>'required',
             'medicinas'=>'required',
-            'comentario'=>'required'
+            'recomendacion'=>'required'
         ]);
 
         $id_reserva = 1; // Reemplaza 123 con el ID de la reserva que deseas obtener
@@ -45,11 +45,16 @@ return view('Medico_botones/recetas/create', ['pacientes' => $pacientes]);
         $receta_nueva= new Receta();
         $receta_nueva->id_reserva = $reserva;
         $receta_nueva->paciente= $request->paciente;
-        $receta_nueva->dni = $request->dni;
-        $receta_nueva->terapias= $request->terapias;
+        $receta_nueva->diagnostico = $request->dni;
+        $receta_nueva->terapia= $request->terapia;
         $receta_nueva->examenes= $request->examenes;
         $receta_nueva->medicinas= $request->medicinas;
+        $receta_nueva->recomendacion= $request->recomendacion;
+        $receta_nueva->prescripcion= $request->prescripcion;
         $receta_nueva->comentario= $request->comentario;
+        $receta_nueva->fecha= $request->fecha;
+        
+        
         $receta_nueva -> save();
         return redirect()->route('recetas.index', $receta_nueva);
     }
