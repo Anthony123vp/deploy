@@ -7,7 +7,7 @@
         <div class='contenedor_todo'>
             <div class='contenedor_todo_2'>
                 <div class='contenedor_todo_3'>
-                    <form action=" {{ route('citas_programadas.store',$reserva->id_reserva)}}" method="post">
+                    <form action=" {{ route('terapias.store',$reserva->id_reserva)}}" method="post">
                         @csrf
                         @method('PATCH')
                         
@@ -45,8 +45,8 @@
                                     <div class='primer_content_2_2_div_2_1'><b>HC:</b> {{ rand(1000, 5000) }}</div>
                                 </div>
                                 <div class='primer_content_2_2 primer_content_2_2_div_2'>
-                                    <div class='primer_content_2_2_div_2_1'><b>FECHA-INICIO:</b>{{ date( "d/m/Y", strtotime($reserva->fecha))}}-{{ date( "g:i a", strtotime( $reserva->hora_inicio)) }}</div>
-                                    <div class='primer_content_2_2_div_2_1'><b>FECHA-FIN:</b> {{ date( "d/m/Y", strtotime($reserva->fecha))}}-{{ date( "g:i a", strtotime( $horaFin)) }}</div>
+                                    <div class='primer_content_2_2_div_2_1'><b>FECHA-INICIO:</b> {{ $reserva->fecha }} {{ $reserva->hora_inicio }}</div>
+                                    <div class='primer_content_2_2_div_2_1'><b>FECHA-FIN:</b> {{ $reserva->fecha }} {{ $horaFin }}</div>
                                 </div>
                             </div>
                         </div>
@@ -61,47 +61,30 @@
                         <div class='tercero_content_form'>
                             <div class='case1'><b>RESUMEN DE ATENCIÓN</b></div><br>
                             <div class='case2'>
-                                <div class='case2_1'><b>MOTIVO DE INGRESO</b></div>
-                                <div class='case2_2'><textarea placeholder='Ingresa el motivo de ingreso del paciente' name="motivo_ingreso" id="" require></textarea></div>
+                                <div class='case2_1'><b>OBJETIVOS DEL TRATAMIENTO</b></div>
+                                <div class='case2_2'><textarea placeholder='Ingresa los signo vitales del paciente' name="objetivos_tratamiento" id="" require></textarea></div>
                                 <input type="hidden" name='id_reserva' value='{{$reserva->id_reserva}}'>
                             </div><br>
                             <div class='case3'>
-                                <div class='case3_1'><b>DIAGNOSTICO DE INGRESO</b></div>
-                                <div class='case3_2'><textarea  require placeholder='Ingresa el diagnostico de ingreso del paciente' name="diagnostico_ingreso" id=""></textarea></div>
+                                <div class='case3_1'><b>MODALIDAD DE TERAPIA RECOMENDADA</b></div>
+                                <div class='case3_2'><textarea  require placeholder='Ingresa resultado del sistema cardiovascular del paciente' name="modalidad_terapia" id=""></textarea></div>
                             </div><br>
                             <div class='case3'>
-                                <div class='case3_1'><b>COMORBILIDADES</b></div>
-                                <div class='case3_2'><textarea require placeholder='Ingresa comorbilidades del paciente' name="comorbilidades" id=""></textarea></div>
-                            </div><br>
-                            <div class='case2'>
-                                <div class='case2_1'><b>PROCEDIMIENTOS</b></div>
-                                <div class='case2_2'><textarea require placeholder='Ingresa los procedimientos durante la cita' name="procedimientos" id=""></textarea></div>
-                            </div><br>
-                            <div class='case2'>
-                                <div class='case2_1'><b>MEDICAMENTOS RECIBIDOS</b></div>
-                                <div class='case2_2'><textarea require placeholder='Ingresa los medicamentos recibidos durante la cita' name="medicamentos_recibidos" id=""></textarea></div>
+                                <div class='case3_1'><b>FRECUENCIA DE SESIONES</b></div>
+                                <div class='case3_2'><textarea  require placeholder='Ingresa resultado del sistema cardiovascular del paciente' name="frecuencia_sesiones" id=""></textarea></div>
                             </div><br>
                             <div class='case3'>
-                                <div class='case3_1'><b>COMENTARIOS DEL DOCTOR</b></div>
-                                <div class='case3_2'><textarea require placeholder='Ingresa comentarios sobre el paciente' name="comentario_doctor" id=""></textarea></div>
-                            </div><br>
-                            <div class='case3'>
-                                <div class='case3_1'><b>Estado del paciente</b></div>
-                                <div class='case3_2'><textarea require  placeholder='Ingresar estado del paciente' name="estado_paciente" id=""></textarea></div>
-                            </div><br>
-                            <div class='case1'><b>INSTRUCCIONES DE SEGUIMIENTO</b></div><br>
-                            <div class='case2'>
-                                <div class='case2_1'><b>MEDICAMENTOS PARA CASA</b></div>
-                                <div class='case2_2'><textarea placeholder='Ingresar medicamentos requeridos para el paciente'  name="medicamentos_casa" id=""></textarea></div>
+                                <div class='case3_1'><b>DURACION ESTIMADA DEL TRATAMIENTO</b></div>
+                                <div class='case3_2'><textarea require placeholder='Ingresa resultado del sistema gastrointestinal del paciente' name="duracion_tratamiento" id=""></textarea></div>
                             </div><br>
                             <div class='case2'>
-                                <div class='case2_1'><b>TERAPIAS REQUERIDAS</b></div>
-                                <div class='case2_2'><textarea placeholder='Ingresar terapias requeridos para el paciente'  name="terapias" id=""></textarea></div>
+                                <div class='case2_1'><b>INTERVENCIONES TERAPEUTICAS SUGERIDAD</b></div>
+                                <div class='case2_2'><textarea require placeholder='Ingresa resultado del sistema musculoesqueletico del paciente' name="intervenciones_terapeuticas" id=""></textarea></div>
                             </div><br>
                             <div class='case2'>
-                                <div class='case2_1'><b>EXAMENES REQUERIDAS</b></div>
-                                <div class='case2_2'><textarea placeholder='Ingresar exámenes requeridos para el paciente'  name="examenes" id=""></textarea></div>
-                            </div>
+                                <div class='case2_1'><b>RECOMENDACIONES DEL MEDICO</b></div>
+                                <div class='case2_2'><textarea require placeholder='Ingresa resultado del sistema nervioso del paciente' name="recomendaciones" id=""></textarea></div>
+                            </div><br>
                         </div>
                         <br>
                         <br>
@@ -115,7 +98,7 @@
                             </div>
                             <br>
                             <div>
-                                DESPUÉS DE UNA CITA MÉDICA, DEBES PRESTAR ATENCIÓN A SIGNOS DE ALARMA COMO DIFICULTAD PARA RESPIRAR, DOLOR INTENSO E INCONTROLABLE, SANGRADO INUSUAL Y FIEBRE ALTA. TAMBIÉN DEBES ESTAR ALERTA A SÍNTOMAS DE INFECCIÓN, CAMBIOS REPENTINOS EN LA VISIÓN O AUDICIÓN, Y REACCIONES ALÉRGICAS GRAVES. SI EXPERIMENTAS ALGUNO DE ESTOS SÍNTOMAS, BUSCA AYUDA MÉDICA DE INMEDIATO.
+                                DESPUÉS DE UNA SESION MÉDICA, DEBES PRESTAR ATENCIÓN A SIGNOS DE ALARMA COMO DIFICULTAD PARA RESPIRAR, DOLOR INTENSO E INCONTROLABLE, SANGRADO INUSUAL Y FIEBRE ALTA. TAMBIÉN DEBES ESTAR ALERTA A SÍNTOMAS DE INFECCIÓN, CAMBIOS REPENTINOS EN LA VISIÓN O AUDICIÓN, Y REACCIONES ALÉRGICAS GRAVES. SI EXPERIMENTAS ALGUNO DE ESTOS SÍNTOMAS, BUSCA AYUDA MÉDICA DE INMEDIATO.
                             </div>
                         </div>
                         <br>
@@ -136,7 +119,7 @@
                         <br>
                         <div class='enviar_receta'>
                             <button id="btn_receta" type='submit'>
-                                Enviar Receta
+                                Enviar Examen
                             </button>
                         </div>
                         @if ($errors->any())
@@ -152,8 +135,6 @@
                 </div>
             </div>
         </div>
-
-
         <script>
             function loadImage(url) {
                 return new Promise(resolve => {

@@ -10,11 +10,11 @@ use App\Models\Medico;
 use App\Models\Cita_Pendiente;
 use App\Models\Paciente;
 use App\Models\Insurance;
-use App\Models\Examen;
+use App\Models\Terapia;
 use Carbon\Carbon;
 use App\Models\Reserva;
 
-class ExamenesController extends Controller
+class TerapiasController extends Controller
 {
 
     public function __construct()
@@ -50,7 +50,7 @@ class ExamenesController extends Controller
         $seguros = Insurance::findOrFail($id_insurance);
         $reserva = Cita_Pendiente::where('id_reserva', $id2)->firstOrFail();
         $horaFin = Carbon::parse($reserva->hora_inicio)->addMinutes(30);
-        return view('Medico_botones\examenes\edit', compact('pacientes', 'seguros','edad','reserva','horaFin'));
+        return view('Medico_botones\terapias\edit', compact('pacientes', 'seguros','edad','reserva','horaFin'));
         // return view('Medico_botones\citas_programadas\edit');
     }
 
@@ -62,17 +62,13 @@ class ExamenesController extends Controller
         $request->validate([
             'id_reserva' => 'required',
             'firma_base64' => 'required',
-            'signos_vitales' => 'required',
-            'sistema_gastrointestinal' => 'required',
-            'sistema_cardiovascular' => 'required',
-            'sistema_musculoesqueletico' => 'required',
-            'sistema_nervioso' => 'required',
-            'sistema_endocrino' => 'required',
-            'sistema_genitourinario' => 'required',
-            'sistema_inmunologico' => 'required',
-            'sistema_mental' => 'required',
+            'objetivos_tratamiento' => 'required',
+            'modalidad_terapia' => 'required',
+            'frecuencia_sesiones' => 'required',
+            'duracion_tratamiento' => 'required',
+            'intervenciones_terapeuticas' => 'required',
+            'recomendaciones' => 'required',
         ]);
-
 
             $firmaBase64 = $request->input('firma_base64');
             $nombreArchivo = 'firma_' . time() . '.png';
@@ -84,22 +80,19 @@ class ExamenesController extends Controller
             // dd($firmaBase64, $nombreArchivo, $rutaArchivo,$explotado_aux, $decode_64);
 
 
-            Examen::create([
+            Terapia::create([
             'id_reserva' => $request->id_reserva,
             'img_firma_doctor' => $nombreArchivo,
-            'signos_vitales' => $request->signos_vitales,
-            'sistema_gastrointestinal' => $request->sistema_gastrointestinal,
-            'sistema_cardiovascular' => $request->sistema_cardiovascular,
-            'sistema_musculoesqueletico' => $request->sistema_musculoesqueletico,
-            'sistema_nervioso' => $request->sistema_nervioso,
-            'sistema_endocrino' => $request->sistema_endocrino,
-            'sistema_genitourinario' => $request->sistema_genitourinario,
-            'sistema_inmunologico' => $request->sistema_inmunologico,
-            'sistema_mental' => $request->sistema_mental,
+            'objetivos_tratamiento' => $request->objetivos_tratamiento,
+            'modalidad_terapia' => $request->modalidad_terapia,
+            'frecuencia_sesiones' => $request->frecuencia_sesiones,
+            'duracion_tratamiento' => $request->duracion_tratamiento,
+            'intervenciones_terapeuticas' => $request->intervenciones_terapeuticas,
+            'recomendaciones' => $request->recomendaciones,
             'estado' => 1,
         ]);
 
 
-        return redirect()->route('citas_programadas.index')->with('success', 'Resultado Examen creada correctamente.');
+        return redirect()->route('citas_programadas.index')->with('success', 'Resultado Terapia creada correctamente.');
     }
 }
