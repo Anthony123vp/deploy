@@ -163,6 +163,10 @@ Route::delete('/administradores/{id}', [AdministradorController::class, 'destroy
 Route::get('/citas_pendientes',[ReservaPendienteController::class,'index'])->name('citas_pendiente.index');
 Route::get ('/historial',[HistorialClinicoController::class,'index'])->name('historial.index');
 Route::get('/cita_medica_resultado/{id}',[HistorialClinicoController::class,'getResultadoCitaMedica'])->name('ResultadoCitaMedica');
+Route::get('/examen_resultado/{id}',[HistorialClinicoController::class,'getResultadoExamen'])->name('ResultadoExamen');
+Route::get('/terapia_resultado/{id}',[HistorialClinicoController::class,'getResultadoTerapia'])->name('ResultadoTerapia');
+
+
 //Vista de botones para el medico
     /*Visualizacion de citas para atender */
     Route::get('/citas_programadas',[ReservaProgramadaController::class,'index'])->name('citas_programadas.index');

@@ -60,7 +60,7 @@
         </dl>
       </div> 
       
-      @elseif($citas_atendidas ->servicio == 'Examen')   
+      @elseif($cita ->servicio == 'Examen')   
       <div class="card">
         <div class="header">
           <div>
@@ -69,7 +69,7 @@
             </a>
             <p class="name">{{$cita->servicio}} en {{$cita->especialidad}}</p>
           </div>
-          <a href="{{ route('ResultadoCitaMedica',$cita->id_reserva)}}"><div class="imagen_boton2"><i class='bx bxs-left-arrow bx-rotate-180' ></i></div></a>
+          <a href="{{ route('ResultadoExamen',$cita->id_reserva)}}"><div class="imagen_boton2"><i class='bx bxs-left-arrow bx-rotate-180' ></i></div></a>
         </div>
           <p class="description">
             <b>Paciente |</b> {{$cita->paciente}}
@@ -93,7 +93,7 @@
           </div>
         </dl>
       </div> 
-      @elseif($citas_atendidas ->servicio == 'Terapia')   
+      @elseif($cita ->servicio == 'Terapia')   
       <div class="card">
         <div class="header">
           <div>
@@ -102,7 +102,7 @@
             </a>
             <p class="name">{{$cita->servicio}} en {{$cita->especialidad}}</p>
           </div>
-          <a href="{{ route('ResultadoCitaMedica',$cita->id_reserva)}}"><div class="imagen_boton2"><i class='bx bxs-left-arrow bx-rotate-180' ></i></div></a>
+          <a href="{{ route('ResultadoTerapia',$cita->id_reserva)}}"><div class="imagen_boton2"><i class='bx bxs-left-arrow bx-rotate-180' ></i></div></a>
         </div>
           <p class="description">
             <b>Paciente |</b> {{$cita->paciente}}

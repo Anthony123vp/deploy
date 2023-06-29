@@ -16,7 +16,7 @@ return new class extends Migration
     {
         Schema::create('reserva', function (Blueprint $table) {
             $table->unsignedBigInteger('id_reserva')->primary();
-            $table->bigInteger('id_paciente')->nullable();
+            $table->bigInteger('id_paciente');
             $table->string('paciente', 100);
             $table->char('dni',8);
             $table->char('sexo',1);

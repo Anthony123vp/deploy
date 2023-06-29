@@ -18,6 +18,10 @@ class ReservaController extends Controller
 {
 
     
+
+
+
+    
     
     public function Tipo_Servicio($servicio,$especialidad){
         $consulta = DB::select("SELECT * FROM SERVICIOMEDHOST where  id_servicio=$servicio and id_especialidad=$especialidad");

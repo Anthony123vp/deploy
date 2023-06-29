@@ -7,6 +7,8 @@ use App\Models\HistorialClinico;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Paciente;
 use App\Models\Cita_Medica_Historial;
+use App\Models\Examen_Historial;
+use App\Models\Terapia_Historial;
 class HistorialClinicoController extends Controller
 {
 
@@ -26,6 +28,18 @@ class HistorialClinicoController extends Controller
     public function getResultadoCitaMedica(HistorialClinico $id){
         $resultado=Cita_Medica_Historial::where('id_reserva',$id->id_reserva)->FirstOrFail();
          
-        return view('Paciente_botones\resultados\index',['reserva'=>$id,'resultado'=>$resultado]);
+        return view('Paciente_botones\resultados\cita',['reserva'=>$id,'resultado'=>$resultado]);
+    }
+
+    public function getResultadoExamen(HistorialClinico $id){
+        $resultado=Examen_Historial::where('id_reserva',$id->id_reserva)->FirstOrFail();
+         
+        return view('Paciente_botones\resultados\examen',['reserva'=>$id,'resultado'=>$resultado]);
+    }
+
+    public function getResultadoTerapia(HistorialClinico $id){
+        $resultado=Terapia_Historial::where('id_reserva',$id->id_reserva)->FirstOrFail();
+         
+        return view('Paciente_botones\resultados\terapia',['reserva'=>$id,'resultado'=>$resultado]);
     }
 }
