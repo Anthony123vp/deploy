@@ -33,12 +33,11 @@
         <div class="login">
             <h2>INICIAR SESIÓN</h2>
             <div  class="inputbox">
-                <input type="text" name="email" placeholder="EMAIL">
+                <input type="text" name="email"  placeholder="EMAIL">
                 @error('email')
                 {{ $message}}
                 @enderror
                   <input type="password" name="password" placeholder="PASSWORD">
-
               </div>
               <p>FORGET PASSWORD?</p>
           <!-- <button type="submit">LOG IN</button> -->
