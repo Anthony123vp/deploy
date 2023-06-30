@@ -16,6 +16,7 @@ class HorarioController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+
     }
 
     public function index()
@@ -33,6 +34,9 @@ class HorarioController extends Controller
      */
     public function create()
     {
+        if (Auth::user()->id_rol!=4){
+            return redirect('Dashboard');
+        }
         return view('Medico_botones/horario/create');
     }
 
