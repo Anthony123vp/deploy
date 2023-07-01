@@ -30,7 +30,5 @@ class MedicosSeeder extends Seeder
         $medico->created_at = now();
         $medico->updated_at = now();
         $medico->save();
-        DB::statement('SET FOREIGN_KEY_CHECKS=1');
-        DB::statement("UPDATE Consultorios set estado=0 where id_consultorio=1");
-    }
+        DB::statement('SET FOREIGN_KEY_CHECKS=1');    }
 }
