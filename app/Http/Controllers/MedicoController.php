@@ -20,13 +20,13 @@ class MedicoController extends Controller
     public function index()
     {
         $medicos = Medico::with('especialidad','consultorio')->get();
-        return view('medicos.index', compact('medicos'));
+        return view('Medicos.index', compact('medicos'));
     }
 
     public function create()
     {
         $especialidades = Especialidad::all();
-        return view('medicos.create', compact('especialidades'));
+        return view('Medicos.create', compact('especialidades'));
     }
 
     public function store(Request $request)

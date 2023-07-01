@@ -18,7 +18,7 @@
     <script src="js/script2.js" defer></script>
     <style>@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 </style>
-    <link rel="stylesheet" href="css/about_our.css">
+    <link rel="stylesheet" href="/css/about_our.css">
 
        <!--!Boxicons CSS -->
   <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
