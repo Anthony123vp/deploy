@@ -1,7 +1,7 @@
 @extends('layoutssistema.navbar')
 @section('content')
 
-        <link rel="stylesheet" href="{{ asset('css/recetas_create.css') }}">
+        <link rel="stylesheet" href="/css/recetas_create.css">
         <script src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
 
         <div class='contenedor_todo'>

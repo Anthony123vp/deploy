@@ -65,12 +65,12 @@ return [
 
         'medhosthistorial' => [
             'driver' => 'mysql',
-            'url' => env('mysql://uxfjvd5gkci8ygnb:nAZB5AgYIPIYSXWpeIxO@b47k5tskyovfotyus40r-mysql.services.clever-cloud.com:3306/b47k5tskyovfotyus40r'),
-            'host' => env('DB_HOST2', 'b47k5tskyovfotyus40r-mysql.services.clever-cloud.com'),
-            'port' => env('DB_PORT2', '3306'),
-            'database' => env('DB_DATABASE2','b47k5tskyovfotyus40r'),
-            'username' => env('DB_USERNAME2','uxfjvd5gkci8ygnb'),
-            'password' => env('DB_PASSWORD2', 'nAZB5AgYIPIYSXWpeIxO'),
+            'url' => env('mysql://root:FkxJy13IYvikcSuFPeW7@containers-us-west-33.railway.app:6865/railway'),
+            'host' => env('DB_HOST2', 'containers-us-west-33.railway.app'),
+            'port' => env('DB_PORT2', '6865'),
+            'database' => env('DB_DATABASE2','railway'),
+            'username' => env('DB_USERNAME2','root'),
+            'password' => env('DB_PASSWORD2', 'FkxJy13IYvikcSuFPeW7'),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
